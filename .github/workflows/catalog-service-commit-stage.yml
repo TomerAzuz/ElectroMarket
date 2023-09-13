@@ -4,7 +4,7 @@ on:
     branches:
       - main
     paths:
-      - 'catalog-service/**'
+      - 'catalog/**'
 
 jobs:
   build:
@@ -21,8 +21,8 @@ jobs:
         uses: actions/setup-java@v2
         with:
           distribution: 'temurin'
-          java-version: '20'
-          node-version: '16'
+          java-version: '17'
+          cache: gradle
 
       - name: Code vulnerability scanning
         uses: anchore/scan-action@v3
@@ -34,6 +34,6 @@ jobs:
 
       - name: Build, unit test, and integration tests
         run: |
-          cd catalog-service
-          chmod +x mvnw
-          ./mvnw install
+          cd catalog
+          chmod +x gradlew
+          ./gradlew build
