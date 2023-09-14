@@ -12,6 +12,7 @@ services:
       - BPL_JVM_THREAD_COUNT=50
       - BPL_DEBUG_ENABLED=true
       - BPL_DEBUG_PORT=8001
+      - SPRING_CLOUD_CONFIG_URI=http://config-service:8888
       - SPRING_DATASOURCE_URL=jdbc:postgresql://electro-postgres:5432/electrodb_catalog
       - SPRING_PROFILES_ACTIVE=testdata
 
