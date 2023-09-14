@@ -4,7 +4,7 @@ on:
     branches:
       - main
     paths:
-      - 'catalog/**'
+      - 'catalog-service/**'
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: tomerazuz/catalog-service
@@ -38,7 +38,7 @@ jobs:
 
       - name: Build, unit tests, and integration tests
         run: |
-          cd catalog
+          cd catalog-service
           chmod +x gradlew
           ./gradlew build
   package:
@@ -61,7 +61,7 @@ jobs:
           cache: gradle
       - name: Build container image
         run: |
-          cd catalog
+          cd catalog-service
           chmod +x gradlew
           ./gradlew bootBuildImage \
             --imageName ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}
