@@ -9,12 +9,12 @@ server:
 
 spring:
   application:
-    name: config
+    name: config-service
   cloud:
     config:
       server:
         git:
-          uri: https://github.com/TomerAzuz/ElectroMarket.git
+          uri: https://github.com/TomerAzuz/E-commerce.git
           search-paths: config-repo
           default-label: main
           timeout: 5
