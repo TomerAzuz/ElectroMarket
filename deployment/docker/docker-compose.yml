@@ -1,10 +1,10 @@
 version: "3.8"
 services:
-  catalog:
+  catalog-service:
     depends_on:
       - electro-postgres
     image: catalog
-    container_name: catalog
+    container_name: catalog-service
     ports:
       - "9001:9001"
       - "8001:8001"
@@ -14,6 +14,17 @@ services:
       - BPL_DEBUG_PORT=8001
       - SPRING_DATASOURCE_URL=jdbc:postgresql://electro-postgres:5432/electrodb_catalog
       - SPRING_PROFILES_ACTIVE=testdata
+
+  config-service:
+    image: "config-service"
+    container_name: "config-service"
+    ports:
+      - "8888:8888"
+      - "9888:9888"
+    environment:
+      - BPL_JVM_THREAD_COUNT=50
+      - BPL_DEBUG_ENABLED=true
+      - BPL_DEBUG_PORT=9888
 
   electro-postgres:
     image: "postgres:14.4"
