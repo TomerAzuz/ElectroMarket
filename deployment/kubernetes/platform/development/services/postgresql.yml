@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: electro-postgres
+  labels:
+    db: electro-postgres
+spec:
+  selector:
+    matchLabels:
+      db: electro-postgres
+  template:
+    metadata:
+      labels:
+        db: electro-postgres
+    spec:
+      containers:
+        - name: electro-postgres
+          image: postgres:14.4
+          env:
+            - name: POSTGRES_USER
+              value: user
+            - name: POSTGRES_PASSWORD
+              value: password
+            - name: POSTGRES_DB
+              value: electrodb_catalog
+          resources:
+            requests:
+              cpu: 100m
+              memory: 60Mi
+            limits:
+              cpu: 200m
+              memory: 120Mi
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: electro-postgres
+  labels:
+    db: electro-postgres
+spec:
+  type: ClusterIP
+  selector:
+    db: electro-postgres
+  ports:
+    - protocol: TCP
+      port: 5432
+      targetPort: 5432
