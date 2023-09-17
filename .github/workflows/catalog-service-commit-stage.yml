@@ -36,6 +36,12 @@ jobs:
           fail-build: false
           severity-cutoff: high
 
+      - name: Build, unit tests, and integration tests
+        run: |
+          cd catalog-service
+          chmod +x gradlew
+          ./gradlew build
+
       - name: Validate Kubernetes manifests
         uses: stefanprodan/kube-tools@v1
         with:
@@ -43,12 +49,6 @@ jobs:
           kubeval: 0.16.1
           command: |
             kubeval --strict -d k8s
-
-      - name: Build, unit tests, and integration tests
-        run: |
-          cd catalog-service
-          chmod +x gradlew
-          ./gradlew build
   package:
     name: Package and Publish
     if: ${{ github.ref == 'refs/heads/main' }}
