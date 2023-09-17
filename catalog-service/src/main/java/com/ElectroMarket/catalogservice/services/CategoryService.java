@@ -23,6 +23,9 @@ public class CategoryService {
         return categoryRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("category", id));
     }
 
+    public Category getCategoryByName(String categoryName)  {
+        return categoryRepository.findByName(categoryName).orElseThrow(() -> new ResourceNotFoundException("category", null));
+    }
 
     public Category createCategory(Category category)   {
         categoryRepository.findByName(category.name()).ifPresent(existingCategory -> {
@@ -47,5 +50,4 @@ public class CategoryService {
     public void deleteCategoryById(Long id) {
         categoryRepository.deleteById(id);
     }
-
 }

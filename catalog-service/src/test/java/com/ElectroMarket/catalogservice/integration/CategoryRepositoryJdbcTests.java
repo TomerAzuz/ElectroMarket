@@ -3,6 +3,7 @@ package com.ElectroMarket.catalogservice.integration;
 import com.ElectroMarket.catalogservice.config.DataConfig;
 import com.ElectroMarket.catalogservice.models.Category;
 import com.ElectroMarket.catalogservice.repositories.CategoryRepository;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.jdbc.DataJdbcTest;
@@ -30,7 +31,6 @@ public class CategoryRepositoryJdbcTests {
     @Autowired
     private JdbcAggregateTemplate jdbcAggregateTemplate;
 
-
     @Test
     void findAllCategories()    {
         categoryRepository.deleteAll();
@@ -52,7 +52,6 @@ public class CategoryRepositoryJdbcTests {
     void findCategoryByName()  {
         var category = Category.of("Smartphones", null);
         jdbcAggregateTemplate.insert(category);
-
         Optional<Category> actualCategory = categoryRepository.findByName(category.name());
 
         assertThat(actualCategory).isPresent();
@@ -68,6 +67,20 @@ public class CategoryRepositoryJdbcTests {
         assertThat(savedCategory).isNotNull();
         assertThat(savedCategory.id()).isNotNull();
         assertThat(savedCategory.name()).isEqualTo(category.name());
+    }
+
+    @Test
+    void updateCategory()   {
+        categoryRepository.deleteAll();
+        var category = Category.of("Laptops", null);
+
+        jdbcAggregateTemplate.insert(category);
+        categoryRepository.updateByName(category.name(), "Headphones");
+
+        Optional<Category> newCategory = categoryRepository.findByName("Headphones");
+        assertThat(newCategory).isPresent();
+        assertThat(newCategory.get().id()).isNotNull();
+        assertThat(newCategory.get().name()).isEqualTo("Headphones");
     }
 
     @Test

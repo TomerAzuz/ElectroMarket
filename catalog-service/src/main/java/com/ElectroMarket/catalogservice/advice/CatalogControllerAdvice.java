@@ -1,4 +1,4 @@
-package com.ElectroMarket.catalogservice.controllers.advice;
+package com.ElectroMarket.catalogservice.advice;
 
 import com.ElectroMarket.catalogservice.exceptions.ResourceAlreadyExistsException;
 import com.ElectroMarket.catalogservice.exceptions.ResourceNotFoundException;

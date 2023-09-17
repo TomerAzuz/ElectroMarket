@@ -1,5 +1,6 @@
 package com.ElectroMarket.catalogservice.services;
 
+import com.ElectroMarket.catalogservice.models.Category;
 import com.ElectroMarket.catalogservice.models.Product;
 import com.ElectroMarket.catalogservice.exceptions.ResourceAlreadyExistsException;
 import com.ElectroMarket.catalogservice.exceptions.ResourceNotFoundException;
@@ -13,7 +14,6 @@ import java.util.List;
 public class ProductService {
     private final ProductRepository productRepository;
     private final CategoryRepository categoryRepository;
-
 
     public ProductService(ProductRepository productRepository, CategoryRepository categoryRepository) {
         this.productRepository = productRepository;
@@ -39,9 +39,10 @@ public class ProductService {
         return productRepository.save(product);
     }
 
-    public List<Product> viewProductsByCategory(Long id)  {
-        categoryRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("category", id));
-        return productRepository.findByCategoryId(id);
+    public List<Product> viewProductsByCategory(String categoryName)  {
+        Category category = categoryRepository.findByName(categoryName)
+                .orElseThrow(() -> new ResourceNotFoundException("category", null));
+        return productRepository.findProductsByCategory(category.id());
     }
 
     public void removeProductFromCatalog(Long id)  {

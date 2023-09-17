@@ -10,8 +10,13 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Optional;
 
 public interface CategoryRepository extends CrudRepository<Category, Long> {
-    @Query("SELECT * FROM category WHERE name = :name")
     Optional<Category> findByName(@Param("name") String name);
+
+    @Modifying
+    @Transactional
+    @Query("UPDATE Category SET name = :newName WHERE name = :name")
+    int updateByName(@Param("name") String name, @Param("newName") String newName);
+
 
     @Modifying
     @Transactional

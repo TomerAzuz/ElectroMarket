@@ -7,7 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("products")
+@RequestMapping("api/products")
 public class ProductController {
     private final ProductService productService;
 
@@ -26,13 +26,13 @@ public class ProductController {
     }
 
     @GetMapping("/categories/{id}")
-    public Iterable<Product> getProductsByCategory(@PathVariable Long id) {
-        return productService.viewProductsByCategory(id);
+    public Iterable<Product> getProductsByCategory(@PathVariable("category_name") String categoryName) {
+        return productService.viewProductsByCategory(categoryName);
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Product post(@Valid @RequestBody Product product)   {
+    public Product createProduct(@Valid @RequestBody Product product)   {
         return productService.addProductToCatalog(product);
     }
 
@@ -43,7 +43,7 @@ public class ProductController {
     }
 
     @PutMapping("{id}")
-    public Product put(@PathVariable Long id, @Valid @RequestBody Product product) {
+    public Product updateProduct(@PathVariable Long id, @Valid @RequestBody Product product) {
         return productService.editProductDetails(id, product);
     }
 }

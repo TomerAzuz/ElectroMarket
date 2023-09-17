@@ -21,8 +21,9 @@ public class ProductDataLoader {
     @EventListener(ApplicationReadyEvent.class)
     public void loadProductTestData()   {
         productRepository.deleteAll();
-        var product1 = Product.of("product1", "some product.", 9.90, 1L, 10, "https://example.com/image.jpg");
-        var product2 = Product.of("product2", "some product.", 199.99, 1L, 10, "https://example.com/image2 .jpg");
-        productRepository.saveAll(List.of(product1, product2));
+        var product1 = Product.of("Laptop", "Some description1.", 559.90, 1L, 102, "https://example.com/image.jpg");
+        var product2 = Product.of("Camera", "Some description2.", 399.99, 2L, 97, "https://example.com/image2 .jpg");
+        var product3 = Product.of("TV", "Some description3.", 699.99, 3L, 57, "https://example.com/image3.jpg");
+        productRepository.saveAll(List.of(product1, product2, product3));
     }
 }

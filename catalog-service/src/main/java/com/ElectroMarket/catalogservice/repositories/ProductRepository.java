@@ -10,17 +10,11 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 public interface ProductRepository extends CrudRepository<Product, Long> {
-
     @Query("SELECT * FROM product WHERE name = :name")
     List<Product> findByName(@Param("name") String name);
-    @Query("SELECT * FROM product WHERE price <= :maxPrice")
-    List<Product> findProductsByPriceLessThan(@Param("maxPrice") Double maxPrice);
 
-    @Query("SELECT * FROM product WHERE price >= :minPrice")
-    List<Product> findProductsByPriceGreaterThan(@Param("minPrice") Double minPrice);
-
-    @Query("SELECT p FROM Product p WHERE p.category.id = :id")
-    List<Product> findByCategoryId(@Param("id") Long id);
+    @Query("SELECT * FROM product WHERE category_id = :id")
+    List<Product> findProductsByCategory(@Param("id") Long id);
 
     @Modifying
     @Transactional

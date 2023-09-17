@@ -1,6 +1,7 @@
 package com.ElectroMarket.catalogservice.integration;
 
 import com.ElectroMarket.catalogservice.config.DataConfig;
+import com.ElectroMarket.catalogservice.models.Category;
 import com.ElectroMarket.catalogservice.models.Product;
 import com.ElectroMarket.catalogservice.repositories.ProductRepository;
 import org.junit.jupiter.api.Test;
@@ -11,6 +12,7 @@ import org.springframework.context.annotation.Import;
 import org.springframework.data.jdbc.core.JdbcAggregateTemplate;
 import org.springframework.test.context.ActiveProfiles;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.InstanceOfAssertFactories.spliterator;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -29,17 +31,36 @@ public class ProductRepositoryJdbcTests {
     @Autowired
     private JdbcAggregateTemplate jdbcAggregateTemplate;
 
+
     @Test
     void findAllProducts()  {
-        var prod1 = Product.of("T-shirt", "some t-shirt", 7.99, 2L, 10, "https://example.com/image.jpg");
-        var prod2 = Product.of("headphones", "description", 99.99, 1L, 10, "https://example.com/image2.jpg");
+        var prod1 = Product.of("Keyboard", "some keyboard", 29.99, 1L, 10, "https://example.com/image.jpg");
+        var prod2 = Product.of("headphones", "description", 99.99, 2L, 10, "https://example.com/image2.jpg");
+
         jdbcAggregateTemplate.insert(prod1);
         jdbcAggregateTemplate.insert(prod2);
 
         Iterable<Product> actualProducts = productRepository.findAll();
 
         assertThat(StreamSupport.stream(actualProducts.spliterator(), true)
-                .filter(product -> product.name().equals(prod1.name()) || product.name().equals(prod2.name()))
+                .filter(product -> product.name().equals(prod1.name()) ||
+                                   product.name().equals(prod2.name()))
+                .collect(Collectors.toList())).hasSize(2);
+    }
+
+    @Test
+    void findProductsByCategory()   {
+        List<Product> products = List.of(
+                Product.of("Keyboard1", "some keyboard1", 29.99, 1L, 110, "https://example.com/image.jpg"),
+                Product.of("Headphones", "description", 92.99, 2L, 40, "https://example.com/image2.jpg"),
+                Product.of("Keyboard2", "some keyboard2", 70.0, 1L, 15, "https://example.com/image2.jpg")
+        );
+        jdbcAggregateTemplate.insertAll(products);
+        List<Product> actualProducts = productRepository.findProductsByCategory(1L);
+
+        assertThat(actualProducts.parallelStream()
+                .filter(product -> product.name().equals("Keyboard1") ||
+                        product.name().equals("Keyboard2"))
                 .collect(Collectors.toList())).hasSize(2);
     }
 
@@ -56,34 +77,6 @@ public class ProductRepositoryJdbcTests {
     void findNonExistingProductByName() {
         List<Product> actualProducts = productRepository.findByName("NonExistingProduct");
         assertThat(actualProducts).isEmpty();
-    }
-
-    @Test
-    void findProductsByPriceGreaterThan() {
-        var expensiveLaptop = Product.of("Expensive Laptop", "description", 1299.99, 1L, 10, "https://example.com/image.jpg");
-        var affordableLaptop = Product.of("Affordable Laptop", "description", 799.99, 2L, 10, "https://example.com/image2.jpg");
-
-        jdbcAggregateTemplate.insert(expensiveLaptop);
-        jdbcAggregateTemplate.insert(affordableLaptop);
-
-        List<Product> actualProducts = productRepository.findProductsByPriceGreaterThan(1000.0);
-
-        assertThat(actualProducts.get(0).name()).isEqualTo(expensiveLaptop.name());
-        assertThat(actualProducts).hasSize(1);
-    }
-
-    @Test
-    void findProductsByPriceLessThan() {
-        var expensiveLaptop = Product.of("Expensive Laptop", "description", 1299.99, 1L, 10, "https://example.com/image.jpg");
-        var affordableLaptop = Product.of("Affordable Laptop", "description", 799.99, 2L, 10, "https://example.com/image2.jpg");
-
-        jdbcAggregateTemplate.insert(expensiveLaptop);
-        jdbcAggregateTemplate.insert(affordableLaptop);
-
-        List<Product> actualProducts = productRepository.findProductsByPriceLessThan(1000.0);
-
-        assertThat(actualProducts.get(0).name()).isEqualTo(affordableLaptop.name());
-        assertThat(actualProducts).hasSize(1);
     }
 
     @Test
