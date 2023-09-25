@@ -35,4 +35,5 @@ services:
     environment:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
-      POSTGRES_DB: electrodb_catalog
+    volumes:
+      - ./postgresql/init.sql:/docker-entrypoint-initdb.d/init.sql
