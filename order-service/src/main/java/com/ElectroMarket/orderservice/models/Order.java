@@ -41,10 +41,10 @@ public record Order (
         int version
 
 ) {
-  public static Order of(
-  Long productId, String productName,
-  Double productPrice, Integer quantity, OrderStatus status
-  )     {
-          return new Order(null, productId, productName, productPrice, quantity, status, null, null, 0);
-  }
+        public static Order of(
+                Long productId, String productName,
+                Double productPrice, Integer quantity, OrderStatus status
+        )     {
+                return new Order(null, productId, productName, productPrice, quantity, status, null, null, 0);
+        }
 }

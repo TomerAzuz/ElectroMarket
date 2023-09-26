@@ -13,12 +13,9 @@ import java.time.Duration;
 public class ProductClient {
     private static final String PRODUCTS_ROOT_API = "/api/products/";
     private final WebClient webClient;
-
     public ProductClient(WebClient webClient) {
-
         this.webClient = webClient;
     }
-
     public Mono<Product> getProductById(Long id)    {
         return webClient
                 .get()

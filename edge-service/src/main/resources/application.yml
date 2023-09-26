@@ -1,0 +1,24 @@
+server:
+  port: 9000
+  netty:
+    connection-timeout: 2s
+    idle-timeout: 15s
+    shutdown: graceful
+
+spring:
+  application:
+    name: edge-service
+  lifecycle:
+    timeout-per-shutdown-phase: 15s
+  cloud:
+    gateway:
+      routes:
+        - id: catalog-service
+          uri: ${CATALOG_SERVICE_URL:http://localhost:9001}/api/products
+          predicates:
+            - Path=/api/products/**
+        - id: order-route
+          uri: ${ORDER_SERVICE_URL:http://localhost:9002}/api/orders
+          predicates:
+            - Path=/api/orders/**
+

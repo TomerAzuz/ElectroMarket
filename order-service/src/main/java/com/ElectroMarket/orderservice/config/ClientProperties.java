@@ -9,6 +9,5 @@ import java.time.Duration;
 @ConfigurationProperties(prefix = "electro")
 public record ClientProperties(
         @NotNull
-        URI catalogServiceUri,
-        Duration requestTimeout
+        URI catalogServiceUri
 ) {}
