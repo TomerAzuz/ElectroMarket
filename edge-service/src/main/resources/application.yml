@@ -10,8 +10,27 @@ spring:
     name: edge-service
   lifecycle:
     timeout-per-shutdown-phase: 15s
+  config:
+    import: "optional:configserver:"
   cloud:
+    config:
+      uri: http://localhost:8888
+      request-connect-timeout: 5000
+      request-read-timeout: 5000
+      fail-fast: false # In production, set to true
+      retry:
+        max-attempts: 6
+        initial-interval: 1000
+        max-interval: 2000
+        multiplier: 1.1
     gateway:
+      httpclient:
+        connect-timeout: 2000
+        response-timeout: 5s
+        pool:
+          type: elastic
+          max-idle-time: 15s
+          max-life-time: 60s
       routes:
         - id: catalog-service
           uri: ${CATALOG_SERVICE_URL:http://localhost:9001}/api/products
@@ -21,4 +40,3 @@ spring:
           uri: ${ORDER_SERVICE_URL:http://localhost:9002}/api/orders
           predicates:
             - Path=/api/orders/**
-
