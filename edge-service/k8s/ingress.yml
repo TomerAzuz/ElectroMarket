@@ -16,3 +16,4 @@ spec:
                 name: edge-service
                 port:
                   number: 80
+$schema: https://kubernetesjsonschema.dev/v1.21.0-standalone/networking-v1.json
