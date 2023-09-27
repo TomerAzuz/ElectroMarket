@@ -32,6 +32,22 @@ services:
       - SPRING_R2DBC_URL=r2dbc:postgresql://electro-postgres:5432/electrodb_order
       - SPRING_FLYWAY_URL=jdbc:postgresql://electro-postgres:5432/electrodb_order
 
+  edge-service:
+    depends_on:
+      - electro-redis
+    image: "edge-service"
+    container_name: "edge-service"
+    ports:
+      - "9000:9000"
+      - "8000:8000"
+    environment:
+      - BPL_DEBUG_ENABLED=true
+      - BPL_DEBUG_PORT=8000
+      - CATALOG_SERVICE_URL=http://catalog-service:9001
+      - ORDER_SERVICE_URL=http://order-service:9002
+      - SPRING_CLOUD_CONFIG_URI=http://config-service:8888
+      - SPRING_DATA_REDIS_HOST=electro-redis
+
   config-service:
     image: "config-service"
     container_name: "config-service"
@@ -42,6 +58,12 @@ services:
       - BPL_JVM_THREAD_COUNT=50
       - BPL_DEBUG_ENABLED=true
       - BPL_DEBUG_PORT=9888
+
+  electro-redis:
+    image: "redis:7.0"
+    container_name: "electro-redis"
+    ports:
+      - "6379:6379"
 
   electro-postgres:
     image: "postgres:14.4"
