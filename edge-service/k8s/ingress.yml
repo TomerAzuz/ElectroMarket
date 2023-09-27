@@ -5,6 +5,8 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
   name: electro-ingress
 spec:
+  ingressClassName: nginx
+  validation.k8s.io/schema: /path/to/local/schema/ingress-networking-v1.json
   rules:
     - http:
         paths:
@@ -13,5 +15,3 @@ spec:
             backend:
               service:
                 name: edge-service
-                port:
-                  number: 80
