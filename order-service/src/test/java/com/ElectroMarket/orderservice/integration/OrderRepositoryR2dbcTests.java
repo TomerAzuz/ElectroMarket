@@ -3,14 +3,13 @@ package com.ElectroMarket.orderservice.integration;
 import com.ElectroMarket.orderservice.config.DataConfig;
 import com.ElectroMarket.orderservice.models.OrderStatus;
 import com.ElectroMarket.orderservice.repositories.OrderRepository;
-
 import com.ElectroMarket.orderservice.services.OrderService;
+
 import org.junit.jupiter.api.Test;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 import org.testcontainers.utility.DockerImageName;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.r2dbc.DataR2dbcTest;
 import org.springframework.context.annotation.Import;
