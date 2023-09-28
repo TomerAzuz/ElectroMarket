@@ -1,5 +1,10 @@
 name: Edge Service Commit Stage
-on: push
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'edge-service/**'
 
 env:
   REGISTRY: ghcr.io
