@@ -59,6 +59,15 @@ services:
       - BPL_DEBUG_ENABLED=true
       - BPL_DEBUG_PORT=9888
 
+  electro-rabbitmq:
+    image: rabbitmq:3.10-management
+    container_name: electro-rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    volumes:
+      - ./rabbitmq/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
+
   electro-redis:
     image: "redis:7.0"
     container_name: "electro-redis"
