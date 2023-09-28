@@ -100,7 +100,7 @@ public class OrderServiceApplicationTests {
                 .expectBody(Order.class).returnResult().getResponseBody();
 
         assertThat(createdOrder).isNotNull();
-        assertThat(createdOrder.id()).isEqualTo(orderRequest.product_id());
+        assertThat(createdOrder.productId()).isEqualTo(orderRequest.product_id());
         assertThat(createdOrder.quantity()).isEqualTo(orderRequest.quantity());
         assertThat(createdOrder.productName()).isEqualTo(product.name());
         assertThat(createdOrder.productPrice()).isEqualTo(product.price());
