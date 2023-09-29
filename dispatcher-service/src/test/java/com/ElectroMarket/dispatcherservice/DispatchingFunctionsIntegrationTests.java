@@ -39,16 +39,19 @@ public class DispatchingFunctionsIntegrationTests {
     }
 
     @Test
-    void packAndLabelOrder()    {
-        Function<OrderAcceptedMessage, Flux<OrderDispatchedMessage>>
-                packAndLabel = catalog.lookup(
-                        Function.class, "pack|label");
+    void packAndLabelOrder() {
+        Function<OrderAcceptedMessage, Long> packFunction = catalog.lookup(Function.class, "pack");
+        Function<Flux<Long>, Flux<OrderDispatchedMessage>> labelFunction = catalog.lookup(Function.class, "label");
         long orderId = 121;
-        StepVerifier.create(packAndLabel.apply(
-                new OrderAcceptedMessage(orderId)
-        ))
+
+        long packedOrderId = packFunction.apply(new OrderAcceptedMessage(orderId));
+
+        Flux<OrderDispatchedMessage> dispatchedOrderFlux = labelFunction.apply(Flux.just(packedOrderId));
+
+        StepVerifier.create(dispatchedOrderFlux)
                 .expectNextMatches(dispatchedOrder ->
                         dispatchedOrder.equals(new OrderDispatchedMessage(orderId)))
                 .verifyComplete();
     }
+
 }
