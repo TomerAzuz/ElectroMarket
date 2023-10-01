@@ -60,7 +60,6 @@ spring:
               args:
                 name: catalogCircuitBreaker
                 fallbackUri: forward:/catalog-fallback
-
         - id: order-route
           uri: ${ORDER_SERVICE_URL:http://localhost:9002}/api/orders
           predicates:
@@ -79,6 +78,17 @@ spring:
     timeout: 10m
     redis:
       namespace: electro:edge
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: edge-service
+            client-secret: electro-keycloak-secret
+            scope: openid
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8080/realms/ElectroMarket
 
 resilience4j:
   circuitbreaker:
