@@ -1,6 +1,6 @@
 import './App.css';
 import useSWR from 'swr';
-// test
+
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 function App() {
