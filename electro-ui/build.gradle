@@ -20,12 +20,12 @@ task buildReact(type: NpxTask) {
 task copyPublicFiles(type: Copy) {
     from "public"
     into "build"
-    finalizedBy "configureNginx"
+    finalizedBy "nginxConfig"
 }
 
-task configureNginx(type: Copy) {
+task nginxConfig(type: Copy) {
     from "nginx"
-    into "build/nginx"
+    into "dist"
 }
 
 task clean(type: Delete) {
