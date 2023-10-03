@@ -73,6 +73,14 @@ services:
       - BPL_DEBUG_ENABLED=true
       - BPL_DEBUG_PORT=9888
 
+  electro-ui:
+    image: "ghcr.io/tomerazuz/electromarket/electro-ui:v1"
+    container_name: "electro-ui"
+    ports:
+      - "9004:9004"
+    environment:
+      - PORT=9004
+
   electro-rabbitmq:
     image: rabbitmq:3.10-management
     container_name: electro-rabbitmq
