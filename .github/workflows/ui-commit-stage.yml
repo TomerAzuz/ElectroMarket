@@ -30,6 +30,7 @@ jobs:
           acs-report-enable: true
       - name: Build, unit tests and integration tests
         run: |
+          cd electro-ui
           chmod +x gradlew
           ./gradlew buildReact
       - name: Validate Kubernetes manifests
@@ -55,6 +56,7 @@ jobs:
         uses: buildpacks/github-actions/setup-pack@v4.4.0
       - name: Build SPA
         run: |
+          cd electro-ui
           chmod +x gradlew
           ./gradlew buildReact
       - name: Package SPA
