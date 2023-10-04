@@ -1,0 +1,27 @@
+plugins {
+    id "com.github.node-gradle.node" version "3.2.0"
+}
+
+node    {
+    download = true
+    version = "16.14.0"
+}
+
+task buildReact(type: NpxTask) {
+    command = "npm"
+    args = ["run", "build"]
+    dependsOn(tasks.npmInstall)
+    inputs.dir("src")
+    inputs.dir("node_modules")
+    inputs.files("package.json") 
+    finalizedBy "nginxConfig"
+}
+
+task nginxConfig(type: Copy) {
+    from "nginx"
+    into "build"
+}
+
+task clean(type: Delete) {
+    delete "build"
+}
