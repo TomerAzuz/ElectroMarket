@@ -31,8 +31,8 @@ jobs:
       - name: Build, unit tests and integration tests
         run: |
           cd electro-ui
-          chmod +x gradlew
-          ./gradlew buildReact
+          npm install
+          npm run build
       - name: Validate Kubernetes manifests
         uses: stefanprodan/kube-tools@v1
         with:
