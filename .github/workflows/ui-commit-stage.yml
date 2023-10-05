@@ -61,8 +61,8 @@ jobs:
           npm run build
       - name: Package SPA
         run: |
-          pack build ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }} \
-            --descriptor /electro-ui/nginx.toml
+          pack build electro-ui\
+            --descriptor ../../electro-ui/nginx.toml
             --builder paketobuildpacks/builder:base \
       - name: OCI image vulnerability scanning
         uses: anchore/scan-action@v3
