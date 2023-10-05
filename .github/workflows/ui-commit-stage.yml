@@ -61,7 +61,7 @@ jobs:
           npm run build
       - name: Package SPA
         run: |
-          cd electro-ui \
+          cd electro-ui
           pack build electro-ui \
             --descriptor nginx.toml \
             --builder paketobuildpacks/builder:base
