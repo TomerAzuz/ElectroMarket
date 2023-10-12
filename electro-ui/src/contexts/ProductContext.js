@@ -35,7 +35,7 @@ const ProductProvider = ({ children }) => {
 
   useEffect(() => {
     fetchProducts();
-  }, [fetchProducts]);
+  }, []);
 
   const filterProductsByCategory = (categoryId) => {
     if (categoryId) {
