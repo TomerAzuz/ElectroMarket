@@ -39,9 +39,7 @@ public class CategoryService {
                 .map(existingCategory -> {
                     var categoryToUpdate = new Category(
                             existingCategory.id(),
-                            updatedCategory.name(),
-                            updatedCategory.parent_id()
-                    );
+                            updatedCategory.name());
                     return categoryRepository.save(categoryToUpdate);
                 })
                 .orElseGet(() -> createCategory(updatedCategory));

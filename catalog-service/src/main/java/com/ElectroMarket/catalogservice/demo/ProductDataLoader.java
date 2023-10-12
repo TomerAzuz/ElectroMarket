@@ -2,11 +2,16 @@ package com.ElectroMarket.catalogservice.demo;
 
 import com.ElectroMarket.catalogservice.models.Product;
 import com.ElectroMarket.catalogservice.repositories.ProductRepository;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.annotation.Profile;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 @Component
@@ -19,11 +24,22 @@ public class ProductDataLoader {
     }
 
     @EventListener(ApplicationReadyEvent.class)
-    public void loadProductTestData()   {
+    public void loadProductTestData() {
         productRepository.deleteAll();
-        var product1 = Product.of("Laptop", "Some description1.", 559.90, 1L, 102, "https://example.com/image.jpg");
-        var product2 = Product.of("Camera", "Some description2.", 399.99, 2L, 97, "https://example.com/image2 .jpg");
-        var product3 = Product.of("TV", "Some description3.", 699.99, 3L, 57, "https://example.com/image3.jpg");
-        productRepository.saveAll(List.of(product1, product2, product3));
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            InputStream resourceStream = getClass().getClassLoader().getResourceAsStream("products.json");
+
+            if (resourceStream != null) {
+                List<Product> products = objectMapper.readValue(resourceStream, new TypeReference<List<Product>>() {});
+
+                productRepository.saveAll(products);
+            } else {
+                System.err.println("Unable to load products.json.");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
 }

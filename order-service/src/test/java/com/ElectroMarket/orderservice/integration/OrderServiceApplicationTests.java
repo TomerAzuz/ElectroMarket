@@ -69,7 +69,7 @@ public class OrderServiceApplicationTests {
         Product product = new Product(productId, "Laptop", "Some description1.", 559.90, 5);
         given(productClient.getProductById(productId)).willReturn(Mono.just(product));
         OrderRequest orderRequest = new OrderRequest(productId, 1);
-        Order expectedOrder = webTestClient.post().uri("/api/orders")
+        Order expectedOrder = webTestClient.post().uri("/orders")
                 .bodyValue(orderRequest)
                 .exchange()
                 .expectStatus().is2xxSuccessful()
@@ -78,7 +78,7 @@ public class OrderServiceApplicationTests {
         assertThat(objectMapper.readValue(output.receive().getPayload(), OrderAcceptedMessage.class))
                 .isEqualTo(new OrderAcceptedMessage(expectedOrder.id()));
 
-        webTestClient.get().uri("/api/orders")
+        webTestClient.get().uri("/orders")
                 .exchange()
                 .expectStatus().is2xxSuccessful()
                 .expectBodyList(Order.class).value(orders -> {
@@ -93,7 +93,7 @@ public class OrderServiceApplicationTests {
         given(productClient.getProductById(productId)).willReturn(Mono.just(product));
         OrderRequest orderRequest = new OrderRequest(productId, 5);
 
-        Order createdOrder = webTestClient.post().uri("/api/orders")
+        Order createdOrder = webTestClient.post().uri("/orders")
                 .bodyValue(orderRequest)
                 .exchange()
                 .expectStatus().is2xxSuccessful()
@@ -116,7 +116,7 @@ public class OrderServiceApplicationTests {
         given(productClient.getProductById(productId)).willReturn(Mono.empty());
         OrderRequest orderRequest = new OrderRequest(productId, 3);
 
-        Order createdOrder = webTestClient.post().uri("/api/orders")
+        Order createdOrder = webTestClient.post().uri("/orders")
                 .bodyValue(orderRequest)
                 .exchange()
                 .expectStatus().is2xxSuccessful()

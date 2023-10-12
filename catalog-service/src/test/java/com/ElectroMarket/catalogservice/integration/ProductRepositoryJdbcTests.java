@@ -1,7 +1,6 @@
 package com.ElectroMarket.catalogservice.integration;
 
 import com.ElectroMarket.catalogservice.config.DataConfig;
-import com.ElectroMarket.catalogservice.models.Category;
 import com.ElectroMarket.catalogservice.models.Product;
 import com.ElectroMarket.catalogservice.repositories.ProductRepository;
 import org.junit.jupiter.api.Test;
@@ -12,7 +11,6 @@ import org.springframework.context.annotation.Import;
 import org.springframework.data.jdbc.core.JdbcAggregateTemplate;
 import org.springframework.test.context.ActiveProfiles;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.InstanceOfAssertFactories.spliterator;
 
 import java.util.List;
 import java.util.stream.Collectors;

@@ -33,18 +33,18 @@ public class CategoryControllerMvcTests {
 
     @Test
     void getExistingCategory() throws Exception {
-        var category = Category.of("category", null);
+        var category = Category.of("category");
         given(categoryService.getCategoryById(4L)).willReturn(category);
-        mockMvc.perform(get("/api/categories/4"))
+        mockMvc.perform(get("/category/4"))
                 .andExpect(status().isOk());
     }
 
     @Test
     void editExistingCategory() throws Exception {
-        var category = Category.of("category", null);
+        var category = Category.of("category");
         when(categoryService.updateCategory(1L, category)).thenReturn(category);
 
-        mockMvc.perform(put("/api/categories/1")
+        mockMvc.perform(put("/category/1")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(category)))
                 .andExpect(status().isOk());
@@ -52,9 +52,9 @@ public class CategoryControllerMvcTests {
 
     @Test
     void deleteExistingCategory() throws Exception   {
-        var category = Category.of("category", null);
+        var category = Category.of("category");
         given(categoryService.getCategoryById(1L)).willReturn(category);
-        mockMvc.perform(delete("/api/categories/1"))
+        mockMvc.perform(delete("/category/1"))
                 .andExpect(status().isNoContent());
     }
 
@@ -62,18 +62,18 @@ public class CategoryControllerMvcTests {
     void categoryDoesNotExist() throws Exception {
         given(categoryService.getCategoryById(5L))
                 .willThrow(ResourceNotFoundException.class);
-        mockMvc.perform(get("/api/categories/5"))
+        mockMvc.perform(get("/category/5"))
                 .andExpect(status().isNotFound());
     }
 
     @Test
     void categoryAlreadyExists() throws Exception {
-        Category category = Category.of("category", null);
+        Category category = Category.of("category");
 
         String requestBody = new ObjectMapper().writeValueAsString(category);
 
         mockMvc.perform(
-                        post("/api/categories")
+                        post("/category")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(requestBody))
                 .andExpect(status().isCreated());
@@ -82,7 +82,7 @@ public class CategoryControllerMvcTests {
                 .willThrow(new ResourceAlreadyExistsException("category", category.id()));
 
         mockMvc.perform(
-                        post("/api/categories")
+                        post("/category")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(requestBody))
                 .andExpect(status().isUnprocessableEntity());

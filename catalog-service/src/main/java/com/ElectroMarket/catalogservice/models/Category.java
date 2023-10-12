@@ -9,10 +9,9 @@ public record Category (
         Long id,
         @NotBlank(message = "The category name is required.")
         @Size(max = 100, message = "The category name cannot exceed 100 characters.")
-        String name,
-        Long parent_id
+        String name
 ) {
-        public static Category of(String name, Long parent_id)   {
-                return new Category(null, name, parent_id);
+        public static Category of(String name)   {
+                return new Category(null, name);
         }
 }

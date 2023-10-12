@@ -1,0 +1,126 @@
+[
+  {
+    "name":"ACER Aspire 3 15 A315-510P-35P7 - 15.6 inch - Intel Core i3-N305 - 4GB - 128 GB",
+    "description": "",
+    "price": 359.99,
+    "categoryId": 1,
+    "stock": 32,
+    "imageUrl":"https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_105173467?x=1800&y=1800&format=jpg&quality=80&sp=yes&strip=yes&ex=1800&ey=1800&align=center&resizesource&unsharp=1.5x1+0.7+0.02"
+  },
+  {
+    "name":"APPLE MacBook Air 13.3 (2020) - Zilver M1 256 GB",
+    "description": "",
+    "price": 949.99,
+    "categoryId": 1,
+    "stock": 21,
+    "imageUrl":"https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_78976636?x=1800&y=1800&format=jpg&quality=80&sp=yes&strip=yes&ex=1800&ey=1800&align=center&resizesource&unsharp=1.5x1+0.7+0.02"
+  },
+  {
+    "name":"ACER Aspire 3 15 A315-510P-C60F - 15.6 inch - Intel Processor N100 - 4 GB - 128 GB",
+    "description": "",
+    "price": 299.99,
+    "categoryId": 1,
+    "stock": 13,
+    "imageUrl":"https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_105173407?x=1800&y=1800&format=jpg&quality=80&sp=yes&strip=yes&ex=1800&ey=1800&align=center&resizesource&unsharp=1.5x1+0.7+0.02"
+  },
+  {
+    "name":"ACER Aspire 3 17 A317-55P-322B - 17.3 inch - Intel Core i3-N305 - 8 GB - 512 GB",
+    "description": "",
+    "price": 499.99,
+    "categoryId": 1,
+    "stock": 134,
+    "imageUrl":"https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_105173544?x=1800&y=1800&format=jpg&quality=80&sp=yes&strip=yes&ex=1800&ey=1800&align=center&resizesource&unsharp=1.5x1+0.7+0.02"
+  },
+  {
+    "name":"ASUS Chromebook CX1400CKA-EK0212 - 14 inch - Intel Celeron - 4 GB - 128 GB",
+    "description": "",
+    "price": 269.99,
+    "categoryId": 1,
+    "stock": 67,
+    "imageUrl":"https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_106267880?x=1800&y=1800&format=jpg&quality=80&sp=yes&strip=yes&ex=1800&ey=1800&align=center&resizesource&unsharp=1.5x1+0.7+0.02"
+  },
+  {
+    "name":"HP 15-FC0806ND - 15.6 inch - AMD Ryzen 3 - 8 GB - 256 GB",
+    "description": "",
+    "price": 489.99,
+    "categoryId": 1,
+    "stock": 21,
+    "imageUrl":"https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_104560370?x=1800&y=1800&format=jpg&quality=80&sp=yes&strip=yes&ex=1800&ey=1800&align=center&resizesource&unsharp=1.5x1+0.7+0.02"
+  },
+  {
+    "name":"LENOVO IdeaPad 3 - 15.6 inch - Intel Core i5 - 16 GB - 512 GB",
+    "description": "",
+    "price": 699.99,
+    "categoryId": 1,
+    "stock": 8,
+    "imageUrl":"https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_108574166?x=1800&y=1800&format=jpg&quality=80&sp=yes&strip=yes&ex=1800&ey=1800&align=center&resizesource&unsharp=1.5x1+0.7+0.02"
+  },
+  {
+    "name":"APPLE MacBook Air 13.6 (2022) - Starlight M2 8-Core GPU 8GB 256GB",
+    "description": "",
+    "price": 1199.99,
+    "categoryId": 1,
+    "stock": 8,
+    "imageUrl":"https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_94577489?x=1800&y=1800&format=jpg&quality=80&sp=yes&strip=yes&ex=1800&ey=1800&align=center&resizesource&unsharp=1.5x1+0.7+0.02"
+  },
+  {
+    "name":"APPLE MacBook Air 13.6 (2022) - Spacegrijs M2 10-Core GPU 8GB 512GB",
+    "description": "",
+    "price": 1429.99,
+    "categoryId": 1,
+    "stock": 18,
+    "imageUrl":"https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_94577451?x=1800&y=1800&format=jpg&quality=80&sp=yes&strip=yes&ex=1800&ey=1800&align=center&resizesource&unsharp=1.5x1+0.7+0.02"
+  },
+  {
+    "name":"LG Tv 42 inch",
+    "description": "",
+    "price": 499.99,
+    "categoryId": 3,
+    "stock": 134,
+    "imageUrl":"http://www.lg.com/us/images/tvs/md05802269/gallery/medium01.jpg"
+  }, {
+    "name":"Samsung Tv 40 inch",
+    "description": "",
+    "price": 999.99,
+    "categoryId": 3,
+    "stock": 44,
+    "imageUrl":"http://www.220-electronics.com/media/catalog/product/s/o/sony-kdl55hx750multi-system-tv-angle_1.png"
+  },
+    {
+      "name":"Panasonic Tv",
+      "description": "",
+      "price": 1999.99,
+      "categoryId": 3,
+      "stock": 10,
+      "imageUrl":"https://images-na.ssl-images-amazon.com/images/I/61Ekm1BJYbL._SX355_.jpg"
+    },{
+      "name":"Sony Tv 50 inch" ,
+      "description": "",
+      "price": 899.99,
+      "categoryId": 3,
+      "stock": 82,
+      "imageUrl":"http://www.220-electronics.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/s/o/sony-kdl55hx750multi-system-tv_1.png"
+    },
+    {
+      "name":"Sharp Tv",
+      "description": "",
+      "price": 299.0,
+      "categoryId": 3,
+      "stock": 56,
+      "imageUrl":"http://blackfridaytvs.com/wp-content/uploads/2014/11/Sharp-AQUOS-60-LED-1080p-Smart-HDTV-Black-LC-60LE644U-Best-Buy-SKU-8890013.png"
+    }, {
+      "name":"Toshiba Tv",
+      "description": "",
+      "price": 399.99,
+      "categoryId": 3,
+      "stock": 71,
+      "imageUrl":"http://www.1a20.com/wp-content/uploads/2012/11/4758734_S1E2.png"
+    }, {
+      "name":"Vizio Tv",
+      "description": "",
+      "price": 599.99,
+      "categoryId": 3,
+      "stock": 13,
+      "imageUrl":"http://blackfridaytvs.com/wp-content/uploads/2014/11/VIZIO-50-Class-LED-1080p-240Hz-Smart-HDTV-M502I-B1-Best-Buy-SKU-7501014-300x257.png"
+    }
+  ]

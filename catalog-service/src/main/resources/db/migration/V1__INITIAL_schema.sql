@@ -1,9 +1,7 @@
 DROP TABLE IF EXISTS category;
 CREATE TABLE category (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    parent_id BIGINT,
-    FOREIGN KEY (parent_id) REFERENCES category(id) ON DELETE CASCADE
+    name VARCHAR(255) NOT NULL
 );
 
 DROP TABLE IF EXISTS product;

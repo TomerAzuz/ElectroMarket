@@ -31,7 +31,7 @@ public class ProductControllerMvcTests {
     void getExistingProduct() throws Exception {
         var product = Product.of("product", "description", 9.90, 1L, 10,"https://example.com/image.jpg");
         given(productService.viewProductDetails(1L)).willReturn(product);
-        mockMvc.perform(get("/api/products/1"))
+        mockMvc.perform(get("/products/1"))
                 .andExpect(status().isOk());
     }
 
@@ -39,7 +39,7 @@ public class ProductControllerMvcTests {
     void addNonExistingProduct() throws Exception {
         var product = Product.of("product", "description", 9.90, 1L, 10, "https://example.com/image.jpg");
         given(productService.addProductToCatalog(product)).willReturn(product);
-        mockMvc.perform(post("/api/products")
+        mockMvc.perform(post("/products")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(new ObjectMapper().writeValueAsString(product)))
                 .andExpect(status().isCreated());
@@ -51,7 +51,7 @@ public class ProductControllerMvcTests {
 
         when(productService.editProductDetails(1L, product)).thenReturn(product);
 
-        mockMvc.perform(put("/api/products/1")
+        mockMvc.perform(put("/products/1")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(product)))
                         .andExpect(status().isOk());
@@ -61,7 +61,7 @@ public class ProductControllerMvcTests {
     void deleteExistingProduct() throws Exception   {
         var product = Product.of( "product", "description", 9.90,  1L, 10, "https://example.com/image.jpg");
         given(productService.viewProductDetails(1L)).willReturn(product);
-        mockMvc.perform(delete("/api/products/1"))
+        mockMvc.perform(delete("/products/1"))
                 .andExpect(status().isNoContent());
     }
 
@@ -69,7 +69,7 @@ public class ProductControllerMvcTests {
     void productDoesNotExist() throws Exception {
         given(productService.viewProductDetails(1L))
                 .willThrow(ResourceNotFoundException.class);
-        mockMvc.perform(get("/api/products/1"))
+        mockMvc.perform(get("/products/1"))
                .andExpect(status().isNotFound());
     }
 
@@ -87,7 +87,7 @@ public class ProductControllerMvcTests {
         String requestBody = new ObjectMapper().writeValueAsString(product);
 
         mockMvc.perform(
-                        post("/api/products")
+                        post("/products")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(requestBody))
                         .andExpect(status().isCreated());
@@ -96,7 +96,7 @@ public class ProductControllerMvcTests {
                 .willThrow(new ResourceAlreadyExistsException("product", product.id()));
 
         mockMvc.perform(
-                        post("/api/products")
+                        post("/products")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(requestBody))
                         .andExpect(status().isUnprocessableEntity());

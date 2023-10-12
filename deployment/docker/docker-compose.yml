@@ -3,7 +3,7 @@ services:
   catalog-service:
     depends_on:
       - electro-postgres
-    image: "catalog-service"
+    image: ghcr.io/tomerazuz/catalog-service:latest
     container_name: "catalog-service"
     ports:
       - "9001:9001"
@@ -61,6 +61,7 @@ services:
       - BPL_DEBUG_PORT=8000
       - CATALOG_SERVICE_URL=http://catalog-service:9001
       - ORDER_SERVICE_URL=http://order-service:9002
+      - SPA_URL=http://electro-ui:9004
       - SPRING_CLOUD_CONFIG_URI=http://config-service:8888
       - SPRING_DATA_REDIS_HOST=electro-redis
       - SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_KEYCLOAK_ISSUER_URI=http://host.docker.internal:8080/realms/ElectroMarket

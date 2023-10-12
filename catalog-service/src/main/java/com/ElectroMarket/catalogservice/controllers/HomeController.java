@@ -1,4 +1,4 @@
-package com.ElectroMarket.catalogservice;
+package com.ElectroMarket.catalogservice.controllers;
 
 import com.ElectroMarket.catalogservice.config.Properties;
 import org.springframework.web.bind.annotation.GetMapping;

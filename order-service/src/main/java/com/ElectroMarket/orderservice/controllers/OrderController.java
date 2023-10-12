@@ -9,7 +9,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
-@RequestMapping("api/orders")
+@RequestMapping("orders")
 public class OrderController {
     private final OrderService orderService;
 

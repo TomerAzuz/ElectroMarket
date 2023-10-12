@@ -39,8 +39,8 @@ public class ProductService {
         return productRepository.save(product);
     }
 
-    public List<Product> viewProductsByCategory(String categoryName)  {
-        Category category = categoryRepository.findByName(categoryName)
+    public List<Product> viewProductsByCategory(Long id)  {
+        Category category = categoryRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("category", null));
         return productRepository.findProductsByCategory(category.id());
     }

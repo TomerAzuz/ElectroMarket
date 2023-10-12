@@ -22,7 +22,7 @@ public class CategoryValidationTests {
     }
     @Test
     void validFields()  {
-        var category = Category.of("Laptops", 2L);
+        var category = Category.of("Laptops");
         Set<ConstraintViolation<Category>> violations = validator.validate(category);
         assertThat(violations).isEmpty();
     }
@@ -30,7 +30,7 @@ public class CategoryValidationTests {
     @Test
     void tooLongCategoryName()   {
         String longName = "a".repeat(101);
-        var category = Category.of(longName, null);
+        var category = Category.of(longName);
         Set<ConstraintViolation<Category>> violations = validator.validate(category);
         assertThat(violations).hasSize(1);
         assertThat(violations.iterator().next().getMessage()).isEqualTo("The category name cannot exceed 100 characters.");
@@ -38,7 +38,7 @@ public class CategoryValidationTests {
 
     @Test
     void undefinedName()   {
-        var category = Category.of( "", null);
+        var category = Category.of( "");
         Set<ConstraintViolation<Category>> violations = validator.validate(category);
         assertThat(violations).hasSize(1);
         assertThat(violations.iterator().next().getMessage()).isEqualTo("The category name is required.");

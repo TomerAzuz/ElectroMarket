@@ -3,7 +3,6 @@ package com.ElectroMarket.catalogservice.integration;
 import com.ElectroMarket.catalogservice.config.DataConfig;
 import com.ElectroMarket.catalogservice.models.Category;
 import com.ElectroMarket.catalogservice.repositories.CategoryRepository;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.jdbc.DataJdbcTest;
@@ -34,9 +33,9 @@ public class CategoryRepositoryJdbcTests {
     @Test
     void findAllCategories()    {
         categoryRepository.deleteAll();
-        var category1 = Category.of("Laptops", null);
-        var category2 = Category.of("Screens", null);
-        var category3 = Category.of("Smartphones", null);
+        var category1 = Category.of("Laptops");
+        var category2 = Category.of("Screens");
+        var category3 = Category.of("Smartphones");
 
         jdbcAggregateTemplate.insert(category1);
         jdbcAggregateTemplate.insert(category2);
@@ -50,7 +49,7 @@ public class CategoryRepositoryJdbcTests {
 
     @Test
     void findCategoryByName()  {
-        var category = Category.of("Smartphones", null);
+        var category = Category.of("Smartphones");
         jdbcAggregateTemplate.insert(category);
         Optional<Category> actualCategory = categoryRepository.findByName(category.name());
 
@@ -60,7 +59,7 @@ public class CategoryRepositoryJdbcTests {
 
     @Test
     void saveCategory() {
-        var category = Category.of("Headphones", null);
+        var category = Category.of("Headphones");
 
         Category savedCategory = categoryRepository.save(category);
 
@@ -72,7 +71,7 @@ public class CategoryRepositoryJdbcTests {
     @Test
     void updateCategory()   {
         categoryRepository.deleteAll();
-        var category = Category.of("Laptops", null);
+        var category = Category.of("Laptops");
 
         jdbcAggregateTemplate.insert(category);
         categoryRepository.updateByName(category.name(), "Headphones");
@@ -85,7 +84,7 @@ public class CategoryRepositoryJdbcTests {
 
     @Test
     void deleteCategory() {
-        var category = Category.of("Cameras", null);
+        var category = Category.of("Cameras");
 
         jdbcAggregateTemplate.insert(category);
         categoryRepository.deleteByName(category.name());
