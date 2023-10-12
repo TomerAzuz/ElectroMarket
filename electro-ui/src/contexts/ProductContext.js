@@ -5,7 +5,7 @@ export const ProductContext = createContext();
 
 const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedCategory] = useState(null);
   const [loading, setLoading] = useState(true);
 
   const handleError = (error) => {
@@ -35,7 +35,7 @@ const ProductProvider = ({ children }) => {
 
   useEffect(() => {
     fetchProducts();
-  }, []);
+  }, [fetchProducts]);
 
   const filterProductsByCategory = (categoryId) => {
     if (categoryId) {

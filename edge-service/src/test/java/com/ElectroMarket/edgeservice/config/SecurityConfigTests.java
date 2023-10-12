@@ -1,6 +1,7 @@
 package com.ElectroMarket.edgeservice.config;
-
 import org.junit.jupiter.api.Test;
+import reactor.core.publisher.Mono;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -10,13 +11,12 @@ import org.springframework.security.oauth2.client.registration.ReactiveClientReg
 import org.springframework.security.oauth2.core.AuthorizationGrantType;
 import org.springframework.security.test.web.reactive.server.SecurityMockServerConfigurers;
 import org.springframework.test.web.reactive.server.WebTestClient;
-import reactor.core.publisher.Mono;
 
-import static reactor.core.publisher.Mono.when;
+import static org.mockito.Mockito.when;
 
 @WebFluxTest
 @Import(SecurityConfig.class)
-public class SecurityConfigTests {
+class SecurityConfigTests {
 
     @Autowired
     WebTestClient webClient;
@@ -25,7 +25,7 @@ public class SecurityConfigTests {
     ReactiveClientRegistrationRepository clientRegistrationRepository;
 
     @Test
-    void whenLogoutNotAuthenticatedAndNoCsrThen403()    {
+    void whenLogoutNotAuthenticatedAndNoCsrfTokenThen403() {
         webClient
                 .post()
                 .uri("/logout")
@@ -42,7 +42,6 @@ public class SecurityConfigTests {
                 .exchange()
                 .expectStatus().isForbidden();
     }
-
 
     @Test
     void whenLogoutAuthenticatedAndWithCsrfTokenThen302() {
@@ -67,4 +66,5 @@ public class SecurityConfigTests {
                 .redirectUri("https://electromarket.com")
                 .build();
     }
+
 }

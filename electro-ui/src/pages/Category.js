@@ -5,13 +5,13 @@ import ProductList from '../components/ProductList';
 
 const Category = () => {
     const { selectedCategory } = useContext(CategoryContext);
-    const { products, filterProductsByCategory  } = useContext(ProductContext);
+    const { products, filterProductsByCategory } = useContext(ProductContext);
 
     useEffect(() => {
         if (selectedCategory) {
           filterProductsByCategory(selectedCategory.id);
         }
-      }, [selectedCategory]);
+      }, [selectedCategory, filterProductsByCategory]);
     return (
         <div>
             <h2>Products by Category: {selectedCategory ? selectedCategory.name : 'All'}</h2>
