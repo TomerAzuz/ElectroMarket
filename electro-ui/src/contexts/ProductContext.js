@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect, useCallback  } from 'react';
 import axios from 'axios';
 
 export const ProductContext = createContext();
@@ -13,7 +13,7 @@ const ProductProvider = ({ children }) => {
     setLoading(false);
   };
 
-  const fetchProducts = async () => {
+  const fetchProducts = useCallback(async () => {
     try {
       const response = await axios.get('/products');
       setProducts(response.data);
@@ -21,7 +21,7 @@ const ProductProvider = ({ children }) => {
     } catch (error) {
       handleError(error);
     }
-  };
+  }, []);
 
   const fetchByCategory = async (categoryId) => {
     try {
@@ -35,7 +35,7 @@ const ProductProvider = ({ children }) => {
 
   useEffect(() => {
     fetchProducts();
-  }, []);
+  }, [fetchProducts]);
 
   const filterProductsByCategory = (categoryId) => {
     if (categoryId) {
