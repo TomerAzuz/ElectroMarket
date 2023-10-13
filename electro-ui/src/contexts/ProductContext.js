@@ -23,7 +23,7 @@ const ProductProvider = ({ children }) => {
     }
   }, []);
 
-  const fetchByCategory = async (categoryId) => {
+  const fetchByCategory =  useCallback(async (categoryId) => {
     try {
       const response = await axios.get(`/products/category/${categoryId}`);
       setProducts(response.data);
@@ -31,18 +31,18 @@ const ProductProvider = ({ children }) => {
     } catch (error) {
       handleError(error);
     }
-  };
+  }, []);
 
   useEffect(() => {
     fetchProducts();
   }, [fetchProducts]);
 
-  const filterProductsByCategory = (categoryId) => {
+  const filterProductsByCategory = useCallback((categoryId) => {
     if (categoryId) {
       setLoading(true);
       fetchByCategory(categoryId);
     }
-  };
+  }, [fetchByCategory]);
 
   return (
     <ProductContext.Provider value={{ products, loading, selectedCategory, filterProductsByCategory }}>
