@@ -12,6 +12,7 @@ const Category = () => {
           filterProductsByCategory(selectedCategory.id);
         }
       }, [selectedCategory, filterProductsByCategory]);
+
     return (
         <div>
             <h2>Products by Category: {selectedCategory ? selectedCategory.name : 'All'}</h2>
