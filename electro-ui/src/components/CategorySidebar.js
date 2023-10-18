@@ -9,6 +9,7 @@ function CategorySidebar() {
 
     const handleCategoryClick = (category) => {
       setSelectedCategory(category);
+      handleCloseCategories();
     };
 
     return (
@@ -21,7 +22,9 @@ function CategorySidebar() {
             <div onClick={handleCloseCategories} className='cursor-pointer w-8 h-8 flex justify-center items-center'>
               <IoMdArrowBack className='text-2xl' />
             </div>
-            <div id="title" className='flex-grow text-center text-2xl'>ElectroMarket</div>
+            <Link to={'/'}>
+              <div id="title" className='flex-grow text-center text-2xl'>ElectroMarket</div>
+            </Link>
           </div>
           <div className="p-4">
             <ul>
