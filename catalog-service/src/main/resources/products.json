@@ -1,126 +1,906 @@
 [
   {
-    "name":"ACER Aspire 3 15 A315-510P-35P7 - 15.6 inch - Intel Core i3-N305 - 4GB - 128 GB",
+    "name": "ACER Aspire 3 15 A315-510P-35P7 - 15.6 inch - Intel Core i3-N305 - 4GB - 128 GB",
     "description": "",
     "price": 359.99,
     "categoryId": 1,
     "stock": 32,
-    "imageUrl":"https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_105173467?x=1800&y=1800&format=jpg&quality=80&sp=yes&strip=yes&ex=1800&ey=1800&align=center&resizesource&unsharp=1.5x1+0.7+0.02"
-  },
-  {
-    "name":"APPLE MacBook Air 13.3 (2020) - Zilver M1 256 GB",
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_105173467?x=1800&y=1800&format=jpg&quality=80&sp=yes&strip=yes&ex=1800&ey=1800&align=center&resizesource&unsharp=1.5x1+0.7+0.02"
+  }, {
+    "name": "APPLE MacBook Air 13.3 (2020) - Silver M1 256 GB",
     "description": "",
     "price": 949.99,
     "categoryId": 1,
     "stock": 21,
-    "imageUrl":"https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_78976636?x=1800&y=1800&format=jpg&quality=80&sp=yes&strip=yes&ex=1800&ey=1800&align=center&resizesource&unsharp=1.5x1+0.7+0.02"
-  },
-  {
-    "name":"ACER Aspire 3 15 A315-510P-C60F - 15.6 inch - Intel Processor N100 - 4 GB - 128 GB",
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_78976636?x=1800&y=1800&format=jpg&quality=80&sp=yes&strip=yes&ex=1800&ey=1800&align=center&resizesource&unsharp=1.5x1+0.7+0.02"
+  }, {
+    "name": "MICROSOFT Surface Laptop Studio - 14.4 inch - Intel Core i5 - 16 GB - 256 GB",
     "description": "",
-    "price": 299.99,
+    "price": 1549.99,
     "categoryId": 1,
-    "stock": 13,
-    "imageUrl":"https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_105173407?x=1800&y=1800&format=jpg&quality=80&sp=yes&strip=yes&ex=1800&ey=1800&align=center&resizesource&unsharp=1.5x1+0.7+0.02"
-  },
-  {
-    "name":"ACER Aspire 3 17 A317-55P-322B - 17.3 inch - Intel Core i3-N305 - 8 GB - 512 GB",
+    "stock": 97,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_91902577?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "ASUS Vivobook Go 14 E1404FA-NK002W - 14 inch - AMD Ryzen 5 - 8 GB - 512 GB",
+    "description": "",
+    "price": 555.99,
+    "categoryId": 1,
+    "stock": 51,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_106267854?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "ACER Aspire 3 17 A317-55P-322B - 17.3 inch - Intel Core i3-N305 - 8 GB - 512 GB",
     "description": "",
     "price": 499.99,
     "categoryId": 1,
     "stock": 134,
-    "imageUrl":"https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_105173544?x=1800&y=1800&format=jpg&quality=80&sp=yes&strip=yes&ex=1800&ey=1800&align=center&resizesource&unsharp=1.5x1+0.7+0.02"
-  },
-  {
-    "name":"ASUS Chromebook CX1400CKA-EK0212 - 14 inch - Intel Celeron - 4 GB - 128 GB",
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_105173544?x=1800&y=1800&format=jpg&quality=80&sp=yes&strip=yes&ex=1800&ey=1800&align=center&resizesource&unsharp=1.5x1+0.7+0.02"
+  }, {
+    "name": "MEDION ERAZER Crawler E30 MD62548 NL - 15 inch - Intel Core i5 - 16 GB - 512 GB - GeForce GTX 1650",
+    "description": "",
+    "price": 699.99,
+    "categoryId": 1,
+    "stock": 21,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_104822317?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "MSI Katana GF66 12UC-1010NL - 15.6 inch - Intel Core i5 - 16 GB - 512 GB - GeForce RTX 3050",
+    "description": "",
+    "price": 849.99,
+    "categoryId": 1,
+    "stock": 7,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_104822317?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "MSI Thin GF63 12VF-270NL - 15 inch - Full HD - Intel Core i7 - 16 GB - 512 GB - GeForce RTX 4060",
+    "description": "",
+    "price": 1199.99,
+    "categoryId": 1,
+    "stock": 29,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_104958916?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },{
+    "name": "APPLE MacBook Air (2023) - 15.0 inch - Apple M2 - 8 GB - 512 GB",
+    "description": "",
+    "price": 1599.99,
+    "categoryId": 1,
+    "stock": 98,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_106720807?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },{
+    "name": "HP CHROMEBOOK X360 14A-CA0308ND - 14.0 inch - Intel Pentium Silver - 4 GB - 64 GB",
+    "description": "",
+    "price": 429.99,
+    "categoryId": 1,
+    "stock": 91,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_97965455?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },{
+    "name": "ASUS Chromebook CX1400CKA-EK0212 - 14 inch - Intel Celeron - 4 GB - 128 GB",
     "description": "",
     "price": 269.99,
     "categoryId": 1,
     "stock": 67,
-    "imageUrl":"https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_106267880?x=1800&y=1800&format=jpg&quality=80&sp=yes&strip=yes&ex=1800&ey=1800&align=center&resizesource&unsharp=1.5x1+0.7+0.02"
-  },
-  {
-    "name":"HP 15-FC0806ND - 15.6 inch - AMD Ryzen 3 - 8 GB - 256 GB",
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_106267880?x=1800&y=1800&format=jpg&quality=80&sp=yes&strip=yes&ex=1800&ey=1800&align=center&resizesource&unsharp=1.5x1+0.7+0.02"
+  }, {
+    "name": "HP 15-FC0806ND - 15.6 inch - AMD Ryzen 3 - 8 GB - 256 GB",
     "description": "",
     "price": 489.99,
     "categoryId": 1,
     "stock": 21,
-    "imageUrl":"https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_104560370?x=1800&y=1800&format=jpg&quality=80&sp=yes&strip=yes&ex=1800&ey=1800&align=center&resizesource&unsharp=1.5x1+0.7+0.02"
-  },
-  {
-    "name":"LENOVO IdeaPad 3 - 15.6 inch - Intel Core i5 - 16 GB - 512 GB",
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_104560370?x=1800&y=1800&format=jpg&quality=80&sp=yes&strip=yes&ex=1800&ey=1800&align=center&resizesource&unsharp=1.5x1+0.7+0.02"
+  }, {
+    "name": "LENOVO IdeaPad 3 - 15.6 inch - Intel Core i5 - 16 GB - 512 GB",
     "description": "",
     "price": 699.99,
     "categoryId": 1,
     "stock": 8,
-    "imageUrl":"https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_108574166?x=1800&y=1800&format=jpg&quality=80&sp=yes&strip=yes&ex=1800&ey=1800&align=center&resizesource&unsharp=1.5x1+0.7+0.02"
-  },
-  {
-    "name":"APPLE MacBook Air 13.6 (2022) - Starlight M2 8-Core GPU 8GB 256GB",
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_108574166?x=1800&y=1800&format=jpg&quality=80&sp=yes&strip=yes&ex=1800&ey=1800&align=center&resizesource&unsharp=1.5x1+0.7+0.02"
+  }, {
+    "name": "APPLE MacBook Air 13.6 (2022) - Starlight M2 8-Core GPU 8GB 256GB",
     "description": "",
     "price": 1199.99,
     "categoryId": 1,
     "stock": 8,
-    "imageUrl":"https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_94577489?x=1800&y=1800&format=jpg&quality=80&sp=yes&strip=yes&ex=1800&ey=1800&align=center&resizesource&unsharp=1.5x1+0.7+0.02"
-  },
-  {
-    "name":"APPLE MacBook Air 13.6 (2022) - Spacegrijs M2 10-Core GPU 8GB 512GB",
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_94577489?x=1800&y=1800&format=jpg&quality=80&sp=yes&strip=yes&ex=1800&ey=1800&align=center&resizesource&unsharp=1.5x1+0.7+0.02"
+  }, {
+    "name": "APPLE MacBook Air 13.6 (2022) - M2 10-Core GPU 8GB 512GB",
     "description": "",
     "price": 1429.99,
     "categoryId": 1,
     "stock": 18,
-    "imageUrl":"https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_94577451?x=1800&y=1800&format=jpg&quality=80&sp=yes&strip=yes&ex=1800&ey=1800&align=center&resizesource&unsharp=1.5x1+0.7+0.02"
-  },
-  {
-    "name":"LG Tv 42 inch",
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_94577451?x=1800&y=1800&format=jpg&quality=80&sp=yes&strip=yes&ex=1800&ey=1800&align=center&resizesource&unsharp=1.5x1+0.7+0.02"
+  }, {
+    "name": "CANON EOS 2000D + EF-S 18-55 DC + SB130 camera bag + 16GB",
+    "description": "",
+    "price": 499.99,
+    "categoryId": 2,
+    "stock": 26,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_95596935?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },{
+    "name": "SONY ZV-1 Vlogcamera",
+    "description": "",
+    "price": 679.99,
+    "categoryId": 2,
+    "stock": 47,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_74990369?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },{
+    "name": "CANON EOS 2000D 18-55mm DC + 75-300mm DC",
+    "description": "",
+    "price": 799.99,
+    "categoryId": 2,
+    "stock": 62,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-81310729?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "CANON INST CAM ZOEMINI S2 PETROL",
+    "description": "",
+    "price": 155.99,
+    "categoryId": 2,
+    "stock": 112,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_94005896?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "AGFA DC8200 Realishot BLACK",
+    "description": "",
+    "price": 119.99,
+    "categoryId": 2,
+    "stock": 17,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_107172833?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "CANON INST CAM ZOEMINI S2 ROSE GOLD",
+    "description": "",
+    "price": 155.99,
+    "categoryId": 2,
+    "stock": 11,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_92785845?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "CANON EOS M200 + 15-45mm BLACK",
+    "description": "",
+    "price": 609.99,
+    "categoryId": 2,
+    "stock": 66,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_73688656?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "FUJIFILM INSTAX Pal Lavender Blue",
+    "description": "",
+    "price": 99.99,
+    "categoryId": 2,
+    "stock": 7,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_121248044?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "CANON EOS M200 kit + 15-45mm BLACK +SB130 camera bag + 16GB memory card",
+    "description": "",
+    "price": 629.99,
+    "categoryId": 2,
+    "stock": 81,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_73999409?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "CANON Canon Powershot SX70 HS BLACK",
+    "description": "",
+    "price": 598.99,
+    "categoryId": 2,
+    "stock": 26,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-79951710?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "CANON EOS 250D +18-55mm DC III + SB130 camera bag",
+    "description": "",
+    "price": 749.99,
+    "categoryId": 2,
+    "stock": 8,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_74002930?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "NIKON D7500 + AF-S DX NIKKOR 18-140 VR",
+    "description": "",
+    "price": 1349.99,
+    "categoryId": 2,
+    "stock": 13,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-81347962?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },  {
+    "name": "NIKON Z 50 + NIKKOR Z DX 16-50 VR",
+    "description": "",
+    "price": 1069.99,
+    "categoryId": 2,
+    "stock": 33,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_78597550?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "KODAK AZ425 Pixpro Astro Black",
+    "description": "",
+    "price": 249.99,
+    "categoryId": 2,
+    "stock": 29,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_107220381?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },{
+    "name": "LG Tv 42 inch",
     "description": "",
     "price": 499.99,
     "categoryId": 3,
     "stock": 134,
-    "imageUrl":"http://www.lg.com/us/images/tvs/md05802269/gallery/medium01.jpg"
+    "imageUrl": "http://www.lg.com/us/images/tvs/md05802269/gallery/medium01.jpg"
   }, {
-    "name":"Samsung Tv 40 inch",
+    "name": "Samsung Tv 40 inch",
     "description": "",
     "price": 999.99,
     "categoryId": 3,
     "stock": 44,
-    "imageUrl":"http://www.220-electronics.com/media/catalog/product/s/o/sony-kdl55hx750multi-system-tv-angle_1.png"
-  },
-    {
-      "name":"Panasonic Tv",
-      "description": "",
-      "price": 1999.99,
-      "categoryId": 3,
-      "stock": 10,
-      "imageUrl":"https://images-na.ssl-images-amazon.com/images/I/61Ekm1BJYbL._SX355_.jpg"
+    "imageUrl": "http://www.220-electronics.com/media/catalog/product/s/o/sony-kdl55hx750multi-system-tv-angle_1.png"
+  }, {
+    "name": "Panasonic Tv",
+    "description": "",
+    "price": 1999.99,
+    "categoryId": 3,
+    "stock": 10,
+    "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61Ekm1BJYbL._SX355_.jpg"
+    }, {
+    "name": "Toshiba Tv",
+    "description": "",
+    "price": 399.99,
+    "categoryId": 3,
+    "stock": 71,
+    "imageUrl": "http://www.1a20.com/wp-content/uploads/2012/11/4758734_S1E2.png"
+    }, {
+    "name": "LG 43NANO766QA",
+    "description": "",
+    "price": 469.99,
+    "categoryId": 3,
+    "stock": 91,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_92748992?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+    }, {
+    "name": "TCL 58P635 (2023)",
+    "description": "",
+    "price": 444.99,
+    "categoryId": 3,
+    "stock": 65,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_103606638?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+    }, {
+    "name": "PHILIPS 32PHS6808/12 (2023)",
+    "description": "",
+    "price": 222.99,
+    "categoryId": 3,
+    "stock": 10,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_105875035?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
     },{
-      "name":"Sony Tv 50 inch" ,
-      "description": "",
-      "price": 899.99,
-      "categoryId": 3,
-      "stock": 82,
-      "imageUrl":"http://www.220-electronics.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/s/o/sony-kdl55hx750multi-system-tv_1.png"
-    },
-    {
-      "name":"Sharp Tv",
-      "description": "",
-      "price": 299.0,
-      "categoryId": 3,
-      "stock": 56,
-      "imageUrl":"http://blackfridaytvs.com/wp-content/uploads/2014/11/Sharp-AQUOS-60-LED-1080p-Smart-HDTV-Black-LC-60LE644U-Best-Buy-SKU-8890013.png"
+    "name": "SAMSUNG Crystal UHD 4K 75CU7100 2023)",
+    "description": "",
+    "price": 941.99,
+    "categoryId": 3,
+    "stock": 87,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_104544967?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+      }, {
+    "name": "LG OLED 55C24LA",
+    "description": "",
+    "price": 1299.99,
+    "categoryId": 3,
+    "stock": 48,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_93658951?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
     }, {
-      "name":"Toshiba Tv",
-      "description": "",
-      "price": 399.99,
-      "categoryId": 3,
-      "stock": 71,
-      "imageUrl":"http://www.1a20.com/wp-content/uploads/2012/11/4758734_S1E2.png"
+    "name": "SAMSUNG Crystal UHD 55AU7040 (2022)",
+    "description": "",
+    "price": 549.99,
+    "categoryId": 3,
+    "stock": 82,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_101038317?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
     }, {
-      "name":"Vizio Tv",
-      "description": "",
-      "price": 599.99,
-      "categoryId": 3,
-      "stock": 13,
-      "imageUrl":"http://blackfridaytvs.com/wp-content/uploads/2014/11/VIZIO-50-Class-LED-1080p-240Hz-Smart-HDTV-M502I-B1-Best-Buy-SKU-7501014-300x257.png"
-    }
-  ]
+    "name": "APPLE iPhone 15 5G - 128 GB",
+    "description": "",
+    "price": 969.99,
+    "categoryId": 4,
+    "stock": 81,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_118115293?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+    }, {
+    "name": "SAMSUNG Galaxy Z Fold5 5G - 512 GB",
+    "description": "",
+    "price": 2009.99,
+    "categoryId": 4,
+    "stock": 52,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_108450077?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+    }, {
+    "name": "APPLE iPhone 14 128GB",
+    "description": "",
+    "price": 869.99,
+    "categoryId": 4,
+    "stock": 51,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_97263791?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+    }, {
+    "name": "MOTOROLA moto g23 - 128 GB",
+    "description": "",
+    "price": 179.99,
+    "categoryId": 4,
+    "stock": 12,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_101767186?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+    }, {
+    "name": "OPPO A78 5G - 128 GB",
+    "description": "",
+    "price": 295.99,
+    "categoryId": 4,
+    "stock": 4,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_102281602?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+    }, {
+    "name": "EMPORIA ACTIVEglam 4G - 4 GB",
+    "description": "",
+    "price": 89.99,
+    "categoryId": 4,
+    "stock": 19,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_107422639?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+    }, {
+    "name": "SAMSUNG Galaxy Z Fold5 5G - 512 GB",
+    "description": "",
+    "price": 2009.99,
+    "categoryId": 4,
+    "stock": 52,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_108450077?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "SAMSUNG Galaxy A23 - 5G 128 GB",
+    "description": "",
+    "price": 279.99,
+    "categoryId": 4,
+    "stock": 40,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_97406554?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "APPLE Studio Display",
+    "description": "",
+    "price": 1979.99,
+    "categoryId": 5,
+    "stock": 43,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_92138501?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "MEDION AKOYA P52218 MD20150 - 22 inch - Full HD - IPS - 75 Hz",
+    "description": "",
+    "price": 85.99,
+    "categoryId": 5,
+    "stock": 16,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_105514708?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "MEDION AKOYA P52424 MD20152 - 24 inch - Full HD - IPS - 100 Hz",
+    "description": "",
+    "price": 99.99,
+    "categoryId": 5,
+    "stock": 102,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_105514714?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "ACER NITRO VG240YBMIIX - 24 inch - 1920 x 1080 (Full HD) - 1 ms - 75 Hz",
+    "description": "",
+    "price": 179.99,
+    "categoryId": 5,
+    "stock": 97,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_79253445?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "SAMSUNG LS27R650FDUXEN - 27 inch - 1920 x 1080 (Full HD) - IPS-panel",
+    "description": "",
+    "price": 179.99,
+    "categoryId": 5,
+    "stock": 10,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_103604502?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "ACER EK220QABI - 22 inch - 1920 x 1080 (Full HD) - VA-paneel",
+    "description": "",
+    "price": 89.99,
+    "categoryId": 5,
+    "stock": 3,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_75780876?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "SAMSUNG LS24R650FDUXEN - 24 inch - 1920 x 1080 (Full HD) - IPS-panel",
+    "description": "",
+    "price": 129.99,
+    "categoryId": 5,
+    "stock": 71,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_82578039?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "ACER EK240YC - 24 inch - 1920 x 1080 (Full HD) - IPS-panel",
+    "description": "",
+    "price": 109.99,
+    "categoryId": 5,
+    "stock": 55,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_92958030?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "SAMSUNG LS24C366EAUXEN - 24 inch - 1920 x 1080 (Full HD) - VA-panel",
+    "description": "",
+    "price": 149.99,
+    "categoryId": 5,
+    "stock": 91,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_103604409?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },  {
+    "name": "LG 29WP500-B - 29 inch - 2560 x 1080 (UW Full HD) - IPS-panel",
+    "description": "",
+    "price": 199.99,
+    "categoryId": 5,
+    "stock": 43,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_84267167?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },  {
+    "name": "APPLE AirPods Max - Pink",
+    "description": "",
+    "price": 566.99,
+    "categoryId": 6,
+    "stock": 82,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_79779077?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },  {
+    "name": "JBL Tune 760NC Black",
+    "description": "",
+    "price": 67.99,
+    "categoryId": 6,
+    "stock": 11,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_94329844?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },  {
+    "name": "LOGITECH ZONE VIBE 100 BLACK",
+    "description": "",
+    "price": 109.99,
+    "categoryId": 6,
+    "stock": 54,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_97507063?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "SONY WH-1000XM4 Black",
+    "description": "",
+    "price": 245.99,
+    "categoryId": 6,
+    "stock": 98,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_76407836?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },  {
+    "name": "SONY WH-CH520 Taupe",
+    "description": "",
+    "price": 49.99,
+    "categoryId": 6,
+    "stock": 82,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_102442144?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },  {
+    "name": "SONY WH-CH520 Black",
+    "description": "",
+    "price": 49.99,
+    "categoryId": 6,
+    "stock": 75,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_102438219?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },  {
+    "name": "JBL Live 660 NC Black",
+    "description": "",
+    "price": 109.99,
+    "categoryId": 6,
+    "stock": 53,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_82469339?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "JBL Tune 770NC Black",
+    "description": "",
+    "price": 129.99,
+    "categoryId": 6,
+    "stock": 16,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_105738879?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },  {
+    "name": "JBL Tune 500 Black",
+    "description": "",
+    "price": 27.99,
+    "categoryId": 6,
+    "stock": 12,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-78538921?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },  {
+    "name": "SONY WH-1000XM5",
+    "description": "",
+    "price": 348.99,
+    "categoryId": 6,
+    "stock": 37,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_93869114?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },  {
+    "name": "SONY MDR-ZX110AP Black",
+    "description": "",
+    "price": 19.99,
+    "categoryId": 6,
+    "stock": 72,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_56889012?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "GOOGLE NEST Nest Hub (2nd generation) + ChromeCast Video (V3)",
+    "description": "",
+    "price": 138.99,
+    "categoryId": 7,
+    "stock": 12,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_88978014?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+    }, {
+    "name": "FRESH 'N REBEL BOLD L2 - Dried Green",
+    "description": "",
+    "price": 101.99,
+    "categoryId": 7,
+    "stock": 89,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_103792090?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "APPLE HomePod",
+    "description": "",
+    "price": 349.99,
+    "categoryId": 7,
+    "stock": 43,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_101402781?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "JBL Charge 4 Black",
+    "description": "",
+    "price": 129.99,
+    "categoryId": 7,
+    "stock": 102,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_75635805?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },{
+    "name": "JBL Partybox 310",
+    "description": "",
+    "price": 474.99,
+    "categoryId": 7,
+    "stock": 53,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_77468697?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },{
+    "name": "JBL Partybox Encore Essential Black",
+    "description": "",
+    "price": 279.99,
+    "categoryId": 7,
+    "stock": 142,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_99573973?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },{
+    "name": "JBL Charge 5 Black",
+    "description": "",
+    "price": 159.99,
+    "categoryId": 7,
+    "stock": 40,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_82465186?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "JBL Go 3 Black",
+    "description": "",
+    "price": 44.99,
+    "categoryId": 7,
+    "stock": 74,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_77319444?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },{
+    "name": "JBL Charge Essential 2 Gray",
+    "description": "",
+    "price": 109.99,
+    "categoryId": 7,
+    "stock": 87,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_96296400?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },{
+    "name": "JBL Clip 4 Black",
+    "description": "",
+    "price": 57.99,
+    "categoryId": 7,
+    "stock": 111,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_78465930?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },{
+    "name": "JBL Flip 6 Black",
+    "description": "",
+    "price": 119.99,
+    "categoryId": 7,
+    "stock": 143,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_90695166?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "BOSE SoundLink Flex Green",
+    "description": "",
+    "price": 169.99,
+    "categoryId": 7,
+    "stock": 41,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_128446227?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },{
+    "name": "JBL Partybox Ultimate",
+    "description": "",
+    "price": 1499.99,
+    "categoryId": 7,
+    "stock": 8,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_109840870?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },{
+    "name": "BOSE Surround Speakers Black",
+    "description": "",
+    "price": 349.99,
+    "categoryId": 7,
+    "stock": 12,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-78310953?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },{
+    "name": "PEAQ PPS 100 PARTY SPEAKER",
+    "description": "",
+    "price": 77.99,
+    "categoryId": 7,
+    "stock": 43,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_100537973?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },{
+    "name": "HP Envy Inspire 7221e",
+    "description": "",
+    "price": 139.99,
+    "categoryId": 8,
+    "stock": 15,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_108679841?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },  {
+    "name": "CANON PIXMA TS5150",
+    "description": "",
+    "price": 59.99,
+    "categoryId": 8,
+    "stock": 12,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-76581994?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },  {
+    "name": "HP DeskJet 2721e",
+    "description": "",
+    "price": 64.99,
+    "categoryId": 8,
+    "stock": 73,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_95971096?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },  {
+    "name": "CANON Pixma TS3551i",
+    "description": "",
+    "price": 59.99,
+    "categoryId": 8,
+    "stock": 16,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_126304986?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "HP Envy Inspire 7921e",
+    "description": "",
+    "price": 159.99,
+    "categoryId": 8,
+    "stock": 81,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_108679845?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },  {
+    "name": "EPSON Expression Home XP-3205",
+    "description": "",
+    "price": 79.99,
+    "categoryId": 8,
+    "stock": 28,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_98031929?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },  {
+    "name": "EPSON Expression Home XP-2200",
+    "description": "",
+    "price": 64.99,
+    "categoryId": 8,
+    "stock": 29,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_98031898?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },  {
+    "name": "EPSON EcoTank ET-2825",
+    "description": "",
+    "price": 239.99,
+    "categoryId": 8,
+    "stock": 75,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_88146632?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "HP LaserJet M110we",
+    "description": "",
+    "price": 99.99,
+    "categoryId": 8,
+    "stock": 65,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_91325504?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },  {
+    "name": "HP OfficeJet Pro 7720",
+    "description": "",
+    "price": 249.99,
+    "categoryId": 8,
+    "stock": 62,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-76944033?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },  {
+    "name": "HP Color LaserJet Pro M183FW",
+    "description": "",
+    "price": 479.99,
+    "categoryId": 8,
+    "stock": 14,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_74098872?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },  {
+    "name": "HP OfficeJet Pro 8024e",
+    "description": "",
+    "price": 219.99,
+    "categoryId": 8,
+    "stock": 32,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_95965248?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "HP Smart Tank Plus 570",
+    "description": "",
+    "price": 319.99,
+    "categoryId": 8,
+    "stock": 68,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_69958411?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "BROTHER HL-L3210CW",
+    "description": "",
+    "price": 242.99,
+    "categoryId": 8,
+    "stock": 40,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_106614923?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },  {
+    "name": "HP LaserJet M234dwe",
+    "description": "",
+    "price": 239.99,
+    "categoryId": 8,
+    "stock": 6,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_95967533?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "BROTHER DCP-L3550CDW",
+    "description": "",
+    "price": 350.99,
+    "categoryId": 8,
+    "stock": 26,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_106614910?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },  {
+    "name": "HP Color Laser MFP 179FNW",
+    "description": "",
+    "price": 322.99,
+    "categoryId": 8,
+    "stock": 48,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_73443704?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },  {
+    "name": "CANON i-SENSYS MF272dw",
+    "description": "",
+    "price": 269.99,
+    "categoryId": 8,
+    "stock": 10,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_106200243?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "BROTHER DCP-L2550DN",
+    "description": "",
+    "price": 199.99,
+    "categoryId": 8,
+    "stock": 19,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-77457207?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },  {
+    "name": "CANON I-SENSYS MF752CDW",
+    "description": "",
+    "price": 430.99,
+    "categoryId": 8,
+    "stock": 17,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_105056581?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },  {
+    "name": "CANON i-SENSYS MF264dw II",
+    "description": "",
+    "price": 319.99,
+    "categoryId": 8,
+    "stock": 18,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_106200240?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "SONY PlayStation 5 Console + EA Sports FC 24",
+    "description": "",
+    "price": 489.99,
+    "categoryId": 9,
+    "stock": 33,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_120911583?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "SONY PlayStation 5 Console - Digital Edition",
+    "description": "",
+    "price": 449.99,
+    "categoryId": 9,
+    "stock": 32,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_104177670?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "SONY PlayStation 5 Console - Marvel’s Spider-Man 2 Limited Edition Bundel",
+    "description": "",
+    "price": 659.99,
+    "categoryId": 9,
+    "stock": 61,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_108453100?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "SONY PlayStation 5 Digital Edition + Pulse 3D Wireless Headset + Qware PS5 Gaming Starter Kit Bundel",
+    "description": "",
+    "price": 599.99,
+    "categoryId": 9,
+    "stock": 29,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_103243462?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "SONY PlayStation 5 Disk Edition + Qware PS5 Accessoires Bundel",
+    "description": "",
+    "price": 599.99,
+    "categoryId": 9,
+    "stock": 27,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_105205711?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "MICROSOFT Xbox Series S 512 GB White",
+    "description": "",
+    "price": 289.99,
+    "categoryId": 9,
+    "stock": 42,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_77163160?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "MICROSOFT Xbox Series X",
+    "description": "",
+    "price": 544.99,
+    "categoryId": 9,
+    "stock": 17,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_77145642?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },  {
+    "name": "MICROSOFT Xbox Series X Forza Horizon 5 + Qware Xbox Series Dual Charger + Qware Thumb Grips Bundel",
+    "description": "",
+    "price": 599.99,
+    "categoryId": 9,
+    "stock": 19,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_102699601?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "MICROSOFT Xbox Series X – Diablo IV-bundel",
+    "description": "",
+    "price": 559.99,
+    "categoryId": 9,
+    "stock": 17,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_105566295?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "MICROSOFT Xbox Series S 1 TB Black",
+    "description": "",
+    "price": 349.99,
+    "categoryId": 9,
+    "stock": 17,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_107391747?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "NINTENDO Switch OLED - Mario Red Edition",
+    "description": "",
+    "price": 349.99,
+    "categoryId": 9,
+    "stock": 82,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_116945339?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "STEELSERIES Arctis Nova Pro Gaming Headset - PC, PS5, PS4 & Nintendo Switch",
+    "description": "",
+    "price": 216.99,
+    "categoryId": 9,
+    "stock": 17,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_99347048?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "NINTENDO Switch Red and Blue",
+    "description": "",
+    "price": 284.99,
+    "categoryId": 9,
+    "stock": 46,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_99333294?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },{
+    "name": "NINTENDO Switch OLED - Red/Blue",
+    "description": "",
+    "price": 349.99,
+    "categoryId": 9,
+    "stock": 87,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_85553328?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "META Quest 3 128 GB",
+    "description": "",
+    "price": 549.99,
+    "categoryId": 9,
+    "stock": 117,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_123520135?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }, {
+    "name": "META Quest 2 (128GB)",
+    "description": "",
+    "price": 349.99,
+    "categoryId": 9,
+    "stock": 54,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_98481229?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },  {
+    "name": "AUTEL Evo Nano+ Standard Package Oranje",
+    "description": "",
+    "price": 769.99,
+    "categoryId": 10,
+    "stock": 53,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_94863084?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },  {
+    "name": "NIKKEI Snaptain by Nikkei H823H Mini Drone",
+    "description": "",
+    "price": 24.99,
+    "categoryId": 10,
+    "stock": 65,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_96764119?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },  {
+    "name": "DJI MINI 2 Fly More Combo",
+    "description": "",
+    "price": 599.99,
+    "categoryId": 10,
+    "stock": 32,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_78988784?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },  {
+    "name": "DJI Mini 4 Pro Fly More Combo - incl. RC 2-controller",
+    "description": "",
+    "price": 1129.99,
+    "categoryId": 10,
+    "stock": 48,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_122615262?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },  {
+    "name": "DJI DJI Mini 3",
+    "description": "",
+    "price": 379.99,
+    "categoryId": 10,
+    "stock": 42,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_105111388?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },  {
+    "name": "DJI Mini 3 Fly More Combo (DJI RC) (GL)",
+    "description": "",
+    "price": 749.99,
+    "categoryId": 10,
+    "stock": 54,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_100718901?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },  {
+    "name": "DJI Ryze Tello Powered by DJI",
+    "description": "",
+    "price": 102.99,
+    "categoryId": 10,
+    "stock": 76,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-77066666?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },  {
+    "name": "DJI Mini 3 Pro + RC-N1 Remote Controller",
+    "description": "",
+    "price": 699.99,
+    "categoryId": 10,
+    "stock": 28,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_93732358?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  },  {
+    "name": "DJI Mini 4 Pro - incl. RC 2-controller",
+    "description": "",
+    "price": 999.99,
+    "categoryId": 10,
+    "stock": 26,
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_122615272?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+  }
+]

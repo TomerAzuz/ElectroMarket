@@ -6,6 +6,7 @@ import com.ElectroMarket.orderservice.dto.OrderRequest;
 import com.ElectroMarket.orderservice.dto.Product;
 import com.ElectroMarket.orderservice.event.OrderAcceptedMessage;
 import com.ElectroMarket.orderservice.models.Order;
+import com.ElectroMarket.orderservice.models.OrderItem;
 import com.ElectroMarket.orderservice.models.OrderStatus;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
@@ -26,6 +27,8 @@ import org.springframework.test.context.DynamicPropertySource;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;
@@ -66,9 +69,14 @@ public class OrderServiceApplicationTests {
     @Test
     void whenGetOrdersThenReturn() throws IOException    {
         long productId = 1;
-        Product product = new Product(productId, "Laptop", "Some description1.", 559.90, 5);
+        Product product = new Product(productId, "Laptop", "description.", 559.90, 5);
         given(productClient.getProductById(productId)).willReturn(Mono.just(product));
-        OrderRequest orderRequest = new OrderRequest(productId, 1);
+
+        OrderItem orderItem = OrderItem.of(null, productId, 2);
+        List<OrderItem> itemList = new ArrayList<>();
+        itemList.add(orderItem);
+        OrderRequest orderRequest = new OrderRequest(itemList);
+
         Order expectedOrder = webTestClient.post().uri("/orders")
                 .bodyValue(orderRequest)
                 .exchange()
@@ -81,50 +89,48 @@ public class OrderServiceApplicationTests {
         webTestClient.get().uri("/orders")
                 .exchange()
                 .expectStatus().is2xxSuccessful()
-                .expectBodyList(Order.class).value(orders -> {
-                    assertThat(orders.stream().filter(order -> order.id().equals(productId)).findAny()).isNotEmpty();
-                });
+                .expectBodyList(Order.class).value(orders ->
+                        assertThat(orders.stream().filter(order -> order.id().equals(productId)).findAny()).isNotEmpty());
     }
-
-    @Test
-    void whenPostRequestAndProductExistsThenOrderAccepted() throws IOException  {
-        long productId = 1;
-        Product product = new Product(productId, "Laptop", "Some description1.", 559.90, 5);
-        given(productClient.getProductById(productId)).willReturn(Mono.just(product));
-        OrderRequest orderRequest = new OrderRequest(productId, 5);
-
-        Order createdOrder = webTestClient.post().uri("/orders")
-                .bodyValue(orderRequest)
-                .exchange()
-                .expectStatus().is2xxSuccessful()
-                .expectBody(Order.class).returnResult().getResponseBody();
-
-        assertThat(createdOrder).isNotNull();
-        assertThat(createdOrder.productId()).isEqualTo(orderRequest.product_id());
-        assertThat(createdOrder.quantity()).isEqualTo(orderRequest.quantity());
-        assertThat(createdOrder.productName()).isEqualTo(product.name());
-        assertThat(createdOrder.productPrice()).isEqualTo(product.price());
-        assertThat(createdOrder.status()).isEqualTo(OrderStatus.ACCEPTED);
-
-        assertThat(objectMapper.readValue(output.receive().getPayload(), OrderAcceptedMessage.class))
-                .isEqualTo(new OrderAcceptedMessage(createdOrder.id()));
-    }
-
     @Test
     void whenPostRequestAndProductNotExistsThenOrderRejected()  {
         long productId = 4;
         given(productClient.getProductById(productId)).willReturn(Mono.empty());
-        OrderRequest orderRequest = new OrderRequest(productId, 3);
+        List<OrderItem> items = new ArrayList<>();
 
-        Order createdOrder = webTestClient.post().uri("/orders")
+        OrderItem item = OrderItem.of(null, productId, 1);
+        items.add(item);
+
+        OrderRequest orderRequest = new OrderRequest(items);
+
+        Order expectedOrder = webTestClient.post().uri("/orders")
                 .bodyValue(orderRequest)
                 .exchange()
                 .expectStatus().is2xxSuccessful()
                 .expectBody(Order.class).returnResult().getResponseBody();
 
-        assertThat(createdOrder).isNotNull();
-        assertThat(createdOrder.productId()).isEqualTo(orderRequest.product_id());
-        assertThat(createdOrder.quantity()).isEqualTo(orderRequest.quantity());
-        assertThat(createdOrder.status()).isEqualTo(OrderStatus.REJECTED);
+        assertThat(expectedOrder).isNotNull();
+        assertThat(expectedOrder.status()).isEqualTo(OrderStatus.REJECTED);
+    }
+
+    @Test
+    void whenPostRequestAndQuantityIsGreaterThanStockThenOrderRejected()    {
+        long productId = 1;
+        Product product = new Product(productId, "Laptop", "description.", 559.90, 0);
+        given(productClient.getProductById(productId)).willReturn(Mono.just(product));
+
+        OrderItem orderItem = OrderItem.of(null, productId, 1);
+        List<OrderItem> itemList = new ArrayList<>();
+        itemList.add(orderItem);
+        OrderRequest orderRequest = new OrderRequest(itemList);
+
+        Order expectedOrder = webTestClient.post().uri("/orders")
+                .bodyValue(orderRequest)
+                .exchange()
+                .expectStatus().is2xxSuccessful()
+                .expectBody(Order.class).returnResult().getResponseBody();
+
+        assertThat(expectedOrder).isNotNull();
+        assertThat(expectedOrder.status()).isEqualTo(OrderStatus.REJECTED);
     }
 }

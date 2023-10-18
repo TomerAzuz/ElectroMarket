@@ -19,18 +19,12 @@ public class OrderJsonTests {
 
     @Test
     void testSerialize() throws Exception {
-        var order = new Order(25L, 1L, "product", 9.99, 4, OrderStatus.ACCEPTED, Instant.now(), Instant.now(), 45);
+        var order = new Order(25L, 1250.0, OrderStatus.ACCEPTED, Instant.now(), Instant.now(), 0);
         var jsonContent = json.write(order);
         assertThat(jsonContent).extractingJsonPathNumberValue("@.id")
                 .isEqualTo(order.id().intValue());
-        assertThat(jsonContent).extractingJsonPathNumberValue("@.productId")
-                .isEqualTo(order.productId().intValue());
-        assertThat(jsonContent).extractingJsonPathStringValue("@.productName")
-                .isEqualTo(order.productName());
-        assertThat(jsonContent).extractingJsonPathNumberValue("@.productPrice")
-                .isEqualTo(order.productPrice());
-        assertThat(jsonContent).extractingJsonPathNumberValue("@.quantity")
-                .isEqualTo(order.quantity());
+        assertThat(jsonContent).extractingJsonPathNumberValue("@.total")
+                .isEqualTo(order.total());
         assertThat(jsonContent).extractingJsonPathStringValue("@.status")
                 .isEqualTo(order.status().toString());
         assertThat(jsonContent).extractingJsonPathStringValue("@.createdDate")
@@ -40,5 +34,4 @@ public class OrderJsonTests {
         assertThat(jsonContent).extractingJsonPathNumberValue("@.version")
                 .isEqualTo(order.version());
     }
-
 }

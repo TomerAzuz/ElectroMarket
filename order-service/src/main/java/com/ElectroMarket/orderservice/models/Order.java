@@ -14,17 +14,8 @@ public record Order (
         @Id
         Long id,
 
-        @Column("product_id")
-        Long productId,
-
-        @Column("product_name")
-        String productName,
-
-        @Column("product_price")
-        Double productPrice,
-
-        @Column("quantity")
-        Integer quantity,
+        @Column("total")
+        Double total,
 
         @Column("status")
         OrderStatus status,
@@ -41,10 +32,7 @@ public record Order (
         int version
 
 ) {
-        public static Order of(
-                Long productId, String productName,
-                Double productPrice, Integer quantity, OrderStatus status
-        )     {
-                return new Order(null, productId, productName, productPrice, quantity, status, null, null, 0);
+        public static Order of(Double price, OrderStatus status)     {
+                return new Order(null, price, status, null, null, 0);
         }
 }

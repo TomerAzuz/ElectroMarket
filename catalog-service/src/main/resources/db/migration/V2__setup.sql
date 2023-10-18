@@ -7,3 +7,4 @@ INSERT INTO category (name) VALUES ('Headphones');
 INSERT INTO category (name) VALUES ('Speakers');
 INSERT INTO category (name) VALUES ('Printers');
 INSERT INTO category (name) VALUES ('Gaming');
+INSERT INTO category (name) VALUES ('Drones');

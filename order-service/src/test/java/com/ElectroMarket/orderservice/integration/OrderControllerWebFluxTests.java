@@ -3,6 +3,7 @@ package com.ElectroMarket.orderservice.integration;
 import com.ElectroMarket.orderservice.controllers.OrderController;
 import com.ElectroMarket.orderservice.dto.OrderRequest;
 import com.ElectroMarket.orderservice.models.Order;
+import com.ElectroMarket.orderservice.models.OrderItem;
 import com.ElectroMarket.orderservice.models.OrderStatus;
 import com.ElectroMarket.orderservice.services.OrderService;
 import org.junit.jupiter.api.Test;
@@ -11,6 +12,9 @@ import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import reactor.core.publisher.Mono;
+
+import java.util.ArrayList;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;
 
@@ -26,12 +30,12 @@ public class OrderControllerWebFluxTests {
 
     @Test
     void whenProductNotAvailableThenRejectOrder()   {
-        var orderRequest = new OrderRequest(12345L, 3);
-        var expectedOrder = OrderService.buildRejectedOrder(
-                orderRequest.product_id(),
-                orderRequest.quantity());
-        given(orderService.submitOrder(
-                orderRequest.product_id(), orderRequest.quantity()))
+        var item = OrderItem.of(null, 1000L, 1);
+        var items = new ArrayList<OrderItem>();
+        items.add(item);
+        var orderRequest = new OrderRequest(items);
+        var expectedOrder = OrderService.buildOrder(0.0, false);
+        given(orderService.submitOrder(orderRequest))
                 .willReturn(Mono.just(expectedOrder));
 
         webClient
@@ -45,4 +49,5 @@ public class OrderControllerWebFluxTests {
                     assertThat(actualOrder.status()).isEqualTo(OrderStatus.REJECTED);
                 });
     }
+
 }

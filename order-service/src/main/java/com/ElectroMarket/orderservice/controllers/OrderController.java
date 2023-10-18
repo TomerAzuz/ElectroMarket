@@ -24,6 +24,6 @@ public class OrderController {
 
     @PostMapping
     public Mono<Order> submitOrder(@RequestBody @Valid OrderRequest orderRequest)   {
-        return orderService.submitOrder(orderRequest.product_id(), orderRequest.quantity());
+        return orderService.submitOrder(orderRequest);
     }
 }
