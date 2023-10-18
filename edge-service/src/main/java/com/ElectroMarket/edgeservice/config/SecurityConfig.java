@@ -24,8 +24,10 @@ public class SecurityConfig {
     SecurityWebFilterChain securityFilterChain(ServerHttpSecurity http, ReactiveClientRegistrationRepository clientRegistrationRepository) {
         return http
                 .authorizeExchange(exchange -> exchange
-                        .pathMatchers("/", "/static/css/**", "/static/js/**", "/favicon.ico").permitAll()
+                        .pathMatchers("/", "/dist/**", "/static/css/**", "/static/js/**", "/favicon.ico").permitAll()
                         .pathMatchers(HttpMethod.GET, "/products/**").permitAll()
+                        .pathMatchers(HttpMethod.GET, "/category/**").permitAll()
+                        .pathMatchers(HttpMethod.GET, "/orders/**").permitAll()
                         .anyExchange().authenticated()
                 )
                 .exceptionHandling(exceptionHandling -> exceptionHandling
