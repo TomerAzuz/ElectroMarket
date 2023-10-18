@@ -12,6 +12,7 @@ const CategoryProvider = ({ children }) => {
         const fetchCategories = async () => {
           try {
             const response = await axios.get('/category'); 
+            console.log(response.data);
             setCategories(response.data);
           } catch (error) {
             console.error('Error fetching data:', error);
