@@ -43,6 +43,7 @@ public class OrderService {
 
     @Transactional
     public Mono<Order> submitOrder(OrderRequest orderRequest) {
+        log.info("Submitting order...");
         return Flux.fromIterable(orderRequest.items())
                 .flatMap(item -> productClient.getProductById(item.productId())
                         .flatMap(product -> {

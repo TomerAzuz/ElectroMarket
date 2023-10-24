@@ -6,6 +6,11 @@ const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
     const [itemQuantity, setItemQuantity] = useState(0);
     const [total, setTotal] = useState(0);
+    const [isOpenCart, setIsOpenCart] = useState(false);
+
+    const handleCloseCart = () => {
+        setIsOpenCart(false);
+    };
 
     // update total price
     useEffect(() => {
@@ -80,7 +85,10 @@ const CartProvider = ({ children }) => {
         }  
     };
 
-    return <CartContext.Provider value={{ cart, 
+    return <CartContext.Provider value={{ isOpenCart, 
+                                          setIsOpenCart, 
+                                          handleCloseCart, 
+                                          cart,
                                           addToCart, 
                                           removeFromCart, 
                                           clearCart,

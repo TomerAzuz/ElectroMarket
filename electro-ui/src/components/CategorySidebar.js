@@ -35,7 +35,7 @@ function CategorySidebar() {
                     onClick={() => handleCategoryClick(category)}
                   >
                     <Link to={`/products/category/${category.id}`}>
-                                {category.name}
+                      {category.name}
                     </Link>
                   </button>
                 </li>

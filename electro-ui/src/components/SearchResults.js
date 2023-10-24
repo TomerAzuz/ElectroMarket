@@ -10,7 +10,7 @@ function SearchResults({ results }) {
 
   return (
     isResultsVisible ? (
-      <div className='bg-white border border-b p-4 rounded-lg mt-2 max-h-48 overflow-y-auto'>
+      <div className='bg-white border border-b p-4 rounded-lg mt-2 max-h-48 overflow-y-auto lg:mt-0 lg:absolute lg:w-64 lg:left-0 lg:bg-white lg:shadow-md'>
         <ul>
           {results.map((result) => (
             <Link to={`/products/${result.id}`} key={result.id} onClick={handleResultClick}>

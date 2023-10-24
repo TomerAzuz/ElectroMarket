@@ -15,7 +15,7 @@ const Category = () => {
       
     return (
         <div className='mt-20 pt-10 text-4xl text-primary'>
-            <h2>Products by Category: {selectedCategory ? selectedCategory.name : 'All'}</h2>
+            <h2>{selectedCategory ? selectedCategory.name : 'All'}</h2>
             <ProductList products={products} />
         </div>
     );

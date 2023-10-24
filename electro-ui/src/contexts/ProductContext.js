@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect, useCallback  } from 'react';
-import axios from 'axios';
+import axiosInstance from '../axiosInterceptor';
 
 export const ProductContext = createContext();
 
@@ -15,7 +15,7 @@ const ProductProvider = ({ children }) => {
 
   const fetchProducts = useCallback(async () => {
     try {
-      const response = await axios.get('/products');
+      const response = await axiosInstance.get('/products');
       setProducts(response.data);
       setLoading(false);
     } catch (error) {
@@ -25,7 +25,7 @@ const ProductProvider = ({ children }) => {
 
   const fetchByCategory =  useCallback(async (categoryId) => {
     try {
-      const response = await axios.get(`/products/category/${categoryId}`);
+      const response = await axiosInstance.get(`/products/category/${categoryId}`);
       setProducts(response.data);
       setLoading(false);
     } catch (error) {

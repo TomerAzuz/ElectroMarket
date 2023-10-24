@@ -4,11 +4,12 @@ import './App.css';
 
 import Home from './pages/Home';
 import ProductDetails from './pages/ProductDetails';
-import Sideber from './components/Sidebar';
+import Sidebar from './components/Cart';
 import CategorySidebar from './components/CategorySidebar';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Category from './pages/Category';
+import OrderConfirmation from './pages/OrderConfirmation';
 
 const App = () => {
   return (
@@ -19,8 +20,9 @@ const App = () => {
           <Route path='/' element={<Home />} />
           <Route path='/products/category/:id' element={<Category />} />
           <Route path='/products/:id' element={<ProductDetails />} />
+          <Route path='/orders' element={<OrderConfirmation />} />
         </Routes>
-        <Sideber />
+        <Sidebar />
         <CategorySidebar />
         <Footer />
       </Router>

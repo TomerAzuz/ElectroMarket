@@ -1,15 +1,13 @@
 import React, { useContext } from "react";
 import { IoMdArrowForward } from 'react-icons/io';
-import { SidebarContext } from "../contexts/SidebarContext";
 import { CartContext } from "../contexts/CartContext";
 import CartItem from './CartItem';
 import { FiTrash2 } from "react-icons/fi";
 import { Link } from 'react-router-dom';
-import axios from 'axios'; 
+import axiosInstance from '../axiosInterceptor'; 
 
-function Sidebar() {
-  const { isOpenSidebar, handleCloseSidebar } = useContext(SidebarContext);
-  const { cart, clearCart, total, itemQuantity } = useContext(CartContext);
+function Cart() {
+  const { isOpenCart, handleCloseCart, cart, clearCart, total, itemQuantity } = useContext(CartContext);
 
   const handleCheckout = async () => {
     const orderData = {
@@ -18,12 +16,11 @@ function Sidebar() {
         quantity: item.quantity
       }))
     };
-    console.log(orderData);
+
     try {
-      const response = await axios.post("/orders", orderData);
+      const response = await axiosInstance.post("/orders", orderData);
       console.log("order submitted:", response.data);
-      
-      clearCart();      
+      clearCart();
     } catch (error) {
       console.log("Error submitting order:", error);
     }
@@ -32,12 +29,12 @@ function Sidebar() {
   return (
     <div
       className={`${
-        isOpenSidebar ? 'right-0' : '-right-full'
-      } w-full bg-white fixed top-0 h-full shadow-2xl md:w-[30vw] xl:max-w-[25vw] transition-all duration-300 z-20 px-4 lg:px-[30px]`}
+        isOpenCart ? 'right-0' : '-right-full'} 
+        w-full bg-white fixed top-0 h-full shadow-2xl md:w-[30vw] xl:max-w-[25vw] transition-all duration-300 z-20 px-4 lg:px-[30px]`}
     >
       <div className='flex items-center justify-between py-6 border-b'>
         <div className='uppercase text-sm font-semibold'>Shopping Bag ({itemQuantity})</div>
-        <div onClick={handleCloseSidebar} className='cursor-pointer w-8 h-8 flex justify-center items-center'>
+        <div onClick={handleCloseCart} className='cursor-pointer w-8 h-8 flex justify-center items-center'>
           <IoMdArrowForward className='text-2xl' />
         </div>
       </div>
@@ -77,4 +74,4 @@ function Sidebar() {
   );
 }
 
-export default Sidebar;
+export default Cart;

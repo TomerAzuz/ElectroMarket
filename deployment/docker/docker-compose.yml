@@ -19,6 +19,7 @@ services:
   order-service:
     depends_on:
       - electro-postgres
+      - electro-rabbitmq
     image: ghcr.io/tomerazuz/order-service:latest
     container_name: "order-service"
     ports:
@@ -31,11 +32,12 @@ services:
       - SPRING_CLOUD_CONFIG_URI=http://config-service:8888
       - SPRING_R2DBC_URL=r2dbc:postgresql://electro-postgres:5432/electrodb_order
       - SPRING_FLYWAY_URL=jdbc:postgresql://electro-postgres:5432/electrodb_order
+      - SPRING_RABBITMQ_HOST=electro-rabbitmq
 
   dispatcher-service:
     depends_on:
       - electro-rabbitmq
-    image: "dispatcher-service"
+    image: ghcr.io/tomerazuz/dispatcher-service:latest
     container_name: dispatcher-service
     ports:
       - "9003:9003"
@@ -50,8 +52,7 @@ services:
     depends_on:
       - electro-keycloak
       - electro-redis
-      - electro-ui
-    image: "ghcr.io/tomerazuz/edge-service:latest"
+    image: ghcr.io/tomerazuz/edge-service:latest
     container_name: "edge-service"
     ports:
       - "9000:9000"
@@ -78,7 +79,7 @@ services:
       - BPL_DEBUG_PORT=9888
 
   electro-ui:
-    image: "ghcr.io/tomerazuz/electro-ui:latest"
+    image: ghcr.io/tomerazuz/electro-ui:latest
     container_name: "electro-ui"
     ports:
       - "9004:9004"

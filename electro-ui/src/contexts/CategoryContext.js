@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
-import axios from 'axios';
+import axiosInstance from '../axiosInterceptor';
 
 export const CategoryContext = createContext();
 
@@ -11,8 +11,7 @@ const CategoryProvider = ({ children }) => {
     useEffect(() => {
         const fetchCategories = async () => {
           try {
-            const response = await axios.get('/category'); 
-            console.log(response.data);
+            const response = await axiosInstance.get('/category'); 
             setCategories(response.data);
           } catch (error) {
             console.error('Error fetching data:', error);
