@@ -13,10 +13,9 @@ import Account from "./Account";
 
 function Header() {
   const { products } = useContext(ProductContext);
-  const { user, setUser } = useContext(UserContext);
-  const { isOpenCart, setIsOpenCart } = useContext(CartContext);
+  const { user } = useContext(UserContext);
+  const { isOpenCart, setIsOpenCart, itemQuantity } = useContext(CartContext);
   const { isOpenCategories, setIsOpenCategories } = useContext(CategoryContext);
-  const { itemQuantity } = useContext(CartContext);
   const [searchResults, setSearchResults] = useState([]);
 
   const handleSearch = (query) => {

@@ -5,6 +5,7 @@ import com.ElectroMarket.catalogservice.exceptions.ResourceAlreadyExistsExceptio
 import com.ElectroMarket.catalogservice.exceptions.ResourceNotFoundException;
 import com.ElectroMarket.catalogservice.models.Product;
 import com.ElectroMarket.catalogservice.services.ProductService;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -2,6 +2,7 @@ package com.ElectroMarket.orderservice.controllers;
 
 import com.ElectroMarket.orderservice.dto.OrderRequest;
 import com.ElectroMarket.orderservice.models.Order;
+import com.ElectroMarket.orderservice.models.OrderItem;
 import com.ElectroMarket.orderservice.services.OrderService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
@@ -22,8 +23,18 @@ public class OrderController {
         return orderService.getAllOrders();
     }
 
+    @GetMapping("{id}")
+    public Mono<Order> getOrderById(@PathVariable Long id)   {
+        return orderService.getOrderById(id);
+    }
+
     @PostMapping
     public Mono<Order> submitOrder(@RequestBody @Valid OrderRequest orderRequest)   {
         return orderService.submitOrder(orderRequest);
+    }
+
+    @GetMapping("{id}/items")
+    Flux<OrderItem> getItemsForOrder(@PathVariable Long id) {
+        return orderService.getItemsForOrder(id);
     }
 }

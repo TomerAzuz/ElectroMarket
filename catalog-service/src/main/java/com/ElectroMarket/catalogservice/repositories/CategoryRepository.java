@@ -15,7 +15,7 @@ public interface CategoryRepository extends CrudRepository<Category, Long> {
     @Modifying
     @Transactional
     @Query("UPDATE Category SET name = :newName WHERE name = :name")
-    int updateByName(@Param("name") String name, @Param("newName") String newName);
+    void updateByName(@Param("name") String name, @Param("newName") String newName);
 
 
     @Modifying
