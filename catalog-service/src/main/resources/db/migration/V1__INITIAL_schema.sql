@@ -1,7 +1,8 @@
 DROP TABLE IF EXISTS category;
 CREATE TABLE category (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(255) NOT NULL
+    name VARCHAR(255) NOT NULL,
+    image_url VARCHAR(255)
 );
 
 DROP TABLE IF EXISTS product;

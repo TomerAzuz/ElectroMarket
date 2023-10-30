@@ -1,15 +1,12 @@
-import React, { useContext } from 'react'
-import ProductList from '../components/ProductList';
-import { ProductContext } from '../contexts/ProductContext';
 import Hero from '../components/Hero';
+import Categories from '../components/category/Categories';
 
-const Home = () => {
-    const { products } = useContext(ProductContext);
-    
+const Home = () => {    
     return (
         <div>
-            <Hero />            
-            <ProductList products={products}/>
+            <Hero />     
+            <Categories />       
+            
         </div>
     );
 }

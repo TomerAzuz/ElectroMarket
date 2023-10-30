@@ -15,13 +15,15 @@ public class CategoryJsonTests {
 
     @Test
     void testSerialize() throws Exception {
-        var category = new Category(123L, "category");
+        var category = new Category(123L, "category", "www.example.com/img.jpg");
         var jsonContent = json.write(category);
 
         assertThat(jsonContent).extractingJsonPathNumberValue("@.id")
                 .isEqualTo(category.id().intValue());
         assertThat(jsonContent).extractingJsonPathStringValue("@.name")
                 .isEqualTo(category.name());
+        assertThat(jsonContent).extractingJsonPathStringValue("@.imageUrl")
+                .isEqualTo(category.imageUrl());
     }
 
     @Test
@@ -30,12 +32,12 @@ public class CategoryJsonTests {
                     {
                         "id": 242,
                         "name": "category",
-                        "parent_id": "2"
+                        "imageUrl": "www.example.com/img.jpg"
                     }
                     """;
         assertThat(json.parse(content))
                 .usingRecursiveComparison()
-                .isEqualTo(new Category(242L, "category"));
+                .isEqualTo(new Category(242L, "category", "www.example.com/img.jpg"));
 
     }
 }

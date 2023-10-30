@@ -1,11 +1,13 @@
 import React, { useContext  } from 'react';
+import { PulseLoader } from 'react-spinners';
 import { useParams } from 'react-router-dom';
+
 import { CartContext } from '../contexts/CartContext';
 import { ProductContext } from '../contexts/ProductContext';
 
 const ProductDetails = () => {
     const { id } = useParams();
-    const { products } = useContext(ProductContext);
+    const { products, loading } = useContext(ProductContext);
     const { addToCart } = useContext(CartContext);
 
     const product = products.find(item => {
@@ -14,6 +16,12 @@ const ProductDetails = () => {
 
     if (!product)   {
         return <section className='h-screen flex justify-center items-center'>Loading...</section>
+    }
+
+    if (loading)   {
+        return <section className='loading-container h-screen flex justify-center items-center'>
+            <PulseLoader size={15} color="#007bff" loading={loading} />
+        </section>
     }
 
     const { name, price, imageUrl } = product;

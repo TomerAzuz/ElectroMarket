@@ -37,7 +37,7 @@ public class UserControllerTests {
 
     @Test
     void whenAuthenticatedThenReturnUser()  {
-        var expectedUser = new User("tomer", "Tomer", "Azuz", List.of("employee", "customer"));
+        var expectedUser = new User("tomer123", "tomer", "Tomer", List.of("employee", "customer"));
 
         webClient
                 .mutateWith(configureMockOidcLogin(expectedUser))

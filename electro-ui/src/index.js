@@ -2,20 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.js';
 import ProductProvider from './contexts/ProductContext.js';
-import CategoryProvider from './contexts/CategoryContext.js';
 import CartProvider from './contexts/CartContext.js';
-import UserProvider from './contexts/UserContext.js';
+import AuthProvider from './contexts/AuthContext.js';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <UserProvider>
+  <AuthProvider>
     <CartProvider>
-      <CategoryProvider>
         <ProductProvider>
-          <React.StrictMode>
-            <App />
-          </React.StrictMode>
+            <React.StrictMode>
+              <App />
+            </React.StrictMode>
         </ProductProvider>
-      </CategoryProvider>
     </CartProvider>
-  </UserProvider>
+  </AuthProvider>
 )

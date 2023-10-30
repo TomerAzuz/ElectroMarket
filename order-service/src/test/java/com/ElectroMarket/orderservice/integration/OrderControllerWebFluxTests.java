@@ -32,8 +32,8 @@ public class OrderControllerWebFluxTests {
     @Test
     void whenProductNotAvailableThenRejectOrder()   {
         var item = OrderItem.of(null, 1000L, 1);
-        var orderRequest = new OrderRequest(List.of(item));
-        var expectedOrder = OrderService.buildOrder(0.0, false);
+        var orderRequest = new OrderRequest("tomer123", List.of(item));
+        var expectedOrder = OrderService.buildOrder(orderRequest.username(), 0.0, false);
         given(orderService.submitOrder(orderRequest))
                 .willReturn(Mono.just(expectedOrder));
 
@@ -51,7 +51,7 @@ public class OrderControllerWebFluxTests {
 
     @Test
     void getExistingOrder()    {
-        var order = new Order(1L, 1000.0, OrderStatus.ACCEPTED,
+        var order = new Order(1L, "tomer123", 1000.0, OrderStatus.ACCEPTED,
                 null, null, 0);
 
         given(orderService.getOrderById(1L))
@@ -87,6 +87,30 @@ public class OrderControllerWebFluxTests {
                 .value(actualItems -> {
                     assertThat(actualItems).hasSize(3);
                     assertThat(actualItems).contains(item1, item2, item3);
+                });
+    }
+
+    @Test
+    void getOrdersOfUser()  {
+        var order1 = new Order(1L, "tomer123", 1000.0, OrderStatus.ACCEPTED,
+                null, null, 0);
+        var order2 = new Order(2L, "tomer123", 1000.0, OrderStatus.ACCEPTED,
+                null, null, 0);
+        var order3 = new Order(3L, "tomer123", 1000.0, OrderStatus.ACCEPTED,
+                null, null, 0);
+
+        given(orderService.getOrdersByUsername("tomer123"))
+                .willReturn(Flux.fromIterable(List.of(order1, order2, order3)));
+
+        webClient
+                .get()
+                .uri("/orders/user?username=tomer123", 1L)
+                .exchange()
+                .expectStatus().is2xxSuccessful()
+                .expectBodyList(Order.class)
+                .value(actualItems -> {
+                    assertThat(actualItems).hasSize(3);
+                    assertThat(actualItems).contains(order1, order2, order3);
                 });
     }
 }

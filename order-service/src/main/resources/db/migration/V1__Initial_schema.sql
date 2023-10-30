@@ -1,5 +1,6 @@
 CREATE TABLE IF NOT EXISTS orders (
     id BIGSERIAL PRIMARY KEY NOT NULL,
+    username VARCHAR(255) NOT NULL,
     total float8 NOT NULL,
     status VARCHAR(255) NOT NULL,
     created_date TIMESTAMP NOT NULL,

@@ -49,7 +49,7 @@ class OrderRepositoryR2dbcTests {
 
     @Test
     void createRejectedOrder()  {
-        var rejectedOrder = OrderService.buildOrder(0.0, false);
+        var rejectedOrder = OrderService.buildOrder("tomer123", 0.0, false);
         StepVerifier
                 .create(orderRepository.save(rejectedOrder))
                 .expectNextMatches(

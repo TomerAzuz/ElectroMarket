@@ -49,6 +49,10 @@ public class OrderService {
         return orderItemRepository.getItemsForOrder(id);
     }
 
+    public Flux<Order> getOrdersByUsername(String username)    {
+        return orderRepository.findOrdersByUsername(username);
+    }
+
     @Transactional
     public Mono<Order> submitOrder(OrderRequest orderRequest) {
         return Flux.fromIterable(orderRequest.items())
@@ -72,7 +76,7 @@ public class OrderService {
                         .map(product -> product.price() * item.quantity()))
                 .reduce(0.0, Double::sum)
                 .flatMap(total -> {
-                    Order order = buildOrder(total, isAccepted);
+                    Order order = buildOrder(orderRequest.username(), total, isAccepted);
                     return Mono.from(orderRepository.save(order))
                             .flatMap(savedOrder -> saveOrderItems(savedOrder, orderRequest.items()))
                             .doOnSuccess(this::publishOrderAcceptedEvent);
@@ -88,8 +92,9 @@ public class OrderService {
         return orderItemRepository.saveAll(orderItems).collectList().map(savedOrderItems -> order);
     }
 
-    public static Order buildOrder(Double totalPrice, boolean isAccepted) {
-        return isAccepted ? Order.of(totalPrice, OrderStatus.ACCEPTED) : Order.of(0.0, OrderStatus.REJECTED);
+    public static Order buildOrder(String username, Double totalPrice, boolean isAccepted) {
+        return isAccepted ? Order.of(username, totalPrice, OrderStatus.ACCEPTED) :
+                            Order.of(username, 0.0, OrderStatus.REJECTED);
     }
 
     public Flux<Order> consumeOrderDispatchedEvent(Flux<OrderDispatchedMessage> flux) {
@@ -103,6 +108,7 @@ public class OrderService {
     private Order buildDispatchedOrder(Order existingOrder) {
         return new Order(
                 existingOrder.id(),
+                existingOrder.username(),
                 existingOrder.total(),
                 OrderStatus.DISPATCHED,
                 existingOrder.createdDate(),

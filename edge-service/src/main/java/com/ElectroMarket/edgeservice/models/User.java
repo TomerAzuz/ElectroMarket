@@ -7,5 +7,4 @@ public record User(
         String firstName,
         String lastName,
         List<String> roles
-) {
-}
+) {}

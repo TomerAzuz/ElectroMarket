@@ -4,6 +4,7 @@ import jakarta.validation.constraints.*;
 import org.springframework.data.annotation.*;
 
 import java.time.Instant;
+
 public record Product(
         @Id
         Long id,

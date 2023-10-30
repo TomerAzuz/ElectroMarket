@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { FaUser } from 'react-icons/fa';
 import Cookies from 'js-cookie';
+import { Link } from 'react-router-dom';
 
-function Account({ user }) {
+import { AuthContext } from "../../contexts/AuthContext";
+
+function User() {
+  const { user, handleLogin } = useContext(AuthContext);
 
   function DropdownMenu() {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -11,14 +15,10 @@ function Account({ user }) {
       setIsDropdownOpen(!isDropdownOpen);
     }
 
-    const handleLogin = () => {
-      window.location.href = '/oauth2/authorization/keycloak';
-    }
-
     return (
       <div className="text-3xl relative">
         <div
-          className={`rounded-full border w-12 h-12 flex justify-center items-center bg-white group-hover:bg-gray-300
+          className={`rounded-full border w-14 h-14 flex justify-center items-center bg-white group-hover:bg-gray-300
               ${isDropdownOpen ? 'bg-gray-300' : ''}`}
           onClick={toggleDropdown}
         >
@@ -32,19 +32,18 @@ function Account({ user }) {
                     method="post" 
                     className="cursor-pointer hover:bg-gray-200 p-2">
                     <input type="hidden" name="_csrf" value={Cookies.get('XSRF-TOKEN')} />
-                    <button type="submit">Log Out</button>
+                    <button type="submit">Log out</button>
                 </form>
               ) : (
                   <li className="cursor-pointer hover:bg-gray-200 p-2" onClick={handleLogin}>
-                    Log in
+                    Sign in
                   </li>
               )}
-              <li className="cursor-pointer hover:bg-gray-200 p-2" onClick={() => {/* Handle 'My Account' click */}}>
-                My Account
-              </li>
-              <li className="cursor-pointer hover:bg-gray-200 p-2" onClick={() => {/* Handle 'My Orders' click */}}>
-                My Orders
-              </li>
+              <Link to={'/orders'}>
+                <li className="cursor-pointer hover:bg-gray-200 p-2">
+                  My orders
+                </li>
+              </Link>
             </ul>
           </div>
         )}
@@ -55,4 +54,4 @@ function Account({ user }) {
   return <DropdownMenu />;
 }
 
-export default Account;
+export default User;

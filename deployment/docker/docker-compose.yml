@@ -68,7 +68,7 @@ services:
       - SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_KEYCLOAK_ISSUER_URI=http://host.docker.internal:8080/realms/ElectroMarket
 
   config-service:
-    image: "config-service"
+    image: ghcr.io/tomerazuz/config-service:latest
     container_name: "config-service"
     ports:
       - "8888:8888"

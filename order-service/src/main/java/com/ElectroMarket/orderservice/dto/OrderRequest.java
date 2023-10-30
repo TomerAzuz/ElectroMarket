@@ -6,7 +6,8 @@ import jakarta.validation.constraints.NotNull;
 import java.util.List;
 
 public record OrderRequest (
-
+        @NotNull
+        String username,
         @NotNull
         List<OrderItem> items
 ) {}

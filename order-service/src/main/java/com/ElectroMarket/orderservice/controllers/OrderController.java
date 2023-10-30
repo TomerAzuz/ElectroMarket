@@ -37,4 +37,9 @@ public class OrderController {
     Flux<OrderItem> getItemsForOrder(@PathVariable Long id) {
         return orderService.getItemsForOrder(id);
     }
+
+    @GetMapping("/user")
+    Flux<Order> getOrdersOfUser(@RequestParam("username") String username)  {
+        return orderService.getOrdersByUsername(username);
+    }
 }

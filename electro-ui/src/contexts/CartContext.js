@@ -1,4 +1,8 @@
-import React, {createContext, useState, useEffect} from 'react';
+import React, { createContext, useState, useEffect, useContext } from 'react';
+import { toast } from 'react-hot-toast';
+
+import { AuthContext } from "./AuthContext";
+import axiosInstance from '../axiosInterceptor'; 
 
 export const CartContext = createContext();
 
@@ -6,13 +10,8 @@ const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
     const [itemQuantity, setItemQuantity] = useState(0);
     const [total, setTotal] = useState(0);
-    const [isOpenCart, setIsOpenCart] = useState(false);
+    const { user } = useContext(AuthContext);
 
-    const handleCloseCart = () => {
-        setIsOpenCart(false);
-    };
-
-    // update total price
     useEffect(() => {
         const total = cart.reduce((acc, item) => {
             return acc + item.price * item.quantity;
@@ -20,7 +19,6 @@ const CartProvider = ({ children }) => {
         setTotal(total);
     }, [cart]);
 
-    // update item quantity
     useEffect(() => {
         if (cart)   {
             const quantity = cart.reduce((acc, item) => {
@@ -28,7 +26,34 @@ const CartProvider = ({ children }) => {
             }, 0);
             setItemQuantity(quantity);
         }
-    }, [cart])
+    }, [cart]);
+
+    const handleCheckout = async () => {
+        if (user) {
+          toast.success(`Hello, ${user.username}`);
+          const orderData = {
+            items: cart.map(item => ({
+              productId: item.id,
+              quantity: item.quantity
+            })),
+            username: user.username
+          };
+    
+          try {
+            const response = await axiosInstance.post("/orders", orderData);
+            if (response && response.status === 200)  {
+              toast.success("Order Submitted Successfully");
+              // redirect to confirmation page
+            }
+            clearCart();
+          } catch (error) {
+            toast.error(`Error submitting order: ${error.message}`);
+          }
+        } else   {
+          toast.error("Please Log In");
+          // redirect to login page
+        }
+    };
 
     const addToCart = (product) => {
         const newItem = {...product, quantity: 1}
@@ -39,13 +64,19 @@ const CartProvider = ({ children }) => {
         if (cartItem)   {
             const newCart = [...cart].map(item => {
                 if (item.id === product.id) {
-                    return {...item, quantity: cartItem.quantity + 1};
-                } else  {
-                    return item;
-                }
+                    if (item.quantity > 2)  {
+                        toast.error("You cannot order more than 3 items");
+                        return item;
+                    } else  {
+                        toast.success("Item added to cart");
+                        return {...item, quantity: cartItem.quantity + 1};
+                    }
+                } 
+                return item;
             });
             setCart(newCart);
         } else  {
+            toast.success("Item added to cart");
             setCart([...cart, newItem]);
         }
     };
@@ -67,35 +98,30 @@ const CartProvider = ({ children }) => {
     };
 
     const decreaseQuantity = (id) => {
-        const item = cart.find(cartItem => {
-            return cartItem.id === id;
-        });
-        if (item)   {
-            const newCart = cart.map(cartItem => {
-                if (cartItem.id === id) {
-                    return {...cartItem, quantity: item.quantity - 1}
-                } else  {
-                    return item;
-                }
+        const item = cart.find((cartItem) => cartItem.id === id);
+        if (item) {
+          let newCart;
+          if (item.quantity > 1) {
+            newCart = cart.map((cartItem) => {
+                return cartItem.id === id ? 
+                    { ...cartItem, quantity: cartItem.quantity - 1 } : cartItem;
             });
-            setCart(newCart);
-        } 
-        if (item.quantity < 2)    {
-            removeFromCart(id);
-        }  
-    };
+          } else {
+            newCart = cart.filter((cartItem) => cartItem.id !== id);
+          }
+          setCart(newCart);
+        }
+      };
 
-    return <CartContext.Provider value={{ isOpenCart, 
-                                          setIsOpenCart, 
-                                          handleCloseCart, 
-                                          cart,
+    return <CartContext.Provider value={{ cart,
+                                          itemQuantity,
+                                          total,
                                           addToCart, 
                                           removeFromCart, 
                                           clearCart,
                                           increaseQuantity, 
                                           decreaseQuantity,
-                                          itemQuantity,
-                                          total
+                                          handleCheckout
                                        }}>{children}</CartContext.Provider>
 };
 

@@ -14,6 +14,8 @@ public record Order (
         @Id
         Long id,
 
+        @Column("username")
+        String username,
         @Column("total")
         Double total,
 
@@ -32,7 +34,7 @@ public record Order (
         int version
 
 ) {
-        public static Order of(Double price, OrderStatus status)     {
-                return new Order(null, price, status, null, null, 0);
+        public static Order of(String username, Double price, OrderStatus status)     {
+                return new Order(null, username, price, status, null, null, 0);
         }
 }

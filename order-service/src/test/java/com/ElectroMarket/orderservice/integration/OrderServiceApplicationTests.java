@@ -75,13 +75,16 @@ public class OrderServiceApplicationTests {
         OrderItem orderItem = OrderItem.of(null, productId, 2);
         List<OrderItem> itemList = new ArrayList<>();
         itemList.add(orderItem);
-        OrderRequest orderRequest = new OrderRequest(itemList);
+        OrderRequest orderRequest = new OrderRequest("tomer123", itemList);
 
-        Order expectedOrder = webTestClient.post().uri("/orders")
+        Order expectedOrder = webTestClient
+                .post()
+                .uri("/orders")
                 .bodyValue(orderRequest)
                 .exchange()
                 .expectStatus().is2xxSuccessful()
                 .expectBody(Order.class).returnResult().getResponseBody();
+
         assertThat(expectedOrder).isNotNull();
         assertThat(objectMapper.readValue(output.receive().getPayload(), OrderAcceptedMessage.class))
                 .isEqualTo(new OrderAcceptedMessage(expectedOrder.id()));
@@ -96,18 +99,17 @@ public class OrderServiceApplicationTests {
     void whenPostRequestAndProductNotExistsThenOrderRejected()  {
         long productId = 4;
         given(productClient.getProductById(productId)).willReturn(Mono.empty());
-        List<OrderItem> items = new ArrayList<>();
-
         OrderItem item = OrderItem.of(null, productId, 1);
-        items.add(item);
+        OrderRequest orderRequest = new OrderRequest("tomer123", List.of(item));
 
-        OrderRequest orderRequest = new OrderRequest(items);
-
-        Order expectedOrder = webTestClient.post().uri("/orders")
+        Order expectedOrder = webTestClient.post()
+                .uri("/orders")
                 .bodyValue(orderRequest)
                 .exchange()
                 .expectStatus().is2xxSuccessful()
-                .expectBody(Order.class).returnResult().getResponseBody();
+                .expectBody(Order.class).
+                returnResult().
+                getResponseBody();
 
         assertThat(expectedOrder).isNotNull();
         assertThat(expectedOrder.status()).isEqualTo(OrderStatus.REJECTED);
@@ -122,7 +124,7 @@ public class OrderServiceApplicationTests {
         OrderItem orderItem = OrderItem.of(null, productId, 1);
         List<OrderItem> itemList = new ArrayList<>();
         itemList.add(orderItem);
-        OrderRequest orderRequest = new OrderRequest(itemList);
+        OrderRequest orderRequest = new OrderRequest("tomer123", itemList);
 
         Order expectedOrder = webTestClient.post().uri("/orders")
                 .bodyValue(orderRequest)

@@ -1,29 +1,41 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import './App.css';
+import { Toaster } from "react-hot-toast";
 
 import Home from './pages/Home';
 import ProductDetails from './pages/ProductDetails';
-import Sidebar from './components/Cart';
-import CategorySidebar from './components/CategorySidebar';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Category from './pages/Category';
-import OrderConfirmation from './pages/OrderConfirmation';
+import Header from './components/common/Header';
+import CategoryPage from './pages/CategoryPage';
+import Footer from './components/common/Footer';
+//import OrderConfirmation from './pages/OrderConfirmation';
+import OrdersPage from './pages/OrdersPage';
+import CartPage from './pages/CartPage';
 
 const App = () => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className='overflow-hidden'>
       <Router>
       <Header />
+      <Toaster
+        position="top-right"
+        reverseOrder={false}
+        containerStyle={{
+          top: "4rem",
+        }}
+      />
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/products/category/:id' element={<Category />} />
+          <Route path='/products/category/:categoryId' element={<CategoryPage />} />
           <Route path='/products/:id' element={<ProductDetails />} />
-          <Route path='/orders' element={<OrderConfirmation />} />
+          <Route path='/cart' element={<CartPage />}/>
+          <Route path='/orders' element={<OrdersPage />} />
         </Routes>
-        <Sidebar />
-        <CategorySidebar />
         <Footer />
       </Router>
     </div>
