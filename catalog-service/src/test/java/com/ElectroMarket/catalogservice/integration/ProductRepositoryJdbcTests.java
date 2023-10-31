@@ -1,7 +1,9 @@
 package com.ElectroMarket.catalogservice.integration;
 
 import com.ElectroMarket.catalogservice.config.DataConfig;
+import com.ElectroMarket.catalogservice.models.Category;
 import com.ElectroMarket.catalogservice.models.Product;
+import com.ElectroMarket.catalogservice.repositories.CategoryRepository;
 import com.ElectroMarket.catalogservice.repositories.ProductRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,16 +29,24 @@ public class ProductRepositoryJdbcTests {
     private ProductRepository productRepository;
 
     @Autowired
+    private CategoryRepository categoryRepository;
+
+    @Autowired
     private JdbcAggregateTemplate jdbcAggregateTemplate;
 
 
     @Test
     void findAllProducts()  {
-        var prod1 = Product.of("Keyboard", "some keyboard", 29.99, 1L, 10, "https://example.com/image.jpg");
-        var prod2 = Product.of("headphones", "description", 99.99, 2L, 10, "https://example.com/image2.jpg");
+        Category category1 = categoryRepository.save(Category.of("Laptops"));
+        Category category2 = categoryRepository.save(Category.of("Cameras"));
 
-        jdbcAggregateTemplate.insert(prod1);
-        jdbcAggregateTemplate.insert(prod2);
+        var prod1 = new Product(1L,"Laptop", "description", 1129.99, category1.id(), 10,
+                "https://example.com/image.jpg", null, null, 0);
+        var prod2 = new Product(2L,"Camera", "description", 199.99, category2.id(), 10,
+                "https://example.com/image2.jpg", null, null, 0);
+        var products = List.of(prod1, prod2);
+
+        jdbcAggregateTemplate.insertAll(products);
 
         Iterable<Product> actualProducts = productRepository.findAll();
 
@@ -48,25 +58,28 @@ public class ProductRepositoryJdbcTests {
 
     @Test
     void findProductsByCategory()   {
-        List<Product> products = List.of(
-                Product.of("Keyboard1", "some keyboard1", 29.99, 1L, 110, "https://example.com/image.jpg"),
-                Product.of("Headphones", "description", 92.99, 2L, 40, "https://example.com/image2.jpg"),
-                Product.of("Keyboard2", "some keyboard2", 70.0, 1L, 15, "https://example.com/image2.jpg")
+        Category category1 = categoryRepository.save(Category.of("Laptops"));
+        Category category2 = categoryRepository.save(Category.of("Cameras"));
+        var products = List.of(
+                Product.of("Laptop1", "description", 1029.99, category1.id(), 110, "https://example.com/image.jpg"),
+                Product.of("Camera", "description", 129.99, category2.id(), 40, "https://example.com/image2.jpg"),
+                Product.of("Laptop2", "description", 760.0, category1.id(), 15, "https://example.com/image3.jpg")
         );
         jdbcAggregateTemplate.insertAll(products);
-        List<Product> actualProducts = productRepository.findProductsByCategory(1L);
+        var actualProducts = productRepository.findProductsByCategory(category1.id());
 
         assertThat(actualProducts.parallelStream()
-                .filter(product -> product.name().equals("Keyboard1") ||
-                        product.name().equals("Keyboard2"))
+                .filter(product -> product.name().equals("Laptop1") ||
+                        product.name().equals("Laptop2"))
                 .collect(Collectors.toList())).hasSize(2);
     }
 
     @Test
     void findExistingProductByName()  {
-        var prod = Product.of("T-shirt", "some t-shirt", 7.99, 2L, 10, "https://example.com/image.jpg");
+        Category category = categoryRepository.save(Category.of("Laptops"));
+        var prod = Product.of("Laptop", "description", 1129.99, category.id(), 10, "https://example.com/image.jpg");
         jdbcAggregateTemplate.insert(prod);
-        List<Product> actualProducts = productRepository.findByName("T-shirt");
+        List<Product> actualProducts = productRepository.findByName("Laptop");
         assertThat(actualProducts).isNotEmpty();
         assertThat(actualProducts.get(0).name()).isEqualTo(prod.name());
     }
@@ -79,7 +92,8 @@ public class ProductRepositoryJdbcTests {
 
     @Test
     void saveProduct()  {
-        var prod1 = Product.of("Laptop", "description", 299.99, 1L, 10, "https://example.com/image.jpg");
+        Category category = categoryRepository.save(Category.of("Laptops"));
+        var prod1 = Product.of("Laptop", "description", 1129.99, category.id(), 10, "https://example.com/image.jpg");
 
         Product savedProduct = productRepository.save(prod1);
 
@@ -90,10 +104,11 @@ public class ProductRepositoryJdbcTests {
 
     @Test
     void deleteProduct() {
-        var product = Product.of("Tablet", "description", 299.99, 1L, 5, "https://example.com/image.jpg");
+        Category category = categoryRepository.save(Category.of("Laptops"));
+        var product = Product.of("Laptop", "description", 299.99, category.id(), 5, "https://example.com/image.jpg");
         jdbcAggregateTemplate.insert(product);
         productRepository.deleteByName(product.name());
-        List<Product> deletedProduct = productRepository.findByName("Tablet");
+        List<Product> deletedProduct = productRepository.findByName("Laptop");
         assertThat(deletedProduct).isEmpty();
     }
 }
