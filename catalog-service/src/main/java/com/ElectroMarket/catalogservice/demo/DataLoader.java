@@ -33,7 +33,7 @@ public class DataLoader {
         try {
             InputStream resourceStream = getClass().getClassLoader().getResourceAsStream("category.json");
             if (resourceStream != null) {
-                List<Category> categories = objectMapper.readValue(resourceStream, new TypeReference<List<Category>>() {});
+                List<Category> categories = objectMapper.readValue(resourceStream, new TypeReference<>() {});
                 categoryRepository.saveAll(categories);
                 loadProductTestData();
             } else {
@@ -52,7 +52,7 @@ public class DataLoader {
             InputStream resourceStream = getClass().getClassLoader().getResourceAsStream("products.json");
 
             if (resourceStream != null) {
-                List<Product> products = objectMapper.readValue(resourceStream, new TypeReference<List<Product>>() {});
+                List<Product> products = objectMapper.readValue(resourceStream, new TypeReference<>() {});
 
                 productRepository.saveAll(products);
             } else {

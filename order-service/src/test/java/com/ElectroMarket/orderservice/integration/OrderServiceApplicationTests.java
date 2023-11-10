@@ -69,7 +69,7 @@ public class OrderServiceApplicationTests {
     @Test
     void whenGetOrdersThenReturn() throws IOException    {
         long productId = 1;
-        Product product = new Product(productId, "Laptop", "description.", 559.90, 5);
+        Product product = new Product(productId, "Laptop", 559.90, 5);
         given(productClient.getProductById(productId)).willReturn(Mono.just(product));
 
         OrderItem orderItem = OrderItem.of(null, productId, 2);
@@ -118,7 +118,7 @@ public class OrderServiceApplicationTests {
     @Test
     void whenPostRequestAndQuantityIsGreaterThanStockThenOrderRejected()    {
         long productId = 1;
-        Product product = new Product(productId, "Laptop", "description.", 559.90, 0);
+        Product product = new Product(productId, "Laptop", 559.90, 0);
         given(productClient.getProductById(productId)).willReturn(Mono.just(product));
 
         OrderItem orderItem = OrderItem.of(null, productId, 1);

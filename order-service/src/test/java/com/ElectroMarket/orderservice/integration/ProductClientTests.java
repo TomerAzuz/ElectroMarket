@@ -42,7 +42,6 @@ class ProductClientTests {
                             {
                                 "id": %d,
                                 "name": "Product name",
-                                "description": "Product description",
                                 "price": 9.99
                             }
                         """.formatted(productId));

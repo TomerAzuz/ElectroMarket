@@ -38,8 +38,8 @@ public class OrderController {
         return orderService.getItemsForOrder(id);
     }
 
-    @GetMapping("/user")
-    Flux<Order> getOrdersOfUser(@RequestParam("username") String username)  {
+    @GetMapping("user/{username}")
+    Flux<Order> getOrdersOfUser(@PathVariable("username") String username)  {
         return orderService.getOrdersByUsername(username);
     }
 }

@@ -15,7 +15,6 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -30,7 +29,7 @@ public class ProductControllerMvcTests {
 
     @Test
     void getExistingProduct() throws Exception {
-        var product = Product.of("product", "description", 9.90, 1L, 10,"https://example.com/image.jpg");
+        var product = Product.of("product", 9.90, 1L, 10,"https://example.com/image.jpg", "brand");
         given(productService.viewProductDetails(1L)).willReturn(product);
         mockMvc.perform(get("/products/1"))
                 .andExpect(status().isOk());
@@ -38,7 +37,7 @@ public class ProductControllerMvcTests {
 
     @Test
     void addNonExistingProduct() throws Exception {
-        var product = Product.of("product", "description", 9.90, 1L, 10, "https://example.com/image.jpg");
+        var product = Product.of("product", 9.90, 1L, 10, "https://example.com/image.jpg", "brand");
         given(productService.addProductToCatalog(product)).willReturn(product);
         mockMvc.perform(post("/products")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -47,20 +46,9 @@ public class ProductControllerMvcTests {
     }
 
     @Test
-    void editExistingProduct() throws Exception {
-        var product = Product.of("Updated Product", "Updated Description", 19.99, 1L, 10, "https://example.com/image2.jpg");
-
-        when(productService.editProductDetails(1L, product)).thenReturn(product);
-
-        mockMvc.perform(put("/products/1")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(new ObjectMapper().writeValueAsString(product)))
-                        .andExpect(status().isOk());
-    }
-
-    @Test
     void deleteExistingProduct() throws Exception   {
-        var product = Product.of( "product", "description", 9.90,  1L, 10, "https://example.com/image.jpg");
+        var product = Product.of( "product",9.90,
+                            1L, 10, "https://example.com/image.jpg", "brand");
         given(productService.viewProductDetails(1L)).willReturn(product);
         mockMvc.perform(delete("/products/1"))
                 .andExpect(status().isNoContent());
@@ -78,11 +66,11 @@ public class ProductControllerMvcTests {
     void productAlreadyExists() throws Exception {
         Product product = Product.of(
                 "Sample Product",
-                "This is a sample product description.",
                 19.99,
                 1L,
                 10,
-                "https://example.com/image.jpg"
+                "https://example.com/image.jpg",
+                "brand"
         );
 
         String requestBody = new ObjectMapper().writeValueAsString(product);

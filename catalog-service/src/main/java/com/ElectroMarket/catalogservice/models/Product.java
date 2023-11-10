@@ -13,9 +13,6 @@ public record Product(
         @Size(max = 255, message = "The product name cannot exceed 255 characters.")
         String name,
 
-        @Size(max = 1000, message = "The product description cannot exceed 1000 characters.")
-        String description,
-
         @NotNull(message = "The product price is required.")
         @Positive(message = "The product price must be greater than zero.")
         Double price,
@@ -32,6 +29,10 @@ public record Product(
         )
         String imageUrl,
 
+        @NotBlank(message = "The product brand is required.")
+        @Size(max = 255, message = "The product brand cannot exceed 255 characters.")
+        String brand,
+
         @CreatedDate
         Instant createdDate,
 
@@ -42,11 +43,12 @@ public record Product(
         int version
 ) {
     public static Product of(
-            String name, String description,
-            Double price, Long categoryId,
-            Integer stock, String imageUrl
+            String name, Double price,
+            Long categoryId, Integer stock,
+            String imageUrl, String brand
+
     )   {
-        return new Product(null, name, description, price, categoryId, stock, imageUrl, null, null, 0);
+        return new Product(null, name, price, categoryId, stock, imageUrl, brand, null, null, 0);
     }
 }
 

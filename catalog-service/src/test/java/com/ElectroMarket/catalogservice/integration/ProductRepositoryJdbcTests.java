@@ -10,6 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.jdbc.DataJdbcTest;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.context.annotation.Import;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jdbc.core.JdbcAggregateTemplate;
 import org.springframework.test.context.ActiveProfiles;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -40,10 +43,10 @@ public class ProductRepositoryJdbcTests {
         Category category1 = categoryRepository.save(Category.of("Laptops"));
         Category category2 = categoryRepository.save(Category.of("Cameras"));
 
-        var prod1 = new Product(1L,"Laptop", "description", 1129.99, category1.id(), 10,
-                "https://example.com/image.jpg", null, null, 0);
-        var prod2 = new Product(2L,"Camera", "description", 199.99, category2.id(), 10,
-                "https://example.com/image2.jpg", null, null, 0);
+        var prod1 = new Product(1L,"Laptop", 1129.99, category1.id(), 10,
+                "https://example.com/image.jpg", "brand", null, null, 0);
+        var prod2 = new Product(2L,"Camera", 199.99, category2.id(), 10,
+                "https://example.com/image2.jpg", "brand", null, null, 0);
         var products = List.of(prod1, prod2);
 
         jdbcAggregateTemplate.insertAll(products);
@@ -61,14 +64,15 @@ public class ProductRepositoryJdbcTests {
         Category category1 = categoryRepository.save(Category.of("Laptops"));
         Category category2 = categoryRepository.save(Category.of("Cameras"));
         var products = List.of(
-                Product.of("Laptop1", "description", 1029.99, category1.id(), 110, "https://example.com/image.jpg"),
-                Product.of("Camera", "description", 129.99, category2.id(), 40, "https://example.com/image2.jpg"),
-                Product.of("Laptop2", "description", 760.0, category1.id(), 15, "https://example.com/image3.jpg")
+                Product.of("Laptop1", 1029.99, category1.id(), 110, "https://example.com/image.jpg", "brand"),
+                Product.of("Camera", 129.99, category2.id(), 40, "https://example.com/image2.jpg", "brand"),
+                Product.of("Laptop2", 760.0, category1.id(), 15, "https://example.com/image3.jpg", "brand")
         );
         jdbcAggregateTemplate.insertAll(products);
-        var actualProducts = productRepository.findProductsByCategory(category1.id());
+        Pageable pageable = PageRequest.of(0, 10);
+        var actualProducts = productRepository.findByCategoryId(category1.id(), pageable);
 
-        assertThat(actualProducts.parallelStream()
+        assertThat(actualProducts.getContent().stream()
                 .filter(product -> product.name().equals("Laptop1") ||
                         product.name().equals("Laptop2"))
                 .collect(Collectors.toList())).hasSize(2);
@@ -77,23 +81,31 @@ public class ProductRepositoryJdbcTests {
     @Test
     void findExistingProductByName()  {
         Category category = categoryRepository.save(Category.of("Laptops"));
-        var prod = Product.of("Laptop", "description", 1129.99, category.id(), 10, "https://example.com/image.jpg");
-        jdbcAggregateTemplate.insert(prod);
-        List<Product> actualProducts = productRepository.findByName("Laptop");
+
+        var product = Product.of("Laptop", 1129.99, category.id(), 10, "https://example.com/image.jpg", "brand");
+
+        jdbcAggregateTemplate.insert(product);
+        Pageable pageable = PageRequest.of(0, 1);
+        Page<Product> actualProducts = productRepository.findByNameContainingIgnoreCase("Laptop", pageable);
+
         assertThat(actualProducts).isNotEmpty();
-        assertThat(actualProducts.get(0).name()).isEqualTo(prod.name());
+        assertThat(actualProducts.getContent()).hasSize(1);
+        assertThat(actualProducts.getContent().get(0).name()).isEqualTo("Laptop");
     }
 
     @Test
     void findNonExistingProductByName() {
-        List<Product> actualProducts = productRepository.findByName("NonExistingProduct");
+        Pageable pageable = PageRequest.of(0, 1);
+        Page<Product> actualProducts = productRepository.findByNameContainingIgnoreCase("NonExistingProduct", pageable);
+
+        assertThat(actualProducts).isNotNull();
         assertThat(actualProducts).isEmpty();
     }
 
     @Test
     void saveProduct()  {
         Category category = categoryRepository.save(Category.of("Laptops"));
-        var prod1 = Product.of("Laptop", "description", 1129.99, category.id(), 10, "https://example.com/image.jpg");
+        var prod1 = Product.of("Laptop", 1129.99, category.id(), 10, "https://example.com/image.jpg", "brand");
 
         Product savedProduct = productRepository.save(prod1);
 
@@ -105,10 +117,15 @@ public class ProductRepositoryJdbcTests {
     @Test
     void deleteProduct() {
         Category category = categoryRepository.save(Category.of("Laptops"));
-        var product = Product.of("Laptop", "description", 299.99, category.id(), 5, "https://example.com/image.jpg");
+        var product = Product.of("Laptop", 299.99, category.id(), 5, "https://example.com/image.jpg", "brand");
+
         jdbcAggregateTemplate.insert(product);
+        Pageable pageable = PageRequest.of(0, 1);
         productRepository.deleteByName(product.name());
-        List<Product> deletedProduct = productRepository.findByName("Laptop");
+
+        Page<Product> deletedProduct = productRepository.findByNameContainingIgnoreCase("Laptop", pageable);
+
+        assertThat(deletedProduct).isNotNull();
         assertThat(deletedProduct).isEmpty();
     }
 }

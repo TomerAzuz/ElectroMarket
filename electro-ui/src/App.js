@@ -1,16 +1,16 @@
-import React, { useEffect } from 'react';
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import './App.css';
-import { Toaster } from "react-hot-toast";
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 
 import Home from './pages/Home';
 import ProductDetails from './pages/ProductDetails';
 import Header from './components/common/Header';
-import CategoryPage from './pages/CategoryPage';
+import ProductsPage from './pages/ProductsPage';
 import Footer from './components/common/Footer';
-//import OrderConfirmation from './pages/OrderConfirmation';
 import OrdersPage from './pages/OrdersPage';
 import CartPage from './pages/CartPage';
+import ErrorPage from './pages/ErrorPage';
 
 const App = () => {
 
@@ -19,27 +19,31 @@ const App = () => {
   }, []);
 
   return (
-    <div className='overflow-hidden'>
+    <div className='min-h-screen flex flex-col overflow-hidden'>
       <Router>
-      <Header />
-      <Toaster
-        position="top-right"
-        reverseOrder={false}
-        containerStyle={{
-          top: "4rem",
-        }}
-      />
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/products/category/:categoryId' element={<CategoryPage />} />
-          <Route path='/products/:id' element={<ProductDetails />} />
-          <Route path='/cart' element={<CartPage />}/>
-          <Route path='/orders' element={<OrdersPage />} />
-        </Routes>
+        <div className='flex-grow'>
+          <Header />
+          <Toaster
+            position="top-left"
+            reverseOrder={false}
+            containerStyle={{
+              top: '6rem',
+            }}
+          />
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='*' element={<ErrorPage />} />
+            <Route path='/products/:name' element={<ProductDetails />} />
+            <Route path='/products/category/:categoryName' element={<ProductsPage />} />
+            <Route path='/products/search/:query' element={<ProductsPage />} />
+            <Route path='/cart' element={<CartPage />}/>
+            <Route path='/user/orders' element={<OrdersPage />} />
+          </Routes>
+        </div>
         <Footer />
       </Router>
     </div>
   );
-}
+};
 
 export default App;

@@ -29,6 +29,7 @@ public class SecurityConfig {
                         .pathMatchers("/", "/static/css/**", "/static/js/**", "/favicon.ico", "/dist/**", "/manifest.json").permitAll()
                         .pathMatchers(HttpMethod.GET, "/products/**").permitAll()
                         .pathMatchers(HttpMethod.GET, "/category/**").permitAll()
+                        .pathMatchers(HttpMethod.GET, "/search/**").permitAll()
                         .anyExchange().authenticated()
                 )
                 .exceptionHandling(exceptionHandling -> exceptionHandling

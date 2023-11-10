@@ -8,6 +8,7 @@ import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
 import java.time.Instant;
+import java.util.UUID;
 
 @Table("orders")
 public record Order (
@@ -16,6 +17,7 @@ public record Order (
 
         @Column("username")
         String username,
+
         @Column("total")
         Double total,
 
@@ -34,7 +36,7 @@ public record Order (
         int version
 
 ) {
-        public static Order of(String username, Double price, OrderStatus status)     {
-                return new Order(null, username, price, status, null, null, 0);
+        public static Order of(String userId, Double price, OrderStatus status)     {
+                return new Order(null, userId, price, status, null, null, 0);
         }
 }

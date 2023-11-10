@@ -18,6 +18,8 @@ import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import reactor.test.StepVerifier;
 
+import java.util.UUID;
+
 @DataR2dbcTest
 @Import(DataConfig.class)
 @Testcontainers

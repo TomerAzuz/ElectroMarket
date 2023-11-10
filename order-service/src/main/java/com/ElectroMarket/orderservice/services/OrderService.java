@@ -61,7 +61,7 @@ public class OrderService {
                             boolean isAccepted = product != null && product.stock() >= item.quantity();
                             return Mono.just(isAccepted);
                         })
-                        .defaultIfEmpty(false) // Set to false when product is not found
+                        .defaultIfEmpty(false)
                 )
                 .collectList()
                 .flatMap(acceptedList -> {
@@ -92,9 +92,9 @@ public class OrderService {
         return orderItemRepository.saveAll(orderItems).collectList().map(savedOrderItems -> order);
     }
 
-    public static Order buildOrder(String username, Double totalPrice, boolean isAccepted) {
-        return isAccepted ? Order.of(username, totalPrice, OrderStatus.ACCEPTED) :
-                            Order.of(username, 0.0, OrderStatus.REJECTED);
+    public static Order buildOrder(String userId, Double totalPrice, boolean isAccepted) {
+        return isAccepted ? Order.of(userId, totalPrice, OrderStatus.ACCEPTED) :
+                Order.of(userId, 0.0, OrderStatus.REJECTED);
     }
 
     public Flux<Order> consumeOrderDispatchedEvent(Flux<OrderDispatchedMessage> flux) {

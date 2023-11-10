@@ -8,7 +8,7 @@ const AuthProvider = ({ children }) => {
 
     const handleLogin = () => {
         window.location.href = '/oauth2/authorization/keycloak';
-      }
+    };
 
     const fetchUser = useCallback(async () => {
         try {
@@ -21,14 +21,12 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         fetchUser();
-      }, [fetchUser]);
-
-    
+    }, [fetchUser]);
 
     return (
-        <AuthContext.Provider value={{ user, handleLogin }}>
-            {children}
-        </AuthContext.Provider>
+      <AuthContext.Provider value={{ user, handleLogin }}>
+          {children}
+      </AuthContext.Provider>
     );
 }
 

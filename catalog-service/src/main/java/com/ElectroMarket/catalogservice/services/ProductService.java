@@ -6,9 +6,9 @@ import com.ElectroMarket.catalogservice.exceptions.ResourceAlreadyExistsExceptio
 import com.ElectroMarket.catalogservice.exceptions.ResourceNotFoundException;
 import com.ElectroMarket.catalogservice.repositories.CategoryRepository;
 import com.ElectroMarket.catalogservice.repositories.ProductRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class ProductService {
@@ -29,20 +29,20 @@ public class ProductService {
     }
 
     public Product addProductToCatalog(Product product)   {
-        List<Product> existingProducts = productRepository.findByName(product.name());
-        if (!existingProducts.isEmpty()) {
-            throw new ResourceAlreadyExistsException("product", product.id());
-        }
+        productRepository.findById(product.id())
+                .ifPresent(existingProduct -> {
+                    throw new ResourceAlreadyExistsException("product", product.id());
+                });
         categoryRepository.findById(product.categoryId())
                 .orElseThrow(() -> new ResourceNotFoundException("category", product.categoryId()));
 
         return productRepository.save(product);
     }
 
-    public List<Product> viewProductsByCategory(Long id)  {
+    public Page<Product> viewProductsByCategory(Long id, Pageable pageable)  {
         Category category = categoryRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("category", null));
-        return productRepository.findProductsByCategory(category.id());
+        return productRepository.findByCategoryId(category.id(), pageable);
     }
 
     public void removeProductFromCatalog(Long id)  {
@@ -54,17 +54,21 @@ public class ProductService {
                 .map(existingProduct -> {
                     var productToUpdate = new Product(
                             existingProduct.id(),
-                            existingProduct.name(),
-                            product.description(),
+                            product.name(),
                             product.price(),
                             product.categoryId(),
                             product.stock(),
                             product.imageUrl(),
+                            product.brand(),
                             existingProduct.createdDate(),
                             existingProduct.lastModifiedDate(),
                             existingProduct.version());
                     return productRepository.save(productToUpdate);
                 })
                 .orElseGet(() -> addProductToCatalog(product));
+    }
+
+    public Page<Product> searchProducts(String query, Pageable pageable) {
+        return productRepository.findByNameContainingIgnoreCase(query, pageable);
     }
 }

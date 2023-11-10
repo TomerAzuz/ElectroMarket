@@ -19,22 +19,22 @@ public class ProductJsonTests {
     @Test
     void testSerialize() throws Exception {
         var now = Instant.now();
-        var product = new Product(123L, "Product", "Description", 9.99, 1L,
-                            10, "https://example.com/image.jpg", now, now, 25);
+        var product = new Product(123L, "Product", 9.99, 1L,
+                            10, "https://example.com/image.jpg", "brand",  now, now, 25);
         var jsonContent = json.write(product);
 
         assertThat(jsonContent).extractingJsonPathNumberValue("@.id")
                 .isEqualTo(product.id().intValue());
         assertThat(jsonContent).extractingJsonPathStringValue("@.name")
                 .isEqualTo(product.name());
-        assertThat(jsonContent).extractingJsonPathStringValue("@.description")
-                .isEqualTo(product.description());
         assertThat(jsonContent).extractingJsonPathNumberValue("@.price")
                 .isEqualTo(product.price());
         assertThat(jsonContent).extractingJsonPathNumberValue("@.categoryId")
                 .isEqualTo(product.categoryId().intValue());
         assertThat(jsonContent).extractingJsonPathStringValue("@.imageUrl")
                 .isEqualTo(product.imageUrl());
+        assertThat(jsonContent).extractingJsonPathStringValue("@.brand")
+                .isEqualTo(product.brand());
         assertThat(jsonContent).extractingJsonPathStringValue("@.createdDate")
                 .isEqualTo(product.createdDate().toString());
         assertThat(jsonContent).extractingJsonPathStringValue("@.lastModifiedDate")
@@ -49,11 +49,11 @@ public class ProductJsonTests {
                     {
                         "id": 242,
                         "name": "product",
-                        "description": "description",
                         "price": 5.5,
                         "categoryId": "24",
                         "stock": 10,
                         "imageUrl": "https://example.com/image.jpg",
+                        "brand": "brand",
                         "createdDate": "2023-09-10T13:48:51.199355Z",
                         "lastModifiedDate": "2023-09-10T13:48:51.199355Z",
                         "version": 65
@@ -62,7 +62,7 @@ public class ProductJsonTests {
         var instant = Instant.parse("2023-09-10T13:48:51.199355Z");
         assertThat(json.parse(content))
                 .usingRecursiveComparison()
-                .isEqualTo(new Product(242L, "product", "description", 5.5, 24L, 10, "https://example.com/image.jpg", instant, instant, 65));
+                .isEqualTo(new Product(242L, "product", 5.5, 24L, 10, "https://example.com/image.jpg", "brand", instant, instant, 65));
 
     }
 }
