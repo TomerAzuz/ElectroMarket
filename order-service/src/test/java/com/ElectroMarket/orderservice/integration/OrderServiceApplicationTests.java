@@ -8,36 +8,47 @@ import com.ElectroMarket.orderservice.event.OrderAcceptedMessage;
 import com.ElectroMarket.orderservice.models.Order;
 import com.ElectroMarket.orderservice.models.OrderItem;
 import com.ElectroMarket.orderservice.models.OrderStatus;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import dasniko.testcontainers.keycloak.KeycloakContainer;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.springframework.web.reactive.function.BodyInserters;
+import org.springframework.web.reactive.function.client.WebClient;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 import org.testcontainers.utility.DockerImageName;
 import reactor.core.publisher.Mono;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.cloud.stream.binder.test.OutputDestination;
-import org.springframework.cloud.stream.binder.test.TestChannelBinderConfiguration;
-import org.springframework.context.annotation.Import;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@Import(TestChannelBinderConfiguration.class)
 @Testcontainers
 public class OrderServiceApplicationTests {
 
+    private static KeycloakToken customerTokens;
+
+    private static KeycloakToken employeeTokens;
+
+    @Container
+    private static final KeycloakContainer keycloakContainer = new KeycloakContainer("quay.io/keycloak/keycloak:19.0")
+			.withRealmImportFile("test-realm-config.json");
     @Container
     static PostgreSQLContainer<?> postgresql = new PostgreSQLContainer<>(DockerImageName.parse("postgres:14.4"));
 
@@ -59,11 +70,25 @@ public class OrderServiceApplicationTests {
         registry.add("spring.r2dbc.username", postgresql::getUsername);
         registry.add("spring.r2dbc.password", postgresql::getPassword);
         registry.add("spring.flyway.url", postgresql::getJdbcUrl);
+
+        registry.add("spring.security.oauth2.resourceserver.jwt.issuer-uri",
+                () -> keycloakContainer.getAuthServerUrl() + "realms/ElectroMarket");
     }
 
     private static String r2dbcUrl()    {
         return String.format("r2dbc:postgresql://%s:%s/%s", postgresql.getHost(),
                 postgresql.getMappedPort(PostgreSQLContainer.POSTGRESQL_PORT), postgresql.getDatabaseName());
+    }
+
+    @BeforeAll
+    static void generateAccessTokens() {
+        WebClient webClient = WebClient.builder()
+                .baseUrl(keycloakContainer.getAuthServerUrl() + "realms/ElectroMarket/protocol/openid-connect/token")
+                .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+                .build();
+
+        employeeTokens = authenticateWith("isabelle", "password", webClient);
+        customerTokens = authenticateWith("bjorn", "password", webClient);
     }
 
     @Test
@@ -73,13 +98,12 @@ public class OrderServiceApplicationTests {
         given(productClient.getProductById(productId)).willReturn(Mono.just(product));
 
         OrderItem orderItem = OrderItem.of(null, productId, 2);
-        List<OrderItem> itemList = new ArrayList<>();
-        itemList.add(orderItem);
-        OrderRequest orderRequest = new OrderRequest("tomer123", itemList);
+        OrderRequest orderRequest = new OrderRequest( List.of(orderItem));
 
         Order expectedOrder = webTestClient
                 .post()
                 .uri("/orders")
+                .headers(headers -> headers.setBearerAuth(customerTokens.accessToken()))
                 .bodyValue(orderRequest)
                 .exchange()
                 .expectStatus().is2xxSuccessful()
@@ -89,27 +113,56 @@ public class OrderServiceApplicationTests {
         assertThat(objectMapper.readValue(output.receive().getPayload(), OrderAcceptedMessage.class))
                 .isEqualTo(new OrderAcceptedMessage(expectedOrder.id()));
 
-        webTestClient.get().uri("/orders")
+        webTestClient
+                .get()
+                .uri("/orders")
+                .headers(headers -> headers.setBearerAuth(customerTokens.accessToken()))
                 .exchange()
                 .expectStatus().is2xxSuccessful()
                 .expectBodyList(Order.class).value(orders ->
                         assertThat(orders.stream().filter(order -> order.id().equals(productId)).findAny()).isNotEmpty());
     }
+
     @Test
-    void whenPostRequestAndProductNotExistsThenOrderRejected()  {
-        long productId = 4;
-        given(productClient.getProductById(productId)).willReturn(Mono.empty());
-        OrderItem item = OrderItem.of(null, productId, 1);
-        OrderRequest orderRequest = new OrderRequest("tomer123", List.of(item));
+    void whenPostRequestThenOrderAccepted() throws IOException {
+        long productId = 1;
+        Product product = new Product(productId, "Laptop", 559.90, 5);
+        given(productClient.getProductById(productId)).willReturn(Mono.just(product));
+
+        OrderItem orderItem = OrderItem.of(null, productId, 2);
+        OrderRequest orderRequest = new OrderRequest(List.of(orderItem));
 
         Order expectedOrder = webTestClient.post()
                 .uri("/orders")
+                .headers(headers -> headers.setBearerAuth(customerTokens.accessToken()))
                 .bodyValue(orderRequest)
                 .exchange()
                 .expectStatus().is2xxSuccessful()
                 .expectBody(Order.class).
                 returnResult().
                 getResponseBody();
+
+        assertThat(expectedOrder).isNotNull();
+        assertThat(objectMapper.readValue(output.receive().getPayload(), OrderAcceptedMessage.class))
+                .isEqualTo(new OrderAcceptedMessage(expectedOrder.id()));
+    }
+    @Test
+    void whenPostRequestAndProductNotExistsThenOrderRejected()  {
+        long productId = 4;
+        given(productClient.getProductById(productId)).willReturn(Mono.empty());
+        OrderItem item = OrderItem.of(null, productId, 1);
+        OrderRequest orderRequest = new OrderRequest( List.of(item));
+
+        Order expectedOrder = webTestClient
+                .post()
+                .uri("/orders")
+                .headers(headers -> headers.setBearerAuth(customerTokens.accessToken()))
+                .bodyValue(orderRequest)
+                .exchange()
+                .expectStatus().is2xxSuccessful()
+                .expectBody(Order.class)
+                .returnResult()
+                .getResponseBody();
 
         assertThat(expectedOrder).isNotNull();
         assertThat(expectedOrder.status()).isEqualTo(OrderStatus.REJECTED);
@@ -122,11 +175,12 @@ public class OrderServiceApplicationTests {
         given(productClient.getProductById(productId)).willReturn(Mono.just(product));
 
         OrderItem orderItem = OrderItem.of(null, productId, 1);
-        List<OrderItem> itemList = new ArrayList<>();
-        itemList.add(orderItem);
-        OrderRequest orderRequest = new OrderRequest("tomer123", itemList);
+        OrderRequest orderRequest = new OrderRequest(List.of(orderItem));
 
-        Order expectedOrder = webTestClient.post().uri("/orders")
+        Order expectedOrder = webTestClient
+                .post()
+                .uri("/orders")
+                .headers(headers -> headers.setBearerAuth(customerTokens.accessToken()))
                 .bodyValue(orderRequest)
                 .exchange()
                 .expectStatus().is2xxSuccessful()
@@ -134,5 +188,25 @@ public class OrderServiceApplicationTests {
 
         assertThat(expectedOrder).isNotNull();
         assertThat(expectedOrder.status()).isEqualTo(OrderStatus.REJECTED);
+    }
+
+    private static KeycloakToken authenticateWith(String username, String password, WebClient webClient) {
+        return webClient
+                .post()
+                .body(BodyInserters.fromFormData("grant_type", "password")
+                        .with("client_id", "electro-test")
+                        .with("username", username)
+                        .with("password", password)
+                )
+                .retrieve()
+                .bodyToMono(KeycloakToken.class)
+                .block();
+    }
+
+    private record KeycloakToken(String accessToken) {
+        @JsonCreator
+        private KeycloakToken(@JsonProperty("access_token") final String accessToken) {
+            this.accessToken = accessToken;
+        }
     }
 }

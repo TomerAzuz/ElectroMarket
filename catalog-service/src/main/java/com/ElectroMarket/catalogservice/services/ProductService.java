@@ -62,6 +62,8 @@ public class ProductService {
                             product.brand(),
                             existingProduct.createdDate(),
                             existingProduct.lastModifiedDate(),
+                            existingProduct.createdBy(),
+                            existingProduct.lastModifiedBy(),
                             existingProduct.version());
                     return productRepository.save(productToUpdate);
                 })

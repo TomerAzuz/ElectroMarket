@@ -1,5 +1,6 @@
 package com.ElectroMarket.orderservice.integration;
 
+import com.ElectroMarket.orderservice.config.SecurityConfig;
 import com.ElectroMarket.orderservice.controllers.OrderController;
 import com.ElectroMarket.orderservice.dto.OrderRequest;
 import com.ElectroMarket.orderservice.models.Order;
@@ -7,21 +8,24 @@ import com.ElectroMarket.orderservice.models.OrderItem;
 import com.ElectroMarket.orderservice.models.OrderStatus;
 import com.ElectroMarket.orderservice.services.OrderService;
 import org.junit.jupiter.api.Test;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.test.web.reactive.server.SecurityMockServerConfigurers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.context.annotation.Import;
+import org.springframework.security.oauth2.jwt.ReactiveJwtDecoder;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.List;
-import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;
 
-
 @WebFluxTest(OrderController.class)
+@Import(SecurityConfig.class)
 public class OrderControllerWebFluxTests {
 
     @Autowired
@@ -30,15 +34,20 @@ public class OrderControllerWebFluxTests {
     @MockBean
     private OrderService orderService;
 
+    @MockBean
+    ReactiveJwtDecoder reactiveJwtDecoder;
+
     @Test
     void whenProductNotAvailableThenRejectOrder()   {
         var item = OrderItem.of(null, 1000L, 1);
-        var orderRequest = new OrderRequest("tomer123", List.of(item));
-        var expectedOrder = OrderService.buildOrder(orderRequest.username(), 0.0, false);
+        var orderRequest = new OrderRequest( List.of(item));
+        var expectedOrder = OrderService.buildOrder( 0.0, false);
         given(orderService.submitOrder(orderRequest))
                 .willReturn(Mono.just(expectedOrder));
 
         webClient
+                .mutateWith(SecurityMockServerConfigurers.mockJwt()
+                        .authorities(new SimpleGrantedAuthority("ROLE_customer")))
             .post()
             .uri("/orders")
             .bodyValue(orderRequest)
@@ -53,12 +62,14 @@ public class OrderControllerWebFluxTests {
     @Test
     void getExistingOrder()    {
         var order = new Order(1L, "tomer123", 1000.0,
-                OrderStatus.ACCEPTED, null, null, 0);
+                OrderStatus.ACCEPTED, null, null, null,0);
 
         given(orderService.getOrderById(1L))
                 .willReturn(Mono.just(order));
 
         webClient
+                .mutateWith(SecurityMockServerConfigurers.mockJwt()
+                        .authorities(new SimpleGrantedAuthority("ROLE_customer")))
             .get()
             .uri("/orders/{id}", order.id())
             .exchange()
@@ -80,6 +91,8 @@ public class OrderControllerWebFluxTests {
                 .willReturn(Flux.fromIterable(List.of(item1, item2, item3)));
 
         webClient
+                .mutateWith(SecurityMockServerConfigurers.mockJwt()
+                        .authorities(new SimpleGrantedAuthority("ROLE_customer")))
             .get()
             .uri("/orders/{id}/items", 1L)
             .exchange()
@@ -88,30 +101,6 @@ public class OrderControllerWebFluxTests {
             .value(actualItems -> {
                 assertThat(actualItems).hasSize(3);
                 assertThat(actualItems).contains(item1, item2, item3);
-            });
-    }
-
-    @Test
-    void getOrdersOfUser()  {
-        var order1 = new Order(1L,  "tomer123", 1000.0, OrderStatus.ACCEPTED,
-                null, null, 0);
-        var order2 = new Order(2L, "tomer123", 1000.0, OrderStatus.ACCEPTED,
-                null, null, 0);
-        var order3 = new Order(3L,  "tomer123", 1000.0, OrderStatus.ACCEPTED,
-                null, null, 0);
-
-        given(orderService.getOrdersByUsername("tomer123"))
-                .willReturn(Flux.fromIterable(List.of(order1, order2, order3)));
-
-        webClient
-            .get()
-            .uri("/orders/user/tomer123", 1L)
-            .exchange()
-            .expectStatus().is2xxSuccessful()
-            .expectBodyList(Order.class)
-            .value(actualItems -> {
-                assertThat(actualItems).hasSize(3);
-                assertThat(actualItems).contains(order1, order2, order3);
             });
     }
 }

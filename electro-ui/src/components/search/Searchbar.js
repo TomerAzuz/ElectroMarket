@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import SearchResults from './SearchResults';
 import { PulseLoader } from 'react-spinners';
 import { FiSearch } from 'react-icons/fi';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+
 import axiosInstance from '../../axiosInterceptor';
 import { scrollToTop } from '../common/utils';
 import { usePage } from '../../contexts/PageContext';
+import SearchResults from './SearchResults';
 
 function Searchbar() {
   const [query, setQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [debouncedQuery, setDebouncedQuery] = useState('');
   const [loading, setLoading] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
   const { setPage } = usePage();
   const navigate = useNavigate();
 
@@ -27,7 +29,7 @@ function Searchbar() {
   const handleResultClick = (result) => {
     setSearchResults([]);
     navigate(`/products/${result.name}`, {
-      state: {product: result}
+      state: { product: result },
     });
   };
 
@@ -52,7 +54,7 @@ function Searchbar() {
   }, [query]);
 
   useEffect(() => {
-    const fetchResults = async() => {
+    const fetchResults = async () => {
       const cachedResults = localStorage.getItem(debouncedQuery);
       if (debouncedQuery.trim().length > 1) {
         setLoading(true);
@@ -84,31 +86,45 @@ function Searchbar() {
 
   return (
     <div className="text-center">
-      <div className='mx-auto w-full md:w-1/2 lg:w-1/3 xl:w-1/3'>
-        <div className="relative rounded-full border 
-                      border-gray-300 focus:outline-none 
-                      focus:border-black w-full">
-          <div 
-            className="absolute top-0 left-0 ml-2 mt-3">
-            <FiSearch 
-              className="cursor-pointer text-gray-500 hover:bg-gray-200" size={32}
+      <div className='relative mx-auto md:w-1/3 lg:w-1/3 xl:w-1/3'>
+        <div
+          className={`relative rounded-full border 
+            border-gray-300 focus:outline-none 
+            focus:border-black w-full`}
+        >
+          <div className="absolute top-0 left-0 ml-2 mt-1.5">
+            <FiSearch
+              className="cursor-pointer mb-2
+                       text-gray-500 hover:bg-gray-200"
+              size={32}
               onClick={handleSearchClick}
             />
           </div>
           <input
             type="text"
-            className="py-4 pl-12 rounded-full w-full text-left"
+            className="py-2 pl-12 rounded-full w-full text-left"
             placeholder="Search..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => setIsFocused(false)}
           />
         </div>
       </div>
       {loading ? (
-        <PulseLoader size={15} color="black" loading={loading} />
+        <PulseLoader
+          className='items-center'
+          size={15}
+          color="black"
+          loading={loading}
+        />
       ) : (
+        isFocused &&
         searchResults.length > 0 && (
-          <div className="absolute mt-4 w-full bg-white border rounded shadow-md">
+          <div
+            className="absolute mt-4 bg-white border rounded 
+                       shadow-md w-full text-left"
+          >
             <SearchResults
               results={searchResults}
               handleResultClick={handleResultClick}

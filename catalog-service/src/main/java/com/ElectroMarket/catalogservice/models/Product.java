@@ -39,6 +39,12 @@ public record Product(
         @LastModifiedDate
         Instant lastModifiedDate,
 
+        @CreatedBy
+        String createdBy,
+
+        @LastModifiedBy
+        String lastModifiedBy,
+
         @Version
         int version
 ) {
@@ -48,8 +54,7 @@ public record Product(
             String imageUrl, String brand
 
     )   {
-        return new Product(null, name, price, categoryId, stock, imageUrl, brand, null, null, 0);
+        return new Product(null, name, price, categoryId, stock,
+                            imageUrl, brand, null, null, null, null, 0);
     }
 }
-
-

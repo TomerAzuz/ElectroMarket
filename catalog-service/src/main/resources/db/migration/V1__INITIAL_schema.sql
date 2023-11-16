@@ -19,3 +19,5 @@ CREATE TABLE product (
     version INTEGER NOT NULL,
     FOREIGN KEY (category_id) REFERENCES category(id) ON DELETE CASCADE
 );
+
+CREATE INDEX idx_product_category ON product (category_id);

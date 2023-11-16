@@ -616,14 +616,6 @@
         "brand": "SAMSUNG"
     },
     {
-        "name": "PANASONIC TV",
-        "price": 1999.99,
-        "categoryId": 3,
-        "stock": 10,
-        "imageUrl": "",
-        "brand": "PANASONIC"
-    },
-    {
         "name": "HISENSE 50E7HQ",
         "price": 499.0,
         "categoryId": 3,
@@ -672,7 +664,7 @@
         "brand": "TCL"
     },
     {
-        "name": "PHILIPS 32PHS6808/12 (2023)",
+        "name": "PHILIPS 32PHS6808/12 2023",
         "price": 222.99,
         "categoryId": 3,
         "stock": 10,
@@ -680,7 +672,7 @@
         "brand": "PHILIPS"
     },
     {
-        "name": "SAMSUNG Crystal UHD 4K 75CU7100 2023)",
+        "name": "SAMSUNG Crystal UHD 4K 75CU7100 2023",
         "price": 941.99,
         "categoryId": 3,
         "stock": 87,
@@ -744,7 +736,7 @@
         "brand": "SONY"
     },
     {
-        "name": "PHILIPS 55PUS8108/12 (2023)",
+        "name": "PHILIPS 55PUS8108 2023",
         "price": 699.0,
         "categoryId": 3,
         "stock": 32,
@@ -752,7 +744,7 @@
         "brand": "PHILIPS"
     },
     {
-        "name": "PHILIPS 32PFS6908/12 (2023)",
+        "name": "PHILIPS 32PFS6908 2023",
         "price": 349,
         "categoryId": 3,
         "stock": 18,
@@ -760,7 +752,7 @@
         "brand": "PHILIPS"
     },
     {
-        "name": "PHILIPS 65PUS7608/12 (2023)",
+        "name": "PHILIPS 65PUS7608 2023",
         "price": 649.0,
         "categoryId": 3,
         "stock": 23,
@@ -768,7 +760,7 @@
         "brand": "PHILIPS"
     },
     {
-        "name": "SONY Bravia KD-32W800 (2023)",
+        "name": "SONY Bravia KD-32W800 2023",
         "price": 399.0,
         "categoryId": 3,
         "stock": 42,
@@ -776,7 +768,7 @@
         "brand": "SONY"
     },
     {
-        "name": "PHILIPS 43PUS8808/12 The One (2023)",
+        "name": "PHILIPS 43PUS8808 The One 2023",
         "price": 699.0,
         "categoryId": 3,
         "stock": 32,
@@ -784,7 +776,7 @@
         "brand": "PHILIPS"
     },
     {
-        "name": "PHILIPS 24PHS6808/12 (2023)",
+        "name": "PHILIPS 24PHS6808 2023",
         "price": 249.0,
         "categoryId": 3,
         "stock": 7,
@@ -792,7 +784,7 @@
         "brand": "PHILIPS"
     },
     {
-        "name": "PHILIPS 43PUS8108/12 (2023)",
+        "name": "PHILIPS 43PUS8108 2023",
         "price": 499.0,
         "categoryId": 3,
         "stock": 6,

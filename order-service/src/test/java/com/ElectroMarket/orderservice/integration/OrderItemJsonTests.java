@@ -27,10 +27,13 @@ public class OrderItemJsonTests {
                     "quantity": 1,
                     "createdDate": "2023-09-10T13:48:51.199355Z",
                     "lastModifiedDate": "2023-09-10T13:48:51.199355Z",
+                    "createdBy": "tomer",
+                    "lastModifiedBy": "tomer",
                     "version": 8
                 }
                 """;
+        var expectedItem = new OrderItem(1L, 1L, 1L, 1, instant, instant, "tomer", "tomer", 8);
         assertThat(this.json.parse(content))
-                .usingRecursiveComparison().isEqualTo(new OrderItem(1L, 1L, 1L, 1, instant, instant, 8));
+                .usingRecursiveComparison().isEqualTo(expectedItem);
     }
 }

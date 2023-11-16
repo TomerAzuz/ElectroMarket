@@ -1,26 +1,31 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import axiosInstance from '../axiosInterceptor';
-import { AuthContext } from '../contexts/AuthContext';
 
 function useOrders() {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const { user } = useContext(AuthContext);  
+  const retryFetchOrders = useCallback(async (maxRetries, delay) => {
+    let retries = 0;
 
-  useEffect(() => {
-    async function fetchOrders() {
+    while (retries < maxRetries)  {
       try {
-        const response = await axiosInstance.get(`/orders/user/${user.username}`);
+        const response = await axiosInstance.get('/orders');
         setOrders(response.data);
-      } catch (error) {
-        console.error(error);
-      } finally {
         setLoading(false);
+        return;
+      } catch (error) {
+        console.error(`Error fetching orders. Retry ${retries + 1}/${maxRetries}`);
+        retries++;
+        await new Promise((resolve) => setTimeout(resolve, delay));
       }
     }
-    fetchOrders();
-  }, [user.username]);
+    setLoading(false);
+  }, []);
+
+  useEffect(() => {
+    retryFetchOrders(1, 0);
+  }, [retryFetchOrders]);
 
   return { orders, loading };
 }

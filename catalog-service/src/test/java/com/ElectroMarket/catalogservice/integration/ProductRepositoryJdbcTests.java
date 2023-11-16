@@ -14,6 +14,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jdbc.core.JdbcAggregateTemplate;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.ActiveProfiles;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -23,9 +24,7 @@ import java.util.stream.StreamSupport;
 
 @DataJdbcTest
 @Import(DataConfig.class)
-@AutoConfigureTestDatabase(
-        replace = AutoConfigureTestDatabase.Replace.NONE
-)
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @ActiveProfiles("integration")
 public class ProductRepositoryJdbcTests {
     @Autowired
@@ -44,9 +43,9 @@ public class ProductRepositoryJdbcTests {
         Category category2 = categoryRepository.save(Category.of("Cameras"));
 
         var prod1 = new Product(1L,"Laptop", 1129.99, category1.id(), 10,
-                "https://example.com/image.jpg", "brand", null, null, 0);
+                "https://example.com/image.jpg", "brand", null, null, null, null, 0);
         var prod2 = new Product(2L,"Camera", 199.99, category2.id(), 10,
-                "https://example.com/image2.jpg", "brand", null, null, 0);
+                "https://example.com/image2.jpg", "brand", null, null, null, null, 0);
         var products = List.of(prod1, prod2);
 
         jdbcAggregateTemplate.insertAll(products);
@@ -127,5 +126,25 @@ public class ProductRepositoryJdbcTests {
 
         assertThat(deletedProduct).isNotNull();
         assertThat(deletedProduct).isEmpty();
+    }
+
+    @Test
+    void whenCreateProductNotAuthenticatedThenNoAuditMetadata() {
+        Category category = categoryRepository.save(Category.of("Laptops"));
+        var productToCreate = Product.of("Laptop", 299.99, category.id(), 5, "https://example.com/image.jpg", "brand");
+        var createdProduct = productRepository.save(productToCreate);
+
+        assertThat(createdProduct.createdBy()).isNull();
+        assertThat(createdProduct.lastModifiedBy()).isNull();
+    }
+    @Test
+    @WithMockUser("tomer")
+    void whenCreateProductAuthenticatedThenAuditingMetadata()   {
+        Category category = categoryRepository.save(Category.of("Laptops"));
+        var productToCreate = Product.of("Laptop", 299.99, category.id(), 5, "https://example.com/image.jpg", "brand");
+        var createdProduct = productRepository.save(productToCreate);
+
+        assertThat(createdProduct.createdBy()).isEqualTo("tomer");
+        assertThat(createdProduct.lastModifiedBy()).isEqualTo("tomer");
     }
 }

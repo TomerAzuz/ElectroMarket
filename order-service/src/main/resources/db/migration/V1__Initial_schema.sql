@@ -1,6 +1,5 @@
 CREATE TABLE IF NOT EXISTS orders (
     id BIGSERIAL PRIMARY KEY NOT NULL,
-    username VARCHAR(255) NOT NULL,
     total float8 NOT NULL,
     status VARCHAR(255) NOT NULL,
     created_date TIMESTAMP NOT NULL,
@@ -16,5 +15,5 @@ CREATE TABLE IF NOT EXISTS order_items (
     created_date TIMESTAMP NOT NULL,
     last_modified_date TIMESTAMP NOT NULL,
     version INTEGER NOT NULL,
-    FOREIGN KEY (order_id) REFERENCES orders(id)
+    FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE
 );

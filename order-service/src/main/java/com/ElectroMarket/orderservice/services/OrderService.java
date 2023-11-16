@@ -37,8 +37,8 @@ public class OrderService {
         this.streamBridge = streamBridge;
     }
 
-    public Flux<Order> getAllOrders() {
-        return orderRepository.findAll();
+    public Flux<Order> getAllOrders(String userId) {
+        return orderRepository.findAllByCreatedBy(userId);
     }
 
     public Mono<Order> getOrderById(Long id)   {
@@ -47,10 +47,6 @@ public class OrderService {
 
     public Flux<OrderItem> getItemsForOrder(Long id)    {
         return orderItemRepository.getItemsForOrder(id);
-    }
-
-    public Flux<Order> getOrdersByUsername(String username)    {
-        return orderRepository.findOrdersByUsername(username);
     }
 
     @Transactional
@@ -76,7 +72,7 @@ public class OrderService {
                         .map(product -> product.price() * item.quantity()))
                 .reduce(0.0, Double::sum)
                 .flatMap(total -> {
-                    Order order = buildOrder(orderRequest.username(), total, isAccepted);
+                    Order order = buildOrder( total, isAccepted);
                     return Mono.from(orderRepository.save(order))
                             .flatMap(savedOrder -> saveOrderItems(savedOrder, orderRequest.items()))
                             .doOnSuccess(this::publishOrderAcceptedEvent);
@@ -92,9 +88,9 @@ public class OrderService {
         return orderItemRepository.saveAll(orderItems).collectList().map(savedOrderItems -> order);
     }
 
-    public static Order buildOrder(String userId, Double totalPrice, boolean isAccepted) {
-        return isAccepted ? Order.of(userId, totalPrice, OrderStatus.ACCEPTED) :
-                Order.of(userId, 0.0, OrderStatus.REJECTED);
+    public static Order buildOrder(Double totalPrice, boolean isAccepted) {
+        return isAccepted ? Order.of(totalPrice, OrderStatus.ACCEPTED) :
+                Order.of(0.0, OrderStatus.REJECTED);
     }
 
     public Flux<Order> consumeOrderDispatchedEvent(Flux<OrderDispatchedMessage> flux) {
@@ -108,11 +104,12 @@ public class OrderService {
     private Order buildDispatchedOrder(Order existingOrder) {
         return new Order(
                 existingOrder.id(),
-                existingOrder.username(),
+                existingOrder.createdBy(),
                 existingOrder.total(),
                 OrderStatus.DISPATCHED,
                 existingOrder.createdDate(),
                 existingOrder.lastModifiedDate(),
+                existingOrder.lastModifiedBy(),
                 existingOrder.version()
         );
     }

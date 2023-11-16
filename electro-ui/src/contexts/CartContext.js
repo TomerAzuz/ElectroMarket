@@ -12,7 +12,9 @@ const CartProvider = ({ children }) => {
   const [total, setTotal] = useState(0);
   const [loading, setLoading] = useState(false);
   const { user } = useContext(AuthContext);
+  const [order, setOrder] = useState(null);
 
+  /* calculate total price */
   useEffect(() => {
     const total = cart.reduce((acc, item) => {
       return acc + item.price * item.quantity;
@@ -21,6 +23,7 @@ const CartProvider = ({ children }) => {
       
   }, [cart]);
 
+  /* count products */
   useEffect(() => {
     if (cart)   {
       const quantity = cart.reduce((acc, item) => {
@@ -40,15 +43,14 @@ const CartProvider = ({ children }) => {
         items: cart.map(item => ({
           productId: item.id,
           quantity: item.quantity
-        })),
-        username: user.username
+        }))
       };
-
+      
       try {
         const response = await axiosInstance.post('/orders', orderData);
         if (response && response.status === 200)  {
           toast.success('Order Submitted Successfully');
-          // redirect to confirmation page
+          setOrder(response.data);
         }
         clearCart();
       } catch (error) {
@@ -120,16 +122,19 @@ const CartProvider = ({ children }) => {
     }
   };
 
-  return <CartContext.Provider value={{ cart,
+  return <CartContext.Provider value={{ 
+    cart,
     itemQuantity,
     total,
     loading,
+    order,
     addToCart, 
     removeFromCart, 
     clearCart,
     increaseQuantity, 
     decreaseQuantity,
-    handleCheckout
+    handleCheckout,
+    setOrder
   }}>{children}</CartContext.Provider>;
 };
 

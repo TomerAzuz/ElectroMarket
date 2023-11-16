@@ -3,10 +3,12 @@ package com.ElectroMarket.orderservice.integration;
 import com.ElectroMarket.orderservice.config.DataConfig;
 import com.ElectroMarket.orderservice.models.OrderItem;
 import com.ElectroMarket.orderservice.repositories.OrderItemRepository;
+import com.ElectroMarket.orderservice.services.OrderService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.r2dbc.DataR2dbcTest;
 import org.springframework.context.annotation.Import;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.testcontainers.containers.PostgreSQLContainer;
@@ -14,6 +16,8 @@ import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 import org.testcontainers.utility.DockerImageName;
 import reactor.test.StepVerifier;
+
+import java.util.Objects;
 
 @DataR2dbcTest
 @Import(DataConfig.class)
@@ -56,6 +60,28 @@ public class OrderItemRepositoryR2dbcTests {
     void findItemOfNonExistingOrder()    {
         StepVerifier.create(orderItemRepository.findById(2L))
                 .expectNextCount(0)
+                .verifyComplete();
+    }
+
+    @Test
+    void whenCreateOrderNotAuthenticatedThenNoAuditMetadata() {
+        var item = OrderItem.of(null, 1L, 1);
+        StepVerifier.
+                create(orderItemRepository.save(item))
+                .expectNextMatches(orderItem -> Objects.isNull(orderItem.createdBy()) &&
+                        Objects.isNull(orderItem.lastModifiedBy()))
+                .verifyComplete();
+    }
+
+    @Test
+    @WithMockUser("tomer")
+    void whenCreateOrderAuthenticatedThenAuditMetadata() {
+        var item = OrderItem.of(null, 1L, 1);
+        StepVerifier
+                .create(orderItemRepository.save(item))
+                .expectNextMatches(
+                        orderItem -> orderItem.createdBy().equals("tomer") &&
+                                orderItem.lastModifiedBy().equals("tomer"))
                 .verifyComplete();
     }
 }

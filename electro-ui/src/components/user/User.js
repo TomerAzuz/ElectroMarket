@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
 
 function User() {
-  const { user, handleLogin } = useContext(AuthContext);
+  const { user, handleLogin, isEmployee } = useContext(AuthContext);
   const navigate = useNavigate();
 
   function DropdownMenu() {
@@ -20,10 +20,15 @@ function User() {
       navigate('user/orders');
     };
 
+    const handleAdminClick = () => {
+      navigate('/admin');
+    }
+
     return (
       <div className="text-3xl relative">
         <div
-          className={`rounded-full border w-12 h-12 flex justify-center items-center bg-white group-hover:bg-gray-300 ${
+          className={`rounded-full border w-12 h-12 flex justify-center items-center
+           bg-white group hover:bg-gray-300 ${
             isDropdownOpen ? 'bg-gray-300' : ''
           }`}
           onClick={toggleDropdown}
@@ -31,13 +36,21 @@ function User() {
           <FaUser />
         </div>
         {isDropdownOpen && (
-          <div className="absolute right-0 mt-12 p-4 bg-white border rounded-lg shadow-lg w-64">
+          <div className="absolute -right-0 mt-8 p-2 bg-white border rounded-lg shadow-lg w-40">
             <ul>
+            {user && isEmployee && (
+              <li
+              className='text-lg cursor-pointer hover:bg-gray-200 p-2'
+              onClick={handleAdminClick}
+              >
+                Admin
+              </li>
+            )}
               {user ? (
                 <form
                   action="/logout"
                   method="post"
-                  className="cursor-pointer hover:bg-gray-200 p-2"
+                  className="cursor-pointer text-lg hover:bg-gray-200 p-2"
                 >
                   <input
                     type="hidden"
@@ -48,18 +61,18 @@ function User() {
                 </form>
               ) : (
                 <li
-                  className="cursor-pointer hover:bg-gray-200 p-2"
+                  className="text-lg cursor-pointer hover:bg-gray-200 p-2"
                   onClick={handleLogin}
                 >
-                  Sign In
+                  Log In
                 </li>
               )}
               {user && (
                 <li
-                  className="cursor-pointer hover:bg-gray-200 p-2"
+                  className="text-lg cursor-pointer hover:bg-gray-200 p-2"
                   onClick={handleOrdersClick}
                 >
-                  My orders
+                  My Orders
                 </li>
               )}
             </ul>

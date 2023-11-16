@@ -7,6 +7,7 @@ import com.ElectroMarket.orderservice.repositories.OrderRepository;
 import com.ElectroMarket.orderservice.services.OrderService;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
@@ -18,6 +19,7 @@ import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import reactor.test.StepVerifier;
 
+import java.util.Objects;
 import java.util.UUID;
 
 @DataR2dbcTest
@@ -51,7 +53,7 @@ class OrderRepositoryR2dbcTests {
 
     @Test
     void createRejectedOrder()  {
-        var rejectedOrder = OrderService.buildOrder("tomer123", 0.0, false);
+        var rejectedOrder = OrderService.buildOrder( 0.0, false);
         StepVerifier
                 .create(orderRepository.save(rejectedOrder))
                 .expectNextMatches(
@@ -63,6 +65,25 @@ class OrderRepositoryR2dbcTests {
     void findOrderByIdWhenNotExisting() {
         StepVerifier.create(orderRepository.findById(1234L))
                 .expectNextCount(0)
+                .verifyComplete();
+    }
+
+    @Test
+    void whenCreateOrderNotAuthenticatedThenNoAuditMetadata() {
+        var rejectedOrder = OrderService.buildOrder( 1000.0, false);
+        StepVerifier.create(orderRepository.save(rejectedOrder))
+                .expectNextMatches(order -> Objects.isNull(order.createdBy()) &&
+                        Objects.isNull(order.lastModifiedBy()))
+                .verifyComplete();
+    }
+
+    @Test
+    @WithMockUser("tomer")
+    void whenCreateOrderAuthenticatedThenAuditMetadata() {
+        var rejectedOrder = OrderService.buildOrder( 1000.0, false);
+        StepVerifier.create(orderRepository.save(rejectedOrder))
+                .expectNextMatches(order -> order.createdBy().equals("tomer") &&
+                        order.lastModifiedBy().equals("tomer"))
                 .verifyComplete();
     }
 }

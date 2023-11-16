@@ -11,6 +11,8 @@ import Footer from './components/common/Footer';
 import OrdersPage from './pages/OrdersPage';
 import CartPage from './pages/CartPage';
 import ErrorPage from './pages/ErrorPage';
+import OrderConfirmation from './pages/OrderConfirmation';
+import AdminPage from './pages/AdminPage';
 
 const App = () => {
 
@@ -26,18 +28,18 @@ const App = () => {
           <Toaster
             position="top-left"
             reverseOrder={false}
-            containerStyle={{
-              top: '6rem',
-            }}
+            containerStyle={{ top: '6rem', }}
           />
           <Routes>
             <Route path='/' element={<Home />} />
-            <Route path='*' element={<ErrorPage />} />
-            <Route path='/products/:name' element={<ProductDetails />} />
-            <Route path='/products/category/:categoryName' element={<ProductsPage />} />
+            <Route path='/products/:id' element={<ProductDetails />} />
+            <Route path='/products/category/:categoryId' element={<ProductsPage />} />
             <Route path='/products/search/:query' element={<ProductsPage />} />
             <Route path='/cart' element={<CartPage />}/>
             <Route path='/user/orders' element={<OrdersPage />} />
+            <Route path='/order/confirmation' element={< OrderConfirmation />} />
+            <Route path='/admin' element={< AdminPage/>} />
+            <Route path='*' element={<ErrorPage />} />
           </Routes>
         </div>
         <Footer />

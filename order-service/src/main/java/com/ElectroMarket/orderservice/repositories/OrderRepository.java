@@ -6,5 +6,5 @@ import org.springframework.web.bind.annotation.PathVariable;
 import reactor.core.publisher.Flux;
 
 public interface OrderRepository extends ReactiveCrudRepository<Order,Long> {
-    Flux<Order> findOrdersByUsername(@PathVariable("username") String username);
+    Flux<Order> findAllByCreatedBy(String userId);
 }

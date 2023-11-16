@@ -20,7 +20,7 @@ public class ProductJsonTests {
     void testSerialize() throws Exception {
         var now = Instant.now();
         var product = new Product(123L, "Product", 9.99, 1L,
-                            10, "https://example.com/image.jpg", "brand",  now, now, 25);
+                            10, "https://example.com/image.jpg", "brand",  now, now, "tomer", "tomer", 25);
         var jsonContent = json.write(product);
 
         assertThat(jsonContent).extractingJsonPathNumberValue("@.id")
@@ -39,6 +39,10 @@ public class ProductJsonTests {
                 .isEqualTo(product.createdDate().toString());
         assertThat(jsonContent).extractingJsonPathStringValue("@.lastModifiedDate")
                 .isEqualTo(product.lastModifiedDate().toString());
+        assertThat(jsonContent).extractingJsonPathStringValue("@.createdBy")
+                .isEqualTo(product.createdBy().toString());
+        assertThat(jsonContent).extractingJsonPathStringValue("@.lastModifiedBy")
+                .isEqualTo(product.lastModifiedBy().toString());
         assertThat(jsonContent).extractingJsonPathNumberValue("@.version")
                 .isEqualTo(product.version());
     }
@@ -56,13 +60,15 @@ public class ProductJsonTests {
                         "brand": "brand",
                         "createdDate": "2023-09-10T13:48:51.199355Z",
                         "lastModifiedDate": "2023-09-10T13:48:51.199355Z",
+                        "createdBy": "tomer",
+                        "lastModifiedBy":  "tomer",
                         "version": 65
                     }
                     """;
         var instant = Instant.parse("2023-09-10T13:48:51.199355Z");
         assertThat(json.parse(content))
                 .usingRecursiveComparison()
-                .isEqualTo(new Product(242L, "product", 5.5, 24L, 10, "https://example.com/image.jpg", "brand", instant, instant, 65));
+                .isEqualTo(new Product(242L, "product", 5.5, 24L, 10, "https://example.com/image.jpg", "brand", instant, instant, "tomer", "tomer", 65));
 
     }
 }

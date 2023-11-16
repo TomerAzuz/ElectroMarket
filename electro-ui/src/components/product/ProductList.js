@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { PulseLoader } from 'react-spinners';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
@@ -7,14 +7,25 @@ import useProducts from '../../customHooks/useProducts';
 
 function ProductList({ endpoint, params, handleSort, setPage }) {
   const { products, setProducts, loading, totalPages } = useProducts({
-    endpoint: endpoint,
-    params: params,
-  });
+                                                                endpoint: endpoint,
+                                                                params: params,
+                                                              });
   const [selectedBrands, setSelectedBrands] = useState([]);
+  const [minPrice, setMinPrice] = useState(0);
+  const [maxPrice, setMaxPrice] = useState(0);
+
   const brands = [...new Set(products.map((product) => product.brand))];
-  const minPrice = Math.min(...products.map((product) => product.price));
-  const maxPrice = Math.max(...products.map((product) => product.price));
   const [priceRange, setPriceRange] = useState([minPrice, maxPrice]);
+
+  useEffect(() => {
+    if (products.length > 0) {
+      const newMinPrice = Math.min(...products.map((product) => product.price));
+      const newMaxPrice = Math.max(...products.map((product) => product.price));
+      setMinPrice(newMinPrice);
+      setMaxPrice(newMaxPrice);
+      setPriceRange([minPrice, maxPrice]);
+    }
+  }, [products, minPrice, maxPrice]);
 
   const handleBrandChange = (e) => {
     const brand = e.target.value;
@@ -37,12 +48,14 @@ function ProductList({ endpoint, params, handleSort, setPage }) {
   };
 
   const filteredProducts = products.filter((product) => {
-    const brandFilter = selectedBrands.length === 0 || selectedBrands.includes(product.brand);
-    const priceFilter = product.price >= priceRange[0] && product.price <= priceRange[1];
+    const brandFilter = selectedBrands.length === 0 || 
+                        selectedBrands.includes(product.brand);
+    const priceFilter = product.price >= priceRange[0] && 
+                        product.price <= priceRange[1];
 
     return brandFilter && priceFilter;
   })
-
+  /* TODO: refactor */
   return (
     <div className="flex items-center justify-center">
       {loading ? (
@@ -51,7 +64,7 @@ function ProductList({ endpoint, params, handleSort, setPage }) {
         </div>
       ) : (
         <div className="container mx-auto flex">
-          <div className="w-1/4">
+          <div className="w-1/8">
             <div className="mb-4">
               <h3>Sort by:</h3>
               <select
@@ -96,11 +109,15 @@ function ProductList({ endpoint, params, handleSort, setPage }) {
               </div>
             </div>
           </div>
-          <div className="w-3/4 px-4">
+          <div className="w-full px-4">
             <h2 className="mb-4">{filteredProducts.length} products</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4 max-w-sm md:max-w-none mx-0">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 
+                            xl:grid-cols-5 gap-4 max-w-sm md:max-w-none mx-0">
               {filteredProducts.map((product) => (
-                <Product key={product.id} product={product} />
+                <Product 
+                  key={product.id} 
+                  product={product} 
+                  onClick={() => setSelectedBrands([])}/>
               ))}
             </div>
             <div className="mt-20 text-center">

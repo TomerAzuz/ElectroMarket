@@ -23,7 +23,7 @@ const ProductsPage = () => {
 
   if (category || query)  {
     return (
-      <div className="flex-col items-center py-72 lg:py-32">
+      <div className="flex-col items-center py-44 sm:py-48 lg:py-16pt-8 lg:pt-32 pb-12 lg:py-32">
         <h1 className="text-4xl font-bold text-center text-primary">
           {category ? category.name : `Search Results for '${query}'`}
         </h1>

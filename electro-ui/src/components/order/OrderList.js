@@ -16,10 +16,15 @@ function OrderList() {
           <div className="container mx-auto">
             <div className="mb-4 text-center">
             </div>
-            <h2>{orders.length} Orders</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4 max-w-sm md:max-w-none mx-0">
+            <h2 className='text-lg font-semibold mb-4'>
+                {orders.length} {orders.length !== 1 ? "Orders" : "Order"} 
+              </h2>
+            <div className="space-y-4">
               {orders.map((order) => ( 
-                <Order key={order.id} order={order} />
+                <Order 
+                  key={order.id} 
+                  order={order}
+                />
               ))}
             </div>
           </div>

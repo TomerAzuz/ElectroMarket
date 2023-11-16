@@ -1,5 +1,6 @@
 package com.ElectroMarket.catalogservice.integration;
 
+import com.ElectroMarket.catalogservice.config.SecurityConfig;
 import com.ElectroMarket.catalogservice.controllers.CategoryController;
 import com.ElectroMarket.catalogservice.exceptions.ResourceAlreadyExistsException;
 import com.ElectroMarket.catalogservice.exceptions.ResourceNotFoundException;
@@ -11,19 +12,33 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.context.annotation.Import;
 import org.springframework.http.MediaType;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.when;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.jwt;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(CategoryController.class)
+@Import(SecurityConfig.class)
 public class CategoryControllerMvcTests {
+
+    private static final String ROLE_EMPLOYEE = "ROLE_employee";
+    private static final String ROLE_CUSTOMER = "ROLE_customer";
     @Autowired
     private MockMvc mockMvc;
+
+    @MockBean
+    JwtDecoder jwtDecoder;
+
+    @Autowired
+    ObjectMapper objectMapper;
 
     @MockBean
     private CategoryService categoryService;
@@ -32,34 +47,70 @@ public class CategoryControllerMvcTests {
     private ProductService productService;
 
     @Test
-    void getExistingCategory() throws Exception {
+    void getExistingCategoryAndAuthenticatedThenShouldReturn200() throws Exception {
         var category = Category.of("category");
         given(categoryService.getCategoryById(4L)).willReturn(category);
-        mockMvc.perform(get("/category/4"))
+        mockMvc
+                .perform(get("/category/4")
+                        .with(jwt()))
                 .andExpect(status().isOk());
     }
 
     @Test
-    void editExistingCategory() throws Exception {
+    void getExistingCategoryAndNotAuthenticatedThenShouldReturn200() throws Exception {
+        var category = Category.of("category");
+        given(categoryService.getCategoryById(4L)).willReturn(category);
+        mockMvc
+                .perform(get("/category/4"))
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    void whenPutCategoryWithEmployeeRoleThenShouldReturn200() throws Exception {
         var category = Category.of("category");
         when(categoryService.updateCategory(1L, category)).thenReturn(category);
 
         mockMvc.perform(put("/category/1")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(new ObjectMapper().writeValueAsString(category)))
+                        .content(objectMapper.writeValueAsString(category))
+                        .with(jwt().authorities(new SimpleGrantedAuthority(ROLE_EMPLOYEE))))
                 .andExpect(status().isOk());
     }
 
     @Test
-    void deleteExistingCategory() throws Exception   {
+    void whenPutCategoryWithCustomerRoleThenShouldReturn200() throws Exception {
         var category = Category.of("category");
-        given(categoryService.getCategoryById(1L)).willReturn(category);
-        mockMvc.perform(delete("/category/1"))
-                .andExpect(status().isNoContent());
+        when(categoryService.updateCategory(1L, category)).thenReturn(category);
+
+        mockMvc.perform(put("/category/1")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(category))
+                        .with(jwt().authorities(new SimpleGrantedAuthority(ROLE_CUSTOMER))))
+                .andExpect(status().isForbidden());
     }
 
     @Test
-    void categoryDoesNotExist() throws Exception {
+    void whenPutCategoryAndNotAuthenticatedThenShouldReturn401() throws Exception {
+        var category = Category.of("category");
+        when(categoryService.updateCategory(1L, category)).thenReturn(category);
+
+        mockMvc.perform(put("/category/1")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(category)))
+                .andExpect(status().isUnauthorized());
+    }
+
+
+    @Test
+    void whenDeleteCategoryNotAuthenticatedThenShouldReturn401() throws Exception   {
+        var category = Category.of("category");
+        given(categoryService.getCategoryById(1L)).willReturn(category);
+        mockMvc.perform(delete("/category/1"))
+                .andExpect(status().isUnauthorized());
+    }
+
+    @Test
+    void getNonExistingCategoryThenShouldReturn404() throws Exception {
         given(categoryService.getCategoryById(5L))
                 .willThrow(ResourceNotFoundException.class);
         mockMvc.perform(get("/category/5"))
@@ -67,16 +118,10 @@ public class CategoryControllerMvcTests {
     }
 
     @Test
-    void categoryAlreadyExists() throws Exception {
+    void postExistingCategoryThenShouldReturn422() throws Exception {
         Category category = Category.of("category");
 
         String requestBody = new ObjectMapper().writeValueAsString(category);
-
-        mockMvc.perform(
-                        post("/category")
-                                .contentType(MediaType.APPLICATION_JSON)
-                                .content(requestBody))
-                .andExpect(status().isCreated());
 
         given(categoryService.createCategory(any(Category.class)))
                 .willThrow(new ResourceAlreadyExistsException("category", category.id()));
@@ -84,7 +129,8 @@ public class CategoryControllerMvcTests {
         mockMvc.perform(
                         post("/category")
                                 .contentType(MediaType.APPLICATION_JSON)
-                                .content(requestBody))
+                                .content(requestBody)
+                                .with(jwt().authorities(new SimpleGrantedAuthority(ROLE_EMPLOYEE))))
                 .andExpect(status().isUnprocessableEntity());
     }
 }
