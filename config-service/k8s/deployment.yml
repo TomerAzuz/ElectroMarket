@@ -37,9 +37,9 @@ spec:
               port: 8888
             initialDelaySeconds: 10
             periodSeconds: 5
-            readinessProbe:
-              httpGet:
-                path: /actuator/health/readiness
-                port: 8888
-              initialDelaySeconds: 5
-              periodSeconds: 15
+          readinessProbe:
+            httpGet:
+              path: /actuator/health/readiness
+              port: 8888
+            initialDelaySeconds: 5
+            periodSeconds: 15
