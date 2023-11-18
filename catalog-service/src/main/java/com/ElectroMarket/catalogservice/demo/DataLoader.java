@@ -28,38 +28,40 @@ public class DataLoader {
 
     @EventListener(ApplicationReadyEvent.class)
     public void loadCategoryTestData()  {
-        categoryRepository.deleteAll();
-        ObjectMapper objectMapper = new ObjectMapper();
-        try {
-            InputStream resourceStream = getClass().getClassLoader().getResourceAsStream("category.json");
-            if (resourceStream != null) {
-                List<Category> categories = objectMapper.readValue(resourceStream, new TypeReference<>() {});
-                categoryRepository.saveAll(categories);
-                loadProductTestData();
-            } else {
-                System.err.println("Unable to load category.json.");
+        if (categoryRepository.count() == 0)    {
+            ObjectMapper objectMapper = new ObjectMapper();
+            try {
+                InputStream resourceStream = getClass().getClassLoader().getResourceAsStream("category.json");
+                if (resourceStream != null) {
+                    List<Category> categories = objectMapper.readValue(resourceStream, new TypeReference<>() {});
+                    categoryRepository.saveAll(categories);
+                    loadProductTestData();
+                } else {
+                    System.err.println("Unable to load category.json.");
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 
 
     public void loadProductTestData() {
-        productRepository.deleteAll();
-        ObjectMapper objectMapper = new ObjectMapper();
-        try {
-            InputStream resourceStream = getClass().getClassLoader().getResourceAsStream("products.json");
+        if (productRepository.count() == 0) {
+            ObjectMapper objectMapper = new ObjectMapper();
+            try {
+                InputStream resourceStream = getClass().getClassLoader().getResourceAsStream("products.json");
 
-            if (resourceStream != null) {
-                List<Product> products = objectMapper.readValue(resourceStream, new TypeReference<>() {});
+                if (resourceStream != null) {
+                    List<Product> products = objectMapper.readValue(resourceStream, new TypeReference<>() {});
 
-                productRepository.saveAll(products);
-            } else {
-                System.err.println("Unable to load products.json.");
+                    productRepository.saveAll(products);
+                } else {
+                    System.err.println("Unable to load products.json.");
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 }

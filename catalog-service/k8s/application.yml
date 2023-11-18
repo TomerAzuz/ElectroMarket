@@ -1,0 +1,10 @@
+electro:
+  greeting: Welcome to the product catalog from Kubernetes!
+spring:
+  datasource:
+    url: jdbc:postgresql://electro-postgres/electrodb_catalog
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://electro-keycloak/realms/ElectroMarket

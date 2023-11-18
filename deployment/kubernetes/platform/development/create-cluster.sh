@@ -1,14 +1,14 @@
 #!/bin/sh
 
-# echo "\n📦 Initializing Kubernetes cluster...\n"
+echo "\n📦 Initializing Kubernetes cluster...\n"
 
-# minikube start --cpus 2 --memory 4g --driver docker --profile electro
+minikube start --cpus 2 --memory 4g --driver docker --profile electro
 
-# echo "\n🔌 Enabling NGINX Ingress Controller...\n"
+echo "\n🔌 Enabling NGINX Ingress Controller...\n"
  
-# minikube addons enable ingress --profile electro
+minikube addons enable ingress --profile electro
 
-# sleep 15
+sleep 15
 
 echo "\n📦 Deploying Keycloak..."
 

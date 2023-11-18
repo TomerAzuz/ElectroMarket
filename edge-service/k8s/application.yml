@@ -1,0 +1,10 @@
+spring:
+  data:
+    redis:
+      host: electro-redis
+  security:
+    oauth2:
+      client:
+        provider:
+          keycloak:
+            issuer-uri: http://electro-keycloak/realms/ElectroMarket
