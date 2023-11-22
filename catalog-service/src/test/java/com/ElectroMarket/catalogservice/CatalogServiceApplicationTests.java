@@ -255,8 +255,7 @@ public class CatalogServiceApplicationTests {
                 .exchange()
                 .expectStatus().isNotFound()
                 .expectBody(String.class).value(error ->
-                                assertThat(error).isEqualTo("The product with id " + productToCreate.id() + " was not found.")
-                        );
+                                assertThat(error).isEqualTo("The product with id " + productToCreate.id() + " was not found."));
     }
 
 

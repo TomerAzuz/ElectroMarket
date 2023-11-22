@@ -5,7 +5,6 @@ const Product = ({ product }) => {
   const { name, imageUrl, price } = product;
   const navigate = useNavigate();
 
-    // import link instead
   const handleProductClick = () => {
     navigate(`/products/${product.name}`, {
       state: {product: product}

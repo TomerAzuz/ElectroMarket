@@ -11,7 +11,8 @@ function useProducts({ endpoint, params })    {
       try {
         const response = await axiosInstance.get(endpoint, { params });
         const { content, totalPages } = response.data;
-        setProducts(params.page > 0 ? (prevProducts) => [...prevProducts, ...content] : content);
+        setProducts(params.page > 0 ? 
+          (prevProducts) => [...prevProducts, ...content] : content);
         setTotalPages(totalPages);
       } catch (error) {
         console.error(error);

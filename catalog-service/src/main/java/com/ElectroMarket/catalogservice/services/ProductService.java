@@ -39,7 +39,7 @@ public class ProductService {
         return productRepository.save(product);
     }
 
-    public Page<Product> viewProductsByCategory(Long id, Pageable pageable)  {
+    public Page<Product> findProductsByCategory(Long id, Pageable pageable)  {
         Category category = categoryRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("category", null));
         return productRepository.findByCategoryId(category.id(), pageable);

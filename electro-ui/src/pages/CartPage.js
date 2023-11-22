@@ -62,7 +62,7 @@ const CartPage = () => {
                          text-white p-4 rounded-md text-lg font-semibold mt-4 ${
                 loading ? 'opacity-50 cursor-not-allowed' : ''
               }`}
-              onClick={handleCheckout}
+              onClick={() => handleCheckout(3, 1000)}
               disabled={loading}
             >
               Checkout

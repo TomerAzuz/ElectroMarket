@@ -28,7 +28,7 @@ const App = () => {
           <Toaster
             position="top-left"
             reverseOrder={false}
-            containerStyle={{ top: '6rem', }}
+            containerClassName="absolute top-24 left-0"
           />
           <Routes>
             <Route path='/' element={<Home />} />
@@ -38,7 +38,7 @@ const App = () => {
             <Route path='/cart' element={<CartPage />}/>
             <Route path='/user/orders' element={<OrdersPage />} />
             <Route path='/order/confirmation' element={< OrderConfirmation />} />
-            <Route path='/admin' element={< AdminPage/>} />
+            <Route path='/admin/*' element={< AdminPage/>} />
             <Route path='*' element={<ErrorPage />} />
           </Routes>
         </div>

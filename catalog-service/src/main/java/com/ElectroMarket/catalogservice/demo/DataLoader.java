@@ -45,7 +45,6 @@ public class DataLoader {
         }
     }
 
-
     public void loadProductTestData() {
         if (productRepository.count() == 0) {
             ObjectMapper objectMapper = new ObjectMapper();

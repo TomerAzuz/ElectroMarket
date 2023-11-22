@@ -18,13 +18,12 @@ public class SecurityConfig {
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/actuator/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/", "/products/**", "/category/**", "/search/**").permitAll()
-                        .anyRequest().hasRole("employee")
-                )
+                    .requestMatchers("/actuator/**").permitAll()
+                    .requestMatchers(HttpMethod.GET, "/", "/products/**", "/category/**").permitAll()
+                    .anyRequest().hasRole("employee"))
                 .oauth2ResourceServer((oauth2) -> oauth2
-                .jwt(Customizer.withDefaults()))
-                .sessionManagement(sessionManagement ->
+                    .jwt(Customizer.withDefaults()))
+                    .sessionManagement(sessionManagement ->
                         sessionManagement.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .csrf(AbstractHttpConfigurer::disable)
                 .build();

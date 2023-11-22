@@ -146,6 +146,7 @@ public class OrderServiceApplicationTests {
         assertThat(objectMapper.readValue(output.receive().getPayload(), OrderAcceptedMessage.class))
                 .isEqualTo(new OrderAcceptedMessage(expectedOrder.id()));
     }
+
     @Test
     void whenPostRequestAndProductNotExistsThenOrderRejected()  {
         long productId = 4;

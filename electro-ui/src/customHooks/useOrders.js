@@ -24,7 +24,7 @@ function useOrders() {
   }, []);
 
   useEffect(() => {
-    retryFetchOrders(1, 0);
+    retryFetchOrders(3, 1000);
   }, [retryFetchOrders]);
 
   return { orders, loading };

@@ -15,6 +15,7 @@ function Categories() {
   const fetchCategories = useCallback(async() => {
     try {
       const response = await axiosInstance.get('/category');
+      console.log('Category Complete API Response:', response);
       setCategories(response.data);
     } catch (error) {
       handleError(error);
@@ -27,19 +28,15 @@ function Categories() {
     fetchCategories();
   }, [fetchCategories]);
 
-  if (loading) {
-    return (
-      <div className="loading-container">
+
+  return loading ? (
+    <div className="loading-container">
         <PulseLoader size={15} color="black" loading={loading} />
       </div>
-    );
-  }
-
-  return (
-    <section id="categories-section">
+    ) : 
+    (<section id="categories-section">
       <div className="container mx-auto">
-        <div 
-          className="grid grid-cols-1 
+        <div className="grid grid-cols-1 
                       md:grid-cols-2 
                       lg:grid-cols-3 
                       xl:grid-cols-4 

@@ -43,7 +43,7 @@ public class ProductController {
         log.info("Fetching the list of products in category id {} from the catalog.", id);
         Sort sorting = extractSortParam(sort);
         Pageable pageable = PageRequest.of(page, size, sorting);
-        return productService.viewProductsByCategory(id, pageable);
+        return productService.findProductsByCategory(id, pageable);
     }
 
     @PostMapping
@@ -68,7 +68,7 @@ public class ProductController {
 
     @GetMapping("/search/{query}")
     public Page<Product> search(@PathVariable(name = "query") String query,
-                                @RequestParam(name = "page", defaultValue = "1") int page,
+                                @RequestParam(name = "page", defaultValue = "0") int page,
                                 @RequestParam(name = "size", defaultValue = "10") int size,
                                 @RequestParam(name = "sort", defaultValue = "name,asc") String sort) {
         log.info("Searching for products matching '{}'.\n" +

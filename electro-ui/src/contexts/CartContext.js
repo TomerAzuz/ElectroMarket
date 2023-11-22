@@ -45,7 +45,6 @@ const CartProvider = ({ children }) => {
           quantity: item.quantity
         }))
       };
-      
       try {
         const response = await axiosInstance.post('/orders', orderData);
         if (response && response.status === 200)  {

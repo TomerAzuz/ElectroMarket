@@ -35,18 +35,15 @@ public class SecurityConfig {
                 .authorizeExchange(exchange -> exchange
                         .pathMatchers("/actuator/**").permitAll()
                         .pathMatchers("/", "/static/css/**", "/static/js/**", "/favicon.ico", "/dist/**", "/manifest.json").permitAll()
-                        .pathMatchers(HttpMethod.GET, "/products/**").permitAll()
-                        .pathMatchers(HttpMethod.GET, "/category/**").permitAll()
-                        .pathMatchers(HttpMethod.GET, "/search/**").permitAll()
-                        .anyExchange().authenticated()
-                )
+                        .pathMatchers(HttpMethod.GET, "/products/**", "/category/**").permitAll()
+                        .anyExchange().authenticated())
                 .exceptionHandling(exceptionHandling -> exceptionHandling
                         .authenticationEntryPoint(new HttpStatusServerEntryPoint(HttpStatus.UNAUTHORIZED)))
                 .oauth2Login(Customizer.withDefaults())
                 .logout(logout -> logout.logoutSuccessHandler(oidcLogoutSuccessHandler(clientRegistrationRepository)))
                 .csrf(csrf -> csrf
                         .csrfTokenRepository(CookieServerCsrfTokenRepository.withHttpOnlyFalse())
-                        .csrfTokenRequestHandler(new XorServerCsrfTokenRequestAttributeHandler()::handle))
+                        .csrfTokenRequestHandler(new XorServerCsrfTokenRequestAttributeHandler()))
                 .build();
     }
 
