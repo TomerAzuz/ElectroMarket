@@ -2,11 +2,11 @@ version: "3.8"
 services:
   catalog-service:
     depends_on:
-      - fluent-bit 
+      - fluent-bit
       - electro-keycloak
       - electro-postgres
       - tempo
-    image: "catalog-service"
+    image: ghcr.io/tomerazuz/catalog-service:latest
     container_name: "catalog-service"
     ports:
       - "9001:9001"
@@ -34,7 +34,7 @@ services:
       - electro-keycloak
       - electro-postgres
       - electro-rabbitmq
-    image: "order-service"
+    image: ghcr.io/tomerazuz/order-service:latest
     container_name: "order-service"
     ports:
       - "9002:9002"
@@ -56,12 +56,12 @@ services:
       driver: fluentd
       options:
         fluentd-address: 127.0.0.1:24224
-  
+
   dispatcher-service:
     depends_on:
       - fluent-bit
       - electro-rabbitmq
-    image: dispatcher-service
+    image: ghcr.io/tomerazuz/dispatcher-service:latest
     container_name: dispatcher-service
     ports:
       - "9003:9003"
@@ -86,7 +86,7 @@ services:
       - electro-keycloak
       - electro-redis
       - electro-ui
-    image: "edge-service"
+    image: ghcr.io/tomerazuz/edge-service:latest
     container_name: "edge-service"
     ports:
       - "9000:9000"
@@ -195,9 +195,9 @@ services:
       - GF_SECURITY_ADMIN_USER=user
       - GF_SECURITY_ADMIN_PASSWORD=password
     volumes:
-        - ./observability/grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
-        - ./observability/grafana/dashboards:/etc/grafana/provisioning/dashboards
-        - ./observability/grafana/grafana.ini:/etc/grafana/grafana.ini
+      - ./observability/grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
+      - ./observability/grafana/dashboards:/etc/grafana/provisioning/dashboards
+      - ./observability/grafana/grafana.ini:/etc/grafana/grafana.ini
 
   loki:
     image: grafana/loki:2.7.1
@@ -211,11 +211,11 @@ services:
     image: grafana/fluent-bit-plugin-loki:2.7.1-amd64
     container_name: fluent-bit
     ports:
-        - "24224:24224"
+      - "24224:24224"
     environment:
-        - LOKI_URL=http://loki:3100/loki/api/v1/push
+      - LOKI_URL=http://loki:3100/loki/api/v1/push
     volumes:
-        - ./observability/fluent-bit/fluent-bit.conf:/fluent-bit/etc/fluent-bit.conf
+      - ./observability/fluent-bit/fluent-bit.conf:/fluent-bit/etc/fluent-bit.conf
 
   prometheus:
     image: prom/prometheus:v2.40.7
