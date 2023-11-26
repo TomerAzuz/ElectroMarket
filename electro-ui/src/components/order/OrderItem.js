@@ -31,9 +31,9 @@ const OrderItem = ({ productId, quantity }) => {
         {product && (
           <div
             onClick={handleProductClick}
-            className="cursor-pointer text-blue-500 hover:underline"
+            className="cursor-pointer text-lg text-primary hover:underline"
           >
-            {product.name} - {quantity} x ${product.price.toFixed(2)}
+            {product.name} - {quantity} x ${product.price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
           </div>
         )}
       </li>

@@ -24,7 +24,6 @@ function useProducts({ endpoint, params })    {
     fetchProducts();
   }, [endpoint, params, params.page, params.sort]);
   
-
   return { products, setProducts, loading, totalPages };
 }
 

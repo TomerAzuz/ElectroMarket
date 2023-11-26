@@ -22,7 +22,7 @@ const Product = ({ product }) => {
         <div className='w-full h-full flex justify-center items-center'>
           <div className='w-[200px] mx-auto flex justify-center items-center'>
             <img 
-              className='max-h-[160px] group:hover:scale-110 transition duration-300' 
+              className='max-h-[160px] transform transition duration-300 group-hover:scale-110' 
               src={imageUrl} 
               alt={name}
               loading="lazy"
@@ -30,8 +30,9 @@ const Product = ({ product }) => {
           </div>
         </div>
       </div>
-      <h2 className="font-semibold text-lg mb-1">{name}</h2>
-      <div className="font-semibold text-xl text-[#333]">${price}</div>
+      <h2 className="font-semibold text-lg mb-1 hover:underline">{name}</h2>
+      <div className="font-semibold text-xl text-red-500"> 
+        ${price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
     </div>
   );
 };

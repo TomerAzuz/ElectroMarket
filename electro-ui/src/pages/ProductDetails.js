@@ -25,10 +25,12 @@ const ProductDetails = () => {
                  h-screen flex items-center'
       >
       <div className='container mx-auto'>
+      
         <div 
           className='flex flex-col 
                      lg:flex-row items-center 
                      mb-8 lg:mb-0'>
+                      
           <div className='lg:flex-1 justify-center items-center'>
             <img
               className='w-full md:max-w-md lg:max-w-lg object-cover'
@@ -36,26 +38,29 @@ const ProductDetails = () => {
               alt={name}
             />
           </div>
+          
           <div className='flex-2 text-center lg:text-left'>
-            <button
-              className='text-blue-500 mb-4 cursor-pointer'
-              onClick={() => navigate(-1)}
-            >
-              Back
-            </button>
+          <button
+            className='text-primary mb-4 cursor-pointer hover:underline'
+            onClick={() => navigate(-1)}
+          >
+            Back
+          </button>
             <h1 className='text-2xl lg:text-3xl 
                           xl:text-3xl font-medium 
                           mb-2 max-w-[450px] mx-auto lg:mx-0'>
               {name}
             </h1>
-            <div className='text-2xl text-red-500 font-medium mb-6'>
-              $ {price}
+            <div className='text-center text-3xl text-red-500 font-medium mb-6'>
+              ${price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
             </div>
             <div>
               <p className='mb-8'>Description...</p>
               <button
                 onClick={() => addToCart(product)}
-                className='bg-primary mb-28 py-4 px-8 text-white'
+                className='cursor-pointer bg-red-500 rounded-md 
+                          hover:bg-red-700 transition duration-300 
+                          mb-28 py-4 px-8 text-white'
               >
                 Add to cart
               </button>
