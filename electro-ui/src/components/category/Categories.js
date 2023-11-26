@@ -1,38 +1,12 @@
-import React, { useEffect, useCallback, useState } from 'react';
-import { PulseLoader } from 'react-spinners';
-import axiosInstance from '../../axiosInterceptor';
 import Category from './Category';
+import useCategories from '../../customHooks/useCategories';
+import Loader from '../common/Loader';
 
 function Categories() {
-  const [categories, setCategories] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  const handleError = (error) => {
-    console.error('Error fetching categories data', error);
-    setLoading(false);
-  };
-
-  const fetchCategories = useCallback(async() => {
-    try {
-      const response = await axiosInstance.get('/category');
-      console.log('Category Complete API Response:', response);
-      setCategories(response.data);
-    } catch (error) {
-      handleError(error);
-    } finally {
-      setLoading(false);
-    }
-  }, []);
-
-  useEffect(() => {
-    fetchCategories();
-  }, [fetchCategories]);
-
+  const { categories, loading } = useCategories();
 
   return loading ? (
-    <div className="loading-container">
-        <PulseLoader size={15} color="black" loading={loading} />
-      </div>
+    <Loader loading={loading}/>
     ) : 
     (<section id="categories-section">
       <div className="container mx-auto">
@@ -44,7 +18,7 @@ function Categories() {
                       max-w-screen-xl 
                       mx-auto"
         >
-          {categories.map((category) => (
+          {categories?.map((category) => (
             <Category key={category.id} category={category} />
           ))}
         </div>

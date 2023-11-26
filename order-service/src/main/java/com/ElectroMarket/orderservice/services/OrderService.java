@@ -19,6 +19,8 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -52,31 +54,47 @@ public class OrderService {
     @Transactional
     public Mono<Order> submitOrder(OrderRequest orderRequest) {
         return Flux.fromIterable(orderRequest.items())
-                .flatMap(item -> productClient.getProductById(item.productId())
-                        .flatMap(product -> {
-                            boolean isAccepted = product != null && product.stock() >= item.quantity();
-                            return Mono.just(isAccepted);
-                        })
-                        .defaultIfEmpty(false)
-                )
+                .flatMapSequential(item -> getProductAndProcessOrderItem(item))
                 .collectList()
-                .flatMap(acceptedList -> {
-                    boolean isAccepted = acceptedList.stream().allMatch(Boolean::booleanValue);
-                    return calculateAndSaveOrder(orderRequest, isAccepted);
-                });
+                .map(acceptedList -> acceptedList.stream().allMatch(Boolean::booleanValue))
+                .flatMap(isAccepted -> calculateAndSaveOrder(orderRequest, isAccepted));
+    }
+
+    private Mono<Boolean> getProductAndProcessOrderItem(OrderItem item) {
+        return productClient.getProductById(item.productId())
+                .map(product -> product != null && product.stock() >= item.quantity())
+                .defaultIfEmpty(false);
     }
 
     private Mono<Order> calculateAndSaveOrder(OrderRequest orderRequest, boolean isAccepted) {
-        return Flux.fromIterable(orderRequest.items())
-                .flatMap(item -> productClient.getProductById(item.productId())
-                        .map(product -> product.price() * item.quantity()))
-                .reduce(0.0, Double::sum)
-                .flatMap(total -> {
-                    Order order = buildOrder( total, isAccepted);
-                    return Mono.from(orderRepository.save(order))
-                            .flatMap(savedOrder -> saveOrderItems(savedOrder, orderRequest.items()))
-                            .doOnSuccess(this::publishOrderAcceptedEvent);
-                });
+        Set<Long> uniqueProductIds = orderRequest.items().stream()
+                .map(OrderItem::productId)
+                .collect(Collectors.toSet());
+
+        Mono<Map<Long, Double>> productPrices = Flux.fromIterable(uniqueProductIds)
+                .flatMapSequential(productId -> productClient.getProductById(productId)
+                        .map(product -> Map.entry(productId, product.price()))
+                )
+                .collectMap(Map.Entry::getKey, Map.Entry::getValue);
+
+        return productPrices.flatMap(prices -> {
+            double total = orderRequest.items().stream()
+                    .mapToDouble(item -> prices.getOrDefault(item.productId(), 0.0) * item.quantity())
+                    .sum();
+            return buildAndSaveOrder(orderRequest, total, isAccepted);
+        });
+    }
+
+    private Mono<Order> buildAndSaveOrder(OrderRequest orderRequest, double total, boolean isAccepted) {
+        Order order = buildOrder(total, isAccepted);
+        return Mono.from(orderRepository.save(order))
+                .flatMap(savedOrder -> saveOrderItems(savedOrder, orderRequest.items()))
+                .doOnSuccess(this::publishOrderAcceptedEvent);
+    }
+
+    public static Order buildOrder(Double totalPrice, boolean isAccepted) {
+        return isAccepted ? Order.of(totalPrice, OrderStatus.ACCEPTED) :
+                Order.of(0.0, OrderStatus.REJECTED);
     }
 
     private Mono<Order> saveOrderItems(Order order, List<OrderItem> items) {
@@ -86,11 +104,6 @@ public class OrderService {
                 .collect(Collectors.toList());
 
         return orderItemRepository.saveAll(orderItems).collectList().map(savedOrderItems -> order);
-    }
-
-    public static Order buildOrder(Double totalPrice, boolean isAccepted) {
-        return isAccepted ? Order.of(totalPrice, OrderStatus.ACCEPTED) :
-                Order.of(0.0, OrderStatus.REJECTED);
     }
 
     public Flux<Order> consumeOrderDispatchedEvent(Flux<OrderDispatchedMessage> flux) {

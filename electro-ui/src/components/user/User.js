@@ -13,6 +13,10 @@ function User() {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
+  const closeDropdown = () => {
+    setIsDropdownOpen(false);
+  };
+
   return (
     <div className="text-3xl relative">
       <div
@@ -24,20 +28,21 @@ function User() {
         <FaUser />
       </div>
       {isDropdownOpen && (
-        <div className="absolute -right-0 mt-8 p-2 bg-white border rounded-lg shadow-lg w-40">
+        <div
+          className="absolute -right-0 mt-8 p-2 bg-white border rounded-lg shadow-lg w-40 dropdown-container"
+          onBlur={closeDropdown}
+        >
           <ul>
-          {user && isEmployee && (
-            <Link to={'/admin'}>
-              <div className='text-lg hover:bg-gray-200 p-2'>
-                Admin
-              </div>
-            </Link>
-          )}
+            {user && isEmployee && (
+              <Link to={'/admin'}>
+                <div className='text-lg hover:bg-gray-200 p-2'>
+                  Admin
+                </div>
+              </Link>
+            )}
             {user ? (
               <>
-                <li
-                  className="text-lg cursor-pointer hover:bg-gray-200 p-2"
-                >
+                <li className="text-lg cursor-pointer hover:bg-gray-200 p-2">
                   <Link to={'user/orders'}>
                     My Orders
                   </Link>

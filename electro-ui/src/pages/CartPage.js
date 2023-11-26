@@ -23,7 +23,7 @@ const CartPage = () => {
   const isCartEmpty = cart.length === 0;
 
   return (
-    <div className="container mx-auto p-4 md:py-8 py-60 lg:py-16">
+    <div className="container mx-auto p-4 md:py-8 py-20 lg:py-16">
       <div>
         <h2 className="text-2xl font-semibold mb-4 mt-32">Shopping Cart</h2>
         {isCartEmpty ? 
@@ -49,7 +49,9 @@ const CartPage = () => {
               ))}
             </div>
             <div className="mt-4 flex flex-col md:flex-row items-center justify-between">
-              <div className="text-2xl font-semibold mb-4 md:mb-0">Total: $ {parseFloat(total).toFixed(2)}</div>
+              <div className="text-2xl font-semibold mb-4 md:mb-0">
+                Total: ${total.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+              </div>
               <div
                 onClick={clearCart}
                 className="cursor-pointer p-2 bg-red-500 text-white rounded-full text-xl"

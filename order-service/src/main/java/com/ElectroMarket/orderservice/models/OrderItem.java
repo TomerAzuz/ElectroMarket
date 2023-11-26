@@ -15,9 +15,11 @@ public record OrderItem(
     Long id,
     @Column("order_id")
     Long orderId,
+
     @Column("product_id")
     @NotNull(message = "The product id must be defined.")
     Long productId,
+
     @Column("quantity")
     @NotNull(message = "The item quantity must be defined.")
     @Min(value = 1, message = "You must order at least 1 item.")

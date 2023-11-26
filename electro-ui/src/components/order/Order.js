@@ -9,6 +9,7 @@ const Order = ({ order }) => {
   const [items, setItems] = useState([]);
   const [viewItems, setViewItems] = useState(false);
 
+  // fetch order items
   useEffect(() => {
     const fetchItems = async () => {
       if (viewItems) {

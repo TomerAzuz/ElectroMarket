@@ -14,7 +14,8 @@ const Category = ({ category }) => {
   return (
     <div
       key={category.id}
-      className='h-[350px] w-full md:w-[300px] relative overflow-hidden group transition mx-auto'
+      className='h-[350px] w-full md:w-[300px] relative overflow-hidden 
+                group transition mx-auto'
     >
       <div
         className='w-full h-full flex flex-col items-center justify-center'

@@ -33,31 +33,48 @@ const CartProvider = ({ children }) => {
     }
   }, [cart]);
 
-  const handleCheckout = async() => {
-    if (user) {
-      if (loading)  {
-        return;
-      }
+  const handleCheckout = async () => {
+    const maxRetries = 3;
+    let retries = 0;
+  
+    const submitOrder = async () => {
       setLoading(true);
       const orderData = {
-        items: cart.map(item => ({
+        items: cart.map((item) => ({
           productId: item.id,
-          quantity: item.quantity
-        }))
+          quantity: item.quantity,
+        })),
       };
-      try {
-        const response = await axiosInstance.post('/orders', orderData);
-        if (response && response.status === 200)  {
-          toast.success('Order Submitted Successfully');
-          setOrder(response.data);
-        }
+  
+    try {
+      const response = await axiosInstance.post('/orders', orderData);
+      if (response && response.status === 200) {
+        toast.success('Order Submitted Successfully');
+        setOrder(response.data);
         clearCart();
-      } catch (error) {
-        toast.error(`Error submitting order: ${error.message}`);
+      }
+    } catch (error) {
+      retries++;
+        if (retries < maxRetries) {
+          setTimeout(submitOrder, 1000);
+        } else {
+          toast.error('Unable to submit order.\n Please try again.');
+        }
       } finally {
         setLoading(false);
       }
-    } else   {
+    };
+  
+    if (user) {
+      if (loading) {
+        return;
+      }
+      try {
+        await submitOrder();
+      } catch (error) {
+        console.error('Unexpected error:', error);
+      }
+    } else {
       toast.error('Please Sign In');
       setLoading(false);
     }

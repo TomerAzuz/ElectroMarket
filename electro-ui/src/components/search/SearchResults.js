@@ -3,7 +3,7 @@ import ResultItem from './ResultItem';
 
 function SearchResults({ results, handleResultClick }) {
   return (
-    <div className='mt-4 items-center justify-center'>
+    <div className=''>
       {results.length === 0 ? (
         <p className='text-gray-500'>No results found.</p>
       ) : (

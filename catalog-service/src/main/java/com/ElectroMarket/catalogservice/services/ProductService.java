@@ -29,10 +29,13 @@ public class ProductService {
     }
 
     public Product addProductToCatalog(Product product)   {
-        productRepository.findById(product.id())
-                .ifPresent(existingProduct -> {
-                    throw new ResourceAlreadyExistsException("product", product.id());
-                });
+        if (product.id() != null)   {
+            productRepository.findById(product.id())
+                    .ifPresent(existingProduct -> {
+                        throw new ResourceAlreadyExistsException("product", product.id());
+                    });
+        }
+
         categoryRepository.findById(product.categoryId())
                 .orElseThrow(() -> new ResourceNotFoundException("category", product.categoryId()));
 

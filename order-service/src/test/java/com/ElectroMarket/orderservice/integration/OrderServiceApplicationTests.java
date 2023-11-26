@@ -44,8 +44,6 @@ public class OrderServiceApplicationTests {
 
     private static KeycloakToken customerTokens;
 
-    private static KeycloakToken employeeTokens;
-
     @Container
     private static final KeycloakContainer keycloakContainer = new KeycloakContainer("quay.io/keycloak/keycloak:19.0")
 			.withRealmImportFile("test-realm-config.json");
@@ -87,7 +85,6 @@ public class OrderServiceApplicationTests {
                 .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_FORM_URLENCODED_VALUE)
                 .build();
 
-        employeeTokens = authenticateWith("isabelle", "password", webClient);
         customerTokens = authenticateWith("bjorn", "password", webClient);
     }
 

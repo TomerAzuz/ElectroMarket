@@ -11,7 +11,7 @@ spring:
   lifecycle:
     timeout-per-shutdown-phase: 15s
   config:
-    import: ""  #"optional:configserver:"
+    import: ""  # optional:configserver:
   cloud:
     config:
       enabled: false # When using Config Service, set to true
@@ -56,7 +56,7 @@ spring:
         - id: spa-route
           uri: ${SPA_URL:http://localhost:9004}
           predicates:
-            - Path=/, /static/css/**, /static/js/**, /favicon.ico, /dist/**, /manifest.json
+            - Path=/, /admin, /cart, /static/css/**, /static/js/**, /favicon.ico, /dist/**, /manifest.json
         - id: catalog-products-route
           uri: ${CATALOG_SERVICE_URL:http://localhost:9001}/products
           predicates:

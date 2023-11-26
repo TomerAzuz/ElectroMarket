@@ -3,16 +3,20 @@ import React from 'react';
 const ResultItem = ({ result, handleResultClick }) => {
   return (
     <li
-      className='flex items-center p-4 cursor-pointer hover:bg-gray-100 transition-all duration-200 max-w-md ml-4'
+      className='hover:bg-gray-100 flex items-center cursor-pointer 
+                   marker:transition-all duration-200'
       onClick={() => handleResultClick(result)}
     >
-      <img
-        className='h-16 w-16 object-object-cover rounded-md mr-4'
-        src={result.imageUrl}
-        alt={result.name}
-      />
-      <div>
-        <p className="text-base font-semibold">{result.name}</p>
+      <div className="flex rounded-md p-2 xl:p-4">
+        <img
+          className='h-14 w-14 xl:h-14 xl:w-14 object-object-cover 
+                    rounded-md mr-2 xl:mr-4'
+          src={result.imageUrl}
+          alt={result.name}
+        />
+        <div>
+          <p className="text-sm xl:text-base font-semibold">{result.name}</p>
+        </div>
       </div>
     </li>
   );

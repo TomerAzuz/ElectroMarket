@@ -8,8 +8,12 @@ const CartItem = ({ item }) => {
   const { removeFromCart, increaseQuantity, decreaseQuantity } = useContext(CartContext);
 
   return (
-    <div className='flex flex-col lg:flex-row gap-4 py-2 lg:px-6 border-b border-gray-200 font-light text-gray-500'>
-      <div className='w-full lg:w-1/4 lg:min-h-[150px] flex items-center lg:flex-col lg:items-start gap-x-4'>
+    <div className='flex flex-col lg:flex-row 
+                    gap-4 py-2 lg:px-6  
+                    border-b border-gray-200 
+                    font-light text-gray-500'>
+      <div className='w-full lg:w-1/4 lg:min-h-[150px] 
+                      items-center lg:flex-col lg:items-start gap-x-4'>
         <Link to={`products/${id}`}>
           <img
             className='h-auto max-w-[150px] lg:w-full'
@@ -19,8 +23,12 @@ const CartItem = ({ item }) => {
         </Link>
       </div>
       <div className='w-full lg:w-3/4'>
-        <div className='flex flex-col lg:flex-row justify-between items-center lg:items-start'>
-          <Link to={`/products/${id}`} className='text-lg uppercase font-medium max-w-full lg:max-w-[300px] text-primary hover:underline'>
+        <div className='flex flex-col lg:flex-row justify-between 
+                        items-center lg:items-start'>
+          <Link 
+            to={`/products/${id}`} 
+            className='text-lg uppercase font-medium max-w-full 
+                       lg:max-w-[300px] text-primary hover:underline'>
             {name}
           </Link>
           <div
@@ -31,9 +39,11 @@ const CartItem = ({ item }) => {
           </div>
         </div>
         <div className='flex gap-x-2 h-[36px] text-sm mt-2 lg:mt-4'>
-          <div className='flex flex-1 max-w-full lg:max-w-[100px] items-center h-full border text-primary font-medium'>
+          <div className='flex flex-1 max-w-full lg:max-w-[100px] items-center 
+                          h-full border text-primary font-medium'>
             <div
-              className='flex-1 h-full flex justify-center items-center cursor-pointer hover:bg-gray-200'
+              className='flex-1 h-full flex justify-center items-center 
+                          cursor-pointer hover:bg-gray-200'
               onClick={() => decreaseQuantity(id)}
             >
               <IoMdRemove />
@@ -42,7 +52,8 @@ const CartItem = ({ item }) => {
               {quantity}
             </div>
             <div
-              className='flex-1 h-full flex justify-center items-center cursor-pointer hover:bg-gray-200'
+              className='flex-1 h-full flex justify-center items-center 
+                         cursor-pointer hover:bg-gray-200'
               onClick={() => increaseQuantity(id)}
             >
               <IoMdAdd />
