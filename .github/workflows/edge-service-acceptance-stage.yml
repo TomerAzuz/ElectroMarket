@@ -1,4 +1,4 @@
-name: Acceptance Stage
+name: Edge Service Acceptance Stage
 on: 
   workflow_run:
     workflows: ['Edge Service Commit Stage']

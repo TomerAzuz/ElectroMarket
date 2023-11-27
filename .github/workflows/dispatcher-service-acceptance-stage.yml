@@ -1,4 +1,4 @@
-name: Acceptance Stage
+name: Dispatcher Service Acceptance Stage
 on: 
   workflow_run:
     workflows: ['Dispatcher Service Commit Stage']

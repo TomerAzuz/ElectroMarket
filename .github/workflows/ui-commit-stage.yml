@@ -5,6 +5,8 @@ on:
       - main
     paths:
       - 'electro-ui/**'
+  workflow_dispatch:
+  
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: tomerazuz/electro-ui

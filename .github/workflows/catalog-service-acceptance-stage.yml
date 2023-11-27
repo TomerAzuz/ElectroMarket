@@ -1,4 +1,4 @@
-name: Acceptance Stage
+name: Catalog Service Acceptance Stage
 on: 
   workflow_run:
     workflows: ['Catalog Service Commit Stage']

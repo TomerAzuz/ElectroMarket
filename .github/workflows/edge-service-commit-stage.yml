@@ -5,6 +5,7 @@ on:
       - main
     paths:
       - 'edge-service/**'
+  workflow_dispatch:
 
 env:
   REGISTRY: ghcr.io

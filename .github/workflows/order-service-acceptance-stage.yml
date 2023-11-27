@@ -1,7 +1,7 @@
-name: Acceptance Stage
+name: Order Service Acceptance Stage
 on: 
   workflow_run:
-    workflows: ['UI Commit Stage']
+    workflows: ['Order Service Commit Stage']
     types: [completed]
     branches: main
 concurrency: acceptance # ensures that only one workflow runs at a time

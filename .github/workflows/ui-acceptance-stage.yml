@@ -1,7 +1,7 @@
-name: Acceptance Stage
+name: UI Acceptance Stage
 on: 
   workflow_run:
-    workflows: ['Edge Service Commit Stage']
+    workflows: ['UI Commit Stage']
     types: [completed]
     branches: main
 concurrency: acceptance # ensures that only one workflow runs at a time
