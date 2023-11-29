@@ -49,19 +49,19 @@ const CartProvider = ({ children }) => {
     try {
       const response = await axiosInstance.post('/orders', orderData);
       if (response && response.status === 200) {
+        setLoading(false);
         toast.success('Order Submitted Successfully');
         setOrder(response.data);
         clearCart();
       }
     } catch (error) {
-      retries++;
+        retries++;
         if (retries < maxRetries) {
           setTimeout(submitOrder, 1000);
         } else {
+          setLoading(false);
           toast.error('Unable to submit order.\n Please try again.');
         }
-      } finally {
-        setLoading(false);
       }
     };
   

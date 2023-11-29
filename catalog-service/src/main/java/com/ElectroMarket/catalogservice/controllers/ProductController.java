@@ -13,7 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @RestController
-@RequestMapping("products")
+@RequestMapping("api/products")
 public class ProductController {
     private final ProductService productService;
 
@@ -24,9 +24,13 @@ public class ProductController {
     }
 
     @GetMapping
-    public Iterable<Product> getProducts()  {
+    public Iterable<Product> getAllProducts(@RequestParam(name = "page", defaultValue = "0") int page,
+                                            @RequestParam(name = "size", defaultValue = "10") int size,
+                                            @RequestParam(name = "sort", defaultValue = "name,asc") String sort)  {
         log.info("Fetching the list of products in the catalog");
-        return productService.viewProductList();
+        Sort sorting = extractSortParam(sort);
+        Pageable pageable = PageRequest.of(page, size, sorting);
+        return productService.viewProductList(pageable);
     }
 
     @GetMapping("{id}")

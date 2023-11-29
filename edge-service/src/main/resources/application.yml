@@ -56,29 +56,29 @@ spring:
         - id: spa-route
           uri: ${SPA_URL:http://localhost:9004}
           predicates:
-            - Path=/, /admin, /cart, /static/css/**, /static/js/**, /favicon.ico, /dist/**, /manifest.json
+            - Path=/, /user/orders, /admin, /cart, /products/**, /order-confirmation, /static/css/**, /static/js/**, /favicon.ico, /dist/**, /manifest.json
         - id: catalog-products-route
-          uri: ${CATALOG_SERVICE_URL:http://localhost:9001}/products
+          uri: ${CATALOG_SERVICE_URL:http://localhost:9001}/api/products
           predicates:
-            - Path=/products/**
+            - Path=/api/products/**
           filters:
             - name: CircuitBreaker
               args:
                 name: catalogCircuitBreaker
                 fallbackUri: forward:/catalog-fallback
         - id: catalog-categories-route
-          uri: ${CATALOG_SERVICE_URL:http://localhost:9001}/category
+          uri: ${CATALOG_SERVICE_URL:http://localhost:9001}/api/category
           predicates:
-            - Path=/category/**
+            - Path=/api/category/**
           filters:
             - name: CircuitBreaker
               args:
                 name: catalogCircuitBreaker
                 fallbackUri: forward:/catalog-fallback
         - id: order-route
-          uri: ${ORDER_SERVICE_URL:http://localhost:9002}/orders
+          uri: ${ORDER_SERVICE_URL:http://localhost:9002}/api/orders
           predicates:
-            - Path=/orders/**
+            - Path=/api/orders/**
           filters:
             - name: CircuitBreaker
               args:

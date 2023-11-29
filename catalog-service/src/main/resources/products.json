@@ -4,7 +4,7 @@
         "price": 359.99,
         "categoryId": 1,
         "stock": 32,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_105173467?x=1800&y=1800&format=jpg&quality=80&sp=yes&strip=yes&ex=1800&ey=1800&align=center&resizesource&unsharp=1.5x1+0.7+0.02",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_105173467.jpg",
         "brand": "ACER"
     },
     {
@@ -12,7 +12,7 @@
         "price": 949.99,
         "categoryId": 1,
         "stock": 21,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_78976636?x=1800&y=1800&format=jpg&quality=80&sp=yes&strip=yes&ex=1800&ey=1800&align=center&resizesource&unsharp=1.5x1+0.7+0.02",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_78976636.jpg",
         "brand": "APPLE"
     },
     {
@@ -20,7 +20,7 @@
         "price": 1529.0,
         "categoryId": 1,
         "stock": 23,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_103998082?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_103998082.jpg",
         "brand": "MICROSOFT"
     },
     {
@@ -28,7 +28,7 @@
         "price": 899.0,
         "categoryId": 1,
         "stock": 12,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_122626055?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_122626055.jpg",
         "brand": "MICROSOFT"
     },
     {
@@ -36,7 +36,7 @@
         "price": 1179.0,
         "categoryId": 1,
         "stock": 14,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_103573044?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_103573044.jpg",
         "brand": "MICROSOFT"
     },
     {
@@ -44,7 +44,7 @@
         "price": 1149.0,
         "categoryId": 1,
         "stock": 11,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_122625858?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_122625858.jpg",
         "brand": "MICROSOFT"
     },
     {
@@ -52,7 +52,7 @@
         "price": 1479.0,
         "categoryId": 1,
         "stock": 31,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_90145733?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_90145733.jpg",
         "brand": "MICROSOFT"
     },
     {
@@ -60,7 +60,7 @@
         "price": 2719.0,
         "categoryId": 1,
         "stock": 8,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_122625794?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_122625794.jpg",
         "brand": "MICROSOFT"
     },
     {
@@ -68,7 +68,7 @@
         "price": 369.0,
         "categoryId": 1,
         "stock": 12,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_106267880?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_106267880.jpg",
         "brand": "ASUS"
     },
     {
@@ -76,7 +76,7 @@
         "price": 499.0,
         "categoryId": 1,
         "stock": 9,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_108802070?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_108802070.jpg",
         "brand": "ASUS"
     },
     {
@@ -84,7 +84,7 @@
         "price": 1249.0,
         "categoryId": 1,
         "stock": 8,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_103804026?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_103804026.jpg",
         "brand": "ASUS"
     },
     {
@@ -92,7 +92,7 @@
         "price": 1549.0,
         "categoryId": 1,
         "stock": 6,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_103804132?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_103804132.jpg",
         "brand": "ASUS"
     },
     {
@@ -100,7 +100,7 @@
         "price": 2299.0,
         "categoryId": 1,
         "stock": 7,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_94496599?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_94496599.jpg",
         "brand": "ASUS"
     },
     {
@@ -108,7 +108,7 @@
         "price": 549.0,
         "categoryId": 1,
         "stock": 4,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_85302893?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_85302893.jpg",
         "brand": "HP"
     },
     {
@@ -116,7 +116,7 @@
         "price": 1499.0,
         "categoryId": 1,
         "stock": 10,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_106260101?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_106260101.jpg",
         "brand": "HP"
     },
     {
@@ -124,7 +124,7 @@
         "price": 1337.0,
         "categoryId": 1,
         "stock": 5,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_97933631?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_97933631.jpg",
         "brand": "HP"
     },
     {
@@ -132,15 +132,15 @@
         "price": 1349.0,
         "categoryId": 1,
         "stock": 6,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_114202566?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_114202566.jpg",
         "brand": "HP"
     },
     {
-        "name": "HP VICTUS 15-FA1888ND Gaming bundel + HyperX Cloud II Headset + HyperX Pulsefire Haste 2 Mouse",
+        "name": "HP VICTUS 15-FA1888ND Gaming bundle + HyperX Cloud II Headset + HyperX Pulsefire Haste 2 Mouse",
         "price": 1279.0,
         "categoryId": 1,
         "stock": 9,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_110208551?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_110208551.jpg",
         "brand": "HP"
     },
     {
@@ -148,7 +148,7 @@
         "price": 439.0,
         "categoryId": 1,
         "stock": 5,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_95861744?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_95861744.jpg",
         "brand": "MEDION"
     },
     {
@@ -156,7 +156,7 @@
         "price": 1599.0,
         "categoryId": 1,
         "stock": 18,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_95876187?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_95876187.jpg",
         "brand": "MEDION"
     },
     {
@@ -164,7 +164,7 @@
         "price": 749.0,
         "categoryId": 1,
         "stock": 14,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_88644963?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_88644963.jpg",
         "brand": "MEDION"
     },
     {
@@ -172,7 +172,7 @@
         "price": 1549.99,
         "categoryId": 1,
         "stock": 97,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_91902577?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_91902577.jpg",
         "brand": "MICROSOFT"
     },
     {
@@ -180,7 +180,7 @@
         "price": 555.99,
         "categoryId": 1,
         "stock": 51,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_106267854?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_106267854.jpg",
         "brand": "ASUS"
     },
     {
@@ -188,7 +188,7 @@
         "price": 499.99,
         "categoryId": 1,
         "stock": 134,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_105173544?x=1800&y=1800&format=jpg&quality=80&sp=yes&strip=yes&ex=1800&ey=1800&align=center&resizesource&unsharp=1.5x1+0.7+0.02",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_105173544.jpg",
         "brand": "ACER"
     },
     {
@@ -196,7 +196,7 @@
         "price": 699.99,
         "categoryId": 1,
         "stock": 21,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_104822317?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_104822317.jpg",
         "brand": "MEDION"
     },
     {
@@ -204,7 +204,7 @@
         "price": 849.99,
         "categoryId": 1,
         "stock": 7,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_104822317?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_104822317.jpg",
         "brand": "MSI"
     },
     {
@@ -212,7 +212,7 @@
         "price": 1199.99,
         "categoryId": 1,
         "stock": 29,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_104958916?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_104958916.jpg",
         "brand": "MSI"
     },
     {
@@ -220,7 +220,7 @@
         "price": 1599.99,
         "categoryId": 1,
         "stock": 98,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_106720807?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_106720807.jpg",
         "brand": "APPLE"
     },
     {
@@ -228,7 +228,7 @@
         "price": 429.99,
         "categoryId": 1,
         "stock": 91,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_97965455?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_97965455.jpg",
         "brand": "HP"
     },
     {
@@ -236,7 +236,7 @@
         "price": 269.99,
         "categoryId": 1,
         "stock": 67,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_106267880?x=1800&y=1800&format=jpg&quality=80&sp=yes&strip=yes&ex=1800&ey=1800&align=center&resizesource&unsharp=1.5x1+0.7+0.02",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_106267880.jpg",
         "brand": "ASUS"
     },
     {
@@ -244,7 +244,7 @@
         "price": 489.99,
         "categoryId": 1,
         "stock": 21,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_104560370?x=1800&y=1800&format=jpg&quality=80&sp=yes&strip=yes&ex=1800&ey=1800&align=center&resizesource&unsharp=1.5x1+0.7+0.02",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_104560370.jpg",
         "brand": "HP"
     },
     {
@@ -252,7 +252,7 @@
         "price": 699.99,
         "categoryId": 1,
         "stock": 8,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_108574166?x=1800&y=1800&format=jpg&quality=80&sp=yes&strip=yes&ex=1800&ey=1800&align=center&resizesource&unsharp=1.5x1+0.7+0.02",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_108574166.jpg",
         "brand": "LENOVO"
     },
     {
@@ -260,7 +260,7 @@
         "price": 1199.99,
         "categoryId": 1,
         "stock": 8,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_94577489?x=1800&y=1800&format=jpg&quality=80&sp=yes&strip=yes&ex=1800&ey=1800&align=center&resizesource&unsharp=1.5x1+0.7+0.02",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_94577489.jpg",
         "brand": "APPLE"
     },
     {
@@ -268,7 +268,7 @@
         "price": 1429.99,
         "categoryId": 1,
         "stock": 18,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_94577451?x=1800&y=1800&format=jpg&quality=80&sp=yes&strip=yes&ex=1800&ey=1800&align=center&resizesource&unsharp=1.5x1+0.7+0.02",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_94577451.jpg",
         "brand": "APPLE"
     },
     {
@@ -276,7 +276,7 @@
         "price": 499.99,
         "categoryId": 2,
         "stock": 26,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_95596935?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_95596935.jpg",
         "brand": "CANON"
     },
     {
@@ -284,7 +284,7 @@
         "price": 679.99,
         "categoryId": 2,
         "stock": 47,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_74990369?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_74990369.jpg",
         "brand": "SONY"
     },
     {
@@ -292,7 +292,7 @@
         "price": 799.99,
         "categoryId": 2,
         "stock": 62,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-81310729?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/pixelboxx-mss-81310729.jpg",
         "brand": "CANON"
     },
     {
@@ -300,7 +300,7 @@
         "price": 155.99,
         "categoryId": 2,
         "stock": 112,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_94005896?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_94005896.jpg",
         "brand": "CANON"
     },
     {
@@ -308,7 +308,7 @@
         "price": 119.99,
         "categoryId": 2,
         "stock": 17,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_107172833?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_107172833.jpg",
         "brand": "AGFA"
     },
     {
@@ -316,7 +316,7 @@
         "price": 155.99,
         "categoryId": 2,
         "stock": 11,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_92785845?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_92785845.jpg",
         "brand": "CANON"
     },
     {
@@ -324,7 +324,7 @@
         "price": 609.99,
         "categoryId": 2,
         "stock": 66,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_73688656?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_73688656.jpg",
         "brand": "CANON"
     },
     {
@@ -332,7 +332,7 @@
         "price": 99.99,
         "categoryId": 2,
         "stock": 7,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_121248044?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_121248044.jpg",
         "brand": "FUJIFILM"
     },
     {
@@ -340,7 +340,7 @@
         "price": 629.99,
         "categoryId": 2,
         "stock": 81,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_73999409?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_73999409.jpg",
         "brand": "CANON"
     },
     {
@@ -348,7 +348,7 @@
         "price": 598.99,
         "categoryId": 2,
         "stock": 26,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-79951710?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/pixelboxx-mss-79951710.jpg",
         "brand": "CANON"
     },
     {
@@ -356,7 +356,7 @@
         "price": 749.99,
         "categoryId": 2,
         "stock": 8,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_74002930?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_74002930.jpg",
         "brand": "CANON"
     },
     {
@@ -364,7 +364,7 @@
         "price": 1349.99,
         "categoryId": 2,
         "stock": 13,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-81347962?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/pixelboxx-mss-81347962.jpg",
         "brand": "NIKON"
     },
     {
@@ -372,7 +372,7 @@
         "price": 1069.99,
         "categoryId": 2,
         "stock": 33,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_78597550?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_78597550.jpg",
         "brand": "NIKON"
     },
     {
@@ -380,7 +380,7 @@
         "price": 249.99,
         "categoryId": 2,
         "stock": 29,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_107220381?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_107220381.jpg",
         "brand": "KODAK"
     },
     {
@@ -388,7 +388,7 @@
         "price": 249.99,
         "categoryId": 2,
         "stock": 19,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_107220381?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_107220381.jpg",
         "brand": "KODAK"
     },
     {
@@ -396,7 +396,7 @@
         "price": 129.99,
         "categoryId": 2,
         "stock": 12,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_107220453?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_107220453.jpg",
         "brand": "KODAK"
     },
     {
@@ -404,7 +404,7 @@
         "price": 279.99,
         "categoryId": 2,
         "stock": 18,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_107217686?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_107217686.jpg",
         "brand": "KODAK"
     },
     {
@@ -412,7 +412,7 @@
         "price": 49.99,
         "categoryId": 2,
         "stock": 25,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_107173260?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_107173260.jpg",
         "brand": "KODAK"
     },
     {
@@ -420,7 +420,7 @@
         "price": 69.99,
         "categoryId": 2,
         "stock": 14,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_107217510?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_107217510.jpg",
         "brand": "KODAK"
     },
     {
@@ -428,7 +428,7 @@
         "price": 179.99,
         "categoryId": 2,
         "stock": 6,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_107220407?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_107220407.jpg",
         "brand": "KODAK"
     },
     {
@@ -436,7 +436,7 @@
         "price": 129.99,
         "categoryId": 2,
         "stock": 23,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_107220458?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_107220458.jpg",
         "brand": "KODAK"
     },
     {
@@ -444,7 +444,7 @@
         "price": 59.99,
         "categoryId": 2,
         "stock": 19,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_107170179?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_107170179.jpg",
         "brand": "AGFA"
     },
     {
@@ -452,7 +452,7 @@
         "price": 39.99,
         "categoryId": 2,
         "stock": 12,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_107170163?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_107170163.jpg",
         "brand": "AGFA"
     },
     {
@@ -460,7 +460,7 @@
         "price": 689.0,
         "categoryId": 2,
         "stock": 16,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_74990369?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_74990369.jpg",
         "brand": "SONY"
     },
     {
@@ -468,7 +468,7 @@
         "price": 789.99,
         "categoryId": 2,
         "stock": 29,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_69883685?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_69883685.jpg",
         "brand": "SONY"
     },
     {
@@ -476,7 +476,7 @@
         "price": 850.99,
         "categoryId": 2,
         "stock": 6,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_86133998?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_86133998.jpg",
         "brand": "SONY"
     },
     {
@@ -484,7 +484,7 @@
         "price": 110.0,
         "categoryId": 2,
         "stock": 13,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-62494206?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/pixelboxx-mss-62494206.jpg",
         "brand": "SONY"
     },
     {
@@ -492,7 +492,7 @@
         "price": 220.99,
         "categoryId": 2,
         "stock": 7,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_56603063?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_56603063.jpg",
         "brand": "SONY"
     },
     {
@@ -500,7 +500,7 @@
         "price": 1999.99,
         "categoryId": 2,
         "stock": 8,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-77332088?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/pixelboxx-mss-77332088.jpg",
         "brand": "SONY"
     },
     {
@@ -508,7 +508,7 @@
         "price": 1039.99,
         "categoryId": 2,
         "stock": 21,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-80401857?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/pixelboxx-mss-80401857.jpg",
         "brand": "SONY"
     },
     {
@@ -516,7 +516,7 @@
         "price": 1949.99,
         "categoryId": 2,
         "stock": 9,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_78371345?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_78371345.jpg",
         "brand": "SONY"
     },
     {
@@ -524,7 +524,7 @@
         "price": 89.99,
         "categoryId": 2,
         "stock": 27,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_98130072?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_98130072.jpg",
         "brand": "POLAROID"
     },
     {
@@ -532,7 +532,7 @@
         "price": 89.99,
         "categoryId": 2,
         "stock": 11,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_88414698?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_88414698.jpg",
         "brand": "POLAROID"
     },
     {
@@ -540,7 +540,7 @@
         "price": 119.99,
         "categoryId": 2,
         "stock": 5,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_98654278?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_98654278.jpg",
         "brand": "POLAROID"
     },
     {
@@ -548,7 +548,7 @@
         "price": 129.99,
         "categoryId": 2,
         "stock": 24,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_98130058?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_98130058.jpg",
         "brand": "POLAROID"
     },
     {
@@ -556,7 +556,7 @@
         "price": 119.99,
         "categoryId": 2,
         "stock": 6,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_98653498?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_98653498.jpg",
         "brand": "POLAROID"
     },
     {
@@ -564,7 +564,7 @@
         "price": 20.99,
         "categoryId": 2,
         "stock": 10,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_128446122?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_128446122.jpg",
         "brand": "POLAROID"
     },
     {
@@ -572,7 +572,7 @@
         "price": 129.99,
         "categoryId": 2,
         "stock": 18,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_88256983?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_88256983.jpg",
         "brand": "POLAROID"
     },
     {
@@ -580,7 +580,7 @@
         "price": 199.99,
         "categoryId": 2,
         "stock": 16,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-71991151?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/pixelboxx-mss-71991151.jpg",
         "brand": "POLAROID"
     },
     {
@@ -588,7 +588,7 @@
         "price": 159.99,
         "categoryId": 2,
         "stock": 18,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-79963872?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/pixelboxx-mss-79963872.jpg",
         "brand": "POLAROID"
     },
     {
@@ -596,7 +596,7 @@
         "price": 438.99,
         "categoryId": 2,
         "stock": 8,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_78120634?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_78120634.jpg",
         "brand": "PANASONIC"
     },
     {
@@ -604,7 +604,7 @@
         "price": 499.99,
         "categoryId": 3,
         "stock": 134,
-        "imageUrl": "http://www.lg.com/us/images/tvs/md05802269/gallery/medium01.jpg",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/medium01.jpg.jpg",
         "brand": "LG"
     },
     {
@@ -612,7 +612,7 @@
         "price": 999.99,
         "categoryId": 3,
         "stock": 44,
-        "imageUrl": "http://www.220-electronics.com/media/catalog/product/s/o/sony-kdl55hx750multi-system-tv-angle_1.png",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/sony-kdl55hx750multi-system-tv-angle_1.png.jpg",
         "brand": "SAMSUNG"
     },
     {
@@ -620,7 +620,7 @@
         "price": 499.0,
         "categoryId": 3,
         "stock": 8,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_97860560?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_97860560.jpg",
         "brand": "HISENSE"
     },
     {
@@ -628,7 +628,7 @@
         "price": 549.0,
         "categoryId": 3,
         "stock": 12,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_115840538?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_115840538.jpg",
         "brand": "HISENSE"
     },
     {
@@ -636,7 +636,7 @@
         "price": 479.0,
         "categoryId": 3,
         "stock": 6,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_115840540?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_115840540.jpg",
         "brand": "HISENSE"
     },
     {
@@ -644,7 +644,7 @@
         "price": 399.99,
         "categoryId": 3,
         "stock": 71,
-        "imageUrl": "http://www.1a20.com/wp-content/uploads/2012/11/4758734_S1E2.png",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/4758734_S1E2.png.jpg",
         "brand": "TOSHIBA"
     },
     {
@@ -652,7 +652,7 @@
         "price": 469.99,
         "categoryId": 3,
         "stock": 91,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_92748992?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_92748992.jpg",
         "brand": "LG"
     },
     {
@@ -660,7 +660,7 @@
         "price": 444.99,
         "categoryId": 3,
         "stock": 65,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_103606638?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_103606638.jpg",
         "brand": "TCL"
     },
     {
@@ -668,7 +668,7 @@
         "price": 222.99,
         "categoryId": 3,
         "stock": 10,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_105875035?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_105875035.jpg",
         "brand": "PHILIPS"
     },
     {
@@ -676,7 +676,7 @@
         "price": 941.99,
         "categoryId": 3,
         "stock": 87,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_104544967?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_104544967.jpg",
         "brand": "SAMSUNG"
     },
     {
@@ -684,7 +684,7 @@
         "price": 1299.99,
         "categoryId": 3,
         "stock": 48,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_93658951?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_93658951.jpg",
         "brand": "LG"
     },
     {
@@ -692,7 +692,7 @@
         "price": 549.99,
         "categoryId": 3,
         "stock": 82,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_101038317?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_101038317.jpg",
         "brand": "SAMSUNG"
     },
     {
@@ -700,7 +700,7 @@
         "price": 475.0,
         "categoryId": 3,
         "stock": 53,
-        "imageUrl": "https://m.media-amazon.com/images/I/619GhhC0bIL._AC_SL1000_.jpg",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/619GhhC0bIL._AC_SL1000_.jpg.jpg",
         "brand": "SAMSUNG"
     },
     {
@@ -708,7 +708,7 @@
         "price": 420.0,
         "categoryId": 3,
         "stock": 22,
-        "imageUrl": "https://m.media-amazon.com/images/I/619gDxCKDXL._AC_.jpg",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/619gDxCKDXL._AC_.jpg.jpg",
         "brand": "SAMSUNG"
     },
     {
@@ -716,7 +716,7 @@
         "price": 399.0,
         "categoryId": 3,
         "stock": 62,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_126317938?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_126317938.jpg",
         "brand": "LG"
     },
     {
@@ -724,7 +724,7 @@
         "price": 599.9,
         "categoryId": 3,
         "stock": 41,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_107285299?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_107285299.jpg",
         "brand": "SONY"
     },
     {
@@ -732,7 +732,7 @@
         "price": 1099.0,
         "categoryId": 3,
         "stock": 56,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_107285296?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_107285296.jpg",
         "brand": "SONY"
     },
     {
@@ -740,7 +740,7 @@
         "price": 699.0,
         "categoryId": 3,
         "stock": 32,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_106036776?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_106036776.jpg",
         "brand": "PHILIPS"
     },
     {
@@ -748,7 +748,7 @@
         "price": 349,
         "categoryId": 3,
         "stock": 18,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_105875025?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_105875025.jpg",
         "brand": "PHILIPS"
     },
     {
@@ -756,7 +756,7 @@
         "price": 649.0,
         "categoryId": 3,
         "stock": 23,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_105875083?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_105875083.jpg",
         "brand": "PHILIPS"
     },
     {
@@ -764,7 +764,7 @@
         "price": 399.0,
         "categoryId": 3,
         "stock": 42,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_114851756?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_114851756.jpg",
         "brand": "SONY"
     },
     {
@@ -772,7 +772,7 @@
         "price": 699.0,
         "categoryId": 3,
         "stock": 32,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_106037087?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_106037087.jpg",
         "brand": "PHILIPS"
     },
     {
@@ -780,7 +780,7 @@
         "price": 249.0,
         "categoryId": 3,
         "stock": 7,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_105875003?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_105875003.jpg",
         "brand": "PHILIPS"
     },
     {
@@ -788,7 +788,7 @@
         "price": 499.0,
         "categoryId": 3,
         "stock": 6,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_105875150?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_105875150.jpg",
         "brand": "PHILIPS"
     },
     {
@@ -796,7 +796,7 @@
         "price": 1399.0,
         "categoryId": 3,
         "stock": 23,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_107285294?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_107285294.jpg",
         "brand": "SONY"
     },
     {
@@ -804,7 +804,7 @@
         "price": 10399.0,
         "categoryId": 3,
         "stock": 5,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_104001801?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_104001801.jpg",
         "brand": "LG"
     },
     {
@@ -812,7 +812,7 @@
         "price": 1449.0,
         "categoryId": 3,
         "stock": 4,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_104383905?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_104383905.jpg",
         "brand": "LG"
     },
     {
@@ -820,7 +820,7 @@
         "price": 969.99,
         "categoryId": 4,
         "stock": 81,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_118115293?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_118115293.jpg",
         "brand": "APPLE"
     },
     {
@@ -828,7 +828,7 @@
         "price": 2009.99,
         "categoryId": 4,
         "stock": 52,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_108450077?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_108450077.jpg",
         "brand": "SAMSUNG"
     },
     {
@@ -836,7 +836,7 @@
         "price": 869.99,
         "categoryId": 4,
         "stock": 51,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_97263791?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_97263791.jpg",
         "brand": "APPLE"
     },
     {
@@ -844,7 +844,7 @@
         "price": 179.99,
         "categoryId": 4,
         "stock": 12,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_101767186?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_101767186.jpg",
         "brand": "MOTOROLA"
     },
     {
@@ -852,7 +852,7 @@
         "price": 295.99,
         "categoryId": 4,
         "stock": 4,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_102281602?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_102281602.jpg",
         "brand": "OPPO"
     },
     {
@@ -860,7 +860,7 @@
         "price": 89.99,
         "categoryId": 4,
         "stock": 19,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_107422639?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_107422639.jpg",
         "brand": "EMPORIA"
     },
     {
@@ -868,7 +868,7 @@
         "price": 2009.99,
         "categoryId": 4,
         "stock": 52,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_108450077?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_108450077.jpg",
         "brand": "SAMSUNG"
     },
     {
@@ -876,7 +876,7 @@
         "price": 279.99,
         "categoryId": 4,
         "stock": 40,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_97406554?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_97406554.jpg",
         "brand": "SAMSUNG"
     },
     {
@@ -884,7 +884,7 @@
         "price": 99.0,
         "categoryId": 4,
         "stock": 11,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_97550079?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_97550079.jpg",
         "brand": "XIAOMI"
     },
     {
@@ -892,7 +892,7 @@
         "price": 229.0,
         "categoryId": 4,
         "stock": 14,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_103838672?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_103838672.jpg",
         "brand": "XIAOMI"
     },
     {
@@ -900,7 +900,7 @@
         "price": 299.0,
         "categoryId": 4,
         "stock": 17,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_103839551?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_103839551.jpg",
         "brand": "XIAOMI"
     },
     {
@@ -908,7 +908,7 @@
         "price": 229.0,
         "categoryId": 4,
         "stock": 22,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_103838627?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_103838627.jpg",
         "brand": "XIAOMI"
     },
     {
@@ -916,7 +916,7 @@
         "price": 199.0,
         "categoryId": 4,
         "stock": 16,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_118064709?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_118064709.jpg",
         "brand": "XIAOMI"
     },
     {
@@ -924,7 +924,7 @@
         "price": 499.0,
         "categoryId": 4,
         "stock": 23,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_103839666?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_103839666.jpg",
         "brand": "XIAOMI"
     },
     {
@@ -932,7 +932,7 @@
         "price": 249.0,
         "categoryId": 4,
         "stock": 19,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_92576840?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_92576840.jpg",
         "brand": "XIAOMI"
     },
     {
@@ -940,7 +940,7 @@
         "price": 899.0,
         "categoryId": 4,
         "stock": 27,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_123077585?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_123077585.jpg",
         "brand": "XIAOMI"
     },
     {
@@ -948,7 +948,7 @@
         "price": 399.0,
         "categoryId": 4,
         "stock": 7,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_103839594?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_103839594.jpg",
         "brand": "XIAOMI"
     },
     {
@@ -956,7 +956,7 @@
         "price": 349.0,
         "categoryId": 4,
         "stock": 21,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_107194991?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_107194991.jpg",
         "brand": "XIAOMI"
     },
     {
@@ -964,7 +964,7 @@
         "price": 749.0,
         "categoryId": 4,
         "stock": 6,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_91855668?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_91855668.jpg",
         "brand": "APPLE"
     },
     {
@@ -972,7 +972,7 @@
         "price": 749.0,
         "categoryId": 4,
         "stock": 11,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_91648705?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_91648705.jpg",
         "brand": "APPLE"
     },
     {
@@ -980,7 +980,7 @@
         "price": 1209.0,
         "categoryId": 4,
         "stock": 10,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_97302017?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_97302017.jpg",
         "brand": "APPLE"
     },
     {
@@ -988,7 +988,7 @@
         "price": 869.0,
         "categoryId": 4,
         "stock": 21,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_97263791?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_97263791.jpg",
         "brand": "APPLE"
     },
     {
@@ -996,7 +996,7 @@
         "price": 1109.0,
         "categoryId": 4,
         "stock": 4,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_97264284?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_97264284.jpg",
         "brand": "APPLE"
     },
     {
@@ -1004,7 +1004,7 @@
         "price": 609.0,
         "categoryId": 4,
         "stock": 5,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_78269798?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_78269798.jpg",
         "brand": "APPLE"
     },
     {
@@ -1012,7 +1012,7 @@
         "price": 999.0,
         "categoryId": 4,
         "stock": 17,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_120511777?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_120511777.jpg",
         "brand": "SONY"
     },
     {
@@ -1020,7 +1020,7 @@
         "price": 999.0,
         "categoryId": 4,
         "stock": 13,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_120511965?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_120511965.jpg",
         "brand": "SONY"
     },
     {
@@ -1028,7 +1028,7 @@
         "price": 999.0,
         "categoryId": 4,
         "stock": 17,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_120511881?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_120511881.jpg",
         "brand": "SONY"
     },
     {
@@ -1036,7 +1036,7 @@
         "price": 1399.0,
         "categoryId": 4,
         "stock": 12,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_107395475?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_107395475.jpg",
         "brand": "SONY"
     },
     {
@@ -1044,7 +1044,7 @@
         "price": 179.0,
         "categoryId": 4,
         "stock": 5,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_104210143?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_104210143.jpg",
         "brand": "NOKIA"
     },
     {
@@ -1052,7 +1052,7 @@
         "price": 129.0,
         "categoryId": 4,
         "stock": 12,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_107177031?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_107177031.jpg",
         "brand": "NOKIA"
     },
     {
@@ -1060,7 +1060,7 @@
         "price": 1979.99,
         "categoryId": 5,
         "stock": 43,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_92138501?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_92138501.jpg",
         "brand": "APPLE"
     },
     {
@@ -1068,7 +1068,7 @@
         "price": 85.99,
         "categoryId": 5,
         "stock": 16,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_105514708?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_105514708.jpg",
         "brand": "MEDION"
     },
     {
@@ -1076,7 +1076,7 @@
         "price": 99.99,
         "categoryId": 5,
         "stock": 102,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_105514714?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_105514714.jpg",
         "brand": "MEDION"
     },
     {
@@ -1084,7 +1084,7 @@
         "price": 179.99,
         "categoryId": 5,
         "stock": 97,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_79253445?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_79253445.jpg",
         "brand": "ACER"
     },
     {
@@ -1092,7 +1092,7 @@
         "price": 179.99,
         "categoryId": 5,
         "stock": 10,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_103604502?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_103604502.jpg",
         "brand": "SAMSUNG"
     },
     {
@@ -1100,7 +1100,7 @@
         "price": 89.99,
         "categoryId": 5,
         "stock": 3,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_75780876?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_75780876.jpg",
         "brand": "ACER"
     },
     {
@@ -1108,7 +1108,7 @@
         "price": 129.99,
         "categoryId": 5,
         "stock": 71,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_82578039?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_82578039.jpg",
         "brand": "SAMSUNG"
     },
     {
@@ -1116,7 +1116,7 @@
         "price": 109.99,
         "categoryId": 5,
         "stock": 55,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_92958030?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_92958030.jpg",
         "brand": "ACER"
     },
     {
@@ -1124,7 +1124,7 @@
         "price": 149.99,
         "categoryId": 5,
         "stock": 91,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_103604409?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_103604409.jpg",
         "brand": "SAMSUNG"
     },
     {
@@ -1132,7 +1132,7 @@
         "price": 199.99,
         "categoryId": 5,
         "stock": 43,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_84267167?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_84267167.jpg",
         "brand": "LG"
     },
     {
@@ -1140,7 +1140,7 @@
         "price": 566.99,
         "categoryId": 6,
         "stock": 82,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_79779077?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_79779077.jpg",
         "brand": "APPLE"
     },
     {
@@ -1148,7 +1148,7 @@
         "price": 67.99,
         "categoryId": 6,
         "stock": 11,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_94329844?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_94329844.jpg",
         "brand": "JBL"
     },
     {
@@ -1156,7 +1156,7 @@
         "price": 109.99,
         "categoryId": 6,
         "stock": 54,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_97507063?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_97507063.jpg",
         "brand": "LOGITECH"
     },
     {
@@ -1164,7 +1164,7 @@
         "price": 245.99,
         "categoryId": 6,
         "stock": 98,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_76407836?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_76407836.jpg",
         "brand": "SONY"
     },
     {
@@ -1172,7 +1172,7 @@
         "price": 49.99,
         "categoryId": 6,
         "stock": 82,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_102442144?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_102442144.jpg",
         "brand": "SONY"
     },
     {
@@ -1180,7 +1180,7 @@
         "price": 49.99,
         "categoryId": 6,
         "stock": 75,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_102438219?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_102438219.jpg",
         "brand": "SONY"
     },
     {
@@ -1188,7 +1188,7 @@
         "price": 109.99,
         "categoryId": 6,
         "stock": 53,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_82469339?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_82469339.jpg",
         "brand": "JBL"
     },
     {
@@ -1196,7 +1196,7 @@
         "price": 129.99,
         "categoryId": 6,
         "stock": 16,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_105738879?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_105738879.jpg",
         "brand": "JBL"
     },
     {
@@ -1204,7 +1204,7 @@
         "price": 27.99,
         "categoryId": 6,
         "stock": 12,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-78538921?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/pixelboxx-mss-78538921.jpg",
         "brand": "JBL"
     },
     {
@@ -1212,7 +1212,7 @@
         "price": 348.99,
         "categoryId": 6,
         "stock": 37,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_93869114?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_93869114.jpg",
         "brand": "SONY"
     },
     {
@@ -1220,7 +1220,7 @@
         "price": 19.99,
         "categoryId": 6,
         "stock": 72,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_56889012?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_56889012.jpg",
         "brand": "SONY"
     },
     {
@@ -1228,7 +1228,7 @@
         "price": 138.99,
         "categoryId": 7,
         "stock": 12,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_88978014?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_88978014.jpg",
         "brand": "GOOGLE"
     },
     {
@@ -1236,7 +1236,7 @@
         "price": 101.99,
         "categoryId": 7,
         "stock": 89,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_103792090?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_103792090.jpg",
         "brand": "FRESH"
     },
     {
@@ -1244,7 +1244,7 @@
         "price": 349.99,
         "categoryId": 7,
         "stock": 43,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_101402781?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_101402781.jpg",
         "brand": "APPLE"
     },
     {
@@ -1252,7 +1252,7 @@
         "price": 129.99,
         "categoryId": 7,
         "stock": 102,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_75635805?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_75635805.jpg",
         "brand": "JBL"
     },
     {
@@ -1260,7 +1260,7 @@
         "price": 474.99,
         "categoryId": 7,
         "stock": 53,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_77468697?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_77468697.jpg",
         "brand": "JBL"
     },
     {
@@ -1268,7 +1268,7 @@
         "price": 279.99,
         "categoryId": 7,
         "stock": 142,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_99573973?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_99573973.jpg",
         "brand": "JBL"
     },
     {
@@ -1276,7 +1276,7 @@
         "price": 159.99,
         "categoryId": 7,
         "stock": 40,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_82465186?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_82465186.jpg",
         "brand": "JBL"
     },
     {
@@ -1284,7 +1284,7 @@
         "price": 44.99,
         "categoryId": 7,
         "stock": 74,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_77319444?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_77319444.jpg",
         "brand": "JBL"
     },
     {
@@ -1292,7 +1292,7 @@
         "price": 109.99,
         "categoryId": 7,
         "stock": 87,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_96296400?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_96296400.jpg",
         "brand": "JBL"
     },
     {
@@ -1300,7 +1300,7 @@
         "price": 57.99,
         "categoryId": 7,
         "stock": 111,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_78465930?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_78465930.jpg",
         "brand": "JBL"
     },
     {
@@ -1308,7 +1308,7 @@
         "price": 119.99,
         "categoryId": 7,
         "stock": 143,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_90695166?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_90695166.jpg",
         "brand": "JBL"
     },
     {
@@ -1316,7 +1316,7 @@
         "price": 169.99,
         "categoryId": 7,
         "stock": 41,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_128446227?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_128446227.jpg",
         "brand": "BOSE"
     },
     {
@@ -1324,7 +1324,7 @@
         "price": 1499.99,
         "categoryId": 7,
         "stock": 8,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_109840870?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_109840870.jpg",
         "brand": "JBL"
     },
     {
@@ -1332,7 +1332,7 @@
         "price": 349.99,
         "categoryId": 7,
         "stock": 12,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-78310953?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/pixelboxx-mss-78310953.jpg",
         "brand": "BOSE"
     },
     {
@@ -1340,7 +1340,7 @@
         "price": 77.99,
         "categoryId": 7,
         "stock": 43,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_100537973?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_100537973.jpg",
         "brand": "PEAQ"
     },
     {
@@ -1348,7 +1348,7 @@
         "price": 139.99,
         "categoryId": 8,
         "stock": 15,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_108679841?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_108679841.jpg",
         "brand": "HP"
     },
     {
@@ -1356,7 +1356,7 @@
         "price": 59.99,
         "categoryId": 8,
         "stock": 12,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-76581994?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/pixelboxx-mss-76581994.jpg",
         "brand": "CANON"
     },
     {
@@ -1364,7 +1364,7 @@
         "price": 64.99,
         "categoryId": 8,
         "stock": 73,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_95971096?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_95971096.jpg",
         "brand": "HP"
     },
     {
@@ -1372,7 +1372,7 @@
         "price": 59.99,
         "categoryId": 8,
         "stock": 16,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_126304986?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_126304986.jpg",
         "brand": "CANON"
     },
     {
@@ -1380,7 +1380,7 @@
         "price": 159.99,
         "categoryId": 8,
         "stock": 81,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_108679845?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_108679845.jpg",
         "brand": "HP"
     },
     {
@@ -1388,7 +1388,7 @@
         "price": 79.99,
         "categoryId": 8,
         "stock": 28,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_98031929?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_98031929.jpg",
         "brand": "EPSON"
     },
     {
@@ -1396,7 +1396,7 @@
         "price": 64.99,
         "categoryId": 8,
         "stock": 29,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_98031898?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_98031898.jpg",
         "brand": "EPSON"
     },
     {
@@ -1404,7 +1404,7 @@
         "price": 239.99,
         "categoryId": 8,
         "stock": 75,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_88146632?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_88146632.jpg",
         "brand": "EPSON"
     },
     {
@@ -1412,7 +1412,7 @@
         "price": 99.99,
         "categoryId": 8,
         "stock": 65,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_91325504?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_91325504.jpg",
         "brand": "HP"
     },
     {
@@ -1420,7 +1420,7 @@
         "price": 249.99,
         "categoryId": 8,
         "stock": 62,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-76944033?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/pixelboxx-mss-76944033.jpg",
         "brand": "HP"
     },
     {
@@ -1428,7 +1428,7 @@
         "price": 479.99,
         "categoryId": 8,
         "stock": 14,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_74098872?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_74098872.jpg",
         "brand": "HP"
     },
     {
@@ -1436,7 +1436,7 @@
         "price": 219.99,
         "categoryId": 8,
         "stock": 32,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_95965248?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_95965248.jpg",
         "brand": "HP"
     },
     {
@@ -1444,7 +1444,7 @@
         "price": 319.99,
         "categoryId": 8,
         "stock": 68,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_69958411?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_69958411.jpg",
         "brand": "HP"
     },
     {
@@ -1452,7 +1452,7 @@
         "price": 242.99,
         "categoryId": 8,
         "stock": 40,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_106614923?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_106614923.jpg",
         "brand": "BROTHER"
     },
     {
@@ -1460,7 +1460,7 @@
         "price": 239.99,
         "categoryId": 8,
         "stock": 6,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_95967533?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_95967533.jpg",
         "brand": "HP"
     },
     {
@@ -1468,7 +1468,7 @@
         "price": 350.99,
         "categoryId": 8,
         "stock": 26,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_106614910?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_106614910.jpg",
         "brand": "BROTHER"
     },
     {
@@ -1476,7 +1476,7 @@
         "price": 322.99,
         "categoryId": 8,
         "stock": 48,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_73443704?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_73443704.jpg",
         "brand": "HP"
     },
     {
@@ -1484,7 +1484,7 @@
         "price": 269.99,
         "categoryId": 8,
         "stock": 10,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_106200243?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_106200243.jpg",
         "brand": "CANON"
     },
     {
@@ -1492,7 +1492,7 @@
         "price": 199.99,
         "categoryId": 8,
         "stock": 19,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-77457207?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/pixelboxx-mss-77457207.jpg",
         "brand": "BROTHER"
     },
     {
@@ -1500,7 +1500,7 @@
         "price": 430.99,
         "categoryId": 8,
         "stock": 17,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_105056581?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_105056581.jpg",
         "brand": "CANON"
     },
     {
@@ -1508,7 +1508,7 @@
         "price": 319.99,
         "categoryId": 8,
         "stock": 18,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_106200240?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_106200240.jpg",
         "brand": "CANON"
     },
     {
@@ -1516,7 +1516,7 @@
         "price": 489.99,
         "categoryId": 9,
         "stock": 33,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_120911583?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_120911583.jpg",
         "brand": "SONY"
     },
     {
@@ -1524,31 +1524,31 @@
         "price": 449.99,
         "categoryId": 9,
         "stock": 32,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_104177670?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_104177670.jpg",
         "brand": "SONY"
     },
     {
-        "name": "SONY PlayStation 5 Console - Marvel\u2019s Spider-Man 2 Limited Edition Bundel",
+        "name": "SONY PlayStation 5 Console - Marvel\u2019s Spider-Man 2 Limited Edition Bundle",
         "price": 659.99,
         "categoryId": 9,
         "stock": 61,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_108453100?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_108453100.jpg",
         "brand": "SONY"
     },
     {
-        "name": "SONY PlayStation 5 Digital Edition + Pulse 3D Wireless Headset + Qware PS5 Gaming Starter Kit Bundel",
+        "name": "SONY PlayStation 5 Digital Edition + Pulse 3D Wireless Headset + Qware PS5 Gaming Starter Kit Bundle",
         "price": 599.99,
         "categoryId": 9,
         "stock": 29,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_103243462?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_103243462.jpg",
         "brand": "SONY"
     },
     {
-        "name": "SONY PlayStation 5 Disk Edition + Qware PS5 Accessoires Bundel",
+        "name": "SONY PlayStation 5 Disk Edition + Qware PS5 Accessories Bundle",
         "price": 599.99,
         "categoryId": 9,
         "stock": 27,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_105205711?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_105205711.jpg",
         "brand": "SONY"
     },
     {
@@ -1556,7 +1556,7 @@
         "price": 289.99,
         "categoryId": 9,
         "stock": 42,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_77163160?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_77163160.jpg",
         "brand": "MICROSOFT"
     },
     {
@@ -1564,23 +1564,23 @@
         "price": 544.99,
         "categoryId": 9,
         "stock": 17,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_77145642?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_77145642.jpg",
         "brand": "MICROSOFT"
     },
     {
-        "name": "MICROSOFT Xbox Series X Forza Horizon 5 + Qware Xbox Series Dual Charger + Qware Thumb Grips Bundel",
+        "name": "MICROSOFT Xbox Series X Forza Horizon 5 + Qware Xbox Series Dual Charger + Qware Thumb Grips Bundle",
         "price": 599.99,
         "categoryId": 9,
         "stock": 19,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_102699601?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_102699601.jpg",
         "brand": "MICROSOFT"
     },
     {
-        "name": "MICROSOFT Xbox Series X \u2013 Diablo IV-bundel",
+        "name": "MICROSOFT Xbox Series X \u2013 Diablo IV-bundle",
         "price": 559.99,
         "categoryId": 9,
         "stock": 17,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_105566295?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_105566295.jpg",
         "brand": "MICROSOFT"
     },
     {
@@ -1588,7 +1588,7 @@
         "price": 349.99,
         "categoryId": 9,
         "stock": 17,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_107391747?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_107391747.jpg",
         "brand": "MICROSOFT"
     },
     {
@@ -1596,7 +1596,7 @@
         "price": 349.99,
         "categoryId": 9,
         "stock": 82,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_116945339?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_116945339.jpg",
         "brand": "NINTENDO"
     },
     {
@@ -1604,7 +1604,7 @@
         "price": 216.99,
         "categoryId": 9,
         "stock": 17,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_99347048?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_99347048.jpg",
         "brand": "STEELSERIES"
     },
     {
@@ -1612,7 +1612,7 @@
         "price": 284.99,
         "categoryId": 9,
         "stock": 46,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_99333294?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_99333294.jpg",
         "brand": "NINTENDO"
     },
     {
@@ -1620,7 +1620,7 @@
         "price": 349.99,
         "categoryId": 9,
         "stock": 87,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_85553328?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_85553328.jpg",
         "brand": "NINTENDO"
     },
     {
@@ -1628,7 +1628,7 @@
         "price": 549.99,
         "categoryId": 9,
         "stock": 117,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_123520135?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_123520135.jpg",
         "brand": "META"
     },
     {
@@ -1636,7 +1636,7 @@
         "price": 349.99,
         "categoryId": 9,
         "stock": 54,
-        "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_98481229?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
+        "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_98481229.jpg",
         "brand": "META"
     }
 ]

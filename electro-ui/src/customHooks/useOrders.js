@@ -9,11 +9,11 @@ function useOrders() {
     try {
       const response = await axiosInstance.get('/orders');
       setOrders(response.data);
-      setLoading(false);
     } catch (error) {
       console.error("error fetching orders: " + error);
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   }, []);
 
   useEffect(() => {

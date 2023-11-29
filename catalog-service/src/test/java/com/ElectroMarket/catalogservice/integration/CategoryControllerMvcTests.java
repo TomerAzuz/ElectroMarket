@@ -51,7 +51,7 @@ public class CategoryControllerMvcTests {
         var category = Category.of("category");
         given(categoryService.getCategoryById(4L)).willReturn(category);
         mockMvc
-                .perform(get("/category/4")
+                .perform(get("/api/category/4")
                         .with(jwt()))
                 .andExpect(status().isOk());
     }
@@ -61,7 +61,7 @@ public class CategoryControllerMvcTests {
         var category = Category.of("category");
         given(categoryService.getCategoryById(4L)).willReturn(category);
         mockMvc
-                .perform(get("/category/4"))
+                .perform(get("/api/category/4"))
                 .andExpect(status().isOk());
     }
 
@@ -70,7 +70,7 @@ public class CategoryControllerMvcTests {
         var category = Category.of("category");
         when(categoryService.updateCategory(1L, category)).thenReturn(category);
 
-        mockMvc.perform(put("/category/1")
+        mockMvc.perform(put("/api/category/1")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(category))
                         .with(jwt().authorities(new SimpleGrantedAuthority(ROLE_EMPLOYEE))))
@@ -82,7 +82,7 @@ public class CategoryControllerMvcTests {
         var category = Category.of("category");
         when(categoryService.updateCategory(1L, category)).thenReturn(category);
 
-        mockMvc.perform(put("/category/1")
+        mockMvc.perform(put("/api/category/1")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(category))
                         .with(jwt().authorities(new SimpleGrantedAuthority(ROLE_CUSTOMER))))
@@ -94,7 +94,7 @@ public class CategoryControllerMvcTests {
         var category = Category.of("category");
         when(categoryService.updateCategory(1L, category)).thenReturn(category);
 
-        mockMvc.perform(put("/category/1")
+        mockMvc.perform(put("/api//category/1")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(category)))
                 .andExpect(status().isUnauthorized());
@@ -105,7 +105,7 @@ public class CategoryControllerMvcTests {
     void whenDeleteCategoryNotAuthenticatedThenShouldReturn401() throws Exception   {
         var category = Category.of("category");
         given(categoryService.getCategoryById(1L)).willReturn(category);
-        mockMvc.perform(delete("/category/1"))
+        mockMvc.perform(delete("/api/category/1"))
                 .andExpect(status().isUnauthorized());
     }
 
@@ -113,7 +113,7 @@ public class CategoryControllerMvcTests {
     void getNonExistingCategoryThenShouldReturn404() throws Exception {
         given(categoryService.getCategoryById(5L))
                 .willThrow(ResourceNotFoundException.class);
-        mockMvc.perform(get("/category/5"))
+        mockMvc.perform(get("/api/category/5"))
                 .andExpect(status().isNotFound());
     }
 
@@ -127,7 +127,7 @@ public class CategoryControllerMvcTests {
                 .willThrow(new ResourceAlreadyExistsException("category", category.id()));
 
         mockMvc.perform(
-                        post("/category")
+                        post("/api/category")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(requestBody)
                                 .with(jwt().authorities(new SimpleGrantedAuthority(ROLE_EMPLOYEE))))

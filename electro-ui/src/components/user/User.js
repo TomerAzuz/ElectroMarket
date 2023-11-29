@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { FaUser } from 'react-icons/fa';
 import Cookies from 'js-cookie';
 import { Link } from 'react-router-dom';
@@ -17,6 +17,19 @@ function User() {
     setIsDropdownOpen(false);
   };
 
+  useEffect(() => {
+    const handleBodyClick = (event) => {
+      if (!event.target.closest('.dropdown-container')) {
+        closeDropdown();
+      }
+    };
+    document.body.addEventListener('mousedown', handleBodyClick);
+
+    return () => {
+      document.body.removeEventListener('mousedown', handleBodyClick);
+    };
+  }, []);
+
   return (
     <div className="text-3xl relative">
       <div
@@ -28,14 +41,14 @@ function User() {
         <FaUser />
       </div>
       {isDropdownOpen && (
-        <div
-          className="absolute -right-0 mt-8 p-2 bg-white border rounded-lg shadow-lg w-40 dropdown-container"
-          onBlur={closeDropdown}
-        >
+        <div className="absolute -right-0 mt-8 p-2 bg-white border rounded-lg shadow-lg w-40 dropdown-container">
           <ul>
             {user && isEmployee && (
               <Link to={'/admin'}>
-                <div className='text-lg hover:bg-gray-200 p-2'>
+                <div
+                  className='text-lg hover:bg-gray-200 p-2'
+                  onClick={closeDropdown}
+                >
                   Admin
                 </div>
               </Link>
@@ -43,7 +56,7 @@ function User() {
             {user ? (
               <>
                 <li className="text-lg cursor-pointer hover:bg-gray-200 p-2">
-                  <Link to={'user/orders'}>
+                  <Link to={'user/orders'} onClick={closeDropdown}>
                     My Orders
                   </Link>
                 </li>
@@ -63,7 +76,10 @@ function User() {
             ) : (
               <li
                 className="text-lg cursor-pointer hover:bg-gray-200 p-2"
-                onClick={handleLogin}
+                onClick={() => {
+                  handleLogin();
+                  closeDropdown();
+                }}
               >
                 Log In
               </li>

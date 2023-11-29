@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useParams , useLocation } from 'react-router-dom';
 
-import ProductList from '../components/product/ProductList';
-import { usePage } from '../contexts/PageContext';
-import ErrorPage from './ErrorPage';
+import ProductList from '../../components/product/ProductList';
+import { usePage } from '../../contexts/PageContext';
+import ErrorPage from '../error/ErrorPage';
 
 const ProductsPage = () => {    
   const location = useLocation();

@@ -39,7 +39,9 @@ spring:
       resourceserver:
         jwt:
           issuer-uri: http://localhost:8080/realms/ElectroMarket
-
+  cache:
+    caffeine:
+      spec: maximumSize=500,expireAfterWrite=600s
 
 logging:
   pattern:

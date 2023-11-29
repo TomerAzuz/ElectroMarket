@@ -1,30 +1,30 @@
 [
   {
     "name": "Laptops",
-    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_91902577?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+    "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_91902577.jpg"
   }, {
     "name": "Cameras",
-    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_95596935?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+    "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_95596935.jpg"
   }, {
     "name": "TV",
-    "imageUrl":"https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_93658951?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+    "imageUrl":"https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_93658951.jpg"
   }, {
     "name": "Phones",
-    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_108450077?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+    "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_108450077.jpg"
   }, {
     "name": "Monitors",
-    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_92138501?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+    "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_92138501.jpg"
   }, {
     "name": "Headphones",
-    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_76407836?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+    "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_76407836.jpg"
   }, {
     "name": "Speakers",
-    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_99573973?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+    "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_99573973.jpg"
   },  {
     "name": "Printers",
-    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_88146632?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+    "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_88146632.jpg"
   },  {
     "name": "Gaming",
-    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_120911583?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334"
+    "imageUrl": "https://electromarket-assets.s3.eu-central-1.amazonaws.com/images/ASSET_MMS_120911583.jpg"
   }
 ]

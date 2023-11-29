@@ -10,7 +10,7 @@ import java.time.Duration;
 
 @Component
 public class ProductClient {
-    private static final String PRODUCTS_ROOT_API = "/products/";
+    private static final String PRODUCTS_ROOT_API = "/api/products/";
     private final WebClient webClient;
     public ProductClient(WebClient webClient) {
         this.webClient = webClient;

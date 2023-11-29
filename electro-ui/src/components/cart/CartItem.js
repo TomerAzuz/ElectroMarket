@@ -19,6 +19,7 @@ const CartItem = ({ item }) => {
             className='h-auto max-w-[150px] lg:w-full'
             src={imageUrl}
             alt={name}
+            loading="lazy"
           />
         </Link>
       </div>
@@ -33,7 +34,8 @@ const CartItem = ({ item }) => {
           </Link>
           <div
             onClick={() => removeFromCart(id)}
-            className='text-xl cursor-pointer text-gray-500 hover:text-red-500 transition mt-2 lg:mt-0'
+            className='text-xl cursor-pointer text-gray-500 
+                      hover:text-red-500 transition mt-2 lg:mt-0'
           >
             <IoMdClose />
           </div>
@@ -60,7 +62,8 @@ const CartItem = ({ item }) => {
             </div>
           </div>
           <div className='text-lg flex-1 flex items-center justify-around'>$ {price}</div>
-          <div className='text-lg flex-1 flex justify-end items-center text-primary font-medium'>
+          <div className='text-lg flex-1 flex justify-end 
+                          items-center text-primary font-medium'>
             {`$ ${parseFloat(price * quantity).toFixed(2)}`}
           </div>
         </div>

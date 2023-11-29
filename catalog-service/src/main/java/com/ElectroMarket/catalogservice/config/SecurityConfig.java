@@ -19,7 +19,7 @@ public class SecurityConfig {
         return http
                 .authorizeHttpRequests(authorize -> authorize
                     .requestMatchers("/actuator/**").permitAll()
-                    .requestMatchers(HttpMethod.GET, "/", "/products/**", "/category/**").permitAll()
+                    .requestMatchers(HttpMethod.GET, "/", "/api/products/**", "/api/category/**").permitAll()
                     .anyRequest().hasRole("employee"))
                 .oauth2ResourceServer((oauth2) -> oauth2
                     .jwt(Customizer.withDefaults()))

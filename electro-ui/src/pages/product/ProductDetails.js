@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { useLocation, useNavigate  } from 'react-router-dom';
 
-import { CartContext } from '../contexts/CartContext';
+import { CartContext } from '../../contexts/CartContext';
 
 const ProductDetails = () => {
   const location = useLocation();

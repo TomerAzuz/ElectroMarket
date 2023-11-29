@@ -3,16 +3,16 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 
-import Home from './pages/Home';
-import ProductDetails from './pages/ProductDetails';
+import Home from './pages/home/Home';
 import Header from './components/common/Header';
-import ProductsPage from './pages/ProductsPage';
+import ProductDetails from './pages/product/ProductDetails';
+import ProductsPage from './pages/product/ProductsPage';
 import Footer from './components/common/Footer';
-import OrdersPage from './pages/OrdersPage';
-import CartPage from './pages/CartPage';
-import ErrorPage from './pages/ErrorPage';
-import OrderConfirmation from './pages/OrderConfirmation';
-import AdminPage from './pages/AdminPage';
+import OrdersPage from './pages/order/OrdersPage';
+import OrderConfirmation from './pages/order/OrderConfirmation';
+import CartPage from './pages/cart/CartPage';
+import ErrorPage from './pages/error/ErrorPage';
+import AdminPage from './pages/admin/AdminPage';
 
 const App = () => {
 
@@ -37,7 +37,7 @@ const App = () => {
             <Route path='/products/search/:query' element={<ProductsPage />} />
             <Route path='/cart' element={<CartPage />}/>
             <Route path='/user/orders' element={<OrdersPage />} />
-            <Route path='/order/confirmation' element={< OrderConfirmation />} />
+            <Route path='/order-confirmation' element={< OrderConfirmation />} />
             <Route path='/admin' element={< AdminPage/>} />
             <Route path='*' element={<ErrorPage />} />
           </Routes>

@@ -1,64 +1,90 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axiosInstance from '../../axiosInterceptor';
 
 const FeaturedProducts = () => {
-  const featuredProducts = [
-    {
-      "name": "MICROSOFT Surface Laptop Studio 2 - 14.4 inch - Intel Core i7 - 16 GB - 512 GB - GeForce RTX 4050",
-      "price": 2719.0,
-      "categoryId": 1,
-      "stock": 8,
-      "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_122625794?x=960&y=720&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=960&ey=720&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=960&cdy=720",
-      "brand": "MICROSOFT"
-  },
-  {
-    "name": "LG OLED 55C24LA",
-    "price": 1299.99,
-    "categoryId": 3,
-    "stock": 48,
-    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_93658951?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
-    "brand": "LG"
-  },
-  {
-    "name": "SAMSUNG Galaxy Z Fold5 5G - 512 GB",
-    "price": 2009.99,
-    "categoryId": 4,
-    "stock": 52,
-    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_108450077?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
-    "brand": "SAMSUNG"
-  },
-  {
-    "name": "CANON Canon Powershot SX70 HS BLACK",
-    "price": 598.99,
-    "categoryId": 2,
-    "stock": 26,
-    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/pixelboxx-mss-79951710?x=480&y=334&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=480&ey=334&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=480&cdy=334",
-    "brand": "CANON"
-},
-  ];
+  const [featuredProducts, setFeaturedProducts] = useState([]);
+  const navigate = useNavigate();
+
+  const handleProductClick = (product) => {
+    navigate(`/products/${product.id}`, {
+      state: { product: product },
+    });
+  };
+
+  useEffect(() => {
+    const productIds = [8, 45, 89, 174];
+
+    const fetchFeaturedProducts = async () => {
+      try {
+        const cachedProducts =
+          JSON.parse(localStorage.getItem('featuredProducts')) || [];
+        if (cachedProducts.length > 0) {
+          // Use cached data if available
+          setFeaturedProducts(cachedProducts);
+        } else {
+          const promises = productIds.map(async (productId) => {
+            const response = await axiosInstance.get(`products/${productId}`);
+            return response.data;
+          });
+          const products = await Promise.all(promises);
+          setFeaturedProducts(products);
+
+          // Cache the fetched data
+          localStorage.setItem('featuredProducts', JSON.stringify(products));
+        }
+      } catch (error) {
+        console.error('Error fetching products:', error);
+      }
+    };
+
+    if (featuredProducts.length === 0) {
+      fetchFeaturedProducts();
+    }
+  }, [featuredProducts]);
 
   return (
     <div className="p-8 rounded-md shadow-md bg-gray-100">
-      <h2 className="text-3xl lg:text-5xl font-bold mb-8 text-center 
-                   text-gray-900 leading-tight">Featured Products</h2>
-
+      <h2 className="text-3xl lg:text-4xl xl:text-5xl font-extrabold mb-6 text-center 
+                  text-gray-900 leading-tight tracking-wide">
+        Featured Products
+      </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-6">
-        {featuredProducts.map((product, index) => (
-          <div key={index} className="p-4 rounded-md flex flex-col justify-between bg-white">
-            <div className="mb-4">
-              <img
-                src={product.imageUrl}
-                alt={product.name}
-                className="w-full h-48 lg:h-full object-cover rounded-md" // Adjusted the height for larger screens
-              />
+        {featuredProducts.length > 0 ? (
+          featuredProducts.map((product) => (
+            <div
+              key={product.id}
+              className="relative overflow-hidden w-full h-full p-4 rounded-md flex flex-col justify-between items-center bg-white shadow-lg transition-transform transform hover:scale-105"
+              onClick={() => handleProductClick(product)}
+            >
+              <div className="cursor-pointer max-h-[200px] lg:max-w-[300px] 
+                              xl:max-w-[400px] overflow-hidden rounded-md">
+                <img
+                  src={product.imageUrl}
+                  alt={product.name}
+                  className="w-full h-full object-cover rounded-md transition-opacity 
+                            duration-300 ease-in-out hover:opacity-75"
+                  loading="lazy"
+                />
+              </div>
+              <div className="cursor-pointer p-2  text-center">
+                <h3 className="text-md font-semibold mb-2 hover:underline">
+                  {product.name}
+                </h3>
+                {product.price && (
+                  <p className="text-red-500 text-2xl font-semibold cursor-pointer">
+                    ${product.price.toLocaleString('en-US', {
+                      minimumFractionDigits: 2,
+                      maximumFractionDigits: 2,
+                    })}
+                  </p>
+                )}
+              </div>
             </div>
-            <div className="flex flex-col items-center">
-              <h3 className="text-md font-semibold mb-2">{product.name}</h3>
-              <p className="text-red-500 text-2xl font-semibold">
-                ${product.price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-              </p>
-            </div>
-          </div>
-        ))}
+          ))
+        ) : (
+          <p>Loading...</p>
+        )}
       </div>
     </div>
   );

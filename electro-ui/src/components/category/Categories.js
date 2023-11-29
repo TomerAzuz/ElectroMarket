@@ -18,7 +18,7 @@ function Categories() {
                       max-w-screen-xl 
                       mx-auto"
         >
-          {categories?.map((category) => (
+          {Array.isArray(categories) && categories.map((category) => (
             <Category key={category.id} category={category} />
           ))}
         </div>

@@ -17,7 +17,6 @@ public interface CategoryRepository extends CrudRepository<Category, Long> {
     @Query("UPDATE Category SET name = :newName WHERE name = :name")
     void updateByName(@Param("name") String name, @Param("newName") String newName);
 
-
     @Modifying
     @Transactional
     @Query("DELETE FROM category WHERE name = :name")

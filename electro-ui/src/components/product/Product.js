@@ -22,7 +22,8 @@ const Product = ({ product }) => {
         <div className='w-full h-full flex justify-center items-center'>
           <div className='w-[200px] mx-auto flex justify-center items-center'>
             <img 
-              className='max-h-[160px] transform transition duration-300 group-hover:scale-110' 
+              className='max-h-[160px] w-full object-cover transform 
+                        transition duration-300 group-hover:scale-105' 
               src={imageUrl} 
               alt={name}
               loading="lazy"

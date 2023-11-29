@@ -55,36 +55,41 @@ function ProductList({ endpoint, params, handleSort, setPage }) {
   });
 
   return (
-    <div className="flex items-center justify-center">
+    <div>
       {loading ? (
         <Loader loading={loading} />
       ) : (
-        <div className="container mx-auto flex">
-          <ProductFilter
-            params={params}
-            brands={brands}
-            selectedBrands={selectedBrands}
-            handleBrandChange={handleBrandChange}
-            minPrice={minPrice}
-            maxPrice={maxPrice}
-            priceRange={priceRange}
-            handlePriceChange={handlePriceChange}
-            clearProducts={clearProducts}
-          />
-          <ProductGrid filteredProducts={filteredProducts} setSelectedBrands={setSelectedBrands} />
-        </div>
+        <>
+          <div className="container mx-auto flex">
+            <ProductFilter
+              params={params}
+              brands={brands}
+              selectedBrands={selectedBrands}
+              handleBrandChange={handleBrandChange}
+              minPrice={minPrice}
+              maxPrice={maxPrice}
+              priceRange={priceRange}
+              handlePriceChange={handlePriceChange}
+              clearProducts={clearProducts}
+            />
+            <ProductGrid
+              filteredProducts={filteredProducts}
+              setSelectedBrands={setSelectedBrands}
+            />
+          </div>
+          <div className="mt-20 text-center">
+            {params.page < totalPages - 1 && (
+              <button
+                className="px-4 py-2 bg-red-500 text-white text-lg rounded-lg font-semibold"
+                onClick={() => setPage(params.page + 1)}
+                disabled={params.page === totalPages - 1}
+              >
+                Load more products
+              </button>
+            )}
+          </div>
+        </>
       )}
-      <div className="mt-20 text-center">
-        {params.page < totalPages - 1 && (
-          <button
-            className="px-4 py-2 bg-red-500 text-white text-lg rounded-lg font-semibold"
-            onClick={() => setPage(params.page + 1)}
-            disabled={params.page === totalPages - 1}
-          >
-            Load more products
-          </button>
-        )}
-      </div>
     </div>
   );
 }

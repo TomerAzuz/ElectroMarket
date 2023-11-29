@@ -20,7 +20,6 @@ function useProducts({ endpoint, params })    {
         setLoading(false);
       }
     }
-  
     fetchProducts();
   }, [endpoint, params, params.page, params.sort]);
   

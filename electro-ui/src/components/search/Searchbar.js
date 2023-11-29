@@ -52,6 +52,7 @@ function Searchbar() {
     toast.error('Error fetching products');
   };
 
+  // Debounced query
   useEffect(() => {
     const delay = setTimeout(() => {
       setDebouncedQuery(query.trim());

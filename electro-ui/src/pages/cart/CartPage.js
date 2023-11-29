@@ -2,8 +2,8 @@ import React, { useContext, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FiTrash2 } from 'react-icons/fi';
 
-import { CartContext } from '../contexts/CartContext';
-import CartItem from '../components/cart/CartItem';
+import { CartContext } from '../../contexts/CartContext';
+import CartItem from '../../components/cart/CartItem';
 
 const CartPage = () => {
   const { cart, clearCart, 
@@ -14,7 +14,7 @@ const CartPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    order && navigate('/order/confirmation', {
+    order && navigate('/order-confirmation', {
       state: {order: order}
     });
     setOrder(null);
@@ -62,8 +62,7 @@ const CartPage = () => {
             <div
               className={`cursor-pointer bg-primary flex justify-center items-center 
                          text-white p-4 rounded-md text-lg font-semibold mt-4 ${
-                loading ? 'opacity-50 cursor-not-allowed' : ''
-              }`}
+                loading ? 'opacity-50 cursor-not-allowed' : ''}`}
               onClick={() => handleCheckout(3, 1000)}
               disabled={loading}
             >

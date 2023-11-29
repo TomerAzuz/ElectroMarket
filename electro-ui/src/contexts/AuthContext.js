@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect, useCallback } from 'react';
-import axios from 'axios';
+import axiosInstance from '../axiosInterceptor';
 
 export const AuthContext = createContext();
 
@@ -13,10 +13,12 @@ const AuthProvider = ({ children }) => {
 
     const fetchUser = useCallback(async () => {
         try {
-            const response = await axios.get('/user');
+            const response = await axiosInstance.get('/user');
             setUser(response.data);
         } catch (error) {
-            console.error('Error fetching user data:', error);
+            if (error.response && error.response.status !== 401)  {
+                //console.error('Error fetching user data:', error);
+            }
         }
     }, []);
 

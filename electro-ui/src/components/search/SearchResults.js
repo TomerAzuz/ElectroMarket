@@ -8,7 +8,7 @@ function SearchResults({ results, handleResultClick }) {
         <p className='text-gray-500'>No results found.</p>
       ) : (
         <ul className="divide-y divide-gray-300">
-        {results.map((result) => (
+        {results.slice(0, 5).map((result) => (
           <ResultItem
             key={result.id}
             result={result}

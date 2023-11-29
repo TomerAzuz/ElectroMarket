@@ -13,6 +13,7 @@ const ResultItem = ({ result, handleResultClick }) => {
                     rounded-md mr-2 xl:mr-4'
           src={result.imageUrl}
           alt={result.name}
+          loading="lazy"
         />
         <div>
           <p className="text-sm xl:text-base font-semibold">{result.name}</p>
