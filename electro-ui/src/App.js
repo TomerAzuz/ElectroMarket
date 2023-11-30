@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 
@@ -13,22 +13,20 @@ import OrderConfirmation from './pages/order/OrderConfirmation';
 import CartPage from './pages/cart/CartPage';
 import ErrorPage from './pages/error/ErrorPage';
 import AdminPage from './pages/admin/AdminPage';
+import ScrollToTop from './components/common/ScrollToTop';
 
 const App = () => {
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   return (
     <div className='min-h-screen flex flex-col overflow-hidden'>
       <Router>
+        <ScrollToTop /> 
         <div className='flex-grow'>
           <Header />
           <Toaster
-            position="top-left"
-            reverseOrder={false}
-            containerClassName="absolute top-24 left-0"
+             position="top-left"
+             reverseOrder={false}
+             containerClassName="absolute top-24 left-0"
           />
           <Routes>
             <Route path='/' element={<Home />} />

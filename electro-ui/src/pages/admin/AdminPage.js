@@ -1,12 +1,12 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { FaPlus } from 'react-icons/fa';
-
 import { toast } from 'react-hot-toast';
 
 import { AuthContext } from '../../contexts/AuthContext';
 import axiosInstance from '../../axiosInterceptor';
 import ResourceTable from './ResourceTable';
 import ResourceForm from './ResourceForm';
+import PageNavigation from '../../components/common/buttons/PageNavigation';
 
 const AdminPage = () => {
   const { user, isEmployee } = useContext(AuthContext);
@@ -19,19 +19,39 @@ const AdminPage = () => {
   const [totalPages, setTotalPages] = useState(0);
   const [loading, setLoading] = useState(false);
 
+  const excludedHeaders = [
+    'id',
+    'createdDate',
+    'lastModifiedDate',
+    'createdBy',
+    'lastModifiedBy',
+    'version',
+  ];
+
+  const confirmChanges = () => {
+    return window.confirm(`Are you sure?`);
+  };
+
   useEffect(() => {
     const handleResourceSelection = async () => {
       try {
         setLoading(true);
-        const response = await axiosInstance.get(`/${endpoint}`, {
-          params:
-            endpoint === 'products'
-              ? { page: page, size: 10, sort: 'name,asc' }
-              : {},
-        });
+  
+        const params = {};
+  
+        if (endpoint === 'products') {
+          params.page = page;
+          params.size = 10;
+          params.sort = 'name,asc';
+        }
+
+        const response = await axiosInstance.get(`/${endpoint}`, { params });
+  
         if (endpoint === 'products') {
           const { content, totalPages } = response.data;
-          setResource(content);
+          setResource((prevResource) => {
+            return page === 0 ? content : [...prevResource, ...content]; 
+          });
           setTotalPages(totalPages);
         } else {
           setResource(response.data);
@@ -42,59 +62,18 @@ const AdminPage = () => {
         setLoading(false);
       }
     };
+  
     if (endpoint.length > 0) {
       handleResourceSelection();
     }
   }, [endpoint, page]);
 
-  const confirmChanges = () => {
-    return window.confirm(`Are you sure?`);
-  };
 
   const handleInputChange = (key, value) => {
     setNewRow((prevRow) => ({
       ...prevRow,
       [key]: value,
     }));
-  };
-
-  const handleFormSubmit = async () => {
-    try {
-      if (Object.keys(newRow).length === 0) {
-        console.error('New row is empty');
-        return;
-      }
-
-      const categoryId = parseInt(newRow.categoryId, 10);
-      const stock = parseInt(newRow.stock, 10);
-      const price = parseFloat(newRow.price);
-
-      const requestData = {
-        name: newRow.name,
-        price,
-        categoryId,
-        stock,
-        imageUrl: newRow.imageUrl,
-        brand: newRow.brand,
-      };
-
-      if (!confirmChanges()) {
-        return;
-      }
-
-      if (updateRowId) {
-        await axiosInstance.put(`/${endpoint}/${updateRowId}`, requestData);
-        toast.success('Resource updated successfully');
-        setUpdateRowId(null);
-      } else {
-        await axiosInstance.post(`/${endpoint}`, requestData);
-        toast.success('Resource added successfully');
-      }
-      setShowAddRow(false);
-      setNewRow({});
-    } catch (error) {
-      toast.error(`Failed to modify resource: ${error}`);
-    }
   };
 
   const handleAdd = () => {
@@ -133,9 +112,14 @@ const AdminPage = () => {
       <ResourceForm
         newRow={newRow}
         resource={resource}
+        excludedHeaders={excludedHeaders}
         updateRowId={updateRowId}
         handleInputChange={handleInputChange}
-        handleFormSubmit={handleFormSubmit}
+        endpoint={endpoint}
+        setUpdateRowId={setUpdateRowId}
+        setShowAddRow={setShowAddRow}
+        setNewRow={setNewRow}
+        confirmChanges={confirmChanges}
       />
     );
   };
@@ -151,6 +135,7 @@ const AdminPage = () => {
     return (
       <ResourceTable
         resource={resource}
+        excludedHeaders={excludedHeaders}
         showAddRow={showAddRow}
         updateRowId={updateRowId}
         handleDelete={handleDelete}
@@ -168,7 +153,7 @@ const AdminPage = () => {
           <select
             value={endpoint}
             onChange={(event) => setEndpoint(event.target.value)}
-            className='border rounded px-2 py-1 w-full mb-2 sm:mb-4 md:mb-4 lg:mb-6'
+            className='border rounded px-2 py-1 w-full mb-2'
           >
             <option value=''>Select Resource</option>
             <option value='products'>Products</option>
@@ -183,27 +168,10 @@ const AdminPage = () => {
           </button>
           {renderTable()}
           {endpoint === 'products' && totalPages > 0 && (
-            <div className='flex flex-col items-center justify-center'>
-              <div className='flex items-center justify-center'>
-                <button
-                  className='px-4 py-2 bg-red-500 text-white text-lg rounded-lg font-semibold mr-4'
-                  onClick={() => setPage(Math.max(0, page - 1))}
-                  disabled={page === 0}
-                >
-                  Previous
-                </button>
-                <button
-                  className='px-4 py-2 bg-red-500 text-white text-lg rounded-lg font-semibold'
-                  onClick={() => setPage(Math.min(page + 1, totalPages - 1))}
-                  disabled={page === totalPages - 1}
-                >
-                  Next
-                </button>
-              </div>
-              <p className='mt-2 text-sm text-gray-600'>
-                Page {page + 1} of {totalPages}
-              </p>
-            </div>
+            <PageNavigation page={page} 
+                            setPage={setPage}
+                            totalPages={totalPages}
+            />
           )}
         </div>
       </div>

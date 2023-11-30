@@ -4,6 +4,7 @@ import useProducts from '../../customHooks/useProducts';
 import ProductFilter from './ProductFilter';
 import ProductGrid from './ProductGrid';
 import Loader from '../common/Loader';
+import LoadMoreButton from '../common/buttons/LoadMoreButton';
 
 function ProductList({ endpoint, params, handleSort, setPage }) {
   const { products, setProducts, loading, totalPages } = useProducts({
@@ -79,13 +80,10 @@ function ProductList({ endpoint, params, handleSort, setPage }) {
           </div>
           <div className="mt-20 text-center">
             {params.page < totalPages - 1 && (
-              <button
-                className="px-4 py-2 bg-red-500 text-white text-lg rounded-lg font-semibold"
-                onClick={() => setPage(params.page + 1)}
-                disabled={params.page === totalPages - 1}
-              >
-                Load more products
-              </button>
+              <LoadMoreButton page={params.page}
+                              setPage={setPage}
+                              totalPages={totalPages}
+              />
             )}
           </div>
         </>

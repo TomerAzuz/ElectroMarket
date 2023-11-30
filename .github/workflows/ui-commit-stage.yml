@@ -10,7 +10,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: tomerazuz/electro-ui
-  VERSION: ${{ github.sha }}
+  VERSION: latest
 
 jobs:
   build:

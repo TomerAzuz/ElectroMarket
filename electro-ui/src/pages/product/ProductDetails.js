@@ -19,48 +19,41 @@ const ProductDetails = () => {
   const { name, price, imageUrl } = product;
 
   return (
-    <section 
-      className='py-60 mt-20 lg:py-16pt-8 
-                 lg:pt-32 pb-12 lg:py-32
-                 h-screen flex items-center'
-      >
+    <section className='py-60 lg:py-32 h-screen flex items-center'>
       <div className='container mx-auto'>
-      
-        <div 
-          className='flex flex-col 
-                     lg:flex-row items-center 
-                     mb-8 lg:mb-0'>
-                      
-          <div className='lg:flex-1 justify-center items-center'>
+        <div className='flex flex-col lg:flex-row items-center mb-8 lg:mb-0'>
+          <div className='lg:flex-1 justify-center items-center mb-6'>
             <img
               className='w-full md:max-w-md lg:max-w-lg object-cover'
               src={imageUrl}
               alt={name}
             />
           </div>
-          
-          <div className='flex-2 text-center lg:text-left'>
-          <button
-            className='text-primary mb-4 cursor-pointer hover:underline'
-            onClick={() => navigate(-1)}
-          >
-            Back
-          </button>
-            <h1 className='text-2xl lg:text-3xl 
-                          xl:text-3xl font-medium 
-                          mb-2 max-w-[450px] mx-auto lg:mx-0'>
+          <div className='flex-2 text-center lg:text-left lg:mr-20'>
+            <button
+              className='text-primary mb-4 cursor-pointer hover:underline'
+              onClick={() => navigate(-1)}
+            >
+              Back
+            </button>
+            <h1 className='text-3xl lg:text-4xl xl:text-4xl 
+                           font-medium mb-2 max-w-[450px] 
+                           mx-auto'>
               {name}
             </h1>
             <div className='text-center text-3xl text-red-500 font-medium mb-6'>
-              ${price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+              ${price.toLocaleString('en-US', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+              })}
             </div>
-            <div>
+            <div className='text-center lg:text-left mb-8'>
               <p className='mb-8'>Description...</p>
               <button
                 onClick={() => addToCart(product)}
                 className='cursor-pointer bg-red-500 rounded-md 
-                          hover:bg-red-700 transition duration-300 
-                          mb-28 py-4 px-8 text-white'
+                        hover:bg-red-700 transition duration-300 
+                          py-4 px-10 text-white font-semibold text-xl'
               >
                 Add to cart
               </button>
