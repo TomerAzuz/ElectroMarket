@@ -1,0 +1,34 @@
+name: Production Stage
+
+on:
+  workflow_run:
+    workflows: ['Catalog Service Acceptance Stage', 'Order Service Acceptance Stage', 
+                'Edge Service Acceptance Stage', 'Dispatcher Service Acceptance Stage']
+    types: [completed]
+    branches: main
+  workflow_dispatch:
+concurrency: acceptance
+
+jobs:
+  update:
+    name: Update application version
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+    env:
+      APP_IMAGE: ${{ github.event.client_payload.app_image }}
+      APP_NAME: ${{ github.event.client_payload.app_name }}
+      APP_VERSION: ${{ github.event.client_payload.app_version }}
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v3
+      - name: Update image version
+        run: |
+          cd deployment/kubernetes/applications/${{ env.APP_NAME }}/production
+          kustomize edit set image ${{ env.APP_NAME }}=${{ env.APP_IMAGE }}:${{ env.APP_VERSION }}
+          sed -i 's/ref=[\w+]/${{ env.APP_VERSION }}/' kustomization.yml
+      - name: Commit updated manifests
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Update ${{ env.APP_NAME }} to version ${{ env.APP_VERSION }}"
+          branch: main
