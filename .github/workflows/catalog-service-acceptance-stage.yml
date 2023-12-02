@@ -4,6 +4,7 @@ on:
     workflows: ['Catalog Service Commit Stage']
     types: [completed]
     branches: main
+  workflow_dispatch:
 concurrency: acceptance # ensures that only one workflow runs at a time
 
 env:
