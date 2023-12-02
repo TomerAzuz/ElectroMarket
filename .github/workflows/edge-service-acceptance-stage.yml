@@ -9,8 +9,8 @@ concurrency: acceptance # ensures that only one workflow runs at a time
 env:
   OWNER: tomerazuz
   REGISTRY: ghcr.io
-  APP_REPO: E-commerce/edge-service
-  DEPLOY_REPO: E-commerce/deployment
+  APP_REPO: edge-service
+  DEPLOY_REPO: deployment
   VERSION: ${{ github.sha }}
 
 jobs:
