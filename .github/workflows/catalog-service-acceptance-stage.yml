@@ -6,6 +6,13 @@ on:
     branches: main
 concurrency: acceptance # ensures that only one workflow runs at a time
 
+env:
+  OWNER: tomerazuz
+  REGISTRY: ghcr.io
+  APP_REPO: E-commerce/catalog-service
+  DEPLOY_REPO: E-commerce/deployment
+  VERSION: ${{ github.sha }}
+
 jobs:
   functional:
     name: Functional Acceptance Tests
@@ -25,3 +32,15 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - run: echo "Running security tests"
+  deliver:
+    name: Deliver release candidate to production
+    needs: [ functional, performance, security ]
+    with:
+      token: ${{ secrets.DISPATCH_TOKEN }}
+      repository: ${{ env.OWNER }}/${{ env.DEPLOY_REPO }}
+      event_type: app_delivery
+      client-payload: '{
+            "app_image": "${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.APP_REPO }}",
+            "app_name": "${{ env.APP_REPO }}",
+            "app_version": "${{ env.VERSION }}"
+      }'

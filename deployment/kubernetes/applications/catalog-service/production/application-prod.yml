@@ -1,0 +1,5 @@
+electro:
+  greeting: Welcome to our product catalog from a production Kubernetes environment!
+spring:
+  config:
+    import: configtree:/workspace/secrets/*/
