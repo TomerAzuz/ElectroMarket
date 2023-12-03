@@ -19,8 +19,8 @@ configMapGenerator:
 images:
   - name: edge-service
     newName: ghcr.io/tomerazuz/edge-service
-    newTag: 180e3a471d654b3c286ca59b526647188f68845b
+    newTag: 090db59427ebd46149fed59004b9c46a56a3567c
 
 replicas:
-  - count: 1
+  - count: 2
     name: edge-service
