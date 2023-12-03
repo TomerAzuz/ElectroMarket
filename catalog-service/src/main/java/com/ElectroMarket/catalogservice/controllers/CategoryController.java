@@ -31,20 +31,20 @@ public class CategoryController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Category post(@Valid @RequestBody Category category)   {
+    public Category createCategory(@Valid @RequestBody Category category)   {
         log.info("Adding a new category to the catalog with id {}", category.id());
         return categoryService.createCategory(category);
     }
 
     @PutMapping("{id}")
-    public Category put(@PathVariable Long id, @Valid @RequestBody Category category) {
+    public Category updateCategory(@PathVariable Long id, @Valid @RequestBody Category category) {
         log.info("Updating category with ISBN {}", id);
         return categoryService.updateCategory(id, category);
     }
 
     @DeleteMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable Long id)   {
+    public void deleteCategory(@PathVariable Long id)   {
         log.info("Deleting category with id {}", id);
         categoryService.deleteCategoryById(id);
     }
