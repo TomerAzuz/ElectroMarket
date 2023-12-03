@@ -4,7 +4,7 @@ spring:
   flyway:
     url: jdbc:postgresql://electro-postgres/electrodb_order
   r2dbc:
-    url: r2dbc:postgresql://polar-postgres/electrodb_order
+    url: r2dbc:postgresql://electro-postgres/electrodb_order
   rabbitmq:
     host: electro-rabbitmq
   security:
