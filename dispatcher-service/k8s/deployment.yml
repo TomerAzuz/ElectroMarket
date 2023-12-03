@@ -32,14 +32,14 @@ spec:
             httpGet:
               path: /actuator/health/liveness
               port: 9003
-            initialDelaySeconds: 10
-            periodSeconds: 5
+            initialDelaySeconds: 15
+            periodSeconds: 30
           readinessProbe:
             httpGet:
               path: /actuator/health/readiness
               port: 9003
-            initialDelaySeconds: 5
-            periodSeconds: 15
+            initialDelaySeconds: 10
+            periodSeconds: 20
           volumeMounts:
             - name: dispatcher-config-volume
               mountPath: /workspace/config
