@@ -22,5 +22,5 @@ images:
     newTag: 180e3a471d654b3c286ca59b526647188f68845b
 
 replicas:
-  - count: 2
+  - count: 1
     name: edge-service
