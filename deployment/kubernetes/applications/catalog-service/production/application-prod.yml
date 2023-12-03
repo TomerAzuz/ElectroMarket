@@ -1,5 +1,6 @@
 electro:
-  greeting: Welcome to our product catalog from a production Kubernetes environment!
+  greeting: Welcome to our production product catalog synchronized with Argo CD!
+
 spring:
   config:
     import: configtree:/workspace/secrets/*/
