@@ -51,7 +51,7 @@ jobs:
           kubeval: 0.16.1
           command: |
             cd edge-service
-            kustomize build k8s | kubeval --strict -
+            kustomize build k8s | kubeval --strict --schema-location https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/
 
   package:
     name: Package and Publish
