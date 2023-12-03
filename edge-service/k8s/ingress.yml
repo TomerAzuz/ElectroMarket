@@ -2,7 +2,6 @@ apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: electro-ingress
-  namespace: default
 spec:
   ingressClassName: nginx
   rules:
