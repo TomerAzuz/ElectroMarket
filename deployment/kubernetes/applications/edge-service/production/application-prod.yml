@@ -1,3 +1,9 @@
 spring:
   config:
     import: configtree:/workspace/secrets/*/
+  redis:
+    host: file:/workspace/secrets/postgres/spring.redis.host
+    port: file:/workspace/secrets/postgres/spring.redis.port
+    username: file:/workspace/secrets/postgres/spring.redis.username
+    password: file:/workspace/secrets/postgres/spring.redis.password
+    ssl: file:/workspace/secrets/postgres/spring.redis.ssl
