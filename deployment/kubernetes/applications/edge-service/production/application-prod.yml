@@ -1,6 +1,3 @@
 spring:
   config:
     import: configtree:/workspace/secrets/*/
-data:
-    redis:
-      host: electro-redis-do-user-15263768-0.c.db.ondigitalocean.com
