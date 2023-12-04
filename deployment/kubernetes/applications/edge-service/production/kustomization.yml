@@ -5,22 +5,22 @@ resources:
 - ../../../../../edge-service/k8s
 
 patchesStrategicMerge:
-- patch-env.yml
-- patch-ingress.yml
-- patch-resources.yml
-- patch-volumes.yml
+  - patch-env.yml
+  - patch-ingress.yml
+  - patch-resources.yml
+  - patch-volumes.yml
 
 configMapGenerator:
-- behavior: merge
-  files:
-  - application-prod.yml
-  name: edge-config
+  - behavior: merge
+    files:
+      - application-prod.yml
+    name: edge-config
 
 images:
-- name: edge-service
-  newName: ghcr.io/tomerazuz/edge-service
-  newTag: 9e3a6e4ccddffa017d0d324ad77912c799682153
+  - name: edge-service
+    newName: ghcr.io/tomerazuz/edge-service
+    newTag: latest
 
 replicas:
-- count: 1
-  name: edge-service
+  - count: 1
+    name: edge-service
