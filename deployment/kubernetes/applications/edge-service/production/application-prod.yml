@@ -1,11 +1,3 @@
 spring:
   config:
     import: configtree:/workspace/secrets/*/
-
-redis:
-  host: ${spring.redis.host}
-  port: ${spring.redis.port}
-  username: ${spring.redis.username}
-  password: ${spring.redis.password}
-  ssl: ${spring.redis.ssl}
-
