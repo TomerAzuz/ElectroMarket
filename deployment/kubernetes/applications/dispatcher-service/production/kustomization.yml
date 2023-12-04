@@ -18,7 +18,7 @@ configMapGenerator:
 images:
 - name: dispatcher-service
   newName: ghcr.io/tomerazuz/dispatcher-service
-  newTag: afbca5a4dc4ea9a79828381f3a479ab025e33737
+  newTag: d083fbaa5c1c4db3b1cab7c7ae5664e0234b792a
 
 replicas:
 - count: 1
