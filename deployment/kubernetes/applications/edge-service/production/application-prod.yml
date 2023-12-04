@@ -1,6 +1,6 @@
 spring:
   config:
-    import: configtree:/workspace/secrets/postgres/*
+    import: configtree:/workspace/secrets/postgres/
 
 redis:
   host: ${spring.redis.host}
