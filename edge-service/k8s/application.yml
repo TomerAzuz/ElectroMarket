@@ -1,6 +1,7 @@
 spring:
-  redis:
-    host: electro-redis
+  data:
+    redis:
+      host: electro-redis
   security:
     oauth2:
       client:
