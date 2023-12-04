@@ -1,5 +1,6 @@
 spring:
   config:
     import: configtree:/workspace/secrets/*/
-  profiles:
-    active: prod
+  data:
+    redis:
+      host: ${spring.redis.host}
