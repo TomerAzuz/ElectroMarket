@@ -20,7 +20,6 @@ import org.springframework.security.web.server.csrf.XorServerCsrfTokenRequestAtt
 import org.springframework.web.server.WebFilter;
 import reactor.core.publisher.Mono;
 
-@EnableWebFluxSecurity
 @Configuration
 public class SecurityConfig {
 

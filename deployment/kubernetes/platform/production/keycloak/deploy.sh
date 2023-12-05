@@ -5,7 +5,8 @@ echo "\n🗝️  Keycloak deployment started.\n"
 
 echo "📦 Installing Keycloak..."
 
-clientSecret=$(echo $ random | openssl md5 | head -c 20)
+clientSecret=$(echo $random | openssl md5 | head -c 20)
+echo "Client Secret: $clientSecret"
 
 kubectl apply -f resources/namespace.yml
 sed "s/electro-keycloak-secret/$clientSecret/" resources/keycloak-config.yml | kubectl apply -f -
