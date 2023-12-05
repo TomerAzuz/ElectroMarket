@@ -4,20 +4,20 @@ resources:
 - ../../../../../catalog-service/k8s
 
 patchesStrategicMerge:
-  - patch-env.yml
-  - patch-resources.yml
-  - patch-volumes.yml
+- patch-env.yml
+- patch-resources.yml
+- patch-volumes.yml
 
 configMapGenerator:
-  - behavior: merge
-    files:
-    - application-prod.yml
-    name: catalog-config
+- behavior: merge
+  files:
+  - application-prod.yml
+  name: catalog-config
 
 images:
 - name: catalog-service
   newName: ghcr.io/tomerazuz/catalog-service
-  newTag: 0f56956826ba0e0cda08d06676d064101c8abae1
+  newTag: 585bf48441baa11664fd63cfbc818af950da9bc3
   
 replicas:
 - count: 2
