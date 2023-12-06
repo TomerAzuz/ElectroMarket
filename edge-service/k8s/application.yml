@@ -2,8 +2,6 @@ spring:
   data:
     redis:
       host: electro-redis
-      ssl:
-        enabled: true
   security:
     oauth2:
       client:
