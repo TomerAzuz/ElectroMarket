@@ -19,9 +19,9 @@ const ProductDetails = () => {
   const { name, price, imageUrl } = product;
 
   return (
-    <section className='py-60 lg:py-32 h-screen flex items-center'>
+    <section className='py-48 flex items-center'>
       <div className='container mx-auto'>
-        <div className='flex flex-col lg:flex-row items-center mb-8 lg:mb-0'>
+        <div className='flex flex-col lg:flex-row items-center mb-8'>
           <div className='lg:flex-1 justify-center items-center mb-6'>
             <img
               className='w-full md:max-w-md lg:max-w-lg object-cover'
@@ -29,7 +29,7 @@ const ProductDetails = () => {
               alt={name}
             />
           </div>
-          <div className='flex-2 text-center lg:text-left lg:mr-20'>
+          <div className='flex-2 text-center lg:text-left'>
             <button
               className='text-primary mb-4 cursor-pointer hover:underline'
               onClick={() => navigate(-1)}

@@ -1,5 +1,6 @@
 package com.ElectroMarket.orderservice.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
@@ -30,6 +31,7 @@ public record OrderItem(
     @Column("created_date")
     Instant createdDate,
 
+    @JsonIgnore
     @LastModifiedDate
     @Column("last_modified_date")
     Instant lastModifiedDate,
@@ -38,10 +40,12 @@ public record OrderItem(
     @Column("created_by")
     String createdBy,
 
+    @JsonIgnore
     @LastModifiedBy
     @Column("last_modified_by")
     String lastModifiedBy,
 
+    @JsonIgnore
     @Version
     int version
 ) {

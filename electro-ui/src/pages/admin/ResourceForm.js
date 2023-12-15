@@ -18,7 +18,7 @@ const ResourceForm = ({
   const tableHeaders = Object.keys(resource[0]).filter(
     (header) => !excludedHeaders.includes(header));
 
-  const validateInputs = () => {
+  const validateProduct = () => {
     if (!newRow.name || newRow.name.trim() === '') {
       toast.error('Name is required');
       return false;
@@ -45,6 +45,17 @@ const ResourceForm = ({
     }
 
     return true;
+  }
+
+  const validateCategory = () => {
+    if (!newRow.name || newRow.name.trim() === '') {
+      toast.error('Name is required');
+      return false;
+    }
+  }
+
+  const validateInputs = () => {
+    return endpoint === 'products' ? validateProduct() : validateCategory(); 
   };
 
   const handleFormSubmit = async () => {

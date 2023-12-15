@@ -14,6 +14,8 @@ spec:
               mountPath: /workspace/secrets/keycloak-client
             - name: keycloak-issuer-client-secret-volume
               mountPath: /workspace/secrets/keycloak-issuer
+            - name: keystore
+              mountPath: /workspace/secrets/keystore
       volumes:
         - name: redis-credentials-volume
           secret:
@@ -24,3 +26,6 @@ spec:
         - name: keycloak-issuer-client-secret-volume
           secret:
             secretName: keycloak-issuer-client-secret
+        - name: keystore
+          secret:
+            secretName: keystore-secret

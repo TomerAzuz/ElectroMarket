@@ -1,5 +1,6 @@
 package com.ElectroMarket.catalogservice.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.validation.constraints.*;
 import org.springframework.data.annotation.*;
 
@@ -33,18 +34,23 @@ public record Product(
         @Size(max = 255, message = "The product brand cannot exceed 255 characters.")
         String brand,
 
+        @JsonIgnore
         @CreatedDate
         Instant createdDate,
 
+        @JsonIgnore
         @LastModifiedDate
         Instant lastModifiedDate,
 
+        @JsonIgnore
         @CreatedBy
         String createdBy,
 
+        @JsonIgnore
         @LastModifiedBy
         String lastModifiedBy,
 
+        @JsonIgnore
         @Version
         int version
 ) {

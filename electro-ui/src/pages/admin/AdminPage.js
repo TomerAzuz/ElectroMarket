@@ -49,8 +49,8 @@ const AdminPage = () => {
   
         if (endpoint === 'products') {
           const { content, totalPages } = response.data;
-          setResource((prevResource) => {
-            return page === 0 ? content : [...prevResource, ...content]; 
+          setResource((prevProducts) => {
+            return page === 0 ? content : [...prevProducts, ...content]; 
           });
           setTotalPages(totalPages);
         } else {

@@ -8,7 +8,6 @@ import org.springframework.boot.test.autoconfigure.json.JsonTest;
 import org.springframework.boot.test.json.JacksonTester;
 
 import java.time.Instant;
-import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -32,11 +31,5 @@ public class OrderJsonTests {
                 .isEqualTo(order.status().toString());
         assertThat(jsonContent).extractingJsonPathStringValue("@.createdDate")
                 .isEqualTo(order.createdDate().toString());
-        assertThat(jsonContent).extractingJsonPathStringValue("@.lastModifiedDate")
-                .isEqualTo(order.lastModifiedDate().toString());
-        assertThat(jsonContent).extractingJsonPathStringValue("@.lastModifiedBy")
-                .isEqualTo(order.lastModifiedBy());
-        assertThat(jsonContent).extractingJsonPathNumberValue("@.version")
-                .isEqualTo(order.version());
     }
 }

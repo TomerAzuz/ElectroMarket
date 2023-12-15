@@ -17,7 +17,9 @@ const AuthProvider = ({ children }) => {
             setUser(response.data);
         } catch (error) {
             if (error.response && error.response.status !== 401)  {
-                //console.error('Error fetching user data:', error);
+                console.error('Error fetching user data:', error);
+            } else     {
+                console.log("Authentication failed - 401 error");
             }
         }
     }, []);

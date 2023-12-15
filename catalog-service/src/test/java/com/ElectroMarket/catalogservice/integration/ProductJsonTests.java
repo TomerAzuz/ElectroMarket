@@ -35,16 +35,6 @@ public class ProductJsonTests {
                 .isEqualTo(product.imageUrl());
         assertThat(jsonContent).extractingJsonPathStringValue("@.brand")
                 .isEqualTo(product.brand());
-        assertThat(jsonContent).extractingJsonPathStringValue("@.createdDate")
-                .isEqualTo(product.createdDate().toString());
-        assertThat(jsonContent).extractingJsonPathStringValue("@.lastModifiedDate")
-                .isEqualTo(product.lastModifiedDate().toString());
-        assertThat(jsonContent).extractingJsonPathStringValue("@.createdBy")
-                .isEqualTo(product.createdBy().toString());
-        assertThat(jsonContent).extractingJsonPathStringValue("@.lastModifiedBy")
-                .isEqualTo(product.lastModifiedBy().toString());
-        assertThat(jsonContent).extractingJsonPathNumberValue("@.version")
-                .isEqualTo(product.version());
     }
 
     @Test
@@ -58,17 +48,16 @@ public class ProductJsonTests {
                         "stock": 10,
                         "imageUrl": "https://example.com/image.jpg",
                         "brand": "brand",
-                        "createdDate": "2023-09-10T13:48:51.199355Z",
-                        "lastModifiedDate": "2023-09-10T13:48:51.199355Z",
-                        "createdBy": "tomer",
-                        "lastModifiedBy":  "tomer",
-                        "version": 65
+                        "createdDate": null,
+                        "lastModifiedDate": null,
+                        "createdBy": null,
+                        "lastModifiedBy":  null,
+                        "version": 0
                     }
                     """;
-        var instant = Instant.parse("2023-09-10T13:48:51.199355Z");
         assertThat(json.parse(content))
                 .usingRecursiveComparison()
-                .isEqualTo(new Product(242L, "product", 5.5, 24L, 10, "https://example.com/image.jpg", "brand", instant, instant, "tomer", "tomer", 65));
+                .isEqualTo(new Product(242L, "product", 5.5, 24L, 10, "https://example.com/image.jpg", "brand", null, null, null, null, 0));
 
     }
 }

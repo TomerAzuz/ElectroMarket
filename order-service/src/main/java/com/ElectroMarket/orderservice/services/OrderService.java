@@ -54,13 +54,14 @@ public class OrderService {
     @Transactional
     public Mono<Order> submitOrder(OrderRequest orderRequest) {
         return Flux.fromIterable(orderRequest.items())
-                .flatMapSequential(item -> getProductAndProcessOrderItem(item))
+                .flatMap(this::verifyProduct)
                 .collectList()
-                .map(acceptedList -> acceptedList.stream().allMatch(Boolean::booleanValue))
+                .map(isValidProductList -> isValidProductList.stream().allMatch(Boolean::booleanValue))
                 .flatMap(isAccepted -> calculateAndSaveOrder(orderRequest, isAccepted));
     }
 
-    private Mono<Boolean> getProductAndProcessOrderItem(OrderItem item) {
+
+    private Mono<Boolean> verifyProduct(OrderItem item) {
         return productClient.getProductById(item.productId())
                 .map(product -> product != null && product.stock() >= item.quantity())
                 .defaultIfEmpty(false);
@@ -71,10 +72,10 @@ public class OrderService {
                 .map(OrderItem::productId)
                 .collect(Collectors.toSet());
 
+        // FIXME
         Mono<Map<Long, Double>> productPrices = Flux.fromIterable(uniqueProductIds)
-                .flatMapSequential(productId -> productClient.getProductById(productId)
-                        .map(product -> Map.entry(productId, product.price()))
-                )
+                .flatMap(productId -> productClient.getProductById(productId)
+                        .map(product -> Map.entry(productId, product.price())))
                 .collectMap(Map.Entry::getKey, Map.Entry::getValue);
 
         return productPrices.flatMap(prices -> {
@@ -128,10 +129,12 @@ public class OrderService {
     }
 
     private void publishOrderAcceptedEvent(Order order) {
+        log.info("Publishing order accepted event...");
         if (!order.status().equals(OrderStatus.ACCEPTED)) {
             return;
         }
         OrderAcceptedMessage orderAcceptedMessage = new OrderAcceptedMessage(order.id());
+        log.debug("OrderAcceptedMessage content: {}", orderAcceptedMessage);
         log.info("Sending order accepted event with id {}", order.id());
         var result = streamBridge.send("acceptedOrder-out-0", orderAcceptedMessage);
         log.info("Result of sending data for order with id {}: {}", order.id(), result);

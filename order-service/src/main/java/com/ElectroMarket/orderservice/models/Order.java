@@ -1,11 +1,11 @@
 package com.ElectroMarket.orderservice.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.annotation.*;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
 import java.time.Instant;
-import java.util.UUID;
 
 @Table("orders")
 public record Order (
@@ -26,14 +26,18 @@ public record Order (
         @Column("created_date")
         Instant createdDate,
 
+        @JsonIgnore
         @LastModifiedDate
         @Column("last_modified_date")
+
         Instant lastModifiedDate,
 
+        @JsonIgnore
         @LastModifiedBy
         @Column("last_modified_by")
         String lastModifiedBy,
 
+        @JsonIgnore
         @Version
         int version
 

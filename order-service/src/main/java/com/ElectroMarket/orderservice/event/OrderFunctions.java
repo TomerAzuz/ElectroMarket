@@ -1,5 +1,6 @@
 package com.ElectroMarket.orderservice.event;
 
+import com.ElectroMarket.orderservice.models.OrderStatus;
 import com.ElectroMarket.orderservice.services.OrderService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,13 +12,13 @@ import java.util.function.Consumer;
 
 @Configuration
 public class OrderFunctions {
-    private static final Logger log =
-            LoggerFactory.getLogger(OrderFunctions.class);
+    private static final Logger log = LoggerFactory.getLogger(OrderFunctions.class);
 
     @Bean
     public Consumer<Flux<OrderDispatchedMessage>> dispatchOrder(OrderService orderService)  {
         return flux ->
                 orderService.consumeOrderDispatchedEvent(flux)
+                        .filter(order -> order.status() == OrderStatus.ACCEPTED)
                         .doOnNext(order -> log.info("The order with id {} is dispatched.",
                                 order.id())).subscribe();
     }
