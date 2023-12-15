@@ -2,23 +2,23 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-  - ../../../../../order-service/k8s
+- ../../../../../order-service/k8s
 
 patchesStrategicMerge:
-  - patch-env.yml
-  - patch-resources.yml
-  - patch-volumes.yml
+- patch-env.yml
+- patch-resources.yml
+- patch-volumes.yml
 
 configMapGenerator:
-  - behavior: merge
-    files:
-    - application-prod.yml
-    name: order-config
+- behavior: merge
+  files:
+  - application-prod.yml
+  name: order-config
 
 images:
 - name: order-service
   newName: ghcr.io/tomerazuz/order-service
-  newTag: edde35a521fcda6a2d9fa15135ded987589d78f6
+  newTag: 143a8c2edaceb59a1389f62c542d5324d8cdbb16
   
 replicas:
 - count: 1
