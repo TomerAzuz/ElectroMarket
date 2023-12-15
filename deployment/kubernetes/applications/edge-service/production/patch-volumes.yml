@@ -26,6 +26,3 @@ spec:
         - name: keycloak-issuer-client-secret-volume
           secret:
             secretName: keycloak-issuer-client-secret
-        - name: keystore
-          secret:
-            secretName: keystore-secret
