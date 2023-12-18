@@ -4,13 +4,18 @@ metadata:
   name: electro-ingress
 spec:
   ingressClassName: nginx
+  tls:
+  - hosts:
+    - electromarket.us.to
+    secretName: tls-certificate
   rules:
-    - http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: edge-service
-                port:
-                  number: 80
+  - host:
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: edge-service
+            port:
+              number: 80
