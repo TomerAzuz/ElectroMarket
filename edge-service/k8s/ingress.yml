@@ -8,6 +8,7 @@ spec:
   ingressClassName: nginx
   tls:
   - hosts: electromarket.us.to
+    secretName: electro-ingress-tls
   rules:
   - host: electromarket.us.to
     http:
