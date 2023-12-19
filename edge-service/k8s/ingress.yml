@@ -2,14 +2,14 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: electro-ingress
-  annotations:
-    cert-manager.io/cluster-issuer: "letsencrypt-staging"
+  annotations: 
+    cert-manager.io/issuer: "letsencrypt-staging"
 spec:
   ingressClassName: nginx
   tls:
-  - hosts: 
+  - hosts:
     - electromarket.us.to
-    secretName: electro-ingress-tls
+    secretName: quickstart-example-tls
   rules:
   - host: electromarket.us.to
     http:
