@@ -11,7 +11,7 @@ spec:
   #   - electromarket.us.to
   #   secretName: quickstart-example-tls
   rules:
-  - host: electromarket.us.to
+  - host: electromarket.site
     http:
       paths:
       - path: /
