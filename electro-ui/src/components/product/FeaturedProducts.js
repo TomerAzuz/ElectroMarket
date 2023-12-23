@@ -24,7 +24,7 @@ const FeaturedProducts = () => {
           setFeaturedProducts(cachedProducts);
         } else {
           const promises = productIds.map(async (productId) => {
-            const response = await axiosInstance.get(`products/${productId}`);
+            const response = await axiosInstance.get(`/products/${productId}`);
             return response.data;
           });
           const products = await Promise.all(promises);
@@ -54,7 +54,8 @@ const FeaturedProducts = () => {
           featuredProducts.map((product) => (
             <div
               key={product.id}
-              className="relative overflow-hidden w-full h-full p-4 rounded-md flex flex-col justify-between items-center bg-white shadow-lg transition-transform transform hover:scale-105"
+              className="relative overflow-hidden w-full h-full p-4 rounded-md flex flex-col justify-between 
+                          items-center bg-white shadow-lg transition-transform transform hover:scale-105"
               onClick={() => handleProductClick(product)}
             >
               <div className="cursor-pointer max-h-[200px] lg:max-w-[300px] 
