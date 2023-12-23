@@ -35,7 +35,7 @@ public class SecurityConfig {
                 .authorizeExchange(exchange -> exchange
                         .pathMatchers("/actuator/**").permitAll()
                         .pathMatchers("/", "/static/css/**", "/static/js/**", "/favicon.ico", "/dist/**", "/manifest.json").permitAll()
-                        .pathMatchers(HttpMethod.GET, "v1/products/**", "v1/category/**").permitAll()
+                        .pathMatchers(HttpMethod.GET, "/v1/products/**", "/v1/category/**").permitAll()
                         .anyExchange().authenticated())
                 .exceptionHandling(exceptionHandling -> exceptionHandling
                         .authenticationEntryPoint(new HttpStatusServerEntryPoint(HttpStatus.UNAUTHORIZED)))
