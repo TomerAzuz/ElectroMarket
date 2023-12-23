@@ -66,6 +66,7 @@ const CartProvider = ({ children }) => {
         retries++;
 
         if (retries < maxRetries) {
+          /* exponential backoff */
           const delay = Math.pow(2, retries) * 1000;
           setTimeout(submitOrder, delay);
         } else {
@@ -78,7 +79,6 @@ const CartProvider = ({ children }) => {
         showNotification('error', 'Please Sign In');
         return;
     }
-
     if (loading) {
         return;
     }

@@ -14,7 +14,7 @@ const ResourceForm = ({
   confirmChanges
 }) => {
 
-  const tableHeaders = Object.keys(resource[0]).filter((header) => header === 'id');
+  const tableHeaders = Object.keys(resource[0]).filter((header) => header !== 'id');
 
   const validateProduct = () => {
     if (!newRow.name || newRow.name.trim() === '') {
