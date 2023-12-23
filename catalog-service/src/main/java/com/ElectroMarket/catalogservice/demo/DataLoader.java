@@ -16,7 +16,7 @@ import java.io.InputStream;
 import java.util.List;
 
 @Component
-@Profile("testdata")
+@Profile({"testdata", "prod"})
 public class DataLoader {
     private final ProductRepository productRepository;
     private final CategoryRepository categoryRepository;
@@ -27,6 +27,11 @@ public class DataLoader {
     }
 
     @EventListener(ApplicationReadyEvent.class)
+    public void loadData()  {
+        loadCategoryTestData();
+        loadProductTestData();
+    }
+
     public void loadCategoryTestData()  {
         if (categoryRepository.count() == 0)    {
             ObjectMapper objectMapper = new ObjectMapper();
