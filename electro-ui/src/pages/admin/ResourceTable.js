@@ -10,7 +10,7 @@ const ResourceTable = ({
   renderForm,
 }) => {
 
-  const tableHeaders = Object.keys(resource[0]);
+  const tableHeaders = Object.keys(resource[0]).filter((header) => header === 'id');
   
   return (
     <div className='py-32 table-responsive'>
