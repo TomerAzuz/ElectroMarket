@@ -27,7 +27,7 @@ const AdminPage = () => {
     const handleResourceSelection = async () => {
       try {
         setLoading(true);
-  
+        setNewRow([]);
         const params = (endpoint === 'products') ? {
           page: page,
           size: 10,
