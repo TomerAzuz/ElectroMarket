@@ -17,7 +17,7 @@ configMapGenerator:
 images:
 - name: catalog-service
   newName: ghcr.io/tomerazuz/catalog-service
-  newTag: 143a8c2edaceb59a1389f62c542d5324d8cdbb16
+  newTag: 5c749e7615a5e6a0421c72f8d40d577178850347
   
 replicas:
 - count: 2
