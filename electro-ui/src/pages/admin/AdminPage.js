@@ -19,15 +19,6 @@ const AdminPage = () => {
   const [totalPages, setTotalPages] = useState(0);
   const [loading, setLoading] = useState(false);
 
-  const excludedHeaders = [
-    'id',
-    'createdDate',
-    'lastModifiedDate',
-    'createdBy',
-    'lastModifiedBy',
-    'version',
-  ];
-
   const confirmChanges = () => {
     return window.confirm(`Are you sure?`);
   };
@@ -37,13 +28,11 @@ const AdminPage = () => {
       try {
         setLoading(true);
   
-        const params = {};
-  
-        if (endpoint === 'products') {
-          params.page = page;
-          params.size = 10;
-          params.sort = 'name,asc';
-        }
+        const params = (endpoint === 'products') ? {
+          page: page,
+          size: 10,
+          sort: 'name,asc'
+        } : {};
 
         const response = await axiosInstance.get(`/${endpoint}`, { params });
   
@@ -112,7 +101,6 @@ const AdminPage = () => {
       <ResourceForm
         newRow={newRow}
         resource={resource}
-        excludedHeaders={excludedHeaders}
         updateRowId={updateRowId}
         handleInputChange={handleInputChange}
         endpoint={endpoint}
@@ -135,7 +123,6 @@ const AdminPage = () => {
     return (
       <ResourceTable
         resource={resource}
-        excludedHeaders={excludedHeaders}
         showAddRow={showAddRow}
         updateRowId={updateRowId}
         handleDelete={handleDelete}

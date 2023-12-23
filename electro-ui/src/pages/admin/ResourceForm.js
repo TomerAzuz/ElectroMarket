@@ -5,7 +5,6 @@ import axiosInstance from '../../axiosInterceptor';
 const ResourceForm = ({
   newRow,
   resource,
-  excludedHeaders,
   updateRowId,
   handleInputChange,
   endpoint,
@@ -15,8 +14,7 @@ const ResourceForm = ({
   confirmChanges
 }) => {
 
-  const tableHeaders = Object.keys(resource[0]).filter(
-    (header) => !excludedHeaders.includes(header));
+  const tableHeaders = Object.keys(resource[0]);
 
   const validateProduct = () => {
     if (!newRow.name || newRow.name.trim() === '') {

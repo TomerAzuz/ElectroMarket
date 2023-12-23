@@ -36,48 +36,57 @@ const CartProvider = ({ children }) => {
   const handleCheckout = async () => {
     const maxRetries = 3;
     let retries = 0;
+
+    const buildOrderData = () => {
+      return {
+          items: cart.map((item) => ({
+              productId: item.id,
+              quantity: item.quantity,
+          })),
+      };
+  };
+
+  const showNotification = (type, message) => {
+    setLoading(false);
+    toast[type](message);
+};
   
     const submitOrder = async () => {
       setLoading(true);
-      const orderData = {
-        items: cart.map((item) => ({
-          productId: item.id,
-          quantity: item.quantity,
-        })),
-      };
-  
+      const orderData = buildOrderData();
     try {
       const response = await axiosInstance.post('/orders', orderData);
       if (response && response.status === 200) {
         setLoading(false);
-        toast.success('Order Submitted Successfully');
+        showNotification('success', 'Order Submitted Successfully');
         setOrder(response.data);
         clearCart();
       }
     } catch (error) {
         retries++;
+
         if (retries < maxRetries) {
-          setTimeout(submitOrder, 1000);
+          const delay = Math.pow(2, retries) * 1000;
+          setTimeout(submitOrder, delay);
         } else {
-          setLoading(false);
-          toast.error('Unable to submit order.\n Please try again.');
+          showNotification('error', 'Unable to submit order.\n Please try again.');
         }
       }
     };
-  
-    if (user) {
-      if (loading) {
+
+    if (!user) {
+        showNotification('error', 'Please Sign In');
         return;
-      }
+    }
+
+    if (loading) {
+        return;
+    }
       try {
         await submitOrder();
       } catch (error) {
         console.error('Unexpected error:', error);
-      }
-    } else {
-      toast.error('Please Sign In');
-      setLoading(false);
-    }
+      } 
   };
 
   const addToCart = (product) => {

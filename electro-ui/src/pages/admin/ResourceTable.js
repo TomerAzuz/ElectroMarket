@@ -3,7 +3,6 @@ import ResourceTableRow from './ResourceTableRow';
 
 const ResourceTable = ({
   resource,
-  excludedHeaders,
   showAddRow,
   updateRowId,
   handleDelete,
@@ -11,9 +10,8 @@ const ResourceTable = ({
   renderForm,
 }) => {
 
-  const tableHeaders = Object.keys(resource[0]).filter(
-    (header) => !excludedHeaders.includes(header));
-    
+  const tableHeaders = Object.keys(resource[0]);
+  
   return (
     <div className='py-32 table-responsive'>
       <table className='mx-auto table-auto mt-2'>
