@@ -14,7 +14,7 @@ import reactor.core.publisher.Mono;
 @RestController
 public class UserController {
     private static final Logger log = LoggerFactory.getLogger(UserController.class);
-    @GetMapping("api/user")
+    @GetMapping("v1/user")
     public Mono<User> getUser(@AuthenticationPrincipal OidcUser oidcUser)   {
         log.info("Fetching information about the currently authenticated user");
         var user = new User(

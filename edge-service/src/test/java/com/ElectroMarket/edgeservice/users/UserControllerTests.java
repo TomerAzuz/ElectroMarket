@@ -30,7 +30,7 @@ public class UserControllerTests {
     void whenNotAuthenticatedThen401()  {
         webClient
                 .get()
-                .uri("/api/user")
+                .uri("/v1/user")
                 .exchange()
                 .expectStatus().isUnauthorized();
     }
@@ -42,7 +42,7 @@ public class UserControllerTests {
         webClient
                 .mutateWith(configureMockOidcLogin(expectedUser))
                 .get()
-                .uri("/api/user")
+                .uri("/v1/user")
                 .exchange()
                 .expectStatus().is2xxSuccessful()
                 .expectBody(User.class)

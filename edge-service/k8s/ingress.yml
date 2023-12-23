@@ -6,16 +6,16 @@ spec:
   ingressClassName: nginx
   tls:
   - hosts:
-    - electromarket.us.to
-    secretName: tls-certificate
+    - electromarket.site
+    secretName: electro-tls-secret
   rules:
-  - host:
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: edge-service
-            port:
-              number: 80
+    - host: electromarket.site
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: edge-service
+                port:
+                  number: 80

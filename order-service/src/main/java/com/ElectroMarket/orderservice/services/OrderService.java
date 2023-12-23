@@ -54,25 +54,27 @@ public class OrderService {
     @Transactional
     public Mono<Order> submitOrder(OrderRequest orderRequest) {
         return Flux.fromIterable(orderRequest.items())
-                .flatMap(this::verifyProduct)
+                .flatMap(this::validateProduct)
                 .collectList()
                 .map(isValidProductList -> isValidProductList.stream().allMatch(Boolean::booleanValue))
                 .flatMap(isAccepted -> calculateAndSaveOrder(orderRequest, isAccepted));
     }
 
 
-    private Mono<Boolean> verifyProduct(OrderItem item) {
+    /* Check product existence and stock level */
+    private Mono<Boolean> validateProduct(OrderItem item) {
         return productClient.getProductById(item.productId())
                 .map(product -> product != null && product.stock() >= item.quantity())
                 .defaultIfEmpty(false);
     }
 
     private Mono<Order> calculateAndSaveOrder(OrderRequest orderRequest, boolean isAccepted) {
+        /* Ensure unique products */
         Set<Long> uniqueProductIds = orderRequest.items().stream()
                 .map(OrderItem::productId)
                 .collect(Collectors.toSet());
 
-        // FIXME
+        /* calculate total price of order */
         Mono<Map<Long, Double>> productPrices = Flux.fromIterable(uniqueProductIds)
                 .flatMap(productId -> productClient.getProductById(productId)
                         .map(product -> Map.entry(productId, product.price())))

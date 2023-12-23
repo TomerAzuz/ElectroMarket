@@ -80,7 +80,7 @@ public class CatalogServiceApplicationTests {
 
         Product expectedProduct = webTestClient
                 .post()
-                .uri("api/products")
+                .uri("v1/products")
                 .headers(headers -> headers.setBearerAuth(employeeTokens.accessToken()))
                 .bodyValue(product)
                 .exchange()
@@ -90,7 +90,7 @@ public class CatalogServiceApplicationTests {
 
         webTestClient
                 .get()
-                .uri("api/products/" + expectedProduct.id())
+                .uri("v1/products/" + expectedProduct.id())
                 .exchange()
                 .expectStatus().is2xxSuccessful()
                 .expectBody(Product.class).value(actualProduct -> {
@@ -109,7 +109,7 @@ public class CatalogServiceApplicationTests {
 
         webTestClient
                 .post()
-                .uri("api/products")
+                .uri("v1/products")
                 .headers(headers -> headers.setBearerAuth(employeeTokens.accessToken()))
                 .bodyValue(expectedProduct)
                 .exchange()
@@ -131,7 +131,7 @@ public class CatalogServiceApplicationTests {
                 "brand");
         webTestClient
                 .post()
-                .uri("api/products")
+                .uri("v1/products")
                 .bodyValue(expectedProduct)
                 .exchange()
                 .expectStatus().isUnauthorized();
@@ -156,7 +156,7 @@ public class CatalogServiceApplicationTests {
 
         webTestClient
                 .post()
-                .uri("api/products")
+                .uri("v1/products")
                 .headers(headers -> headers.setBearerAuth(customerTokens.accessToken()))
                 .bodyValue(expectedProduct)
                 .exchange()
@@ -182,7 +182,7 @@ public class CatalogServiceApplicationTests {
 
         Product createdProduct = webTestClient
                 .post()
-                .uri("api/products")
+                .uri("v1/products")
                 .headers(headers -> headers.setBearerAuth(employeeTokens.accessToken()))
                 .bodyValue(productToCreate)
                 .exchange()
@@ -206,7 +206,7 @@ public class CatalogServiceApplicationTests {
 
         webTestClient
                 .put()
-                .uri("api/products/" + productToUpdate.id())
+                .uri("v1/products/" + productToUpdate.id())
                 .headers(headers -> headers.setBearerAuth(employeeTokens.accessToken()))
                 .bodyValue(productToUpdate)
                 .exchange()
@@ -236,7 +236,7 @@ public class CatalogServiceApplicationTests {
 
         webTestClient
                 .post()
-                .uri("api/products")
+                .uri("v1/products")
                 .headers(headers -> headers.setBearerAuth(employeeTokens.accessToken()))
                 .bodyValue(productToCreate)
                 .exchange()
@@ -244,14 +244,14 @@ public class CatalogServiceApplicationTests {
 
         webTestClient
                 .delete()
-                .uri("api/products/" + productToCreate.id())
+                .uri("v1/products/" + productToCreate.id())
                 .headers(headers -> headers.setBearerAuth(employeeTokens.accessToken()))
                 .exchange()
                 .expectStatus().isNoContent();
 
         webTestClient
                 .get()
-                .uri("api/products/" + productToCreate.id())
+                .uri("v1/products/" + productToCreate.id())
                 .exchange()
                 .expectStatus().isNotFound()
                 .expectBody(String.class).value(error ->

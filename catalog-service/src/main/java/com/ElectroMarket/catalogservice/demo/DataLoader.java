@@ -16,7 +16,7 @@ import java.io.InputStream;
 import java.util.List;
 
 @Component
-@Profile({"testdata", "prod"})
+@Profile("testdata")
 public class DataLoader {
     private final ProductRepository productRepository;
     private final CategoryRepository categoryRepository;

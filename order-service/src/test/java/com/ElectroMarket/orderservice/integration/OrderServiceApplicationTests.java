@@ -99,7 +99,7 @@ public class OrderServiceApplicationTests {
 
         Order expectedOrder = webTestClient
                 .post()
-                .uri("/api/orders")
+                .uri("/v1/orders")
                 .headers(headers -> headers.setBearerAuth(customerTokens.accessToken()))
                 .bodyValue(orderRequest)
                 .exchange()
@@ -112,7 +112,7 @@ public class OrderServiceApplicationTests {
 
         webTestClient
                 .get()
-                .uri("/api/orders")
+                .uri("/v1/orders")
                 .headers(headers -> headers.setBearerAuth(customerTokens.accessToken()))
                 .exchange()
                 .expectStatus().is2xxSuccessful()
@@ -130,7 +130,7 @@ public class OrderServiceApplicationTests {
         OrderRequest orderRequest = new OrderRequest(List.of(orderItem));
 
         Order expectedOrder = webTestClient.post()
-                .uri("/api/orders")
+                .uri("/v1/orders")
                 .headers(headers -> headers.setBearerAuth(customerTokens.accessToken()))
                 .bodyValue(orderRequest)
                 .exchange()
@@ -153,7 +153,7 @@ public class OrderServiceApplicationTests {
 
         Order expectedOrder = webTestClient
                 .post()
-                .uri("/api/orders")
+                .uri("/v1/orders")
                 .headers(headers -> headers.setBearerAuth(customerTokens.accessToken()))
                 .bodyValue(orderRequest)
                 .exchange()
@@ -177,7 +177,7 @@ public class OrderServiceApplicationTests {
 
         Order expectedOrder = webTestClient
                 .post()
-                .uri("/api/orders")
+                .uri("/v1/orders")
                 .headers(headers -> headers.setBearerAuth(customerTokens.accessToken()))
                 .bodyValue(orderRequest)
                 .exchange()

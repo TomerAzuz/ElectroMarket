@@ -14,7 +14,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
-@RequestMapping("api/orders")
+@RequestMapping("v1/orders")
 public class OrderController {
     private final OrderService orderService;
     private static final Logger log = LoggerFactory.getLogger(OrderController.class);
@@ -46,5 +46,4 @@ public class OrderController {
         log.info("Fetching items for order with id {}", id);
         return orderService.getItemsForOrder(id);
     }
-
 }

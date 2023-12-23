@@ -57,7 +57,7 @@ public class ProductControllerMvcTests {
                 "brand");
         given(productService.viewProductDetails(1L)).willReturn(product);
         mockMvc
-                .perform(get("/api/products/1")
+                .perform(get("/v1/products/1")
                         .with(jwt()))
                 .andExpect(status().isOk());
     }
@@ -66,7 +66,7 @@ public class ProductControllerMvcTests {
         var product = Product.of("product", 9.90, 1L, 10,"https://example.com/image.jpg", "brand");
         given(productService.viewProductDetails(1L)).willReturn(product);
         mockMvc
-                .perform(get("/api/products/1"))
+                .perform(get("/v1/products/1"))
                 .andExpect(status().isOk());
     }
 
@@ -74,7 +74,7 @@ public class ProductControllerMvcTests {
     void getNonExistingProductAndNotAuthenticatedThenShouldReturn404() throws Exception {
         given(productService.viewProductDetails(1L))
                 .willThrow(ResourceNotFoundException.class);
-        mockMvc.perform(get("/api/products/1"))
+        mockMvc.perform(get("/v1/products/1"))
                .andExpect(status().isNotFound());
     }
 
@@ -82,7 +82,7 @@ public class ProductControllerMvcTests {
     void getNonExistingProductAndAuthenticatedThenShouldReturn404() throws Exception {
         given(productService.viewProductDetails(1L))
                 .willThrow(ResourceNotFoundException.class);
-        mockMvc.perform(get("/api/products/1")
+        mockMvc.perform(get("/v1/products/1")
                         .with(jwt()))
                 .andExpect(status().isNotFound());
     }
@@ -91,7 +91,7 @@ public class ProductControllerMvcTests {
     void whenDeleteProductWithEmployeeRoleThenShouldReturn204() throws Exception  {
         var productId = 1;
         mockMvc
-                .perform(MockMvcRequestBuilders.delete("/api/products/" + productId)
+                .perform(MockMvcRequestBuilders.delete("/v1/products/" + productId)
                 .with(SecurityMockMvcRequestPostProcessors.jwt()
                 .authorities(new SimpleGrantedAuthority("ROLE_employee"))))
                 .andExpect(MockMvcResultMatchers.status().isNoContent());
@@ -101,7 +101,7 @@ public class ProductControllerMvcTests {
     void whenDeleteProductWithCustomerRoleThenShouldReturn403() throws Exception {
         var productId = 1;
         mockMvc
-                .perform(MockMvcRequestBuilders.delete("/api/products/" + productId)
+                .perform(MockMvcRequestBuilders.delete("/v1/products/" + productId)
                         .with(SecurityMockMvcRequestPostProcessors.jwt()
                                 .authorities(new SimpleGrantedAuthority("ROLE_customer"))))
                 .andExpect(MockMvcResultMatchers.status().isForbidden());
@@ -111,7 +111,7 @@ public class ProductControllerMvcTests {
     void whenDeleteProductNotAuthenticatedThenShouldReturn401() throws Exception {
         var productId = 1;
         mockMvc
-                .perform(MockMvcRequestBuilders.delete("/api/products/" + productId))
+                .perform(MockMvcRequestBuilders.delete("/v1/products/" + productId))
                 .andExpect(MockMvcResultMatchers.status().isUnauthorized());
     }
 
@@ -125,7 +125,7 @@ public class ProductControllerMvcTests {
                 "https://example.com/image.jpg",
                 "brand");
         mockMvc
-                .perform(post("/api/products")
+                .perform(post("/v1/products")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(product))
                         .with(jwt().authorities(new SimpleGrantedAuthority(ROLE_EMPLOYEE))))
@@ -142,7 +142,7 @@ public class ProductControllerMvcTests {
                 "https://example.com/image.jpg",
                 "brand");
         mockMvc
-                .perform(post("/api/products")
+                .perform(post("/v1/products")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(product))
                         .with(jwt().authorities(new SimpleGrantedAuthority(ROLE_CUSTOMER))))
@@ -155,7 +155,7 @@ public class ProductControllerMvcTests {
         var product = Product.of("product", 9.90, 1L, 10,"https://example.com/image.jpg", "brand");
         given(productService.addProductToCatalog(product)).willReturn(product);
         mockMvc
-                .perform(put("/api/products/" + productId)
+                .perform(put("/v1/products/" + productId)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(product))
                         .with(jwt().authorities(new SimpleGrantedAuthority(ROLE_EMPLOYEE))))
@@ -174,7 +174,7 @@ public class ProductControllerMvcTests {
                 "brand");
         given(productService.addProductToCatalog(product)).willReturn(product);
         mockMvc
-                .perform(put("/api/products/" + productId)
+                .perform(put("/v1/products/" + productId)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(product))
                         .with(jwt().authorities(new SimpleGrantedAuthority(ROLE_CUSTOMER))))
@@ -193,7 +193,7 @@ public class ProductControllerMvcTests {
                 "brand");
         given(productService.addProductToCatalog(product)).willReturn(product);
         mockMvc
-                .perform(put("/api/products/" + productId)
+                .perform(put("/v1/products/" + productId)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(product)))
                 .andExpect(status().isUnauthorized());
@@ -213,7 +213,7 @@ public class ProductControllerMvcTests {
         String requestBody = new ObjectMapper().writeValueAsString(product);
 
         mockMvc
-                .perform(post("/api/products")
+                .perform(post("/v1/products")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(product))
                         .with(jwt().authorities(new SimpleGrantedAuthority(ROLE_EMPLOYEE))))
@@ -223,7 +223,7 @@ public class ProductControllerMvcTests {
                 .willThrow(new ResourceAlreadyExistsException("product", product.id()));
 
         mockMvc.perform(
-                        post("/api/products")
+                        post("/v1/products")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(requestBody)
                                 .with(jwt().authorities(new SimpleGrantedAuthority(ROLE_EMPLOYEE))))

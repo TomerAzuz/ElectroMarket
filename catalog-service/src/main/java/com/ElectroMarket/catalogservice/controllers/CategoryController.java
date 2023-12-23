@@ -9,7 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("api/category")
+@RequestMapping("v1/category")
 public class CategoryController {
     private final CategoryService categoryService;
     private static final Logger log = LoggerFactory.getLogger(ProductController.class);

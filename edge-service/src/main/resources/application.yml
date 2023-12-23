@@ -58,27 +58,27 @@ spring:
           predicates:
             - Path=/, /user/orders, /admin, /cart, /products/**, /order-confirmation, /static/css/**, /static/js/**, /favicon.ico, /dist/**, /manifest.json
         - id: catalog-products-route
-          uri: ${CATALOG_SERVICE_URL:http://localhost:9001}/api/products
+          uri: ${CATALOG_SERVICE_URL:http://localhost:9001}/v1/products
           predicates:
-            - Path=/api/products/**
+            - Path=/v1/products/**
           filters:
             - name: CircuitBreaker
               args:
                 name: catalogCircuitBreaker
                 fallbackUri: forward:/catalog-fallback
         - id: catalog-categories-route
-          uri: ${CATALOG_SERVICE_URL:http://localhost:9001}/api/category
+          uri: ${CATALOG_SERVICE_URL:http://localhost:9001}/v1/category
           predicates:
-            - Path=/api/category/**
+            - Path=/v1/category/**
           filters:
             - name: CircuitBreaker
               args:
                 name: catalogCircuitBreaker
                 fallbackUri: forward:/catalog-fallback
         - id: order-route
-          uri: ${ORDER_SERVICE_URL:http://localhost:9002}/api/orders
+          uri: ${ORDER_SERVICE_URL:http://localhost:9002}/v1/orders
           predicates:
-            - Path=/api/orders/**
+            - Path=/v1/orders/**
           filters:
             - name: CircuitBreaker
               args:
