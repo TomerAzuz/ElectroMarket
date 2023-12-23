@@ -18,7 +18,7 @@ configMapGenerator:
 images:
 - name: order-service
   newName: ghcr.io/tomerazuz/order-service
-  newTag: 143a8c2edaceb59a1389f62c542d5324d8cdbb16
+  newTag: e78510990fb4a8506e0041e7bdb06751a0dfc6c8
   
 replicas:
 - count: 1
