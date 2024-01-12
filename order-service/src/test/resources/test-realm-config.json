@@ -381,12 +381,13 @@
   "users" : [ {
     "id" : "e28b0395-6c30-4e47-88e3-9b447bfb7267",
     "createdTimestamp" : 1654540944876,
-    "username" : "bjorn",
+    "username" : "john123",
+    "email": "john@example.com",
     "enabled" : true,
     "totp" : false,
     "emailVerified" : false,
-    "firstName" : "Bjorn",
-    "lastName" : "Vinterberg",
+    "firstName" : "John",
+    "lastName" : "Doe",
     "credentials" : [ {
       "id" : "4ff88f56-ed3a-4adc-9e46-fc37debf3e99",
       "type" : "password",

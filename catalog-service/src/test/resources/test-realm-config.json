@@ -381,8 +381,8 @@
   "users" : [ {
     "id" : "e28b0395-6c30-4e47-88e3-9b447bfb7267",
     "createdTimestamp" : 1654540944876,
-    "username": "john123",
-    "email": "support@electromarket.site",
+    "username" : "john123",
+    "email": "john@example.com",
     "enabled" : true,
     "totp" : false,
     "emailVerified" : false,
@@ -403,13 +403,13 @@
   }, {
     "id" : "8e86facd-b2fe-4936-8d53-fff3dcaee683",
     "createdTimestamp" : 1654540912940,
-    "username": "tomer123",
-    "email": "tomerazuz1@gmail.com",
+    "username" : "isabelle",
+    "email": "isabelle@example.com",
     "enabled" : true,
     "totp" : false,
     "emailVerified" : false,
-    "firstName" : "Tomer",
-    "lastName" : "Azuz",
+    "firstName" : "Isabelle",
+    "lastName" : "Dahl",
     "credentials" : [ {
       "id" : "7197b022-b1a6-42c3-ae59-29523f8060aa",
       "type" : "password",

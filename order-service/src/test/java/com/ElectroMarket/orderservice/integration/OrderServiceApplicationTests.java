@@ -11,6 +11,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import dasniko.testcontainers.keycloak.KeycloakContainer;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.springframework.cloud.stream.binder.test.TestChannelBinderConfiguration;
+import org.springframework.context.annotation.Import;
 import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.testcontainers.containers.PostgreSQLContainer;
@@ -37,25 +39,26 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@Import(TestChannelBinderConfiguration.class)
 @Testcontainers
 public class OrderServiceApplicationTests {
 
     private static KeycloakToken customerTokens;
 
     @Container
-    private static final KeycloakContainer keycloakContainer = new KeycloakContainer("quay.io/keycloak/keycloak:19.0")
+    private static final KeycloakContainer keycloakContainer = new KeycloakContainer("quay.io/keycloak/keycloak:23.0")
 			.withRealmImportFile("test-realm-config.json");
     @Container
-    static PostgreSQLContainer<?> postgresql = new PostgreSQLContainer<>(DockerImageName.parse("postgres:14.4"));
+    static PostgreSQLContainer<?> postgresql = new PostgreSQLContainer<>(DockerImageName.parse("postgres:14.10"));
 
     @Autowired
-    OutputDestination output;
+    private OutputDestination output;
 
     @Autowired
-    WebTestClient webTestClient;
+    private WebTestClient webTestClient;
 
     @MockBean
-    ProductClient productClient;
+    private ProductClient productClient;
 
     @DynamicPropertySource
     static void postgresqlProperties(DynamicPropertyRegistry registry)  {
@@ -65,7 +68,7 @@ public class OrderServiceApplicationTests {
         registry.add("spring.flyway.url", postgresql::getJdbcUrl);
 
         registry.add("spring.security.oauth2.resourceserver.jwt.issuer-uri",
-                () -> keycloakContainer.getAuthServerUrl() + "realms/ElectroMarket");
+                () -> keycloakContainer.getAuthServerUrl() + "/realms/ElectroMarket");
     }
 
     private static String r2dbcUrl()    {
@@ -76,11 +79,11 @@ public class OrderServiceApplicationTests {
     @BeforeAll
     static void generateAccessTokens() {
         WebClient webClient = WebClient.builder()
-                .baseUrl(keycloakContainer.getAuthServerUrl() + "realms/ElectroMarket/protocol/openid-connect/token")
+                .baseUrl(keycloakContainer.getAuthServerUrl() + "/realms/ElectroMarket/protocol/openid-connect/token")
                 .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_FORM_URLENCODED_VALUE)
                 .build();
 
-        customerTokens = authenticateWith("bjorn", "password", webClient);
+        customerTokens = authenticateWith("john123", "password", webClient);
     }
 
     @Test

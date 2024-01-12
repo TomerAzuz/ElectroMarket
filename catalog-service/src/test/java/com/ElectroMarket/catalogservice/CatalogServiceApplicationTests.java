@@ -46,13 +46,13 @@ public class CatalogServiceApplicationTests {
 
     @Container
     private static final KeycloakContainer keycloakContainer =
-            new KeycloakContainer("quay.io/keycloak/keycloak:19.0")
+            new KeycloakContainer("quay.io/keycloak/keycloak:23.0")
             .withRealmImportFile("test-realm-config.json");
 
     @DynamicPropertySource
     static void dynamicProperties(DynamicPropertyRegistry registry) {
         registry.add("spring.security.oauth2.resourceserver.jwt.issuer-uri",
-                () -> keycloakContainer.getAuthServerUrl() + "realms/ElectroMarket");
+                () -> keycloakContainer.getAuthServerUrl() + "/realms/ElectroMarket");
     }
 
     @AfterEach
@@ -65,12 +65,12 @@ public class CatalogServiceApplicationTests {
     static void generateAccessTokens() {
         WebClient webClient = WebClient.builder()
                 .baseUrl(keycloakContainer.getAuthServerUrl() +
-                        "realms/ElectroMarket/protocol/openid-connect/token")
+                        "/realms/ElectroMarket/protocol/openid-connect/token")
                 .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_FORM_URLENCODED_VALUE)
                 .build();
 
         employeeTokens = authenticateWith("isabelle", "password", webClient);
-        customerTokens = authenticateWith("bjorn", "password", webClient);
+        customerTokens = authenticateWith("john123", "password", webClient);
     }
 
     @Test
