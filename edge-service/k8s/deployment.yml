@@ -33,6 +33,10 @@ spec:
               value: http://catalog-service
             - name: ORDER_SERVICE_URL
               value: http://order-service
+            - name: PAYMENT_SERVICE_URL
+              value: http://payment-service
+            - name: MAIL_SERVICE_URL
+              value: http://mail-service
             - name: SPA_URL
               value: http://electro-ui
           livenessProbe:

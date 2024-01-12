@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Searchbar from '../search/Searchbar';
 import User from '../user/User';
 import Cart from '../cart/Cart';
+import Contact from '../contact/Contact';
 
 function Header() {
   return (
@@ -24,6 +25,7 @@ function Header() {
                       md:ml-0 md:mr-0 group flex-row">
         <Cart />
         <User />
+        <Contact />
       </div>
     </header>
   );

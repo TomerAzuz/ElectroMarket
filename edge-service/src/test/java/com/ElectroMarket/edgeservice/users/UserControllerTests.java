@@ -37,7 +37,7 @@ public class UserControllerTests {
 
     @Test
     void whenAuthenticatedThenReturnUser()  {
-        var expectedUser = new User("tomer123", "tomer", "Tomer", List.of("employee", "customer"));
+        var expectedUser = new User("tomer123", "tomer", "Tomer", "email@exampl.com", List.of("employee", "customer"));
 
         webClient
                 .mutateWith(configureMockOidcLogin(expectedUser))
@@ -54,6 +54,7 @@ public class UserControllerTests {
                 builder.claim(StandardClaimNames.PREFERRED_USERNAME, expectedUser.username());
                 builder.claim(StandardClaimNames.GIVEN_NAME, expectedUser.firstName());
                 builder.claim(StandardClaimNames.FAMILY_NAME, expectedUser.lastName());
+                builder.claim(StandardClaimNames.EMAIL, expectedUser.email());
                 builder.claim("roles", expectedUser.roles());
         });
     }

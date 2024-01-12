@@ -1,7 +1,9 @@
 package com.ElectroMarket.orderservice.models;
 
 public enum OrderStatus {
-    ACCEPTED,
     REJECTED,
-    DISPATCHED
+    PAYMENT_PENDING,
+    PAYMENT_COMPLETED,
+    PAYMENT_CANCELLED,
+    CONFIRMATION_SENT,
 }

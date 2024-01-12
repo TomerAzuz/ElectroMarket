@@ -53,10 +53,6 @@ spring:
               factor: 2
               basedOnPreviousValue: false
       routes:
-        - id: spa-route
-          uri: ${SPA_URL:http://localhost:9004}
-          predicates:
-            - Path=/, /user/orders, /admin, /cart, /products/**, /order-confirmation, /static/css/**, /static/js/**, /favicon.ico, /dist/**, /manifest.json
         - id: catalog-products-route
           uri: ${CATALOG_SERVICE_URL:http://localhost:9001}/v1/products
           predicates:
@@ -83,6 +79,38 @@ spring:
             - name: CircuitBreaker
               args:
                 name: orderCircuitBreaker
+        - id: create-payment-route
+          uri: ${PAYMENT_SERVICE_URL:http://localhost:9005}/createPayment
+          predicates:
+            - Path=/createPayment/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: createPaymentCircuitBreaker
+        - id: capture-payment-route
+          uri: ${PAYMENT_SERVICE_URL:http://localhost:9005}/capturePayment
+          predicates:
+            - Path=/capturePayment/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: capturePaymentCircuitBreaker
+        - id: contact-route
+          uri: ${MAIL_SERVICE_URL:http://localhost:9006}/contact
+          predicates:
+            - Path=/contact/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: contactCircuitBreaker
+        - id: spa-route
+          uri: ${SPA_URL:http://localhost:9004}
+          predicates:
+            - Path=/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: SPACircuitBreaker
   data:
     redis:
       connect-timeout: 2s

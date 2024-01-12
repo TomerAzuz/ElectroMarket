@@ -2,7 +2,6 @@ package com.ElectroMarket.orderservice.integration;
 
 import com.ElectroMarket.orderservice.config.SecurityConfig;
 import com.ElectroMarket.orderservice.controllers.OrderController;
-import com.ElectroMarket.orderservice.dto.OrderRequest;
 import com.ElectroMarket.orderservice.models.Order;
 import com.ElectroMarket.orderservice.models.OrderItem;
 import com.ElectroMarket.orderservice.models.OrderStatus;
@@ -19,6 +18,7 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -40,8 +40,8 @@ public class OrderControllerWebFluxTests {
     @Test
     void whenProductNotAvailableThenRejectOrder()   {
         var item = OrderItem.of(null, 1000L, 1);
-        var orderRequest = new OrderRequest( List.of(item));
-        var expectedOrder = OrderService.buildOrder( 0.0, false);
+        var orderRequest = List.of(item);
+        var expectedOrder = OrderService.buildOrder(BigDecimal.ZERO, false);
         given(orderService.submitOrder(orderRequest))
                 .willReturn(Mono.just(expectedOrder));
 
@@ -61,11 +61,10 @@ public class OrderControllerWebFluxTests {
 
     @Test
     void getExistingOrder()    {
-        var order = new Order(1L, "tomer123", 1000.0,
-                OrderStatus.ACCEPTED, null, null, null,0);
+        var order = new Order(1L, "tomer123", BigDecimal.valueOf(1000.0),
+                OrderStatus.PAYMENT_PENDING, null, null, null,0);
 
-        given(orderService.getOrderById(1L))
-                .willReturn(Mono.just(order));
+        given(orderService.getOrderById(1L)).willReturn(Mono.just(order));
 
         webClient
                 .mutateWith(SecurityMockServerConfigurers.mockJwt()

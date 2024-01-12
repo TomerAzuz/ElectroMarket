@@ -20,6 +20,9 @@ import org.springframework.security.test.web.servlet.request.SecurityMockMvcRequ
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+
+import java.math.BigDecimal;
+
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.jwt;
 
 import static org.mockito.ArgumentMatchers.any;
@@ -50,7 +53,7 @@ public class ProductControllerMvcTests {
     void getExistingProductAndAuthenticatedThenShouldReturn200() throws Exception {
         var product = Product.of(
                 "product",
-                9.90,
+                BigDecimal.valueOf(9.90),
                 1L,
                 10,
                 "https://example.com/image.jpg",
@@ -63,7 +66,7 @@ public class ProductControllerMvcTests {
     }
 
     @Test void getExistingProductAndNotAuthenticatedThenShouldReturn200() throws Exception {
-        var product = Product.of("product", 9.90, 1L, 10,"https://example.com/image.jpg", "brand");
+        var product = Product.of("product", BigDecimal.valueOf(9.90), 1L, 10,"https://example.com/image.jpg", "brand");
         given(productService.viewProductDetails(1L)).willReturn(product);
         mockMvc
                 .perform(get("/v1/products/1"))
@@ -119,7 +122,7 @@ public class ProductControllerMvcTests {
     void whenPostProductWithEmployeeRoleThenShouldReturn201() throws Exception {
         var product = Product.of(
                 "product",
-                9.90,
+                BigDecimal.valueOf(9.90),
                 1L,
                 10,
                 "https://example.com/image.jpg",
@@ -136,7 +139,7 @@ public class ProductControllerMvcTests {
     void whenPostProductWithCustomerRoleThenShouldReturn201() throws Exception {
         var product = Product.of(
                 "product",
-                9.90,
+                BigDecimal.valueOf(9.90),
                 1L,
                 10,
                 "https://example.com/image.jpg",
@@ -152,7 +155,7 @@ public class ProductControllerMvcTests {
     @Test
     void whenPutProductWithEmployeeRoleThenShouldReturn200() throws Exception {
         var productId = 1;
-        var product = Product.of("product", 9.90, 1L, 10,"https://example.com/image.jpg", "brand");
+        var product = Product.of("product", BigDecimal.valueOf(9.90), 1L, 10,"https://example.com/image.jpg", "brand");
         given(productService.addProductToCatalog(product)).willReturn(product);
         mockMvc
                 .perform(put("/v1/products/" + productId)
@@ -167,7 +170,7 @@ public class ProductControllerMvcTests {
         var productId = 1;
         var product = Product.of(
                 "product",
-                9.90,
+                BigDecimal.valueOf(9.90),
                 1L,
                 10,
                 "https://example.com/image.jpg",
@@ -186,7 +189,7 @@ public class ProductControllerMvcTests {
         var productId = 1;
         var product = Product.of(
                 "product",
-                9.90,
+                BigDecimal.valueOf(9.90),
                 1L,
                 10,
                 "https://example.com/image.jpg",
@@ -203,7 +206,7 @@ public class ProductControllerMvcTests {
     void PostExistingProduct() throws Exception {
         Product product = Product.of(
                 "Sample Product",
-                19.99,
+                BigDecimal.valueOf(19.99),
                 1L,
                 10,
                 "https://example.com/image.jpg",

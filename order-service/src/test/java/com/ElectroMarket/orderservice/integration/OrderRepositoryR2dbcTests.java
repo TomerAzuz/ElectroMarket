@@ -19,6 +19,7 @@ import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import reactor.test.StepVerifier;
 
+import java.math.BigDecimal;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -53,7 +54,7 @@ class OrderRepositoryR2dbcTests {
 
     @Test
     void createRejectedOrder()  {
-        var rejectedOrder = OrderService.buildOrder( 0.0, false);
+        var rejectedOrder = OrderService.buildOrder(BigDecimal.ZERO, false);
         StepVerifier
                 .create(orderRepository.save(rejectedOrder))
                 .expectNextMatches(
@@ -70,7 +71,7 @@ class OrderRepositoryR2dbcTests {
 
     @Test
     void whenCreateOrderNotAuthenticatedThenNoAuditMetadata() {
-        var rejectedOrder = OrderService.buildOrder( 1000.0, false);
+        var rejectedOrder = OrderService.buildOrder(BigDecimal.valueOf(1000), false);
         StepVerifier.create(orderRepository.save(rejectedOrder))
                 .expectNextMatches(order -> Objects.isNull(order.createdBy()) &&
                         Objects.isNull(order.lastModifiedBy()))
@@ -80,7 +81,7 @@ class OrderRepositoryR2dbcTests {
     @Test
     @WithMockUser("tomer")
     void whenCreateOrderAuthenticatedThenAuditMetadata() {
-        var rejectedOrder = OrderService.buildOrder( 1000.0, false);
+        var rejectedOrder = OrderService.buildOrder(BigDecimal.valueOf(1000), false);
         StepVerifier.create(orderRepository.save(rejectedOrder))
                 .expectNextMatches(order -> order.createdBy().equals("tomer") &&
                         order.lastModifiedBy().equals("tomer"))

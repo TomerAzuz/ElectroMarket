@@ -1,0 +1,23 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../../../../../mail-service/k8s
+
+patchesStrategicMerge:
+  - patch-env.yml
+
+configMapGenerator:
+  - behavior: merge
+    files:
+      - application-staging.yml
+    name: mail-config
+
+images:
+  - name: mail-service
+    newName: ghcr.io/tomerazuz/mail-service
+    newTag: latest
+
+replicas:
+  - name: mail-service
+    count: 1

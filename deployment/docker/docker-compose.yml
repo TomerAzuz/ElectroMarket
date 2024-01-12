@@ -15,7 +15,7 @@ services:
       - BPL_JVM_THREAD_COUNT=50
       - BPL_DEBUG_ENABLED=true
       - BPL_DEBUG_PORT=8001
-      - JAVA_TOOL_OPTIONS=-javaagent:/workspace/BOOT-INF/lib/opentelemetry-javaagent-1.24.0.jar
+      - JAVA_TOOL_OPTIONS=-javaagent:/workspace/BOOT-INF/lib/opentelemetry-javaagent-1.32.0.jar
       - OTEL_SERVICE_NAME=catalog-service
       - OTEL_EXPORTER_OTLP_ENDPOINT=http://tempo:4317
       - OTEL_METRICS_EXPORTER=none
@@ -42,7 +42,7 @@ services:
     environment:
       - BPL_DEBUG_ENABLED=true
       - BPL_DEBUG_PORT=8002
-      - JAVA_TOOL_OPTIONS=-javaagent:/workspace/BOOT-INF/lib/opentelemetry-javaagent-1.24.0.jar
+      - JAVA_TOOL_OPTIONS=-javaagent:/workspace/BOOT-INF/lib/opentelemetry-javaagent-1.32.0.jar
       - OTEL_SERVICE_NAME=order-service
       - OTEL_EXPORTER_OTLP_ENDPOINT=http://tempo:4317
       - OTEL_METRICS_EXPORTER=none
@@ -57,24 +57,53 @@ services:
       options:
         fluentd-address: 127.0.0.1:24224
 
-  dispatcher-service:
+  payment-service:
     depends_on:
       - fluent-bit
       - electro-rabbitmq
-    image: ghcr.io/tomerazuz/dispatcher-service:latest
-    container_name: dispatcher-service
+    image: payment-service
+    container_name: payment-service
     ports:
-      - "9003:9003"
-      - "8003:8003"
+      - "9005:9005"
+      - "8005:8005"
+    env_file:
+      - payment-service.env
     environment:
       - BPL_DEBUG_ENABLED=true
-      - BPL_DEBUG_PORT=8003
-      - JAVA_TOOL_OPTIONS=-javaagent:/workspace/BOOT-INF/lib/opentelemetry-javaagent-1.24.0.jar
-      - OTEL_SERVICE_NAME=dispatcher-service
+      - BPL_DEBUG_PORT=8005
+      - JAVA_TOOL_OPTIONS=-javaagent:/workspace/BOOT-INF/lib/opentelemetry-javaagent-1.32.0.jar
+      - OTEL_SERVICE_NAME=payment-service
       - OTEL_EXPORTER_OTLP_ENDPOINT=http://tempo:4317
       - OTEL_METRICS_EXPORTER=none
       - SPRING_CLOUD_CONFIG_URI=http://config-service:8888
       - SPRING_RABBITMQ_HOST=electro-rabbitmq
+      - SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER_URI=http://host.docker.internal:8080/realms/ElectroMarket
+    logging:
+      driver: fluentd
+      options:
+        fluentd-address: 127.0.0.1:24224
+
+  mail-service:
+    depends_on:
+      - fluent-bit
+      - electro-rabbitmq
+    image: mail-service
+    container_name: mail-service
+    ports:
+      - "9006:9006"
+      - "8006:8006"
+    env_file:
+      - mail-service.env
+    environment:
+      - BPL_DEBUG_ENABLED=true
+      - BPL_DEBUG_PORT=8006
+      - JAVA_TOOL_OPTIONS=-javaagent:/workspace/BOOT-INF/lib/opentelemetry-javaagent-1.32.0.jar
+      - OTEL_SERVICE_NAME=mail-service
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://tempo:4317
+      - OTEL_METRICS_EXPORTER=none
+      - SPRING_CLOUD_CONFIG_URI=http://config-service:8888
+      - SPRING_RABBITMQ_HOST=electro-rabbitmq
+      - SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER_URI=http://host.docker.internal:8080/realms/ElectroMarket
     logging:
       driver: fluentd
       options:
@@ -94,13 +123,15 @@ services:
     environment:
       - BPL_DEBUG_ENABLED=true
       - BPL_DEBUG_PORT=8000
-      - JAVA_TOOL_OPTIONS=-javaagent:/workspace/BOOT-INF/lib/opentelemetry-javaagent-1.24.0.jar
+      - JAVA_TOOL_OPTIONS=-javaagent:/workspace/BOOT-INF/lib/opentelemetry-javaagent-1.32.0.jar
       - OTEL_SERVICE_NAME=edge-service
       - OTEL_EXPORTER_OTLP_ENDPOINT=http://tempo:4317
       - OTEL_METRICS_EXPORTER=none
       - CATALOG_SERVICE_URL=http://catalog-service:9001
       - ORDER_SERVICE_URL=http://order-service:9002
       - SPA_URL=http://electro-ui:9004
+      - PAYMENT_SERVICE_URL=http://payment-service:9005
+      - MAIL_SERVICE_URL=http://mail-service:9006
       - SPRING_CLOUD_CONFIG_URI=http://config-service:8888
       - SPRING_DATA_REDIS_HOST=electro-redis
       - SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_KEYCLOAK_ISSUER_URI=http://host.docker.internal:8080/realms/ElectroMarket
@@ -112,7 +143,7 @@ services:
   config-service:
     depends_on:
       - fluent-bit
-    image: "config-service"
+    image: ghcr.io/tomerazuz/config-service:latest
     container_name: "config-service"
     ports:
       - "8888:8888"
@@ -121,7 +152,7 @@ services:
       - BPL_JVM_THREAD_COUNT=50
       - BPL_DEBUG_ENABLED=true
       - BPL_DEBUG_PORT=9888
-      - JAVA_TOOL_OPTIONS=-javaagent:/workspace/BOOT-INF/lib/opentelemetry-javaagent-1.24.0.jar
+      - JAVA_TOOL_OPTIONS=-javaagent:/workspace/BOOT-INF/lib/opentelemetry-javaagent-1.32.0.jar
       - OTEL_SERVICE_NAME=config-service
       - OTEL_EXPORTER_OTLP_ENDPOINT=http://tempo:4317
       - OTEL_METRICS_EXPORTER=none
@@ -145,7 +176,7 @@ services:
         fluentd-address: 127.0.0.1:24224
 
   electro-rabbitmq:
-    image: rabbitmq:3.10-management
+    image: rabbitmq:3.12-management
     container_name: electro-rabbitmq
     ports:
       - "5672:5672"
@@ -160,7 +191,7 @@ services:
       - "6379:6379"
 
   electro-keycloak:
-    image: quay.io/keycloak/keycloak:19.0
+    image: quay.io/keycloak/keycloak:23.0
     container_name: "electro-keycloak"
     command: start-dev --import-realm
     volumes:
@@ -172,7 +203,7 @@ services:
       - "8080:8080"
 
   electro-postgres:
-    image: "postgres:14.4"
+    image: "postgres:14.10"
     container_name: "electro-postgres"
     ports:
       - "5432:5432"
@@ -183,7 +214,7 @@ services:
       - ./postgresql/init.sql:/docker-entrypoint-initdb.d/init.sql
 
   grafana:
-    image: grafana/grafana:9.3.2
+    image: grafana/grafana:10.2.2
     container_name: grafana
     depends_on:
       - loki
@@ -200,7 +231,7 @@ services:
       - ./observability/grafana/grafana.ini:/etc/grafana/grafana.ini
 
   loki:
-    image: grafana/loki:2.7.1
+    image: grafana/loki:2.9.2
     container_name: loki
     depends_on:
       - fluent-bit
@@ -208,7 +239,7 @@ services:
       - "3100:3100"
 
   fluent-bit:
-    image: grafana/fluent-bit-plugin-loki:2.7.1-amd64
+    image: grafana/fluent-bit-plugin-loki:2.9.1
     container_name: fluent-bit
     ports:
       - "24224:24224"
@@ -218,7 +249,7 @@ services:
       - ./observability/fluent-bit/fluent-bit.conf:/fluent-bit/etc/fluent-bit.conf
 
   prometheus:
-    image: prom/prometheus:v2.40.7
+    image: prom/prometheus:v2.48.0
     container_name: prometheus
     ports:
       - "9090:9090"
@@ -226,7 +257,7 @@ services:
       - ./observability/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
 
   tempo:
-    image: grafana/tempo:1.5.0
+    image: grafana/tempo:2.3.1
     container_name: tempo
     command: -config.file /etc/tempo-config.yml
     ports:

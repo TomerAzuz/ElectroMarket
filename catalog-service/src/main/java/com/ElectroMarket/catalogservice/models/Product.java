@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.validation.constraints.*;
 import org.springframework.data.annotation.*;
 
+import java.math.BigDecimal;
 import java.time.Instant;
 
 public record Product(
@@ -16,7 +17,7 @@ public record Product(
 
         @NotNull(message = "The product price is required.")
         @Positive(message = "The product price must be greater than zero.")
-        Double price,
+        BigDecimal price,
 
         @NotNull(message = "The product category id is required.")
         Long categoryId,
@@ -55,7 +56,7 @@ public record Product(
         int version
 ) {
     public static Product of(
-            String name, Double price,
+            String name, BigDecimal price,
             Long categoryId, Integer stock,
             String imageUrl, String brand
 

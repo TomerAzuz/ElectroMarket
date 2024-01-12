@@ -18,6 +18,7 @@ import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.ActiveProfiles;
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
@@ -42,9 +43,9 @@ public class ProductRepositoryJdbcTests {
         Category category1 = categoryRepository.save(Category.of("Laptops"));
         Category category2 = categoryRepository.save(Category.of("Cameras"));
 
-        var prod1 = new Product(1L,"Laptop", 1129.99, category1.id(), 10,
+        var prod1 = new Product(1L,"Laptop", BigDecimal.valueOf(1129.99), category1.id(), 10,
                 "https://example.com/image.jpg", "brand", null, null, null, null, 0);
-        var prod2 = new Product(2L,"Camera", 199.99, category2.id(), 10,
+        var prod2 = new Product(2L,"Camera", BigDecimal.valueOf(199.99), category2.id(), 10,
                 "https://example.com/image2.jpg", "brand", null, null, null, null, 0);
         var products = List.of(prod1, prod2);
 
@@ -63,9 +64,9 @@ public class ProductRepositoryJdbcTests {
         Category category1 = categoryRepository.save(Category.of("Laptops"));
         Category category2 = categoryRepository.save(Category.of("Cameras"));
         var products = List.of(
-                Product.of("Laptop1", 1029.99, category1.id(), 110, "https://example.com/image.jpg", "brand"),
-                Product.of("Camera", 129.99, category2.id(), 40, "https://example.com/image2.jpg", "brand"),
-                Product.of("Laptop2", 760.0, category1.id(), 15, "https://example.com/image3.jpg", "brand")
+                Product.of("Laptop1", BigDecimal.valueOf(1029.99), category1.id(), 110, "https://example.com/image.jpg", "brand"),
+                Product.of("Camera", BigDecimal.valueOf(129.99), category2.id(), 40, "https://example.com/image2.jpg", "brand"),
+                Product.of("Laptop2", BigDecimal.valueOf(760.0), category1.id(), 15, "https://example.com/image3.jpg", "brand")
         );
         jdbcAggregateTemplate.insertAll(products);
         Pageable pageable = PageRequest.of(0, 10);
@@ -81,7 +82,7 @@ public class ProductRepositoryJdbcTests {
     void findExistingProductByName()  {
         Category category = categoryRepository.save(Category.of("Laptops"));
 
-        var product = Product.of("Laptop", 1129.99, category.id(), 10, "https://example.com/image.jpg", "brand");
+        var product = Product.of("Laptop", BigDecimal.valueOf(1129.99), category.id(), 10, "https://example.com/image.jpg", "brand");
 
         jdbcAggregateTemplate.insert(product);
         Pageable pageable = PageRequest.of(0, 1);
@@ -104,7 +105,7 @@ public class ProductRepositoryJdbcTests {
     @Test
     void saveProduct()  {
         Category category = categoryRepository.save(Category.of("Laptops"));
-        var prod1 = Product.of("Laptop", 1129.99, category.id(), 10, "https://example.com/image.jpg", "brand");
+        var prod1 = Product.of("Laptop", BigDecimal.valueOf(1129.99), category.id(), 10, "https://example.com/image.jpg", "brand");
 
         Product savedProduct = productRepository.save(prod1);
 
@@ -116,7 +117,7 @@ public class ProductRepositoryJdbcTests {
     @Test
     void deleteProduct() {
         Category category = categoryRepository.save(Category.of("Laptops"));
-        var product = Product.of("Laptop", 299.99, category.id(), 5, "https://example.com/image.jpg", "brand");
+        var product = Product.of("Laptop", BigDecimal.valueOf(299.99), category.id(), 5, "https://example.com/image.jpg", "brand");
 
         jdbcAggregateTemplate.insert(product);
         Pageable pageable = PageRequest.of(0, 1);
@@ -131,7 +132,7 @@ public class ProductRepositoryJdbcTests {
     @Test
     void whenCreateProductNotAuthenticatedThenNoAuditMetadata() {
         Category category = categoryRepository.save(Category.of("Laptops"));
-        var productToCreate = Product.of("Laptop", 299.99, category.id(), 5, "https://example.com/image.jpg", "brand");
+        var productToCreate = Product.of("Laptop", BigDecimal.valueOf(299.99), category.id(), 5, "https://example.com/image.jpg", "brand");
         var createdProduct = productRepository.save(productToCreate);
 
         assertThat(createdProduct.createdBy()).isNull();
@@ -141,7 +142,7 @@ public class ProductRepositoryJdbcTests {
     @WithMockUser("tomer")
     void whenCreateProductAuthenticatedThenAuditingMetadata()   {
         Category category = categoryRepository.save(Category.of("Laptops"));
-        var productToCreate = Product.of("Laptop", 299.99, category.id(), 5, "https://example.com/image.jpg", "brand");
+        var productToCreate = Product.of("Laptop", BigDecimal.valueOf(299.99), category.id(), 5, "https://example.com/image.jpg", "brand");
         var createdProduct = productRepository.save(productToCreate);
 
         assertThat(createdProduct.createdBy()).isEqualTo("tomer");

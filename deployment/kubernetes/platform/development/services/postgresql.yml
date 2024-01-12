@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
         - name: electro-postgres
-          image: postgres:15.2
+          image: postgres:14.10
           env:
             - name: POSTGRES_USER
               value: user

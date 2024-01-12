@@ -1,5 +1,6 @@
 package com.ElectroMarket.catalogservice.integration;
 
+import java.math.BigDecimal;
 import java.time.Instant;
 
 import com.ElectroMarket.catalogservice.models.Product;
@@ -19,7 +20,7 @@ public class ProductJsonTests {
     @Test
     void testSerialize() throws Exception {
         var now = Instant.now();
-        var product = new Product(123L, "Product", 9.99, 1L,
+        var product = new Product(123L, "Product", BigDecimal.valueOf(9.99), 1L,
                             10, "https://example.com/image.jpg", "brand",  now, now, "tomer", "tomer", 25);
         var jsonContent = json.write(product);
 
@@ -28,7 +29,7 @@ public class ProductJsonTests {
         assertThat(jsonContent).extractingJsonPathStringValue("@.name")
                 .isEqualTo(product.name());
         assertThat(jsonContent).extractingJsonPathNumberValue("@.price")
-                .isEqualTo(product.price());
+                .isEqualTo(product.price().doubleValue());
         assertThat(jsonContent).extractingJsonPathNumberValue("@.categoryId")
                 .isEqualTo(product.categoryId().intValue());
         assertThat(jsonContent).extractingJsonPathStringValue("@.imageUrl")
@@ -57,7 +58,7 @@ public class ProductJsonTests {
                     """;
         assertThat(json.parse(content))
                 .usingRecursiveComparison()
-                .isEqualTo(new Product(242L, "product", 5.5, 24L, 10, "https://example.com/image.jpg", "brand", null, null, null, null, 0));
+                .isEqualTo(new Product(242L, "product", BigDecimal.valueOf(5.5), 24L, 10, "https://example.com/image.jpg", "brand", null, null, null, null, 0));
 
     }
 }

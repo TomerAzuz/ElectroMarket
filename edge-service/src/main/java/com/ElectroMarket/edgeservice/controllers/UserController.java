@@ -21,6 +21,7 @@ public class UserController {
                 oidcUser.getPreferredUsername(),
                 oidcUser.getGivenName(),
                 oidcUser.getFamilyName(),
+                oidcUser.getEmail(),
                 oidcUser.getClaimAsStringList("roles")
         );
         return Mono.just(user);

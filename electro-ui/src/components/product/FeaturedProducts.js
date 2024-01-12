@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axiosInstance from '../../axiosInterceptor';
+import Loader from '../common/Loader';
 
 const FeaturedProducts = () => {
   const [featuredProducts, setFeaturedProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   const handleProductClick = (product) => {
@@ -17,24 +19,25 @@ const FeaturedProducts = () => {
 
     const fetchFeaturedProducts = async () => {
       try {
-        const cachedProducts =
-          JSON.parse(localStorage.getItem('featuredProducts')) || [];
+        const cachedProducts = JSON.parse(localStorage.getItem('featuredProducts')) || [];
         if (cachedProducts.length > 0) {
           // Use cached data if available
           setFeaturedProducts(cachedProducts);
-        } else {
-          const promises = productIds.map(async (productId) => {
-            const response = await axiosInstance.get(`/products/${productId}`);
-            return response.data;
-          });
-          const products = await Promise.all(promises);
-          setFeaturedProducts(products);
-
-          // Cache the fetched data
-          localStorage.setItem('featuredProducts', JSON.stringify(products));
         }
+
+        const promises = productIds.map(async (productId) => {
+          const response = await axiosInstance.get(`/products/${productId}`);
+          return response.data;
+        });
+        const products = await Promise.all(promises);
+        setFeaturedProducts(products);
+
+        // Cache the fetched data
+        localStorage.setItem('featuredProducts', JSON.stringify(products));
       } catch (error) {
         console.error('Error fetching products:', error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -54,8 +57,10 @@ const FeaturedProducts = () => {
           featuredProducts.map((product) => (
             <div
               key={product.id}
-              className="relative overflow-hidden w-full h-full p-4 rounded-md flex flex-col justify-between 
-                          items-center bg-white shadow-lg transition-transform transform hover:scale-105"
+              className="relative overflow-hidden w-full h-full p-4 rounded-md 
+                          flex flex-col justify-between 
+                          items-center bg-white shadow-lg 
+                          transition-transform transform hover:scale-105"
               onClick={() => handleProductClick(product)}
             >
               <div className="cursor-pointer max-h-[200px] lg:max-w-[300px] 
@@ -84,7 +89,9 @@ const FeaturedProducts = () => {
             </div>
           ))
         ) : (
-          <p>Loading...</p>
+          <div className="flex items-center justify-center h-32">
+            <Loader loading={loading} />
+          </div>
         )}
       </div>
     </div>

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FiTrash2 } from 'react-icons/fi';
-
+import Loader from '../../components/common/Loader';
 import { CartContext } from '../../contexts/CartContext';
 import CartItem from '../../components/cart/CartItem';
 
@@ -14,19 +14,15 @@ const CartPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    order && navigate('/order-confirmation', {
-      state: {order: order}
-    });
+    order && navigate('/paypal-redirect');
     setOrder(null);
   }, [order, navigate, setOrder]);
-  
-  const isCartEmpty = cart.length === 0;
 
   return (
     <div className="container mx-auto p-4 md:py-8 py-20 lg:py-16">
       <div>
         <h2 className="text-2xl font-semibold mb-4 mt-32">Shopping Cart</h2>
-        {isCartEmpty ? 
+        {cart.length === 0 ? 
           (
           <div className="text-center">
             <p className="text-lg font-semibold mb-4">Cart is empty</p>
@@ -38,8 +34,9 @@ const CartPage = () => {
           ) : (
           <>
             {loading && (
-              <div className="text-center text-gray-600 mb-4">
-                <p>Processing your order...</p>
+              <div className='flex items-center flex-col h-32'>
+                <p className="text-center text-gray-600 mb-4">Processing your order...</p>
+                <Loader loading={loading}/>
               </div>
             )}
             <div className="mb-4">({itemQuantity} products)</div>

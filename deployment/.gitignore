@@ -35,3 +35,7 @@ out/
 
 ### VS Code ###
 .vscode/
+
+# Enviornment Variables
+mail-service.env
+payment-service.env

@@ -11,7 +11,7 @@ axiosInstance.interceptors.response.use(
     if (error.response && error.response.status === 401)  {
       const navigate = useNavigate();
       navigate('/');
-      return new Promise(() => {}); 
+      return Promise.resolve();
     } else  {
       return Promise.reject(error);
     }

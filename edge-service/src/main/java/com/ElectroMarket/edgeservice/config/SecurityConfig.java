@@ -15,8 +15,12 @@ import org.springframework.security.web.server.SecurityWebFilterChain;
 import org.springframework.security.web.server.authentication.HttpStatusServerEntryPoint;
 import org.springframework.security.web.server.authentication.logout.ServerLogoutSuccessHandler;
 import org.springframework.security.web.server.csrf.CookieServerCsrfTokenRepository;
+
 import org.springframework.security.web.server.csrf.CsrfToken;
 import org.springframework.security.web.server.csrf.XorServerCsrfTokenRequestAttributeHandler;
+import org.springframework.security.web.server.util.matcher.AndServerWebExchangeMatcher;
+import org.springframework.security.web.server.util.matcher.NegatedServerWebExchangeMatcher;
+import org.springframework.security.web.server.util.matcher.ServerWebExchangeMatchers;
 import org.springframework.web.server.WebFilter;
 import reactor.core.publisher.Mono;
 
@@ -35,13 +39,20 @@ public class SecurityConfig {
                 .authorizeExchange(exchange -> exchange
                         .pathMatchers("/actuator/**").permitAll()
                         .pathMatchers("/", "/static/css/**", "/static/js/**", "/favicon.ico", "/dist/**", "/manifest.json").permitAll()
-                        .pathMatchers(HttpMethod.GET, "/v1/products/**", "/v1/category/**").permitAll()
+                        .pathMatchers(HttpMethod.GET, "v1/products/**", "v1/category/**").permitAll()
+                        .pathMatchers(HttpMethod.POST,  "/capturePayment", "/contact").permitAll()
                         .anyExchange().authenticated())
                 .exceptionHandling(exceptionHandling -> exceptionHandling
                         .authenticationEntryPoint(new HttpStatusServerEntryPoint(HttpStatus.UNAUTHORIZED)))
                 .oauth2Login(Customizer.withDefaults())
                 .logout(logout -> logout.logoutSuccessHandler(oidcLogoutSuccessHandler(clientRegistrationRepository)))
                 .csrf(csrf -> csrf
+                        /* Disable csrf protection for payment webhooks and all get requests */
+                        .requireCsrfProtectionMatcher(
+                                new AndServerWebExchangeMatcher(
+                                        new NegatedServerWebExchangeMatcher(ServerWebExchangeMatchers.pathMatchers(HttpMethod.POST, "/capturePayment/**")),
+                                        new NegatedServerWebExchangeMatcher(ServerWebExchangeMatchers.pathMatchers(HttpMethod.GET, "/**")))
+                        )
                         .csrfTokenRepository(CookieServerCsrfTokenRepository.withHttpOnlyFalse())
                         .csrfTokenRequestHandler(new XorServerCsrfTokenRequestAttributeHandler()::handle))
                 .build();

@@ -24,6 +24,8 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import java.math.BigDecimal;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -75,7 +77,7 @@ public class CatalogServiceApplicationTests {
     void whenGetRequestWithIdThenProductReturned()  {
         Category category = categoryRepository.save(Category.of("category"));
 
-        var product = new Product(1L,"Laptop", 1129.99, category.id(), 10,
+        var product = new Product(1L,"Laptop", BigDecimal.valueOf(1129.99), category.id(), 10,
                 "https://example.com/image.jpg", "brand", null, null, null, null, 0);
 
         Product expectedProduct = webTestClient
@@ -104,7 +106,7 @@ public class CatalogServiceApplicationTests {
     void whenPostRequestThenProductCreated()    {
         Category category = categoryRepository.save(Category.of("category"));
 
-        var expectedProduct = new Product(1L,"Laptop", 1129.99, category.id(), 10,
+        var expectedProduct = new Product(1L,"Laptop", BigDecimal.valueOf(1129.99), category.id(), 10,
                 "https://example.com/image.jpg", "brand", null, null, null, null, 0);
 
         webTestClient
@@ -124,7 +126,7 @@ public class CatalogServiceApplicationTests {
     void whenPostRequestUnauthenticatedThen401()    {
         var expectedProduct = Product.of(
                 "product",
-                100.0,
+                BigDecimal.valueOf(100.0),
                 1L,
                 24,
                 "https://example.com/image.jpg",
@@ -143,7 +145,7 @@ public class CatalogServiceApplicationTests {
         var expectedProduct = new Product(
                 1L,
                 "Laptop",
-                1129.99,
+                BigDecimal.valueOf(1129.99),
                 category.id(),
                 10,
                 "https://example.com/image.jpg",
@@ -169,7 +171,7 @@ public class CatalogServiceApplicationTests {
         var productToCreate = new Product(
                 1L,
                 "Laptop",
-                1129.99,
+                BigDecimal.valueOf(1129.99),
                 category.id(),
                 10,
                 "https://example.com/image.jpg",
@@ -193,7 +195,7 @@ public class CatalogServiceApplicationTests {
         var productToUpdate = new Product(
                 createdProduct.id(),
                 createdProduct.name(),
-                90.0,
+                BigDecimal.valueOf(90.0),
                 createdProduct.categoryId(),
                 createdProduct.stock(),
                 createdProduct.imageUrl(),
@@ -223,7 +225,7 @@ public class CatalogServiceApplicationTests {
         var productToCreate = new Product(
                 1L,
                 "Laptop",
-                1129.99,
+                BigDecimal.valueOf(1129.99),
                 category.id(),
                 10,
                 "https://example.com/image.jpg",

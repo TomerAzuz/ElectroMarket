@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { FaPlus } from 'react-icons/fa';
 import { toast } from 'react-hot-toast';
+import Loader from '../../components/common/Loader';
 
 import { AuthContext } from '../../contexts/AuthContext';
 import axiosInstance from '../../axiosInterceptor';
@@ -114,7 +115,7 @@ const AdminPage = () => {
 
   const renderTable = () => {
     if (loading) {
-      return <p>Loading...</p>;
+      return <Loader loading={true} />
     }
   
     if (!resource || resource.length === 0 || endpoint.length === 0) {

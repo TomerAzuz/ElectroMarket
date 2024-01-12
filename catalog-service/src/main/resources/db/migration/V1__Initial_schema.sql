@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS category;
 CREATE TABLE category (
-    id SERIAL PRIMARY KEY,
+    id BIGSERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     image_url VARCHAR(255)
 );
@@ -9,8 +9,8 @@ DROP TABLE IF EXISTS product;
 CREATE TABLE product (
     id BIGSERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
-    price FLOAT8 NOT NULL,
-    category_id BIGINT NOT NULL,
+    price NUMERIC(10, 2) NOT NULL,
+    category_id SERIAL NOT NULL,
     stock INTEGER NOT NULL,
     image_url VARCHAR(255),
     brand VARCHAR(255),

@@ -5,6 +5,7 @@ import org.springframework.data.annotation.*;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
+import java.math.BigDecimal;
 import java.time.Instant;
 
 @Table("orders")
@@ -17,7 +18,7 @@ public record Order (
         String createdBy,
 
         @Column("total")
-        Double total,
+        BigDecimal total,
 
         @Column("status")
         OrderStatus status,
@@ -29,7 +30,6 @@ public record Order (
         @JsonIgnore
         @LastModifiedDate
         @Column("last_modified_date")
-
         Instant lastModifiedDate,
 
         @JsonIgnore
@@ -42,7 +42,7 @@ public record Order (
         int version
 
 ) {
-        public static Order of(Double price, OrderStatus status)     {
+        public static Order of(BigDecimal price, OrderStatus status)     {
                 return new Order(null, null, price, status, null, null, null,0);
         }
 }

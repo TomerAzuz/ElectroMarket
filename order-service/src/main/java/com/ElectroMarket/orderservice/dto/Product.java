@@ -1,8 +1,10 @@
 package com.ElectroMarket.orderservice.dto;
 
+import java.math.BigDecimal;
+
 public record Product (
         Long id,
         String name,
-        Double price,
+        BigDecimal price,
         Integer stock
 ) {}

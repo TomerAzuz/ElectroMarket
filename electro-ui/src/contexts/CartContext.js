@@ -3,6 +3,7 @@ import { toast } from 'react-hot-toast';
 
 import { AuthContext } from './AuthContext';
 import axiosInstance from '../axiosInterceptor'; 
+import axios from 'axios';
 
 export const CartContext = createContext();
 
@@ -14,53 +15,57 @@ const CartProvider = ({ children }) => {
   const { user } = useContext(AuthContext);
   const [order, setOrder] = useState(null);
 
-  /* calculate total price */
   useEffect(() => {
-    const total = cart.reduce((acc, item) => {
-      return acc + item.price * item.quantity;
-    }, 0);
-    setTotal(total);
-      
-  }, [cart]);
+    const totalPrice = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    setTotal(totalPrice);
 
-  /* count products */
-  useEffect(() => {
-    if (cart)   {
-      const quantity = cart.reduce((acc, item) => {
-        return acc + item.quantity;
-      }, 0);
-      setItemQuantity(quantity);
+    const quantity = cart.reduce((acc, item) => acc + item.quantity, 0);
+    setItemQuantity(quantity);
+}, [cart]);
+
+  const initiatePayment = async (total, orderId) => {
+    try {
+      const response = await axios.post('/createPayment', { total: total, orderId: orderId });
+
+      if (response.status === 200)  {
+        /* redirect to PayPal */
+        window.location.href = response.data;
+      }
+    } catch (error) {
+      console.error('Error initiating PayPal payment', error);
     }
-  }, [cart]);
+  };
+
+  const showNotification = (type, message) => {
+    setLoading(false);
+    toast[type](message);
+  };
 
   const handleCheckout = async () => {
     const maxRetries = 3;
     let retries = 0;
 
     const buildOrderData = () => {
-      return {
-          items: cart.map((item) => ({
-              productId: item.id,
-              quantity: item.quantity,
-          })),
-      };
-  };
-
-  const showNotification = (type, message) => {
-    setLoading(false);
-    toast[type](message);
-};
+      return cart.map((item) => ({
+        productId: item.id,
+        quantity: item.quantity,
+      }));
+    };
   
-    const submitOrder = async () => {
-      setLoading(true);
-      const orderData = buildOrderData();
+  const submitOrder = async () => {
+    setLoading(true);
+    const orderData = buildOrderData();
+
     try {
       const response = await axiosInstance.post('/orders', orderData);
+      
       if (response && response.status === 200) {
         setLoading(false);
         showNotification('success', 'Order Submitted Successfully');
         setOrder(response.data);
+        console.log(response.data);
         clearCart();
+        await initiatePayment(response.data.total, response.data.id);
       }
     } catch (error) {
         retries++;
@@ -73,20 +78,20 @@ const CartProvider = ({ children }) => {
           showNotification('error', 'Unable to submit order.\n Please try again.');
         }
       }
-    };
+  };
 
-    if (!user) {
-        showNotification('error', 'Please Sign In');
-        return;
-    }
-    if (loading) {
-        return;
-    }
-      try {
-        await submitOrder();
-      } catch (error) {
-        console.error('Unexpected error:', error);
-      } 
+  if (!user) {
+      showNotification('error', 'Please Sign In');
+      return;
+  }
+  if (loading) {
+      return;
+  }
+    try {
+      await submitOrder();
+    } catch (error) {
+      showNotification('error', 'Failed to submit order');
+    } 
   };
 
   const addToCart = (product) => {

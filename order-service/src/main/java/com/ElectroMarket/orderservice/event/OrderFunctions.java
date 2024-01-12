@@ -1,6 +1,5 @@
 package com.ElectroMarket.orderservice.event;
 
-import com.ElectroMarket.orderservice.models.OrderStatus;
 import com.ElectroMarket.orderservice.services.OrderService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,11 +14,16 @@ public class OrderFunctions {
     private static final Logger log = LoggerFactory.getLogger(OrderFunctions.class);
 
     @Bean
-    public Consumer<Flux<OrderDispatchedMessage>> dispatchOrder(OrderService orderService)  {
-        return flux ->
-                orderService.consumeOrderDispatchedEvent(flux)
-                        .filter(order -> order.status() == OrderStatus.ACCEPTED)
-                        .doOnNext(order -> log.info("The order with id {} is dispatched.",
-                                order.id())).subscribe();
+    public Consumer<Flux<PaymentCompletedEvent>> paymentCompleted(OrderService orderService) {
+        return message -> orderService.consumePaymentCompletedEvent(message)
+                        .doOnNext(order -> log.info("Payment status for order with id {}: {}", order.id() ,order.status()))
+                        .subscribe();
+    }
+
+    @Bean
+    public Consumer<Flux<ConfirmationSentEvent>> confirmationSent(OrderService orderService) {
+        return message -> orderService.consumeConfirmationSentEvent(message)
+                .doOnNext(order -> log.info("Confirmation sent for order with id {}\n status: {}", order.id(), order.status()))
+                .subscribe();
     }
 }

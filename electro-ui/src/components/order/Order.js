@@ -9,6 +9,14 @@ const Order = ({ order }) => {
   const [items, setItems] = useState([]);
   const [viewItems, setViewItems] = useState(false);
 
+  const orderStatusMap = {
+    REJECTED: 'Rejected',
+    PAYMENT_PENDING: 'Payment Pending',
+    PAYMENT_COMPLETED: 'Payment Completed',
+    PAYMENT_CANCELLED: 'Payment Cancelled',
+    CONFIRMATION_SENT: 'Confirmation Sent',
+  };
+
   // fetch order items
   useEffect(() => {
     const fetchItems = async () => {
@@ -33,12 +41,12 @@ const Order = ({ order }) => {
       <div className='grid grid-cols-2 gap-8'>
         <div>
           <p className='text-sm'>
-            <strong>Total:</strong> ${total.toFixed(2)}
+            <strong>Total:</strong> ${total.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
           </p>
         </div>
         <div>
           <p className='text-sm'>
-            <strong>Status:</strong> {status}
+          <strong>Status:</strong> {orderStatusMap[status]}
           </p>
         </div>
         <div>

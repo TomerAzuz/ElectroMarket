@@ -9,6 +9,8 @@ import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
 import jakarta.validation.Validator;
 import jakarta.validation.ValidatorFactory;
+
+import java.math.BigDecimal;
 import java.util.Set;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -23,7 +25,7 @@ public class ProductValidationTests {
 
     @Test
     void validFields()  {
-        var product = Product.of("product", 10.5, 1L, 10, "https://example.com/image.jpg", "brand");
+        var product = Product.of("product", BigDecimal.valueOf(10.5), 1L, 10, "https://example.com/image.jpg", "brand");
         Set<ConstraintViolation<Product>> violations = validator.validate(product);
         assertThat(violations).isEmpty();
     }
@@ -31,7 +33,7 @@ public class ProductValidationTests {
     @Test
     void tooLongProductName()   {
         String longName = "a".repeat(256);
-        var product = Product.of(longName, 5.0, 1L, 10, "https://example.com/image.jpg", "brand");
+        var product = Product.of(longName, BigDecimal.valueOf(5.0), 1L, 10, "https://example.com/image.jpg", "brand");
         Set<ConstraintViolation<Product>> violations = validator.validate(product);
         assertThat(violations).hasSize(1);
         assertThat(violations.iterator().next().getMessage()).isEqualTo("The product name cannot exceed 255 characters.");
@@ -39,7 +41,7 @@ public class ProductValidationTests {
 
     @Test
     void undefinedName()   {
-        var product = Product.of( "", 5.0, 1L, 10,"https://example.com/image.jpg", "brand");
+        var product = Product.of( "", BigDecimal.valueOf(5.0), 1L, 10,"https://example.com/image.jpg", "brand");
         Set<ConstraintViolation<Product>> violations = validator.validate(product);
         assertThat(violations).hasSize(1);
         assertThat(violations.iterator().next().getMessage()).isEqualTo("The product name is required.");
@@ -47,7 +49,7 @@ public class ProductValidationTests {
 
     @Test
     void undefinedCategory()   {
-        var product = Product.of("product", 8.5, null, 10, "https://example.com/image.jpg","brand");
+        var product = Product.of("product", BigDecimal.valueOf(8.5), null, 10, "https://example.com/image.jpg","brand");
         Set<ConstraintViolation<Product>> violations = validator.validate(product);
         assertThat(violations).hasSize(1);
         assertThat(violations.iterator().next().getMessage()).isEqualTo("The product category id is required.");
@@ -63,7 +65,7 @@ public class ProductValidationTests {
 
     @Test
     void negativePrice()    {
-        var product = Product.of("product", -5.0, 1L, 10, "https://example.com/image.jpg", "brand");
+        var product = Product.of("product", BigDecimal.valueOf(-5.0), 1L, 10, "https://example.com/image.jpg", "brand");
         Set<ConstraintViolation<Product>> violations = validator.validate(product);
         assertThat(violations).hasSize(1);
         assertThat(violations.iterator().next().getMessage()).isEqualTo("The product price must be greater than zero.");
@@ -71,7 +73,7 @@ public class ProductValidationTests {
 
     @Test
     void negativeStock() {
-        var product = Product.of("product", 9.99, 2L, -2, "https://example.com/image.jpg", "brand");
+        var product = Product.of("product", BigDecimal.valueOf(9.99), 2L, -2, "https://example.com/image.jpg", "brand");
         Set<ConstraintViolation<Product>> violations = validator.validate(product);
         assertThat(violations).hasSize(1);
         assertThat(violations.iterator().next().getMessage()).isEqualTo("Stock level cannot be negative.");
@@ -79,7 +81,7 @@ public class ProductValidationTests {
 
     @Test
     void testInvalidImageUrl()  {
-        var product = Product.of("product", 9.99, 1L, 10, "invalid-url", "brand");
+        var product = Product.of("product", BigDecimal.valueOf(9.99), 1L, 10, "invalid-url", "brand");
         Set<ConstraintViolation<Product>> violations = validator.validate(product);
         assertThat(violations).hasSize(1);
         assertThat(violations.iterator().next().getMessage()).isEqualTo("Invalid image url.");
@@ -88,7 +90,7 @@ public class ProductValidationTests {
     @Test
     void testLongBrand()  {
         String longBrand = "a".repeat(256);
-        var product = Product.of("product", 9.99, 1L, 10, "https://example.com/image.jpg", longBrand);
+        var product = Product.of("product", BigDecimal.valueOf(9.99), 1L, 10, "https://example.com/image.jpg", longBrand);
         Set<ConstraintViolation<Product>> violations = validator.validate(product);
         assertThat(violations).hasSize(1);
         assertThat(violations.iterator().next().getMessage()).isEqualTo("The product brand cannot exceed 255 characters.");

@@ -1,16 +1,13 @@
 package com.ElectroMarket.orderservice.integration;
 
 import com.ElectroMarket.orderservice.clients.ProductClient;
-
-import com.ElectroMarket.orderservice.dto.OrderRequest;
 import com.ElectroMarket.orderservice.dto.Product;
-import com.ElectroMarket.orderservice.event.OrderAcceptedMessage;
 import com.ElectroMarket.orderservice.models.Order;
 import com.ElectroMarket.orderservice.models.OrderItem;
 import com.ElectroMarket.orderservice.models.OrderStatus;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import dasniko.testcontainers.keycloak.KeycloakContainer;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -33,6 +30,7 @@ import org.springframework.test.context.DynamicPropertySource;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -49,9 +47,6 @@ public class OrderServiceApplicationTests {
 			.withRealmImportFile("test-realm-config.json");
     @Container
     static PostgreSQLContainer<?> postgresql = new PostgreSQLContainer<>(DockerImageName.parse("postgres:14.4"));
-
-    @Autowired
-    private ObjectMapper objectMapper;
 
     @Autowired
     OutputDestination output;
@@ -91,11 +86,11 @@ public class OrderServiceApplicationTests {
     @Test
     void whenGetOrdersThenReturn() throws IOException    {
         long productId = 1;
-        Product product = new Product(productId, "Laptop", 559.90, 5);
+        Product product = new Product(productId, "Laptop", BigDecimal.valueOf(559.90), 5);
         given(productClient.getProductById(productId)).willReturn(Mono.just(product));
 
         OrderItem orderItem = OrderItem.of(null, productId, 2);
-        OrderRequest orderRequest = new OrderRequest( List.of(orderItem));
+        List<OrderItem> orderRequest = List.of(orderItem);
 
         Order expectedOrder = webTestClient
                 .post()
@@ -104,11 +99,12 @@ public class OrderServiceApplicationTests {
                 .bodyValue(orderRequest)
                 .exchange()
                 .expectStatus().is2xxSuccessful()
-                .expectBody(Order.class).returnResult().getResponseBody();
+                .expectBody(Order.class)
+                .returnResult()
+                .getResponseBody();
 
         assertThat(expectedOrder).isNotNull();
-        assertThat(objectMapper.readValue(output.receive().getPayload(), OrderAcceptedMessage.class))
-                .isEqualTo(new OrderAcceptedMessage(expectedOrder.id()));
+        assertThat(expectedOrder.status()).isEqualTo(OrderStatus.PAYMENT_PENDING);
 
         webTestClient
                 .get()
@@ -123,25 +119,25 @@ public class OrderServiceApplicationTests {
     @Test
     void whenPostRequestThenOrderAccepted() throws IOException {
         long productId = 1;
-        Product product = new Product(productId, "Laptop", 559.90, 5);
+        Product product = new Product(productId, "Laptop", BigDecimal.valueOf(559.90), 5);
         given(productClient.getProductById(productId)).willReturn(Mono.just(product));
 
         OrderItem orderItem = OrderItem.of(null, productId, 2);
-        OrderRequest orderRequest = new OrderRequest(List.of(orderItem));
+        List<OrderItem> orderRequest = List.of(orderItem);
 
-        Order expectedOrder = webTestClient.post()
+        Order expectedOrder = webTestClient
+                .post()
                 .uri("/v1/orders")
                 .headers(headers -> headers.setBearerAuth(customerTokens.accessToken()))
                 .bodyValue(orderRequest)
                 .exchange()
                 .expectStatus().is2xxSuccessful()
-                .expectBody(Order.class).
-                returnResult().
-                getResponseBody();
+                .expectBody(Order.class)
+                .returnResult()
+                .getResponseBody();
 
         assertThat(expectedOrder).isNotNull();
-        assertThat(objectMapper.readValue(output.receive().getPayload(), OrderAcceptedMessage.class))
-                .isEqualTo(new OrderAcceptedMessage(expectedOrder.id()));
+        assertThat(expectedOrder.status()).isEqualTo(OrderStatus.PAYMENT_PENDING);
     }
 
     @Test
@@ -149,7 +145,7 @@ public class OrderServiceApplicationTests {
         long productId = 4;
         given(productClient.getProductById(productId)).willReturn(Mono.empty());
         OrderItem item = OrderItem.of(null, productId, 1);
-        OrderRequest orderRequest = new OrderRequest( List.of(item));
+        List<OrderItem> orderRequest = List.of(item);
 
         Order expectedOrder = webTestClient
                 .post()
@@ -169,11 +165,11 @@ public class OrderServiceApplicationTests {
     @Test
     void whenPostRequestAndQuantityIsGreaterThanStockThenOrderRejected()    {
         long productId = 1;
-        Product product = new Product(productId, "Laptop", 559.90, 0);
+        Product product = new Product(productId, "Laptop", BigDecimal.valueOf(559.90), 0);
         given(productClient.getProductById(productId)).willReturn(Mono.just(product));
 
         OrderItem orderItem = OrderItem.of(null, productId, 1);
-        OrderRequest orderRequest = new OrderRequest(List.of(orderItem));
+        List<OrderItem> orderRequest = List.of(orderItem);
 
         Order expectedOrder = webTestClient
                 .post()
@@ -182,7 +178,9 @@ public class OrderServiceApplicationTests {
                 .bodyValue(orderRequest)
                 .exchange()
                 .expectStatus().is2xxSuccessful()
-                .expectBody(Order.class).returnResult().getResponseBody();
+                .expectBody(Order.class)
+                .returnResult()
+                .getResponseBody();
 
         assertThat(expectedOrder).isNotNull();
         assertThat(expectedOrder.status()).isEqualTo(OrderStatus.REJECTED);

@@ -1,9 +1,9 @@
 package com.ElectroMarket.orderservice.services;
 
 import com.ElectroMarket.orderservice.clients.ProductClient;
-import com.ElectroMarket.orderservice.dto.OrderRequest;
-import com.ElectroMarket.orderservice.event.OrderAcceptedMessage;
-import com.ElectroMarket.orderservice.event.OrderDispatchedMessage;
+import com.ElectroMarket.orderservice.event.ConfirmationMailRequest;
+import com.ElectroMarket.orderservice.event.ConfirmationSentEvent;
+import com.ElectroMarket.orderservice.event.PaymentCompletedEvent;
 import com.ElectroMarket.orderservice.models.Order;
 import com.ElectroMarket.orderservice.models.OrderItem;
 import com.ElectroMarket.orderservice.models.OrderStatus;
@@ -18,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -43,61 +44,62 @@ public class OrderService {
         return orderRepository.findAllByCreatedBy(userId);
     }
 
-    public Mono<Order> getOrderById(Long id)   {
+    public Mono<Order> getOrderById(Long id) {
         return orderRepository.findById(id);
     }
 
-    public Flux<OrderItem> getItemsForOrder(Long id)    {
+    public Flux<OrderItem> getItemsForOrder(Long id) {
         return orderItemRepository.getItemsForOrder(id);
     }
 
     @Transactional
-    public Mono<Order> submitOrder(OrderRequest orderRequest) {
-        return Flux.fromIterable(orderRequest.items())
+    public Mono<Order> submitOrder(List<OrderItem> orderRequest) {
+        return Flux.fromIterable(orderRequest)
                 .flatMap(this::validateProduct)
                 .collectList()
                 .map(isValidProductList -> isValidProductList.stream().allMatch(Boolean::booleanValue))
                 .flatMap(isAccepted -> calculateAndSaveOrder(orderRequest, isAccepted));
     }
 
-
-    /* Check product existence and stock level */
     private Mono<Boolean> validateProduct(OrderItem item) {
+        /* Check product existence and stock level */
         return productClient.getProductById(item.productId())
                 .map(product -> product != null && product.stock() >= item.quantity())
                 .defaultIfEmpty(false);
     }
 
-    private Mono<Order> calculateAndSaveOrder(OrderRequest orderRequest, boolean isAccepted) {
+    private Mono<Order> calculateAndSaveOrder(List<OrderItem> orderRequest, boolean isAccepted) {
         /* Ensure unique products */
-        Set<Long> uniqueProductIds = orderRequest.items().stream()
+        Set<Long> uniqueProductIds = orderRequest.stream()
                 .map(OrderItem::productId)
                 .collect(Collectors.toSet());
 
-        /* calculate total price of order */
-        Mono<Map<Long, Double>> productPrices = Flux.fromIterable(uniqueProductIds)
+        /* Calculate total price */
+        Mono<Map<Long, BigDecimal>> productPrices = Flux.fromIterable(uniqueProductIds)
                 .flatMap(productId -> productClient.getProductById(productId)
                         .map(product -> Map.entry(productId, product.price())))
                 .collectMap(Map.Entry::getKey, Map.Entry::getValue);
 
         return productPrices.flatMap(prices -> {
-            double total = orderRequest.items().stream()
-                    .mapToDouble(item -> prices.getOrDefault(item.productId(), 0.0) * item.quantity())
-                    .sum();
+            BigDecimal total = orderRequest.stream()
+                    .map(item -> {
+                        BigDecimal price = prices.getOrDefault(item.productId(), BigDecimal.ZERO);
+                        return price.multiply(BigDecimal.valueOf(item.quantity()));
+                    })
+                    .reduce(BigDecimal.ZERO, BigDecimal::add);
             return buildAndSaveOrder(orderRequest, total, isAccepted);
         });
     }
 
-    private Mono<Order> buildAndSaveOrder(OrderRequest orderRequest, double total, boolean isAccepted) {
+    private Mono<Order> buildAndSaveOrder(List<OrderItem> orderRequest, BigDecimal total, boolean isAccepted) {
         Order order = buildOrder(total, isAccepted);
         return Mono.from(orderRepository.save(order))
-                .flatMap(savedOrder -> saveOrderItems(savedOrder, orderRequest.items()))
-                .doOnSuccess(this::publishOrderAcceptedEvent);
+                .flatMap(savedOrder -> saveOrderItems(savedOrder, orderRequest));
     }
 
-    public static Order buildOrder(Double totalPrice, boolean isAccepted) {
-        return isAccepted ? Order.of(totalPrice, OrderStatus.ACCEPTED) :
-                Order.of(0.0, OrderStatus.REJECTED);
+    public static Order buildOrder(BigDecimal totalPrice, boolean isAccepted) {
+        return isAccepted ? Order.of(totalPrice, OrderStatus.PAYMENT_PENDING) :
+                Order.of(BigDecimal.ZERO, OrderStatus.REJECTED);
     }
 
     private Mono<Order> saveOrderItems(Order order, List<OrderItem> items) {
@@ -109,36 +111,48 @@ public class OrderService {
         return orderItemRepository.saveAll(orderItems).collectList().map(savedOrderItems -> order);
     }
 
-    public Flux<Order> consumeOrderDispatchedEvent(Flux<OrderDispatchedMessage> flux) {
-        return flux
-                .flatMap(message -> orderRepository.findById(message.orderId()))
-                .filter(existingOrder -> !OrderStatus.DISPATCHED.equals(existingOrder.status()))
-                .map(this::buildDispatchedOrder)
+    public Flux<Order> consumePaymentCompletedEvent(Flux<PaymentCompletedEvent> message) {
+        return message
+                .flatMap(paymentStatusMessage -> orderRepository.findById(paymentStatusMessage.orderId())
+                .filter(existingOrder -> OrderStatus.PAYMENT_PENDING.equals(existingOrder.status()))
+                .map(existingOrder -> {
+                    OrderStatus paymentStatus = "COMPLETED".equals(paymentStatusMessage.status())
+                            ? OrderStatus.PAYMENT_COMPLETED
+                            : OrderStatus.PAYMENT_CANCELLED;
+
+                    if (paymentStatus.equals(OrderStatus.PAYMENT_COMPLETED))    {
+                        publishConfirmationMailRequest(existingOrder.id(), existingOrder.createdBy());
+                    }
+                    return buildOrderWithStatus(existingOrder, paymentStatus);
+                })
+                .flatMap(orderRepository::save));
+    }
+
+    public Flux<Order> consumeConfirmationSentEvent(Flux<ConfirmationSentEvent> message) {
+        return message
+                .flatMap(event -> orderRepository.findById(event.orderId()))
+                .filter(existingOrder -> OrderStatus.PAYMENT_COMPLETED.equals(existingOrder.status()))
+                .map(existingOrder -> buildOrderWithStatus(existingOrder, OrderStatus.CONFIRMATION_SENT))
                 .flatMap(orderRepository::save);
     }
 
-    private Order buildDispatchedOrder(Order existingOrder) {
+    private void publishConfirmationMailRequest(Long orderId, String userEmail)   {
+        var request = new ConfirmationMailRequest(orderId, userEmail);
+        log.info("Sending confirmation mail request for order id {}", orderId);
+        var result = streamBridge.send("confirmationRequest-out-0", request);
+        log.info("Result of sending confirmation mail request: {}", result);
+    }
+
+    private Order buildOrderWithStatus(Order existingOrder, OrderStatus newOrderStatus) {
         return new Order(
                 existingOrder.id(),
                 existingOrder.createdBy(),
                 existingOrder.total(),
-                OrderStatus.DISPATCHED,
+                newOrderStatus,
                 existingOrder.createdDate(),
                 existingOrder.lastModifiedDate(),
                 existingOrder.lastModifiedBy(),
                 existingOrder.version()
         );
-    }
-
-    private void publishOrderAcceptedEvent(Order order) {
-        log.info("Publishing order accepted event...");
-        if (!order.status().equals(OrderStatus.ACCEPTED)) {
-            return;
-        }
-        OrderAcceptedMessage orderAcceptedMessage = new OrderAcceptedMessage(order.id());
-        log.debug("OrderAcceptedMessage content: {}", orderAcceptedMessage);
-        log.info("Sending order accepted event with id {}", order.id());
-        var result = streamBridge.send("acceptedOrder-out-0", orderAcceptedMessage);
-        log.info("Result of sending data for order with id {}: {}", order.id(), result);
     }
 }
