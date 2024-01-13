@@ -18,7 +18,7 @@ configMapGenerator:
 images:
 - name: payment-service
   newName: ghcr.io/tomerazuz/payment-service
-  newTag: d083fbaa5c1c4db3b1cab7c7ae5664e0234b792a
+  newTag: e93b78bd0065102ec14fb406856949b37bf30431
 
 replicas:
 - count: 1
