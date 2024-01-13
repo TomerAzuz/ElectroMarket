@@ -18,7 +18,7 @@ configMapGenerator:
 images:
 - name: mail-service
   newName: ghcr.io/tomerazuz/mail-service
-  newTag: d083fbaa5c1c4db3b1cab7c7ae5664e0234b792a
+  newTag: 8618233d76b297453151fc1a40089698b30a37cf
 
 replicas:
 - count: 1
