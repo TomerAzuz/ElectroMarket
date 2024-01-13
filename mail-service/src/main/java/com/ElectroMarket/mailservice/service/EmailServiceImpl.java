@@ -54,7 +54,7 @@ public class EmailServiceImpl implements EmailService {
                 return response;
             } catch (Exception e) {
                 log.error("Error sending email", e);
-                return new ConfirmationSentEvent("failure", null);
+                return new ConfirmationSentEvent("error", null);
             }
         })).doOnNext(result -> log.info("Mail sent: {}", result.status()));
     }
@@ -81,7 +81,9 @@ public class EmailServiceImpl implements EmailService {
                         throw new RuntimeException(e);
                     }
                 });
-                return new ConfirmationSentEvent("success", orderId);
+                ConfirmationSentEvent response = new ConfirmationSentEvent("success", orderId);
+                publishConfirmationSentEvent(response);
+                return response;
             } catch (Exception e) {
                 log.error("Error sending email with attachment", e);
                 return new ConfirmationSentEvent("error", null);
@@ -93,7 +95,8 @@ public class EmailServiceImpl implements EmailService {
         return event.flatMap(request -> {
             EmailDetails email = buildConfirmationEmail(request);
             return sendMail(email, request.orderId())
-                    .doOnNext(result -> log.info("Order confirmation email sent: {}", result));
+                    .doOnNext(result -> log.info("Order confirmation email sent: {}", result))
+                    .switchIfEmpty(Flux.empty());
         });
     }
 

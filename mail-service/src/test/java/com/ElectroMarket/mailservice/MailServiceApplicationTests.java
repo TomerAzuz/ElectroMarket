@@ -8,6 +8,6 @@ class MailServiceApplicationTests {
 
     @Test
     void contextLoads() {
-        // Ensure the context loads correctly
+
     }
 }
