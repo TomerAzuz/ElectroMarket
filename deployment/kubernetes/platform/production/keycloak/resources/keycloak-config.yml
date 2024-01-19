@@ -720,7 +720,7 @@ data:
               "enabled": true,
               "alwaysDisplayInConsole": false,
               "clientAuthenticatorType": "client-secret",
-              "secret": "1b1b19599c2264fd218c",
+              "secret": "electro-keycloak-secret",
               "redirectUris": [
                   "*"
               ],

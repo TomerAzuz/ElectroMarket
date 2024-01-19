@@ -1189,10 +1189,10 @@ data:
             "current": {
               "selected": true,
               "text": [
-                "bookService"
+                "productService"
               ],
               "value": [
-                "bookService"
+                "productService"
               ]
             },
             "datasource": "Prometheus",

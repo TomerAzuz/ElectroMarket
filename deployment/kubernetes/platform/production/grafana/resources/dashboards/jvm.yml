@@ -3385,8 +3385,8 @@ data:
             "allValue": null,
             "current": {
               "selected": false,
-              "text": "book-service",
-              "value": "book-service"
+              "text": "product-service",
+              "value": "product-service"
             },
             "datasource": "Prometheus",
             "definition": "",

@@ -1093,10 +1093,10 @@ data:
             "current": {
               "selected": true,
               "text": [
-                "book-route"
+                "product-route"
               ],
               "value": [
-                "book-route"
+                "product-route"
               ]
             },
             "datasource": {
