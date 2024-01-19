@@ -35,7 +35,7 @@
     "duplicateEmailsAllowed": false,
     "resetPasswordAllowed": true,
     "editUsernameAllowed": true,
-    "bruteForceProtected": false,
+    "bruteForceProtected": true,
     "permanentLockout": false,
     "maxFailureWaitSeconds": 900,
     "minimumQuickLoginWaitSeconds": 60,
@@ -460,7 +460,7 @@
         {
             "id": "e28b0395-6c30-4e47-88e3-9b447bfb7267",
             "createdTimestamp": 1654540944876,
-            "username": "john123",
+            "username": "john",
             "email": "support@electromarket.site",
             "enabled": true,
             "totp": false,
@@ -488,7 +488,7 @@
         {
             "id": "8e86facd-b2fe-4936-8d53-fff3dcaee683",
             "createdTimestamp": 1654540912940,
-            "username": "tomer123",
+            "username": "tomer",
             "email": "tomerazuz1@gmail.com",
             "enabled": true,
             "totp": false,

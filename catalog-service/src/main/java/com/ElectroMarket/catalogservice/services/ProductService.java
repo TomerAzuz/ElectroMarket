@@ -1,15 +1,11 @@
 package com.ElectroMarket.catalogservice.services;
 
-import com.ElectroMarket.catalogservice.controllers.ProductController;
 import com.ElectroMarket.catalogservice.models.Category;
 import com.ElectroMarket.catalogservice.models.Product;
 import com.ElectroMarket.catalogservice.exceptions.ResourceAlreadyExistsException;
 import com.ElectroMarket.catalogservice.exceptions.ResourceNotFoundException;
 import com.ElectroMarket.catalogservice.repositories.CategoryRepository;
 import com.ElectroMarket.catalogservice.repositories.ProductRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -18,8 +14,6 @@ import org.springframework.stereotype.Service;
 public class ProductService {
     private final ProductRepository productRepository;
     private final CategoryRepository categoryRepository;
-
-    private static final Logger log = LoggerFactory.getLogger(ProductService.class);
 
     public ProductService(ProductRepository productRepository, CategoryRepository categoryRepository) {
         this.productRepository = productRepository;
@@ -30,7 +24,7 @@ public class ProductService {
         return productRepository.findAll(pageable);
     }
 
-    @Cacheable(value = "products", key = "#id")
+
     public Product viewProductDetails(Long id)    {
         return productRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("product", id));
     }
@@ -50,7 +44,6 @@ public class ProductService {
     }
 
     public Page<Product> findProductsByCategory(Long id, Pageable pageable)  {
-        log.info("Sorting information: {}", pageable.getSort());
         Category category = categoryRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("category", null));
         return productRepository.findByCategoryId(category.id(), pageable);

@@ -39,7 +39,7 @@ public class SecurityConfig {
                 .authorizeExchange(exchange -> exchange
                         .pathMatchers("/actuator/**").permitAll()
                         .pathMatchers("/", "/static/css/**", "/static/js/**", "/favicon.ico", "/dist/**", "/manifest.json").permitAll()
-                        .pathMatchers(HttpMethod.GET, "v1/products/**", "v1/category/**").permitAll()
+                        .pathMatchers(HttpMethod.GET, "v1/products/**", "v1/category/**", "/products/**").permitAll()
                         .pathMatchers(HttpMethod.POST,  "/capturePayment", "/contact").permitAll()
                         .anyExchange().authenticated())
                 .exceptionHandling(exceptionHandling -> exceptionHandling
@@ -47,11 +47,12 @@ public class SecurityConfig {
                 .oauth2Login(Customizer.withDefaults())
                 .logout(logout -> logout.logoutSuccessHandler(oidcLogoutSuccessHandler(clientRegistrationRepository)))
                 .csrf(csrf -> csrf
-                        /* Disable csrf protection for payment webhooks and all get requests */
+                        /* Disable csrf protection for payment webhook and all get requests */
                         .requireCsrfProtectionMatcher(
                                 new AndServerWebExchangeMatcher(
                                         new NegatedServerWebExchangeMatcher(ServerWebExchangeMatchers.pathMatchers(HttpMethod.POST, "/capturePayment/**")),
-                                        new NegatedServerWebExchangeMatcher(ServerWebExchangeMatchers.pathMatchers(HttpMethod.GET, "/**")))
+                                        new NegatedServerWebExchangeMatcher(ServerWebExchangeMatchers.pathMatchers(HttpMethod.GET, "/**"))
+                                )
                         )
                         .csrfTokenRepository(CookieServerCsrfTokenRepository.withHttpOnlyFalse())
                         .csrfTokenRequestHandler(new XorServerCsrfTokenRequestAttributeHandler()::handle))

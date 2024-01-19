@@ -12,6 +12,10 @@ spring:
     timeout-per-shutdown-phase: 15s
   config:
     import: ""  # optional:configserver:
+  cache:
+    cache-names: productCache
+    redis:
+      time-to-live: 60s
   cloud:
     config:
       enabled: false # When using Config Service, set to true
@@ -62,6 +66,7 @@ spring:
               args:
                 name: catalogCircuitBreaker
                 fallbackUri: forward:/catalog-fallback
+
         - id: catalog-categories-route
           uri: ${CATALOG_SERVICE_URL:http://localhost:9001}/v1/category
           predicates:
@@ -71,6 +76,7 @@ spring:
               args:
                 name: catalogCircuitBreaker
                 fallbackUri: forward:/catalog-fallback
+
         - id: order-route
           uri: ${ORDER_SERVICE_URL:http://localhost:9002}/v1/orders
           predicates:
@@ -96,7 +102,7 @@ spring:
               args:
                 name: capturePaymentCircuitBreaker
         - id: contact-route
-          uri: ${MAIL_SERVICE_URL:http://localhost:9006}/contact
+          uri: ${MAIL_SERVICE_URL:http://localhost:9003}/contact
           predicates:
             - Path=/contact/**
           filters:
@@ -151,8 +157,13 @@ logging:
     circuitbreaker: io.github.resilience4j, org.springframework.cloud.circuitbreaker
   level:
     circuitbreaker: info
+    logging:
+      level:
+        org.springframework.data.redis.cache.RedisCacheManager: debug
+      # Enable caching debug logs
   pattern:
     level: "%5p [${spring.application.name},%X{trace_id},%X{span_id}]"
+
 
 info:
   system: ElectroMarket
@@ -161,7 +172,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: configprops, env, gateway, health, heapdump, info, loggers, mappings, prometheus
+        include: configprops, env, gateway, health, heapdump, info, loggers, mappings, prometheus, caches
   endpoint:
     health:
       show-details: always
