@@ -9,8 +9,8 @@ spec:
         - name: mail-service
           resources:
             requests:
-              memory: 756Mi
+              memory: 256Mi
               cpu: "0.1"
             limits:
-              memory: 756Mi
+              memory: 512Mi
               cpu: "2"
