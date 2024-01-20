@@ -4,10 +4,10 @@ metadata:
   name: electro-ingress
 spec:
   ingressClassName: nginx
-  tls:
-  - hosts:
-    - electromarket.site
-    secretName: electro-tls-secret
+  #tls:
+  #- hosts:
+  #  - electromarket.site
+  #  secretName: electro-tls-secret
   rules:
     - host: electromarket.site
       http:
