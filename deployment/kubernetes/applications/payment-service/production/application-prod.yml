@@ -3,5 +3,5 @@ spring:
     import: configtree:/workspace/secrets/*/
 
 paypal:
-  returnUrl: electromarket.site/order-confirmed
-  cancelUrl: electromarket.site/order-cancelled
+  returnUrl: http://electromarket.site/order-confirmed
+  cancelUrl: http://electromarket.site/order-cancelled
