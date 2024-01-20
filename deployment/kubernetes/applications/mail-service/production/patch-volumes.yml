@@ -12,6 +12,8 @@ spec:
               mountPath: /workspace/secrets/rabbitmq
             - name: zoho-credentials-volume
               mountPath: /workspace/secrets/zoho
+            - name: keycloak-issuer-resourceserver-secret-volume
+              mountPath: /workspace/secrets/keycloak
       volumes:
         - name: rabbitmq-credentials-volume
           secret:
@@ -19,3 +21,6 @@ spec:
         - name: zoho-credentials-volume
           secret:
             secretName: electro-zoho-credentials
+        - name: keycloak-issuer-resourceserver-secret-volume
+          secret:
+            secretName: keycloak-issuer-resourceserver-secret

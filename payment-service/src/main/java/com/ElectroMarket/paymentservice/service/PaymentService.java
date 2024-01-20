@@ -8,6 +8,7 @@ import com.paypal.orders.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.stream.function.StreamBridge;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
@@ -26,6 +27,12 @@ public class PaymentService {
     @Autowired
     private PayPalHttpClient payPalClient;
 
+    @Value("${paypal.returnUrl}")
+    private String returnUrl;
+
+    @Value("${paypal.cancelUrl}")
+    private String cancelUrl;
+
     public PaymentService(StreamBridge streamBridge) {
         this.streamBridge = streamBridge;
     }
@@ -40,8 +47,8 @@ public class PaymentService {
 
         orderRequest.purchaseUnits(List.of(purchaseUnitRequest));
         ApplicationContext applicationContext = new ApplicationContext()
-                .returnUrl("http://localhost:9000/order-confirmed")
-                .cancelUrl("http://localhost:9000/order-cancelled");
+                .returnUrl(returnUrl)
+                .cancelUrl(cancelUrl);
         orderRequest.applicationContext(applicationContext);
         OrdersCreateRequest ordersCreateRequest = new OrdersCreateRequest().requestBody(orderRequest);
 

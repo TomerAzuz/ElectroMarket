@@ -43,6 +43,8 @@ spring:
 paypal:
   client-id: ${CLIENT_ID:''}
   client-secret: ${CLIENT_SECRET:''}
+  returnUrl: http://localhost:9000/order-confirmed
+  cancelUrl: http://localhost:9000/order-cancelled
 
 logging:
   pattern:

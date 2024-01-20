@@ -12,6 +12,8 @@ spec:
               mountPath: /workspace/secrets/rabbitmq
             - name: paypal-credentials-volume
               mountPath: /workspace/secrets/paypal
+            - name: keycloak-issuer-resourceserver-secret-volume
+              mountPath: /workspace/secrets/keycloak
       volumes:
         - name: rabbitmq-credentials-volume
           secret:
@@ -19,3 +21,6 @@ spec:
         - name: paypal-credentials-volume
           secret:
             secretName: electro-paypal-credentials
+        - name: keycloak-issuer-resourceserver-secret-volume
+          secret:
+            secretName: keycloak-issuer-resourceserver-secret
