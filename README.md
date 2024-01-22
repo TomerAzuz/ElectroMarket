@@ -38,9 +38,8 @@
 <div id="introduction"></div>
 
 # 1. Introduction
-<div style="display: flex; justify-content: center; align-items: center;">
-  <iframe src="https://drive.google.com/file/d/1_EGSmrmA8mtZyj_G3-nL3oPcip7XFTIN/preview" width="480" height="270" style="border: none;"></iframe>
-</div>
+https://github.com/TomerAzuz/E-commerce/assets/134202242/61d0c613-90aa-4437-a866-a7cc8212057c
+
 <br>
 
 <span style="font-size: larger;">[Live website](https://electromarket.site)</span><br>
