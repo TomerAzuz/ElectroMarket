@@ -50,11 +50,6 @@ username: john
 password: password
 ```
 
-Use the following PayPal sandbox account to mock a payment: 
-```
-username: sb-p43qof28912624@business.example.com
-password: BX0j=e@t
-```
 <br>
   <div style="justify-content: center; align-items: center;">
   <a href="https://i.ibb.co/DMNYMcm/homepage.png" target="_blank"><img src="https://i.ibb.co/DMNYMcm/homepage.png" alt="homepage" style="width:150px; height:150px; margin-right: 10px; "/></a>
@@ -76,7 +71,6 @@ password: BX0j=e@t
 ## 1.1 Overview
 ElectroMarket is an e-commerce application built on a microservices architecture using Java 17 and the Spring framework for the backend and React for the frontend. <br>
 The backend implementation is based on the principles outlined in the book by Thomas Vitale, [Cloud Native Spring in Action - With Spring Boot and Kubernetes](https://www.manning.com/books/cloud-native-spring-in-action). <br>
-
 
 <div id="technologies"></div>
 
