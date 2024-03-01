@@ -42,13 +42,6 @@ https://github.com/TomerAzuz/E-commerce/assets/134202242/61d0c613-90aa-4437-a866
 
 <br>
 
-<span style="font-size: larger;">[Live website](https://electromarket.site)</span><br>
-
-To log in, you can either create a new account or use the following credentials:
-```
-username: john
-password: password
-```
 
 <br>
   <div style="justify-content: center; align-items: center;">
