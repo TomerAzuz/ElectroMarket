@@ -1,9 +1,11 @@
 # ElectroMarket - Cloud Native E-Commerce Application
+https://github.com/TomerAzuz/E-commerce/assets/134202242/61d0c613-90aa-4437-a866-a7cc8212057c
 
 ## Table of Contents
 1. [Introduction](#introduction)
     - 1.1 [Overview](#overview)
     - 1.2 [Technologies](#technologies)
+    - 1.3 [Screenshots](#screenshots)
 
 2. [Architecture and Interaction](#architecture-interaction)
 
@@ -38,58 +40,6 @@
 <div id="introduction"></div>
 
 # 1. Introduction
-https://github.com/TomerAzuz/E-commerce/assets/134202242/61d0c613-90aa-4437-a866-a7cc8212057c
-
-<br>
-<br>
-<div align="center">
-  <h4>Homepage</h4>
-  <a href="https://i.imgur.com/HOojcRE.png" target="_blank">
-      <img src="https://i.imgur.com/HOojcRE.png" alt="Homepage" title="Homepage" style="width:600px; height:auto;"/>
-  </a>
-  <h4>Products Page</h4>
-  <a href="https://i.imgur.com/MHgQVJb.png" target="_blank">
-      <img src="https://i.imgur.com/MHgQVJb.png" alt="Products Page" title="Products Page" style="width:600px; height:auto;"/>
-  </a>
-  <h4>Product Details Page</h4>
-  <a href="https://i.imgur.com/Pr6W0Fs.png" target="_blank">
-      <img src="https://i.imgur.com/Pr6W0Fs.png" alt="Product Details Page" title="Products Page" style="width:600px; height:auto;"/>
-  </a>
-  <h4>Cart Page</h4>
-  <a href="https://i.imgur.com/pLXrtH6.png" target="_blank">
-      <img src="https://i.imgur.com/pLXrtH6.png" alt="Cart Page" title="Cart Page" style="width:600px; height:auto;"/>
-  </a>
-  <h4>Search Page</h4>
-  <a href="https://i.imgur.com/cfHzzy4.png" target="_blank">
-      <img src="https://i.imgur.com/cfHzzy4.png" alt="Search Page" title="Cart Page" style="width:600px; height:auto;"/>
-  </a>
-  <h4>Contact Page</h4>
-  <a href="https://i.imgur.com/LRdc6LC.png" target="_blank">
-      <img src="https://i.imgur.com/LRdc6LC.png" alt="Contact Page" title="Contact Page" style="width:600px; height:auto;"/>
-  </a>
-  <h4>Admin Page</h4>
-  <a href="https://i.imgur.com/sbfFCF7.png" target="_blank">
-      <img src="https://i.imgur.com/sbfFCF7.png" alt="Admin Page" title="Admin Page" style="width:600px; height:auto;"/>
-  </a>
-  <h4>Orders Page</h4>
-  <a href="https://i.imgur.com/HmDukVf.png" target="_blank">
-    <img src="https://i.imgur.com/HmDukVf.png" alt="Orders Page" title="Orders Page" style="width:600px; height:auto;"/>
-  </a>
-      <h4>Order Confirmed Page</h4>
-  <a href="https://i.imgur.com/Yqz7wyl.png" target="_blank">
-      <img src="https://i.imgur.com/Yqz7wyl.png" alt="Order Confirmed Page" title="Order Confirmed Page" style="width:600px; height:auto;"/>
-  </a>
-  <h4>Order Cancelled Page</h4>
-  <a href="https://i.imgur.com/Tklereh.png" target="_blank">
-      <img src="https://i.imgur.com/Tklereh.png" alt="order-cancelled-page" title="Order Cancelled Page" style="width:600px; height:auto;"/>
-  </a>
-  <h4>Orders Page</h4>
-  <a href="https://i.imgur.com/demjyVO.png" target="_blank">
-    <img src="https://i.imgur.com/demjyVO.png" alt="Error Page" title="Error Page" style="width:600px; height:auto;"/>
-  </a>
-</div>
-
-
 <div id="overview"></div>
 
 ## 1.1 Overview
@@ -136,8 +86,62 @@ The backend implementation is based on the principles outlined in the book by Th
 
 <div id="architecture-interaction"></div>
 
+<div id="screenshots"></div>
+
+## 1.3 Screenshots
+<div id="screenshots" align="center">
+  <h4>Homepage</h4>
+  <a href="https://i.imgur.com/HOojcRE.png" target="_blank">
+      <img src="https://i.imgur.com/HOojcRE.png" alt="Homepage" title="Homepage" style="width:600px; height:auto;"/>
+  </a>
+  <h4>Products Page</h4>
+  <a href="https://i.imgur.com/MHgQVJb.png" target="_blank">
+      <img src="https://i.imgur.com/MHgQVJb.png" alt="Products Page" title="Products Page" style="width:600px; height:auto;"/>
+  </a>
+  <h4>Product Details Page</h4>
+  <a href="https://i.imgur.com/Pr6W0Fs.png" target="_blank">
+      <img src="https://i.imgur.com/Pr6W0Fs.png" alt="Product Details Page" title="Products Page" style="width:600px; height:auto;"/>
+  </a>
+  <h4>Cart Page</h4>
+  <a href="https://i.imgur.com/pLXrtH6.png" target="_blank">
+      <img src="https://i.imgur.com/pLXrtH6.png" alt="Cart Page" title="Cart Page" style="width:600px; height:auto;"/>
+  </a>
+  <h4>Search Page</h4>
+  <a href="https://i.imgur.com/cfHzzy4.png" target="_blank">
+      <img src="https://i.imgur.com/cfHzzy4.png" alt="Search Page" title="Cart Page" style="width:600px; height:auto;"/>
+  </a>
+  <h4>Contact Page</h4>
+  <a href="https://i.imgur.com/LRdc6LC.png" target="_blank">
+      <img src="https://i.imgur.com/LRdc6LC.png" alt="Contact Page" title="Contact Page" style="width:600px; height:auto;"/>
+  </a>
+  <h4>Admin Page</h4>
+  <a href="https://i.imgur.com/sbfFCF7.png" target="_blank">
+      <img src="https://i.imgur.com/sbfFCF7.png" alt="Admin Page" title="Admin Page" style="width:600px; height:auto;"/>
+  </a>
+  <h4>Orders Page</h4>
+  <a href="https://i.imgur.com/HmDukVf.png" target="_blank">
+    <img src="https://i.imgur.com/HmDukVf.png" alt="Orders Page" title="Orders Page" style="width:600px; height:auto;"/>
+  </a>
+      <h4>Order Confirmed Page</h4>
+  <a href="https://i.imgur.com/Yqz7wyl.png" target="_blank">
+      <img src="https://i.imgur.com/Yqz7wyl.png" alt="Order Confirmed Page" title="Order Confirmed Page" style="width:600px; height:auto;"/>
+  </a>
+  <h4>Order Cancelled Page</h4>
+  <a href="https://i.imgur.com/Tklereh.png" target="_blank">
+      <img src="https://i.imgur.com/Tklereh.png" alt="order-cancelled-page" title="Order Cancelled Page" style="width:600px; height:auto;"/>
+  </a>
+  <h4>Orders Page</h4>
+  <a href="https://i.imgur.com/demjyVO.png" target="_blank">
+    <img src="https://i.imgur.com/demjyVO.png" alt="Error Page" title="Error Page" style="width:600px; height:auto;"/>
+  </a>
+</div>
+
 # 2. Architecture and Interaction
-![diagram](https://i.ibb.co/1QQtz4v/architecture.png)
+<div align="center">
+    <a href="https://i.ibb.co/1QQtz4v/architecture.png" target="_blank">
+    <img src="https://i.ibb.co/1QQtz4v/architecture.png" alt="Architecture" title="Architecture" style="width:600px; height:auto;"/>
+  </a>
+</div>
 
 <div id="services"></div>
 
