@@ -45,7 +45,7 @@ https://github.com/TomerAzuz/E-commerce/assets/134202242/61d0c613-90aa-4437-a866
 
 <br>
   <div style="justify-content: center; align-items: center;">
-  <a href="https://i.ibb.co/DMNYMcm/homepage.png" target="_blank"><img src="https://i.ibb.co/DMNYMcm/homepage.png" alt="homepage" style="width:150px; height:150px; margin-right: 10px; "/></a>
+  <a href="https://i.imgur.com/HOojcRE.png" target="_blank"><img src="https://i.imgur.com/HOojcRE.png" alt="homepage" style="width:150px; height:150px; margin-right: 10px; "/></a>
   <a href="https://i.ibb.co/hdwRYfy/products-page.png" target="_blank"><img src="https://i.ibb.co/hdwRYfy/products-page.png" alt="Products Page" style="width:150px; height:150px; margin-right: 10px;"/></a>
   <a href="https://i.ibb.co/v4rFvwD/product-details-page.png" target="_blank"><img src="https://i.ibb.co/v4rFvwD/product-details-page.png" alt="Product Details Page" style="width:150px; height:150px; margin-right: 10px;"/></a>
   <a href="https://i.ibb.co/xJ1n4vv/cart-page.png" target="_blank"><img src="https://i.ibb.co/xJ1n4vv/cart-page.png" alt="Cart Page" style="width:150px; height:150px; margin-right: 10px;"/></a>
