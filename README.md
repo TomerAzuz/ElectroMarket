@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/440c9b58-2130-455a-ae57-8b824451c693)# ElectroMarket - Cloud Native E-Commerce Application
+# ElectroMarket - Cloud Native E-Commerce Application
 
 ## Table of Contents
 1. [Introduction](#introduction)
