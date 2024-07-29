@@ -1,4 +1,4 @@
-# ElectroMarket - Cloud Native E-Commerce Application
+![image](https://github.com/user-attachments/assets/440c9b58-2130-455a-ae57-8b824451c693)# ElectroMarket - Cloud Native E-Commerce Application
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -41,21 +41,52 @@
 https://github.com/TomerAzuz/E-commerce/assets/134202242/61d0c613-90aa-4437-a866-a7cc8212057c
 
 <br>
-
-
 <br>
-  <div style="justify-content: center; align-items: center;">
-  <a href="https://i.imgur.com/HOojcRE.png" target="_blank"><img src="https://i.imgur.com/HOojcRE.png" alt="homepage" style="width:150px; height:150px; margin-right: 10px; "/></a>
-  <a href="https://i.ibb.co/hdwRYfy/products-page.png" target="_blank"><img src="https://i.ibb.co/hdwRYfy/products-page.png" alt="Products Page" style="width:150px; height:150px; margin-right: 10px;"/></a>
-  <a href="https://i.ibb.co/v4rFvwD/product-details-page.png" target="_blank"><img src="https://i.ibb.co/v4rFvwD/product-details-page.png" alt="Product Details Page" style="width:150px; height:150px; margin-right: 10px;"/></a>
-  <a href="https://i.ibb.co/xJ1n4vv/cart-page.png" target="_blank"><img src="https://i.ibb.co/xJ1n4vv/cart-page.png" alt="Cart Page" style="width:150px; height:150px; margin-right: 10px;"/></a>
-  <a href="https://i.ibb.co/6btsRN4/search-page.png" target="_blank"><img src="https://i.ibb.co/6btsRN4/search-page.png" alt="search-page" style="width:150px; height:150px; margin-right: 10px;"/></a>
-  <a href="https://i.ibb.co/SmtQ48V/contact-page.png" target="_blank"><img src="https://i.ibb.co/SmtQ48V/contact-page.png" alt="contact-page" style="width:150px; height:150px; margin-right: 10px;"/></a>
-  <a href="https://i.ibb.co/28jwh2Z/order-cancelled-page.png" target="_blank"><img src="https://i.ibb.co/28jwh2Z/order-cancelled-page.png" alt="order-cancelled-page" style="width:150px; height:150px; margin-right: 10px;"/></a>
-  <a href="https://i.ibb.co/NCHNChZ/order-confirmed-page.png" target="_blank"><img src="https://i.ibb.co/NCHNChZ/order-confirmed-page.png" alt="order-confirmed-page" style="width:150px; height:150px; margin-right: 10px;"/></a>
-  <a href="https://i.ibb.co/g6JytH7/admin-page.png" target="_blank"><img src="https://i.ibb.co/g6JytH7/admin-page.png" alt="admin-page" style="width:150px; height:150px; margin-right: 10px;"/></a>
-  <a href="https://i.ibb.co/6r3k36z/orders-page.png" target="_blank"><img src="https://i.ibb.co/6r3k36z/orders-page.png" alt="orders-page" style="width:150px; height:150px; margin-right: 10px;"/></a>
-  <a href="https://i.ibb.co/hFtfbHP/error-page.png" target="_blank"><img src="https://i.ibb.co/hFtfbHP/error-page.png" alt="error-page" style="width:150px; height:150px; margin-right: 10px;"/></a>
+<div align="center">
+  <h4>Homepage</h4>
+  <a href="https://i.imgur.com/HOojcRE.png" target="_blank">
+      <img src="https://i.imgur.com/HOojcRE.png" alt="Homepage" title="Homepage" style="width:600px; height:auto;"/>
+  </a>
+  <h4>Products Page</h4>
+  <a href="https://i.imgur.com/MHgQVJb.png" target="_blank">
+      <img src="https://i.imgur.com/MHgQVJb.png" alt="Products Page" title="Products Page" style="width:600px; height:auto;"/>
+  </a>
+  <h4>Product Details Page</h4>
+  <a href="https://i.imgur.com/Pr6W0Fs.png" target="_blank">
+      <img src="https://i.imgur.com/Pr6W0Fs.png" alt="Product Details Page" title="Products Page" style="width:600px; height:auto;"/>
+  </a>
+  <h4>Cart Page</h4>
+  <a href="https://i.imgur.com/pLXrtH6.png" target="_blank">
+      <img src="https://i.imgur.com/pLXrtH6.png" alt="Cart Page" title="Cart Page" style="width:600px; height:auto;"/>
+  </a>
+  <h4>Search Page</h4>
+  <a href="https://i.imgur.com/cfHzzy4.png" target="_blank">
+      <img src="https://i.imgur.com/cfHzzy4.png" alt="Search Page" title="Cart Page" style="width:600px; height:auto;"/>
+  </a>
+  <h4>Contact Page</h4>
+  <a href="https://i.imgur.com/LRdc6LC.png" target="_blank">
+      <img src="https://i.imgur.com/LRdc6LC.png" alt="Contact Page" title="Contact Page" style="width:600px; height:auto;"/>
+  </a>
+  <h4>Admin Page</h4>
+  <a href="https://i.imgur.com/sbfFCF7.png" target="_blank">
+      <img src="https://i.imgur.com/sbfFCF7.png" alt="Admin Page" title="Admin Page" style="width:600px; height:auto;"/>
+  </a>
+  <h4>Orders Page</h4>
+  <a href="https://i.imgur.com/HmDukVf.png" target="_blank">
+    <img src="https://i.imgur.com/HmDukVf.png" alt="Orders Page" title="Orders Page" style="width:600px; height:auto;"/>
+  </a>
+      <h4>Order Confirmed Page</h4>
+  <a href="https://i.imgur.com/Yqz7wyl.png" target="_blank">
+      <img src="https://i.imgur.com/Yqz7wyl.png" alt="Order Confirmed Page" title="Order Confirmed Page" style="width:600px; height:auto;"/>
+  </a>
+  <h4>Order Cancelled Page</h4>
+  <a href="https://i.imgur.com/Tklereh.png" target="_blank">
+      <img src="https://i.imgur.com/Tklereh.png" alt="order-cancelled-page" title="Order Cancelled Page" style="width:600px; height:auto;"/>
+  </a>
+  <h4>Orders Page</h4>
+  <a href="https://i.imgur.com/demjyVO.png" target="_blank">
+    <img src="https://i.imgur.com/demjyVO.png" alt="Error Page" title="Error Page" style="width:600px; height:auto;"/>
+  </a>
 </div>
 
 
